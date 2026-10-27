@@ -218,3 +218,26 @@ Started 27 Oct 2026. One section per decision or check; newest at the bottom.
   - `s4_motor_v09_f0023`: the motion-blurred right hand is slightly cut off.
   - Otherwise the boxes are tight and on the correct hand.
 - **Workflow test:** an end-to-end test on a scratch copy of the project passed. It covered Space-approve, Ctrl+1 exclude, edit and save, exclude then Ctrl+0, and an external edit reverting a label to unreviewed.
+
+## 12. Margin decision and full pre-annotation run (27 Oct 2026)
+
+- **Decided by the user: keep the 8% margin.**
+  - The box rule is "tightly enclosing". Tight boxes keep mAP@[.50:.95] consistent across frames.
+  - A hand blurred badly enough to be cut off usually meets exclusion criterion (b).
+  - If the blur is mild and the frame is kept, the box is widened by hand. This is rare, and quicker than narrowing almost every box if the margin were 12%.
+- **Review guidance from the pilot (user):**
+  - Detected hands at rest still get a box (for example Teman s3 f0010). Exclude these with Ctrl+1 (a); never approve with Space just because a box exists.
+  - The last frame of each video (80% position) is the most likely to be back at rest (for example Saya s0 f0054).
+  - C_two frames flagged `two_class_one_hand` in `data/preannot_report.csv` need the box widened to cover both hands (for example Rumah s3 f0018).
+  - Frames with no box because of blur (for example Lagi s3 f0017) are excluded with Ctrl+2 (b).
+- **Full run:** `scripts/preannotate_hands.py --all`, 15:55 → 15:57 (≈2.5 min, CPU).
+  - 3,750 frames: 2,941 got a box, **670 had no hand detected** (exclusion candidates) and **139 were C_two frames with only one hand detected**.
+  - 3,080 labels were written to `data/labels_auto/` and copied to `data/labels_yolo/`. No labels existed before, so none were overwritten.
+  - No hand detected, by frame position (20/35/50/65/80%): 328 / 80 / 32 / 16 / 214. The misses concentrate at the start and end of the video, as expected for rest poses.
+  - No hand detected, by signer: s0 89/450, s1 93/900, s2 115/900, s3 119/750, **s4 254/750**.
+  - signer4 stands farther from the camera, so her hands are small. Some mid-video frames with a visible hand were missed (for example `s4_cari_v01_f0022`). These need a box drawn by hand.
+  - Videos with no hand detected in any of the 5 frames: `s4_cari_v02`, `s4_cari_v05`, `s4_makan_v03`.
+  - C_one frames with two hands detected (the highest one was used): 101.
+- **Rejected second pass:** detection on the central half of the frame, upscaled 2×.
+  - It recovered 136 of the 670 no-hand frames, but most of the recovered boxes were resting hands at the waist, and in several frames it boxed the resting hand instead of the moving one.
+  - It would add boxes to delete rather than save work, so it was not applied. Pre-annotation stays single-pass as piloted.

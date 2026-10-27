@@ -1,0 +1,3751 @@
+file,class_id,group,n_hands,scores,flag
+s0_cari_v01_f0014.jpg,0,one,1,0.97,
+s0_cari_v01_f0024.jpg,0,one,1,1.00,
+s0_cari_v01_f0034.jpg,0,one,1,1.00,
+s0_cari_v01_f0044.jpg,0,one,1,1.00,
+s0_cari_v01_f0054.jpg,0,one,0,,no_hand
+s0_cari_v02_f0013.jpg,0,one,1,1.00,
+s0_cari_v02_f0022.jpg,0,one,1,1.00,
+s0_cari_v02_f0032.jpg,0,one,1,1.00,
+s0_cari_v02_f0041.jpg,0,one,1,1.00,
+s0_cari_v02_f0050.jpg,0,one,1,0.99,
+s0_cari_v03_f0014.jpg,0,one,1,0.97,
+s0_cari_v03_f0025.jpg,0,one,1,1.00,
+s0_cari_v03_f0036.jpg,0,one,1,1.00,
+s0_cari_v03_f0046.jpg,0,one,1,1.00,
+s0_cari_v03_f0057.jpg,0,one,0,,no_hand
+s0_cari_v04_f0012.jpg,0,one,1,0.99,
+s0_cari_v04_f0020.jpg,0,one,1,1.00,
+s0_cari_v04_f0029.jpg,0,one,1,0.99,
+s0_cari_v04_f0038.jpg,0,one,1,1.00,
+s0_cari_v04_f0046.jpg,0,one,1,0.99,
+s0_cari_v05_f0014.jpg,0,one,1,0.99,
+s0_cari_v05_f0025.jpg,0,one,1,1.00,
+s0_cari_v05_f0035.jpg,0,one,1,0.99,
+s0_cari_v05_f0046.jpg,0,one,1,1.00,
+s0_cari_v05_f0056.jpg,0,one,1,0.99,
+s0_cari_v06_f0012.jpg,0,one,1,0.99,
+s0_cari_v06_f0022.jpg,0,one,1,1.00,
+s0_cari_v06_f0031.jpg,0,one,1,1.00,
+s0_cari_v06_f0040.jpg,0,one,1,1.00,
+s0_cari_v06_f0050.jpg,0,one,1,1.00,
+s0_cari_v07_f0011.jpg,0,one,1,0.99,
+s0_cari_v07_f0020.jpg,0,one,1,1.00,
+s0_cari_v07_f0028.jpg,0,one,1,1.00,
+s0_cari_v07_f0036.jpg,0,one,1,1.00,
+s0_cari_v07_f0045.jpg,0,one,1,0.79,
+s0_cari_v08_f0016.jpg,0,one,1,0.81,
+s0_cari_v08_f0028.jpg,0,one,1,0.99,
+s0_cari_v08_f0040.jpg,0,one,1,1.00,
+s0_cari_v08_f0052.jpg,0,one,1,1.00,
+s0_cari_v08_f0064.jpg,0,one,1,1.00,
+s0_cari_v09_f0014.jpg,0,one,1,0.99,
+s0_cari_v09_f0024.jpg,0,one,1,1.00,
+s0_cari_v09_f0034.jpg,0,one,1,1.00,
+s0_cari_v09_f0044.jpg,0,one,1,1.00,
+s0_cari_v09_f0054.jpg,0,one,1,1.00,
+s0_cari_v10_f0015.jpg,0,one,1,0.99,
+s0_cari_v10_f0027.jpg,0,one,1,1.00,
+s0_cari_v10_f0038.jpg,0,one,1,1.00,
+s0_cari_v10_f0050.jpg,0,one,1,1.00,
+s0_cari_v10_f0062.jpg,0,one,0,,no_hand
+s0_hari_v01_f0013.jpg,1,one,1,0.72,
+s0_hari_v01_f0022.jpg,1,one,1,1.00,
+s0_hari_v01_f0032.jpg,1,one,1,0.89,
+s0_hari_v01_f0042.jpg,1,one,1,0.95,
+s0_hari_v01_f0051.jpg,1,one,0,,no_hand
+s0_hari_v02_f0012.jpg,1,one,1,1.00,
+s0_hari_v02_f0021.jpg,1,one,1,0.95,
+s0_hari_v02_f0030.jpg,1,one,1,0.55,
+s0_hari_v02_f0039.jpg,1,one,1,0.93,
+s0_hari_v02_f0048.jpg,1,one,0,,no_hand
+s0_hari_v03_f0013.jpg,1,one,1,0.99,
+s0_hari_v03_f0023.jpg,1,one,1,0.98,
+s0_hari_v03_f0032.jpg,1,one,1,0.97,
+s0_hari_v03_f0042.jpg,1,one,1,0.93,
+s0_hari_v03_f0052.jpg,1,one,0,,no_hand
+s0_hari_v04_f0014.jpg,1,one,1,0.84,
+s0_hari_v04_f0025.jpg,1,one,1,0.99,
+s0_hari_v04_f0035.jpg,1,one,1,0.95,
+s0_hari_v04_f0046.jpg,1,one,1,0.92,
+s0_hari_v04_f0056.jpg,1,one,1,1.00,
+s0_hari_v05_f0013.jpg,1,one,0,,no_hand
+s0_hari_v05_f0023.jpg,1,one,1,0.99,
+s0_hari_v05_f0032.jpg,1,one,0,,no_hand
+s0_hari_v05_f0042.jpg,1,one,1,0.98,
+s0_hari_v05_f0052.jpg,1,one,1,0.99,
+s0_hari_v06_f0013.jpg,1,one,1,0.81,
+s0_hari_v06_f0023.jpg,1,one,1,0.99,
+s0_hari_v06_f0032.jpg,1,one,0,,no_hand
+s0_hari_v06_f0042.jpg,1,one,1,0.97,
+s0_hari_v06_f0052.jpg,1,one,1,0.98,
+s0_hari_v07_f0012.jpg,1,one,1,0.89,
+s0_hari_v07_f0021.jpg,1,one,1,0.97,
+s0_hari_v07_f0030.jpg,1,one,1,0.51,
+s0_hari_v07_f0040.jpg,1,one,1,0.92,
+s0_hari_v07_f0049.jpg,1,one,0,,no_hand
+s0_hari_v08_f0013.jpg,1,one,0,,no_hand
+s0_hari_v08_f0023.jpg,1,one,1,0.99,
+s0_hari_v08_f0034.jpg,1,one,1,0.96,
+s0_hari_v08_f0044.jpg,1,one,1,0.96,
+s0_hari_v08_f0054.jpg,1,one,1,0.99,
+s0_hari_v09_f0013.jpg,1,one,1,0.99,
+s0_hari_v09_f0023.jpg,1,one,1,0.94,
+s0_hari_v09_f0032.jpg,1,one,0,,no_hand
+s0_hari_v09_f0042.jpg,1,one,1,0.92,
+s0_hari_v09_f0052.jpg,1,one,0,,no_hand
+s0_hari_v10_f0013.jpg,1,one,1,0.70,
+s0_hari_v10_f0023.jpg,1,one,1,0.97,
+s0_hari_v10_f0033.jpg,1,one,1,0.88,
+s0_hari_v10_f0043.jpg,1,one,1,0.96,
+s0_hari_v10_f0053.jpg,1,one,0,,no_hand
+s0_ingat_v01_f0016.jpg,2,one,1,0.96,
+s0_ingat_v01_f0027.jpg,2,one,1,0.99,
+s0_ingat_v01_f0039.jpg,2,one,1,0.99,
+s0_ingat_v01_f0051.jpg,2,one,1,0.99,
+s0_ingat_v01_f0062.jpg,2,one,0,,no_hand
+s0_ingat_v02_f0014.jpg,2,one,0,,no_hand
+s0_ingat_v02_f0024.jpg,2,one,1,1.00,
+s0_ingat_v02_f0034.jpg,2,one,1,0.98,
+s0_ingat_v02_f0044.jpg,2,one,1,0.99,
+s0_ingat_v02_f0054.jpg,2,one,1,0.97,
+s0_ingat_v03_f0013.jpg,2,one,1,0.94,
+s0_ingat_v03_f0023.jpg,2,one,1,0.99,
+s0_ingat_v03_f0034.jpg,2,one,1,0.99,
+s0_ingat_v03_f0044.jpg,2,one,1,0.99,
+s0_ingat_v03_f0054.jpg,2,one,1,0.99,
+s0_ingat_v04_f0013.jpg,2,one,1,0.98,
+s0_ingat_v04_f0023.jpg,2,one,1,1.00,
+s0_ingat_v04_f0034.jpg,2,one,1,1.00,
+s0_ingat_v04_f0044.jpg,2,one,1,0.99,
+s0_ingat_v04_f0054.jpg,2,one,0,,no_hand
+s0_ingat_v05_f0013.jpg,2,one,1,0.99,
+s0_ingat_v05_f0023.jpg,2,one,1,0.99,
+s0_ingat_v05_f0034.jpg,2,one,1,0.99,
+s0_ingat_v05_f0044.jpg,2,one,1,0.99,
+s0_ingat_v05_f0054.jpg,2,one,1,0.99,
+s0_ingat_v06_f0013.jpg,2,one,1,1.00,
+s0_ingat_v06_f0023.jpg,2,one,1,0.99,
+s0_ingat_v06_f0033.jpg,2,one,1,0.98,
+s0_ingat_v06_f0043.jpg,2,one,1,0.98,
+s0_ingat_v06_f0053.jpg,2,one,0,,no_hand
+s0_ingat_v07_f0014.jpg,2,one,0,,no_hand
+s0_ingat_v07_f0025.jpg,2,one,1,0.99,
+s0_ingat_v07_f0036.jpg,2,one,1,0.98,
+s0_ingat_v07_f0046.jpg,2,one,1,0.99,
+s0_ingat_v07_f0057.jpg,2,one,0,,no_hand
+s0_ingat_v08_f0013.jpg,2,one,1,0.99,
+s0_ingat_v08_f0022.jpg,2,one,1,0.99,
+s0_ingat_v08_f0032.jpg,2,one,1,0.99,
+s0_ingat_v08_f0041.jpg,2,one,1,0.99,
+s0_ingat_v08_f0050.jpg,2,one,1,0.97,
+s0_ingat_v09_f0014.jpg,2,one,1,0.99,
+s0_ingat_v09_f0024.jpg,2,one,1,0.99,
+s0_ingat_v09_f0034.jpg,2,one,1,1.00,
+s0_ingat_v09_f0045.jpg,2,one,1,0.99,
+s0_ingat_v09_f0055.jpg,2,one,1,0.95,
+s0_ingat_v10_f0014.jpg,2,one,1,0.99,
+s0_ingat_v10_f0024.jpg,2,one,1,0.99,
+s0_ingat_v10_f0034.jpg,2,one,1,0.99,
+s0_ingat_v10_f0044.jpg,2,one,1,0.99,
+s0_ingat_v10_f0054.jpg,2,one,1,0.98,
+s0_lagi_v01_f0012.jpg,3,one,1,0.98,
+s0_lagi_v01_f0020.jpg,3,one,1,1.00,
+s0_lagi_v01_f0029.jpg,3,one,1,0.99,
+s0_lagi_v01_f0038.jpg,3,one,1,0.99,
+s0_lagi_v01_f0046.jpg,3,one,1,0.98,
+s0_lagi_v02_f0012.jpg,3,one,0,,no_hand
+s0_lagi_v02_f0021.jpg,3,one,1,1.00,
+s0_lagi_v02_f0030.jpg,3,one,1,0.99,
+s0_lagi_v02_f0040.jpg,3,one,1,0.99,
+s0_lagi_v02_f0049.jpg,3,one,0,,no_hand
+s0_lagi_v03_f0011.jpg,3,one,0,,no_hand
+s0_lagi_v03_f0019.jpg,3,one,1,1.00,
+s0_lagi_v03_f0026.jpg,3,one,1,0.99,
+s0_lagi_v03_f0034.jpg,3,one,1,0.99,
+s0_lagi_v03_f0042.jpg,3,one,1,0.98,
+s0_lagi_v04_f0011.jpg,3,one,1,0.96,
+s0_lagi_v04_f0019.jpg,3,one,1,1.00,
+s0_lagi_v04_f0028.jpg,3,one,1,0.99,
+s0_lagi_v04_f0036.jpg,3,one,1,1.00,
+s0_lagi_v04_f0044.jpg,3,one,1,0.92,
+s0_lagi_v05_f0011.jpg,3,one,0,,no_hand
+s0_lagi_v05_f0020.jpg,3,one,1,0.99,
+s0_lagi_v05_f0028.jpg,3,one,1,0.99,
+s0_lagi_v05_f0037.jpg,3,one,1,0.99,
+s0_lagi_v05_f0046.jpg,3,one,0,,no_hand
+s0_lagi_v06_f0014.jpg,3,one,0,,no_hand
+s0_lagi_v06_f0024.jpg,3,one,1,0.98,
+s0_lagi_v06_f0034.jpg,3,one,1,1.00,
+s0_lagi_v06_f0045.jpg,3,one,1,0.99,
+s0_lagi_v06_f0055.jpg,3,one,0,,no_hand
+s0_lagi_v07_f0012.jpg,3,one,1,0.81,
+s0_lagi_v07_f0020.jpg,3,one,1,0.99,
+s0_lagi_v07_f0029.jpg,3,one,1,0.99,
+s0_lagi_v07_f0038.jpg,3,one,1,0.99,
+s0_lagi_v07_f0046.jpg,3,one,1,0.96,
+s0_lagi_v08_f0011.jpg,3,one,0,,no_hand
+s0_lagi_v08_f0019.jpg,3,one,1,1.00,
+s0_lagi_v08_f0028.jpg,3,one,1,1.00,
+s0_lagi_v08_f0036.jpg,3,one,1,1.00,
+s0_lagi_v08_f0044.jpg,3,one,1,1.00,
+s0_lagi_v09_f0011.jpg,3,one,1,0.84,
+s0_lagi_v09_f0020.jpg,3,one,1,1.00,
+s0_lagi_v09_f0028.jpg,3,one,1,0.99,
+s0_lagi_v09_f0037.jpg,3,one,1,0.99,
+s0_lagi_v09_f0046.jpg,3,one,0,,no_hand
+s0_lagi_v10_f0012.jpg,3,one,0,,no_hand
+s0_lagi_v10_f0020.jpg,3,one,1,1.00,
+s0_lagi_v10_f0029.jpg,3,one,1,0.99,
+s0_lagi_v10_f0038.jpg,3,one,1,0.99,
+s0_lagi_v10_f0046.jpg,3,one,1,0.99,
+s0_maaf_v01_f0013.jpg,4,one,1,0.98,
+s0_maaf_v01_f0023.jpg,4,one,1,0.99,
+s0_maaf_v01_f0034.jpg,4,one,1,0.99,
+s0_maaf_v01_f0044.jpg,4,one,1,1.00,
+s0_maaf_v01_f0054.jpg,4,one,0,,no_hand
+s0_maaf_v02_f0014.jpg,4,one,0,,no_hand
+s0_maaf_v02_f0025.jpg,4,one,1,1.00,
+s0_maaf_v02_f0036.jpg,4,one,1,0.99,
+s0_maaf_v02_f0047.jpg,4,one,1,0.99,
+s0_maaf_v02_f0058.jpg,4,one,1,0.97,
+s0_maaf_v03_f0014.jpg,4,one,1,1.00,
+s0_maaf_v03_f0025.jpg,4,one,1,0.99,
+s0_maaf_v03_f0035.jpg,4,one,1,0.99,
+s0_maaf_v03_f0046.jpg,4,one,1,0.98,
+s0_maaf_v03_f0056.jpg,4,one,0,,no_hand
+s0_maaf_v04_f0016.jpg,4,one,0,,no_hand
+s0_maaf_v04_f0027.jpg,4,one,1,1.00,
+s0_maaf_v04_f0039.jpg,4,one,1,0.99,
+s0_maaf_v04_f0051.jpg,4,one,1,0.99,
+s0_maaf_v04_f0062.jpg,4,one,1,0.84,
+s0_maaf_v05_f0014.jpg,4,one,0,,no_hand
+s0_maaf_v05_f0025.jpg,4,one,1,0.99,
+s0_maaf_v05_f0035.jpg,4,one,1,0.97,
+s0_maaf_v05_f0046.jpg,4,one,1,0.98,
+s0_maaf_v05_f0056.jpg,4,one,1,0.54,
+s0_maaf_v06_f0016.jpg,4,one,0,,no_hand
+s0_maaf_v06_f0028.jpg,4,one,1,1.00,
+s0_maaf_v06_f0040.jpg,4,one,1,0.99,
+s0_maaf_v06_f0053.jpg,4,one,1,0.99,
+s0_maaf_v06_f0065.jpg,4,one,0,,no_hand
+s0_maaf_v07_f0016.jpg,4,one,0,,no_hand
+s0_maaf_v07_f0028.jpg,4,one,1,0.99,
+s0_maaf_v07_f0040.jpg,4,one,1,0.99,
+s0_maaf_v07_f0053.jpg,4,one,1,0.99,
+s0_maaf_v07_f0065.jpg,4,one,0,,no_hand
+s0_maaf_v08_f0014.jpg,4,one,0,,no_hand
+s0_maaf_v08_f0025.jpg,4,one,1,0.99,
+s0_maaf_v08_f0035.jpg,4,one,1,0.99,
+s0_maaf_v08_f0046.jpg,4,one,1,0.99,
+s0_maaf_v08_f0056.jpg,4,one,1,1.00,
+s0_maaf_v09_f0015.jpg,4,one,0,,no_hand
+s0_maaf_v09_f0026.jpg,4,one,1,0.99,
+s0_maaf_v09_f0037.jpg,4,one,1,0.98,
+s0_maaf_v09_f0048.jpg,4,one,1,0.99,
+s0_maaf_v09_f0059.jpg,4,one,1,0.99,
+s0_maaf_v10_f0015.jpg,4,one,0,,no_hand
+s0_maaf_v10_f0027.jpg,4,one,1,0.99,
+s0_maaf_v10_f0038.jpg,4,one,1,0.99,
+s0_maaf_v10_f0049.jpg,4,one,1,0.98,
+s0_maaf_v10_f0061.jpg,4,one,0,,no_hand
+s0_makan_v01_f0011.jpg,5,one,0,,no_hand
+s0_makan_v01_f0020.jpg,5,one,1,0.99,
+s0_makan_v01_f0028.jpg,5,one,1,0.99,
+s0_makan_v01_f0036.jpg,5,one,1,0.99,
+s0_makan_v01_f0045.jpg,5,one,0,,no_hand
+s0_makan_v02_f0012.jpg,5,one,0,,no_hand
+s0_makan_v02_f0021.jpg,5,one,1,1.00,
+s0_makan_v02_f0030.jpg,5,one,1,1.00,
+s0_makan_v02_f0038.jpg,5,one,1,0.98,
+s0_makan_v02_f0047.jpg,5,one,0,,no_hand
+s0_makan_v03_f0012.jpg,5,one,1,0.95,
+s0_makan_v03_f0021.jpg,5,one,1,0.99,
+s0_makan_v03_f0030.jpg,5,one,1,1.00,
+s0_makan_v03_f0040.jpg,5,one,1,0.96,
+s0_makan_v03_f0049.jpg,5,one,0,,no_hand
+s0_makan_v04_f0013.jpg,5,one,0,,no_hand
+s0_makan_v04_f0022.jpg,5,one,1,0.99,
+s0_makan_v04_f0032.jpg,5,one,1,1.00,
+s0_makan_v04_f0041.jpg,5,one,1,1.00,
+s0_makan_v04_f0050.jpg,5,one,0,,no_hand
+s0_makan_v05_f0013.jpg,5,one,1,0.99,
+s0_makan_v05_f0022.jpg,5,one,1,0.99,
+s0_makan_v05_f0032.jpg,5,one,1,1.00,
+s0_makan_v05_f0042.jpg,5,one,1,0.99,
+s0_makan_v05_f0051.jpg,5,one,0,,no_hand
+s0_makan_v06_f0012.jpg,5,one,0,,no_hand
+s0_makan_v06_f0020.jpg,5,one,0,,no_hand
+s0_makan_v06_f0029.jpg,5,one,1,1.00,
+s0_makan_v06_f0038.jpg,5,one,1,1.00,
+s0_makan_v06_f0046.jpg,5,one,1,1.00,
+s0_makan_v07_f0012.jpg,5,one,0,,no_hand
+s0_makan_v07_f0021.jpg,5,one,1,1.00,
+s0_makan_v07_f0030.jpg,5,one,1,1.00,
+s0_makan_v07_f0040.jpg,5,one,1,1.00,
+s0_makan_v07_f0049.jpg,5,one,0,,no_hand
+s0_makan_v08_f0012.jpg,5,one,0,,no_hand
+s0_makan_v08_f0022.jpg,5,one,1,0.99,
+s0_makan_v08_f0031.jpg,5,one,1,0.99,
+s0_makan_v08_f0040.jpg,5,one,1,0.99,
+s0_makan_v08_f0050.jpg,5,one,0,,no_hand
+s0_makan_v09_f0011.jpg,5,one,1,0.76,
+s0_makan_v09_f0019.jpg,5,one,1,0.99,
+s0_makan_v09_f0027.jpg,5,one,1,0.99,
+s0_makan_v09_f0035.jpg,5,one,1,1.00,
+s0_makan_v09_f0043.jpg,5,one,0,,no_hand
+s0_makan_v10_f0013.jpg,5,one,0,,no_hand
+s0_makan_v10_f0022.jpg,5,one,1,0.99,
+s0_makan_v10_f0032.jpg,5,one,1,0.99,
+s0_makan_v10_f0041.jpg,5,one,1,0.99,
+s0_makan_v10_f0050.jpg,5,one,0,,no_hand
+s0_motor_v01_f0014.jpg,6,two,1,0.98,two_class_one_hand
+s0_motor_v01_f0024.jpg,6,two,2,0.99 0.98,
+s0_motor_v01_f0034.jpg,6,two,2,0.99 0.93,
+s0_motor_v01_f0045.jpg,6,two,2,0.99 1.00,
+s0_motor_v01_f0055.jpg,6,two,0,,no_hand
+s0_motor_v02_f0015.jpg,6,two,0,,no_hand
+s0_motor_v02_f0026.jpg,6,two,2,0.99 0.99,
+s0_motor_v02_f0036.jpg,6,two,2,1.00 0.99,
+s0_motor_v02_f0047.jpg,6,two,2,0.99 1.00,
+s0_motor_v02_f0058.jpg,6,two,2,0.97 0.93,
+s0_motor_v03_f0014.jpg,6,two,2,0.78 0.97,
+s0_motor_v03_f0024.jpg,6,two,2,0.85 0.93,
+s0_motor_v03_f0034.jpg,6,two,2,1.00 0.93,
+s0_motor_v03_f0044.jpg,6,two,2,0.99 1.00,
+s0_motor_v03_f0054.jpg,6,two,0,,no_hand
+s0_motor_v04_f0016.jpg,6,two,2,0.97 0.81,
+s0_motor_v04_f0028.jpg,6,two,2,0.99 1.00,
+s0_motor_v04_f0040.jpg,6,two,2,0.81 0.59,
+s0_motor_v04_f0052.jpg,6,two,2,1.00 1.00,
+s0_motor_v04_f0064.jpg,6,two,0,,no_hand
+s0_motor_v05_f0017.jpg,6,two,1,0.54,two_class_one_hand
+s0_motor_v05_f0029.jpg,6,two,2,0.67 0.99,
+s0_motor_v05_f0042.jpg,6,two,2,0.96 0.98,
+s0_motor_v05_f0055.jpg,6,two,2,1.00 0.92,
+s0_motor_v05_f0067.jpg,6,two,0,,no_hand
+s0_motor_v06_f0016.jpg,6,two,1,0.79,two_class_one_hand
+s0_motor_v06_f0027.jpg,6,two,2,0.98 1.00,
+s0_motor_v06_f0039.jpg,6,two,2,0.89 0.75,
+s0_motor_v06_f0051.jpg,6,two,2,0.99 1.00,
+s0_motor_v06_f0062.jpg,6,two,0,,no_hand
+s0_motor_v07_f0015.jpg,6,two,0,,no_hand
+s0_motor_v07_f0027.jpg,6,two,2,0.99 1.00,
+s0_motor_v07_f0038.jpg,6,two,2,1.00 0.98,
+s0_motor_v07_f0049.jpg,6,two,2,1.00 0.99,
+s0_motor_v07_f0061.jpg,6,two,0,,no_hand
+s0_motor_v08_f0015.jpg,6,two,2,1.00 0.70,
+s0_motor_v08_f0026.jpg,6,two,2,0.85 0.97,
+s0_motor_v08_f0037.jpg,6,two,2,0.90 0.96,
+s0_motor_v08_f0048.jpg,6,two,2,1.00 0.99,
+s0_motor_v08_f0059.jpg,6,two,0,,no_hand
+s0_motor_v09_f0015.jpg,6,two,2,0.97 0.91,
+s0_motor_v09_f0026.jpg,6,two,2,1.00 1.00,
+s0_motor_v09_f0036.jpg,6,two,2,1.00 0.99,
+s0_motor_v09_f0047.jpg,6,two,2,0.99 0.99,
+s0_motor_v09_f0058.jpg,6,two,2,0.82 0.94,
+s0_motor_v10_f0014.jpg,6,two,2,0.98 0.97,
+s0_motor_v10_f0025.jpg,6,two,2,1.00 1.00,
+s0_motor_v10_f0036.jpg,6,two,2,1.00 0.98,
+s0_motor_v10_f0047.jpg,6,two,2,1.00 1.00,
+s0_motor_v10_f0058.jpg,6,two,0,,no_hand
+s0_saya_v01_f0012.jpg,7,one,1,0.89,
+s0_saya_v01_f0020.jpg,7,one,1,0.95,
+s0_saya_v01_f0029.jpg,7,one,1,0.95,
+s0_saya_v01_f0038.jpg,7,one,1,0.95,
+s0_saya_v01_f0046.jpg,7,one,0,,no_hand
+s0_saya_v02_f0014.jpg,7,one,0,,no_hand
+s0_saya_v02_f0025.jpg,7,one,1,0.95,
+s0_saya_v02_f0035.jpg,7,one,1,0.95,
+s0_saya_v02_f0046.jpg,7,one,1,0.95,
+s0_saya_v02_f0056.jpg,7,one,0,,no_hand
+s0_saya_v03_f0012.jpg,7,one,1,0.86,
+s0_saya_v03_f0021.jpg,7,one,1,0.96,
+s0_saya_v03_f0030.jpg,7,one,1,0.96,
+s0_saya_v03_f0038.jpg,7,one,1,0.96,
+s0_saya_v03_f0047.jpg,7,one,0,,no_hand
+s0_saya_v04_f0014.jpg,7,one,1,0.95,
+s0_saya_v04_f0025.jpg,7,one,1,0.96,
+s0_saya_v04_f0035.jpg,7,one,1,0.90,
+s0_saya_v04_f0046.jpg,7,one,1,0.89,
+s0_saya_v04_f0056.jpg,7,one,0,,no_hand
+s0_saya_v05_f0014.jpg,7,one,0,,no_hand
+s0_saya_v05_f0024.jpg,7,one,1,0.80,
+s0_saya_v05_f0034.jpg,7,one,1,0.94,
+s0_saya_v05_f0045.jpg,7,one,1,0.93,
+s0_saya_v05_f0055.jpg,7,one,0,,no_hand
+s0_saya_v06_f0013.jpg,7,one,0,,no_hand
+s0_saya_v06_f0023.jpg,7,one,1,0.96,
+s0_saya_v06_f0033.jpg,7,one,1,0.95,
+s0_saya_v06_f0043.jpg,7,one,1,0.94,
+s0_saya_v06_f0053.jpg,7,one,1,0.97,
+s0_saya_v07_f0014.jpg,7,one,0,,no_hand
+s0_saya_v07_f0024.jpg,7,one,1,0.92,
+s0_saya_v07_f0034.jpg,7,one,1,0.93,
+s0_saya_v07_f0044.jpg,7,one,1,0.94,
+s0_saya_v07_f0054.jpg,7,one,1,0.99,
+s0_saya_v08_f0014.jpg,7,one,0,,no_hand
+s0_saya_v08_f0025.jpg,7,one,1,0.91,
+s0_saya_v08_f0035.jpg,7,one,1,0.95,
+s0_saya_v08_f0046.jpg,7,one,1,0.92,
+s0_saya_v08_f0056.jpg,7,one,1,0.97,
+s0_saya_v09_f0014.jpg,7,one,1,0.88,
+s0_saya_v09_f0024.jpg,7,one,1,0.96,
+s0_saya_v09_f0034.jpg,7,one,1,0.92,
+s0_saya_v09_f0044.jpg,7,one,1,0.92,
+s0_saya_v09_f0054.jpg,7,one,0,,no_hand
+s0_saya_v10_f0014.jpg,7,one,1,0.95,
+s0_saya_v10_f0024.jpg,7,one,1,0.96,
+s0_saya_v10_f0034.jpg,7,one,1,0.94,
+s0_saya_v10_f0044.jpg,7,one,1,0.86,
+s0_saya_v10_f0054.jpg,7,one,0,,no_hand
+s0_terimakasih_v01_f0017.jpg,8,one,0,,no_hand
+s0_terimakasih_v01_f0029.jpg,8,one,1,0.92,
+s0_terimakasih_v01_f0042.jpg,8,one,1,0.90,
+s0_terimakasih_v01_f0055.jpg,8,one,1,0.90,
+s0_terimakasih_v01_f0067.jpg,8,one,1,0.95,
+s0_terimakasih_v02_f0011.jpg,8,one,1,0.74,
+s0_terimakasih_v02_f0020.jpg,8,one,1,0.97,
+s0_terimakasih_v02_f0028.jpg,8,one,1,0.80,
+s0_terimakasih_v02_f0037.jpg,8,one,1,0.91,
+s0_terimakasih_v02_f0046.jpg,8,one,1,0.99,
+s0_terimakasih_v03_f0014.jpg,8,one,1,0.92,
+s0_terimakasih_v03_f0025.jpg,8,one,1,0.94,
+s0_terimakasih_v03_f0035.jpg,8,one,1,0.92,
+s0_terimakasih_v03_f0046.jpg,8,one,1,0.95,
+s0_terimakasih_v03_f0056.jpg,8,one,0,,no_hand
+s0_terimakasih_v04_f0014.jpg,8,one,1,0.82,
+s0_terimakasih_v04_f0024.jpg,8,one,1,0.95,
+s0_terimakasih_v04_f0034.jpg,8,one,1,0.91,
+s0_terimakasih_v04_f0044.jpg,8,one,1,0.94,
+s0_terimakasih_v04_f0054.jpg,8,one,1,0.99,
+s0_terimakasih_v05_f0012.jpg,8,one,1,0.95,
+s0_terimakasih_v05_f0021.jpg,8,one,1,0.95,
+s0_terimakasih_v05_f0030.jpg,8,one,1,0.93,
+s0_terimakasih_v05_f0039.jpg,8,one,1,0.89,
+s0_terimakasih_v05_f0048.jpg,8,one,1,0.98,
+s0_terimakasih_v06_f0016.jpg,8,one,1,0.92,
+s0_terimakasih_v06_f0028.jpg,8,one,1,0.98,
+s0_terimakasih_v06_f0040.jpg,8,one,1,0.92,
+s0_terimakasih_v06_f0053.jpg,8,one,1,0.94,
+s0_terimakasih_v06_f0065.jpg,8,one,0,,no_hand
+s0_terimakasih_v07_f0015.jpg,8,one,1,0.97,
+s0_terimakasih_v07_f0027.jpg,8,one,1,0.92,
+s0_terimakasih_v07_f0038.jpg,8,one,1,0.89,
+s0_terimakasih_v07_f0050.jpg,8,one,1,0.93,
+s0_terimakasih_v07_f0062.jpg,8,one,0,,no_hand
+s0_terimakasih_v08_f0015.jpg,8,one,1,0.93,
+s0_terimakasih_v08_f0026.jpg,8,one,1,0.96,
+s0_terimakasih_v08_f0036.jpg,8,one,1,0.90,
+s0_terimakasih_v08_f0047.jpg,8,one,1,0.94,
+s0_terimakasih_v08_f0058.jpg,8,one,0,,no_hand
+s0_terimakasih_v09_f0013.jpg,8,one,1,0.94,
+s0_terimakasih_v09_f0023.jpg,8,one,1,0.91,
+s0_terimakasih_v09_f0034.jpg,8,one,1,0.83,
+s0_terimakasih_v09_f0044.jpg,8,one,1,0.95,
+s0_terimakasih_v09_f0054.jpg,8,one,0,,no_hand
+s0_terimakasih_v10_f0012.jpg,8,one,1,0.92,
+s0_terimakasih_v10_f0021.jpg,8,one,1,0.96,
+s0_terimakasih_v10_f0030.jpg,8,one,1,0.90,
+s0_terimakasih_v10_f0038.jpg,8,one,1,0.92,
+s0_terimakasih_v10_f0047.jpg,8,one,0,,no_hand
+s1_bagaimana_v01_f0018.jpg,9,two,2,1.00 0.99,
+s1_bagaimana_v01_f0032.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v01_f0046.jpg,9,two,2,0.51 0.96,
+s1_bagaimana_v01_f0059.jpg,9,two,2,0.56 0.84,
+s1_bagaimana_v01_f0073.jpg,9,two,2,0.98 0.94,
+s1_bagaimana_v02_f0020.jpg,9,two,2,0.98 0.99,
+s1_bagaimana_v02_f0034.jpg,9,two,2,1.00 0.99,
+s1_bagaimana_v02_f0049.jpg,9,two,2,0.66 0.76,
+s1_bagaimana_v02_f0064.jpg,9,two,2,0.77 0.64,
+s1_bagaimana_v02_f0078.jpg,9,two,0,,no_hand
+s1_bagaimana_v03_f0017.jpg,9,two,2,0.99 0.98,
+s1_bagaimana_v03_f0030.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v03_f0043.jpg,9,two,2,0.95 0.72,
+s1_bagaimana_v03_f0056.jpg,9,two,2,0.97 0.56,
+s1_bagaimana_v03_f0069.jpg,9,two,2,0.74 0.86,
+s1_bagaimana_v04_f0016.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v04_f0028.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v04_f0040.jpg,9,two,1,0.57,two_class_one_hand
+s1_bagaimana_v04_f0053.jpg,9,two,2,0.79 0.66,
+s1_bagaimana_v04_f0065.jpg,9,two,2,0.99 0.71,
+s1_bagaimana_v05_f0018.jpg,9,two,2,0.99 1.00,
+s1_bagaimana_v05_f0031.jpg,9,two,2,0.98 1.00,
+s1_bagaimana_v05_f0044.jpg,9,two,2,0.76 0.69,
+s1_bagaimana_v05_f0057.jpg,9,two,2,0.61 0.78,
+s1_bagaimana_v05_f0070.jpg,9,two,2,0.73 0.93,
+s1_bagaimana_v06_f0019.jpg,9,two,2,0.96 0.90,
+s1_bagaimana_v06_f0033.jpg,9,two,2,0.99 0.98,
+s1_bagaimana_v06_f0048.jpg,9,two,2,0.63 0.77,
+s1_bagaimana_v06_f0062.jpg,9,two,2,0.52 0.86,
+s1_bagaimana_v06_f0076.jpg,9,two,2,0.92 0.97,
+s1_bagaimana_v07_f0017.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v07_f0029.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v07_f0042.jpg,9,two,2,0.82 0.57,
+s1_bagaimana_v07_f0054.jpg,9,two,2,0.80 0.92,
+s1_bagaimana_v07_f0066.jpg,9,two,2,0.95 0.95,
+s1_bagaimana_v08_f0014.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v08_f0024.jpg,9,two,2,1.00 0.98,
+s1_bagaimana_v08_f0034.jpg,9,two,2,0.58 0.89,
+s1_bagaimana_v08_f0045.jpg,9,two,2,0.75 0.89,
+s1_bagaimana_v08_f0055.jpg,9,two,2,0.92 0.69,
+s1_bagaimana_v09_f0014.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v09_f0024.jpg,9,two,2,0.58 0.98,
+s1_bagaimana_v09_f0034.jpg,9,two,2,0.99 0.98,
+s1_bagaimana_v09_f0045.jpg,9,two,2,0.75 0.60,
+s1_bagaimana_v09_f0055.jpg,9,two,2,0.85 0.72,
+s1_bagaimana_v10_f0015.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v10_f0026.jpg,9,two,2,0.53 0.59,
+s1_bagaimana_v10_f0037.jpg,9,two,2,0.84 0.63,
+s1_bagaimana_v10_f0048.jpg,9,two,2,0.62 0.79,
+s1_bagaimana_v10_f0059.jpg,9,two,2,0.66 0.50,
+s1_bagaimana_v11_f0014.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v11_f0025.jpg,9,two,2,0.63 0.89,
+s1_bagaimana_v11_f0036.jpg,9,two,2,0.55 0.66,
+s1_bagaimana_v11_f0046.jpg,9,two,2,0.55 0.77,
+s1_bagaimana_v11_f0057.jpg,9,two,2,0.97 0.88,
+s1_bagaimana_v12_f0015.jpg,9,two,1,0.94,two_class_one_hand
+s1_bagaimana_v12_f0026.jpg,9,two,2,0.73 0.57,
+s1_bagaimana_v12_f0037.jpg,9,two,2,0.99 0.79,
+s1_bagaimana_v12_f0048.jpg,9,two,2,0.99 0.55,
+s1_bagaimana_v12_f0059.jpg,9,two,2,0.88 0.54,
+s1_bagaimana_v13_f0017.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v13_f0030.jpg,9,two,2,0.98 1.00,
+s1_bagaimana_v13_f0044.jpg,9,two,2,0.84 0.73,
+s1_bagaimana_v13_f0057.jpg,9,two,2,0.62 0.72,
+s1_bagaimana_v13_f0070.jpg,9,two,0,,no_hand
+s1_bagaimana_v14_f0017.jpg,9,two,2,0.98 0.99,
+s1_bagaimana_v14_f0030.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v14_f0044.jpg,9,two,2,0.62 0.65,
+s1_bagaimana_v14_f0057.jpg,9,two,2,0.87 0.52,
+s1_bagaimana_v14_f0070.jpg,9,two,2,0.94 0.99,
+s1_bagaimana_v15_f0018.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v15_f0031.jpg,9,two,2,0.99 0.99,
+s1_bagaimana_v15_f0044.jpg,9,two,2,0.70 0.54,
+s1_bagaimana_v15_f0057.jpg,9,two,2,0.54 0.66,
+s1_bagaimana_v15_f0070.jpg,9,two,1,0.97,two_class_one_hand
+s1_berangkat_v01_f0014.jpg,10,one,1,1.00,
+s1_berangkat_v01_f0025.jpg,10,one,1,0.91,
+s1_berangkat_v01_f0036.jpg,10,one,1,0.98,
+s1_berangkat_v01_f0046.jpg,10,one,1,0.97,
+s1_berangkat_v01_f0057.jpg,10,one,1,0.99,
+s1_berangkat_v02_f0014.jpg,10,one,0,,no_hand
+s1_berangkat_v02_f0025.jpg,10,one,1,0.97,
+s1_berangkat_v02_f0036.jpg,10,one,1,0.98,
+s1_berangkat_v02_f0047.jpg,10,one,1,0.98,
+s1_berangkat_v02_f0058.jpg,10,one,1,0.98,
+s1_berangkat_v03_f0016.jpg,10,one,0,,no_hand
+s1_berangkat_v03_f0029.jpg,10,one,1,0.95,
+s1_berangkat_v03_f0041.jpg,10,one,1,0.93,
+s1_berangkat_v03_f0053.jpg,10,one,1,0.97,
+s1_berangkat_v03_f0066.jpg,10,one,1,0.96,
+s1_berangkat_v04_f0015.jpg,10,one,1,0.67,
+s1_berangkat_v04_f0027.jpg,10,one,1,0.91,
+s1_berangkat_v04_f0038.jpg,10,one,1,0.97,
+s1_berangkat_v04_f0049.jpg,10,one,1,0.98,
+s1_berangkat_v04_f0061.jpg,10,one,1,0.93,
+s1_berangkat_v05_f0015.jpg,10,one,1,0.97,
+s1_berangkat_v05_f0026.jpg,10,one,1,0.55,
+s1_berangkat_v05_f0036.jpg,10,one,1,0.96,
+s1_berangkat_v05_f0047.jpg,10,one,1,0.97,
+s1_berangkat_v05_f0058.jpg,10,one,1,0.95,
+s1_berangkat_v06_f0015.jpg,10,one,1,0.98,
+s1_berangkat_v06_f0026.jpg,10,one,1,0.68,
+s1_berangkat_v06_f0037.jpg,10,one,1,0.94,
+s1_berangkat_v06_f0048.jpg,10,one,1,0.93,
+s1_berangkat_v06_f0059.jpg,10,one,1,0.99,
+s1_berangkat_v07_f0015.jpg,10,one,1,0.99,
+s1_berangkat_v07_f0027.jpg,10,one,1,0.96,
+s1_berangkat_v07_f0038.jpg,10,one,1,0.97,
+s1_berangkat_v07_f0049.jpg,10,one,1,0.98,
+s1_berangkat_v07_f0061.jpg,10,one,1,1.00,
+s1_berangkat_v08_f0014.jpg,10,one,1,0.97,
+s1_berangkat_v08_f0024.jpg,10,one,1,0.76,
+s1_berangkat_v08_f0034.jpg,10,one,1,0.80,
+s1_berangkat_v08_f0045.jpg,10,one,1,0.96,
+s1_berangkat_v08_f0055.jpg,10,one,0,,no_hand
+s1_berangkat_v09_f0013.jpg,10,one,1,0.95,
+s1_berangkat_v09_f0023.jpg,10,one,1,0.79,
+s1_berangkat_v09_f0033.jpg,10,one,1,0.95,
+s1_berangkat_v09_f0043.jpg,10,one,1,0.96,
+s1_berangkat_v09_f0053.jpg,10,one,0,,no_hand
+s1_berangkat_v10_f0014.jpg,10,one,0,,no_hand
+s1_berangkat_v10_f0025.jpg,10,one,1,0.92,
+s1_berangkat_v10_f0036.jpg,10,one,1,0.52,
+s1_berangkat_v10_f0047.jpg,10,one,1,0.52,
+s1_berangkat_v10_f0058.jpg,10,one,1,0.82,
+s1_berangkat_v11_f0013.jpg,10,one,1,0.55,
+s1_berangkat_v11_f0022.jpg,10,one,1,0.90,
+s1_berangkat_v11_f0032.jpg,10,one,1,0.53,
+s1_berangkat_v11_f0042.jpg,10,one,1,0.57,
+s1_berangkat_v11_f0051.jpg,10,one,1,0.86,
+s1_berangkat_v12_f0015.jpg,10,one,0,,no_hand
+s1_berangkat_v12_f0027.jpg,10,one,1,0.93,
+s1_berangkat_v12_f0038.jpg,10,one,1,0.71,
+s1_berangkat_v12_f0050.jpg,10,one,1,0.91,
+s1_berangkat_v12_f0062.jpg,10,one,1,0.54,
+s1_berangkat_v13_f0017.jpg,10,one,0,,no_hand
+s1_berangkat_v13_f0029.jpg,10,one,1,0.98,
+s1_berangkat_v13_f0042.jpg,10,one,1,0.84,
+s1_berangkat_v13_f0054.jpg,10,one,1,0.97,
+s1_berangkat_v13_f0066.jpg,10,one,1,0.94,
+s1_berangkat_v14_f0015.jpg,10,one,1,0.97,
+s1_berangkat_v14_f0026.jpg,10,one,1,0.93,
+s1_berangkat_v14_f0038.jpg,10,one,1,0.96,
+s1_berangkat_v14_f0049.jpg,10,one,1,0.94,
+s1_berangkat_v14_f0060.jpg,10,one,1,0.86,
+s1_berangkat_v15_f0019.jpg,10,one,0,,no_hand
+s1_berangkat_v15_f0033.jpg,10,one,1,0.98,
+s1_berangkat_v15_f0046.jpg,10,one,1,0.66,
+s1_berangkat_v15_f0060.jpg,10,one,1,0.98,
+s1_berangkat_v15_f0074.jpg,10,one,1,0.98,
+s1_cari_v01_f0020.jpg,0,one,1,1.00,
+s1_cari_v01_f0034.jpg,0,one,1,0.84,
+s1_cari_v01_f0049.jpg,0,one,1,1.00,
+s1_cari_v01_f0064.jpg,0,one,1,1.00,
+s1_cari_v01_f0078.jpg,0,one,1,0.99,
+s1_cari_v02_f0017.jpg,0,one,1,0.99,
+s1_cari_v02_f0030.jpg,0,one,1,0.59,
+s1_cari_v02_f0044.jpg,0,one,1,1.00,
+s1_cari_v02_f0057.jpg,0,one,1,1.00,
+s1_cari_v02_f0070.jpg,0,one,1,0.99,
+s1_cari_v03_f0017.jpg,0,one,1,0.99,
+s1_cari_v03_f0030.jpg,0,one,1,0.93,
+s1_cari_v03_f0044.jpg,0,one,1,0.68,
+s1_cari_v03_f0057.jpg,0,one,1,1.00,
+s1_cari_v03_f0070.jpg,0,one,1,0.99,
+s1_cari_v04_f0018.jpg,0,one,1,0.95,
+s1_cari_v04_f0031.jpg,0,one,1,0.67,
+s1_cari_v04_f0044.jpg,0,one,1,0.98,
+s1_cari_v04_f0057.jpg,0,one,1,0.99,
+s1_cari_v04_f0070.jpg,0,one,1,1.00,
+s1_cari_v05_f0018.jpg,0,one,1,0.99,
+s1_cari_v05_f0032.jpg,0,one,1,0.73,
+s1_cari_v05_f0046.jpg,0,one,1,1.00,
+s1_cari_v05_f0059.jpg,0,one,1,1.00,
+s1_cari_v05_f0073.jpg,0,one,1,0.69,
+s1_cari_v06_f0020.jpg,0,one,1,0.91,
+s1_cari_v06_f0035.jpg,0,one,1,1.00,
+s1_cari_v06_f0050.jpg,0,one,1,1.00,
+s1_cari_v06_f0065.jpg,0,one,1,1.00,
+s1_cari_v06_f0080.jpg,0,one,1,1.00,
+s1_cari_v07_f0017.jpg,0,one,1,0.54,
+s1_cari_v07_f0029.jpg,0,one,1,0.99,
+s1_cari_v07_f0042.jpg,0,one,1,0.99,
+s1_cari_v07_f0055.jpg,0,one,1,0.99,
+s1_cari_v07_f0067.jpg,0,one,1,1.00,
+s1_cari_v08_f0017.jpg,0,one,1,1.00,
+s1_cari_v08_f0030.jpg,0,one,1,0.99,
+s1_cari_v08_f0042.jpg,0,one,1,0.57,
+s1_cari_v08_f0055.jpg,0,one,1,1.00,
+s1_cari_v08_f0068.jpg,0,one,1,0.99,
+s1_cari_v09_f0017.jpg,0,one,1,1.00,
+s1_cari_v09_f0029.jpg,0,one,1,1.00,
+s1_cari_v09_f0042.jpg,0,one,1,0.99,
+s1_cari_v09_f0054.jpg,0,one,1,0.91,
+s1_cari_v09_f0066.jpg,0,one,1,1.00,
+s1_cari_v10_f0017.jpg,0,one,1,0.99,
+s1_cari_v10_f0030.jpg,0,one,1,0.64,
+s1_cari_v10_f0043.jpg,0,one,1,0.95,
+s1_cari_v10_f0056.jpg,0,one,1,1.00,
+s1_cari_v10_f0069.jpg,0,one,1,1.00,
+s1_hari_v01_f0013.jpg,1,one,1,0.91,
+s1_hari_v01_f0023.jpg,1,one,0,,no_hand
+s1_hari_v01_f0032.jpg,1,one,1,0.92,
+s1_hari_v01_f0042.jpg,1,one,1,0.99,
+s1_hari_v01_f0052.jpg,1,one,0,,no_hand
+s1_hari_v02_f0014.jpg,1,one,1,0.97,
+s1_hari_v02_f0025.jpg,1,one,0,,no_hand
+s1_hari_v02_f0036.jpg,1,one,1,0.74,
+s1_hari_v02_f0047.jpg,1,one,1,0.97,
+s1_hari_v02_f0058.jpg,1,one,0,,no_hand
+s1_hari_v03_f0014.jpg,1,one,1,0.52,
+s1_hari_v03_f0025.jpg,1,one,1,0.96,
+s1_hari_v03_f0036.jpg,1,one,0,,no_hand
+s1_hari_v03_f0047.jpg,1,one,1,0.98,
+s1_hari_v03_f0058.jpg,1,one,1,0.99,
+s1_hari_v04_f0014.jpg,1,one,1,0.95,
+s1_hari_v04_f0024.jpg,1,one,0,,no_hand
+s1_hari_v04_f0034.jpg,1,one,1,0.93,
+s1_hari_v04_f0045.jpg,1,one,1,0.99,
+s1_hari_v04_f0055.jpg,1,one,0,,no_hand
+s1_hari_v05_f0017.jpg,1,one,1,0.96,
+s1_hari_v05_f0029.jpg,1,one,1,0.98,
+s1_hari_v05_f0042.jpg,1,one,1,0.97,
+s1_hari_v05_f0054.jpg,1,one,1,0.98,
+s1_hari_v05_f0066.jpg,1,one,1,0.99,
+s1_hari_v06_f0016.jpg,1,one,1,0.96,
+s1_hari_v06_f0028.jpg,1,one,1,0.98,
+s1_hari_v06_f0040.jpg,1,one,0,,no_hand
+s1_hari_v06_f0053.jpg,1,one,1,0.98,
+s1_hari_v06_f0065.jpg,1,one,1,0.99,
+s1_hari_v07_f0013.jpg,1,one,1,0.97,
+s1_hari_v07_f0023.jpg,1,one,1,0.99,
+s1_hari_v07_f0032.jpg,1,one,1,0.90,
+s1_hari_v07_f0042.jpg,1,one,1,0.97,
+s1_hari_v07_f0052.jpg,1,one,0,,no_hand
+s1_hari_v08_f0016.jpg,1,one,1,0.59,
+s1_hari_v08_f0028.jpg,1,one,1,0.99,
+s1_hari_v08_f0040.jpg,1,one,1,0.84,
+s1_hari_v08_f0051.jpg,1,one,1,0.91,
+s1_hari_v08_f0063.jpg,1,one,1,1.00,
+s1_hari_v09_f0014.jpg,1,one,1,0.97,
+s1_hari_v09_f0025.jpg,1,one,1,0.95,
+s1_hari_v09_f0036.jpg,1,one,1,0.58,
+s1_hari_v09_f0047.jpg,1,one,1,0.93,
+s1_hari_v09_f0058.jpg,1,one,0,,no_hand
+s1_hari_v10_f0014.jpg,1,one,1,0.93,
+s1_hari_v10_f0025.jpg,1,one,1,0.99,
+s1_hari_v10_f0036.jpg,1,one,1,0.89,
+s1_hari_v10_f0046.jpg,1,one,1,0.93,
+s1_hari_v10_f0057.jpg,1,one,1,0.98,
+s1_ingat_v01_f0015.jpg,2,one,1,0.99,
+s1_ingat_v01_f0027.jpg,2,one,1,0.99,
+s1_ingat_v01_f0038.jpg,2,one,1,0.99,
+s1_ingat_v01_f0049.jpg,2,one,1,1.00,
+s1_ingat_v01_f0061.jpg,2,one,0,,no_hand
+s1_ingat_v02_f0014.jpg,2,one,1,0.98,
+s1_ingat_v02_f0025.jpg,2,one,1,0.99,
+s1_ingat_v02_f0036.jpg,2,one,1,0.99,
+s1_ingat_v02_f0047.jpg,2,one,1,1.00,
+s1_ingat_v02_f0058.jpg,2,one,1,0.56,
+s1_ingat_v03_f0014.jpg,2,one,1,0.99,
+s1_ingat_v03_f0024.jpg,2,one,1,0.99,
+s1_ingat_v03_f0034.jpg,2,one,1,1.00,
+s1_ingat_v03_f0044.jpg,2,one,1,1.00,
+s1_ingat_v03_f0054.jpg,2,one,1,0.99,
+s1_ingat_v04_f0015.jpg,2,one,0,,no_hand
+s1_ingat_v04_f0027.jpg,2,one,1,1.00,
+s1_ingat_v04_f0038.jpg,2,one,1,0.99,
+s1_ingat_v04_f0050.jpg,2,one,1,1.00,
+s1_ingat_v04_f0062.jpg,2,one,1,0.94,
+s1_ingat_v05_f0015.jpg,2,one,1,0.99,
+s1_ingat_v05_f0026.jpg,2,one,1,1.00,
+s1_ingat_v05_f0037.jpg,2,one,1,0.99,
+s1_ingat_v05_f0048.jpg,2,one,1,1.00,
+s1_ingat_v05_f0059.jpg,2,one,0,,no_hand
+s1_ingat_v06_f0014.jpg,2,one,1,0.99,
+s1_ingat_v06_f0025.jpg,2,one,1,0.99,
+s1_ingat_v06_f0035.jpg,2,one,1,1.00,
+s1_ingat_v06_f0046.jpg,2,one,1,1.00,
+s1_ingat_v06_f0056.jpg,2,one,0,,no_hand
+s1_ingat_v07_f0013.jpg,2,one,1,0.99,
+s1_ingat_v07_f0023.jpg,2,one,1,0.99,
+s1_ingat_v07_f0034.jpg,2,one,1,1.00,
+s1_ingat_v07_f0044.jpg,2,one,1,1.00,
+s1_ingat_v07_f0054.jpg,2,one,0,,no_hand
+s1_ingat_v08_f0014.jpg,2,one,1,0.99,
+s1_ingat_v08_f0025.jpg,2,one,1,0.99,
+s1_ingat_v08_f0036.jpg,2,one,1,1.00,
+s1_ingat_v08_f0046.jpg,2,one,1,0.99,
+s1_ingat_v08_f0057.jpg,2,one,1,1.00,
+s1_ingat_v09_f0014.jpg,2,one,1,0.99,
+s1_ingat_v09_f0025.jpg,2,one,1,1.00,
+s1_ingat_v09_f0036.jpg,2,one,1,1.00,
+s1_ingat_v09_f0046.jpg,2,one,1,0.99,
+s1_ingat_v09_f0057.jpg,2,one,0,,no_hand
+s1_ingat_v10_f0015.jpg,2,one,0,,no_hand
+s1_ingat_v10_f0027.jpg,2,one,1,1.00,
+s1_ingat_v10_f0038.jpg,2,one,1,1.00,
+s1_ingat_v10_f0050.jpg,2,one,1,1.00,
+s1_ingat_v10_f0062.jpg,2,one,1,1.00,
+s1_keluarga_v01_f0018.jpg,12,one,1,0.95,
+s1_keluarga_v01_f0031.jpg,12,one,1,0.99,
+s1_keluarga_v01_f0044.jpg,12,one,1,0.64,
+s1_keluarga_v01_f0058.jpg,12,one,1,1.00,
+s1_keluarga_v01_f0071.jpg,12,one,1,1.00,
+s1_keluarga_v02_f0021.jpg,12,one,0,,no_hand
+s1_keluarga_v02_f0037.jpg,12,one,1,1.00,
+s1_keluarga_v02_f0054.jpg,12,one,1,0.53,
+s1_keluarga_v02_f0070.jpg,12,one,1,1.00,
+s1_keluarga_v02_f0086.jpg,12,one,1,1.00,
+s1_keluarga_v03_f0017.jpg,12,one,1,0.99,
+s1_keluarga_v03_f0030.jpg,12,one,1,1.00,
+s1_keluarga_v03_f0044.jpg,12,one,1,0.90,
+s1_keluarga_v03_f0057.jpg,12,one,1,1.00,
+s1_keluarga_v03_f0070.jpg,12,one,1,1.00,
+s1_keluarga_v04_f0019.jpg,12,one,1,0.97,
+s1_keluarga_v04_f0034.jpg,12,one,1,1.00,
+s1_keluarga_v04_f0048.jpg,12,one,1,1.00,
+s1_keluarga_v04_f0062.jpg,12,one,1,1.00,
+s1_keluarga_v04_f0077.jpg,12,one,1,1.00,
+s1_keluarga_v05_f0020.jpg,12,one,1,0.95,
+s1_keluarga_v05_f0035.jpg,12,one,1,1.00,
+s1_keluarga_v05_f0050.jpg,12,one,1,0.97,
+s1_keluarga_v05_f0064.jpg,12,one,1,0.99,
+s1_keluarga_v05_f0079.jpg,12,one,1,1.00,
+s1_keluarga_v06_f0017.jpg,12,one,1,0.61,
+s1_keluarga_v06_f0029.jpg,12,one,1,1.00,
+s1_keluarga_v06_f0042.jpg,12,one,1,0.72,
+s1_keluarga_v06_f0054.jpg,12,one,1,1.00,
+s1_keluarga_v06_f0066.jpg,12,one,1,1.00,
+s1_keluarga_v07_f0018.jpg,12,one,1,0.96,
+s1_keluarga_v07_f0031.jpg,12,one,1,1.00,
+s1_keluarga_v07_f0044.jpg,12,one,1,0.96,
+s1_keluarga_v07_f0058.jpg,12,one,1,1.00,
+s1_keluarga_v07_f0071.jpg,12,one,1,1.00,
+s1_keluarga_v08_f0016.jpg,12,one,0,,no_hand
+s1_keluarga_v08_f0027.jpg,12,one,1,0.94,
+s1_keluarga_v08_f0039.jpg,12,one,1,0.99,
+s1_keluarga_v08_f0051.jpg,12,one,1,1.00,
+s1_keluarga_v08_f0062.jpg,12,one,1,1.00,
+s1_keluarga_v09_f0013.jpg,12,one,1,0.98,
+s1_keluarga_v09_f0022.jpg,12,one,1,1.00,
+s1_keluarga_v09_f0032.jpg,12,one,1,0.75,
+s1_keluarga_v09_f0041.jpg,12,one,1,1.00,
+s1_keluarga_v09_f0050.jpg,12,one,1,1.00,
+s1_keluarga_v10_f0015.jpg,12,one,1,0.99,
+s1_keluarga_v10_f0026.jpg,12,one,1,0.58,
+s1_keluarga_v10_f0037.jpg,12,one,1,0.99,
+s1_keluarga_v10_f0048.jpg,12,one,1,1.00,
+s1_keluarga_v10_f0059.jpg,12,one,1,1.00,
+s1_keluarga_v11_f0014.jpg,12,one,1,0.90,
+s1_keluarga_v11_f0024.jpg,12,one,1,1.00,
+s1_keluarga_v11_f0034.jpg,12,one,1,0.84,
+s1_keluarga_v11_f0044.jpg,12,one,1,1.00,
+s1_keluarga_v11_f0054.jpg,12,one,1,1.00,
+s1_keluarga_v12_f0016.jpg,12,one,0,,no_hand
+s1_keluarga_v12_f0028.jpg,12,one,1,0.98,
+s1_keluarga_v12_f0040.jpg,12,one,1,0.92,
+s1_keluarga_v12_f0051.jpg,12,one,1,1.00,
+s1_keluarga_v12_f0063.jpg,12,one,1,1.00,
+s1_keluarga_v13_f0016.jpg,12,one,1,0.96,
+s1_keluarga_v13_f0028.jpg,12,one,1,0.99,
+s1_keluarga_v13_f0040.jpg,12,one,1,0.74,
+s1_keluarga_v13_f0052.jpg,12,one,1,1.00,
+s1_keluarga_v13_f0064.jpg,12,one,1,1.00,
+s1_keluarga_v14_f0020.jpg,12,one,0,,no_hand
+s1_keluarga_v14_f0034.jpg,12,one,1,0.99,
+s1_keluarga_v14_f0049.jpg,12,one,1,0.97,
+s1_keluarga_v14_f0064.jpg,12,one,1,0.99,
+s1_keluarga_v14_f0078.jpg,12,one,1,1.00,
+s1_keluarga_v15_f0018.jpg,12,one,1,0.99,
+s1_keluarga_v15_f0032.jpg,12,one,1,0.99,
+s1_keluarga_v15_f0045.jpg,12,one,1,1.00,
+s1_keluarga_v15_f0059.jpg,12,one,1,1.00,
+s1_keluarga_v15_f0072.jpg,12,one,1,1.00,
+s1_lagi_v01_f0013.jpg,3,one,1,0.99,
+s1_lagi_v01_f0022.jpg,3,one,1,0.99,
+s1_lagi_v01_f0032.jpg,3,one,1,0.99,
+s1_lagi_v01_f0041.jpg,3,one,1,0.99,
+s1_lagi_v01_f0050.jpg,3,one,1,0.96,
+s1_lagi_v02_f0014.jpg,3,one,1,0.99,
+s1_lagi_v02_f0025.jpg,3,one,1,0.99,
+s1_lagi_v02_f0036.jpg,3,one,1,0.99,
+s1_lagi_v02_f0046.jpg,3,one,1,0.99,
+s1_lagi_v02_f0057.jpg,3,one,0,,no_hand
+s1_lagi_v03_f0014.jpg,3,one,0,,no_hand
+s1_lagi_v03_f0025.jpg,3,one,1,0.99,
+s1_lagi_v03_f0036.jpg,3,one,1,0.99,
+s1_lagi_v03_f0046.jpg,3,one,1,0.98,
+s1_lagi_v03_f0057.jpg,3,one,1,0.99,
+s1_lagi_v04_f0014.jpg,3,one,1,0.87,
+s1_lagi_v04_f0025.jpg,3,one,1,0.99,
+s1_lagi_v04_f0036.jpg,3,one,1,0.99,
+s1_lagi_v04_f0046.jpg,3,one,1,0.99,
+s1_lagi_v04_f0057.jpg,3,one,0,,no_hand
+s1_lagi_v05_f0013.jpg,3,one,1,0.80,
+s1_lagi_v05_f0023.jpg,3,one,1,0.99,
+s1_lagi_v05_f0034.jpg,3,one,1,0.99,
+s1_lagi_v05_f0044.jpg,3,one,1,0.99,
+s1_lagi_v05_f0054.jpg,3,one,1,0.91,
+s1_lagi_v06_f0014.jpg,3,one,1,0.76,
+s1_lagi_v06_f0025.jpg,3,one,1,0.99,
+s1_lagi_v06_f0036.jpg,3,one,1,0.99,
+s1_lagi_v06_f0046.jpg,3,one,1,0.99,
+s1_lagi_v06_f0057.jpg,3,one,0,,no_hand
+s1_lagi_v07_f0012.jpg,3,one,1,1.00,
+s1_lagi_v07_f0022.jpg,3,one,1,1.00,
+s1_lagi_v07_f0031.jpg,3,one,1,0.99,
+s1_lagi_v07_f0040.jpg,3,one,1,0.98,
+s1_lagi_v07_f0050.jpg,3,one,0,,no_hand
+s1_lagi_v08_f0014.jpg,3,one,0,,no_hand
+s1_lagi_v08_f0024.jpg,3,one,1,0.99,
+s1_lagi_v08_f0034.jpg,3,one,1,0.98,
+s1_lagi_v08_f0045.jpg,3,one,1,0.99,
+s1_lagi_v08_f0055.jpg,3,one,0,,no_hand
+s1_lagi_v09_f0015.jpg,3,one,1,0.99,
+s1_lagi_v09_f0026.jpg,3,one,1,0.99,
+s1_lagi_v09_f0038.jpg,3,one,1,0.99,
+s1_lagi_v09_f0049.jpg,3,one,1,0.99,
+s1_lagi_v09_f0060.jpg,3,one,1,0.99,
+s1_lagi_v10_f0013.jpg,3,one,1,0.95,
+s1_lagi_v10_f0023.jpg,3,one,1,0.99,
+s1_lagi_v10_f0034.jpg,3,one,1,0.99,
+s1_lagi_v10_f0044.jpg,3,one,1,0.99,
+s1_lagi_v10_f0054.jpg,3,one,1,1.00,
+s1_maaf_v01_f0017.jpg,4,one,1,0.61,
+s1_maaf_v01_f0029.jpg,4,one,1,0.98,
+s1_maaf_v01_f0042.jpg,4,one,1,1.00,
+s1_maaf_v01_f0054.jpg,4,one,1,0.99,
+s1_maaf_v01_f0066.jpg,4,one,0,,no_hand
+s1_maaf_v02_f0017.jpg,4,one,1,0.64,
+s1_maaf_v02_f0030.jpg,4,one,1,0.99,
+s1_maaf_v02_f0042.jpg,4,one,1,1.00,
+s1_maaf_v02_f0055.jpg,4,one,1,0.99,
+s1_maaf_v02_f0068.jpg,4,one,0,,no_hand
+s1_maaf_v03_f0019.jpg,4,one,0,,no_hand
+s1_maaf_v03_f0034.jpg,4,one,1,0.98,
+s1_maaf_v03_f0048.jpg,4,one,1,0.99,
+s1_maaf_v03_f0063.jpg,4,one,1,0.99,
+s1_maaf_v03_f0078.jpg,4,one,0,,no_hand
+s1_maaf_v04_f0017.jpg,4,one,0,,no_hand
+s1_maaf_v04_f0030.jpg,4,one,1,0.98,
+s1_maaf_v04_f0044.jpg,4,one,1,0.98,
+s1_maaf_v04_f0057.jpg,4,one,1,0.99,
+s1_maaf_v04_f0070.jpg,4,one,0,,no_hand
+s1_maaf_v05_f0016.jpg,4,one,1,0.92,
+s1_maaf_v05_f0028.jpg,4,one,1,0.99,
+s1_maaf_v05_f0040.jpg,4,one,1,0.99,
+s1_maaf_v05_f0053.jpg,4,one,1,0.99,
+s1_maaf_v05_f0065.jpg,4,one,0,,no_hand
+s1_maaf_v06_f0017.jpg,4,one,0,,no_hand
+s1_maaf_v06_f0030.jpg,4,one,1,0.97,
+s1_maaf_v06_f0044.jpg,4,one,1,0.98,
+s1_maaf_v06_f0057.jpg,4,one,1,1.00,
+s1_maaf_v06_f0070.jpg,4,one,0,,no_hand
+s1_maaf_v07_f0014.jpg,4,one,1,0.99,
+s1_maaf_v07_f0024.jpg,4,one,1,0.98,
+s1_maaf_v07_f0034.jpg,4,one,1,0.99,
+s1_maaf_v07_f0044.jpg,4,one,1,0.99,
+s1_maaf_v07_f0054.jpg,4,one,1,0.64,
+s1_maaf_v08_f0012.jpg,4,one,0,,no_hand
+s1_maaf_v08_f0022.jpg,4,one,1,0.94,
+s1_maaf_v08_f0031.jpg,4,one,1,1.00,
+s1_maaf_v08_f0040.jpg,4,one,1,0.99,
+s1_maaf_v08_f0050.jpg,4,one,1,0.99,
+s1_maaf_v09_f0014.jpg,4,one,1,0.69,
+s1_maaf_v09_f0025.jpg,4,one,1,0.98,
+s1_maaf_v09_f0036.jpg,4,one,1,1.00,
+s1_maaf_v09_f0046.jpg,4,one,1,0.97,
+s1_maaf_v09_f0057.jpg,4,one,0,,no_hand
+s1_maaf_v10_f0013.jpg,4,one,0,,no_hand
+s1_maaf_v10_f0023.jpg,4,one,1,0.98,
+s1_maaf_v10_f0034.jpg,4,one,1,0.99,
+s1_maaf_v10_f0044.jpg,4,one,1,0.98,
+s1_maaf_v10_f0054.jpg,4,one,1,0.97,
+s1_makan_v01_f0016.jpg,5,one,1,0.89,
+s1_makan_v01_f0028.jpg,5,one,1,1.00,
+s1_makan_v01_f0040.jpg,5,one,1,1.00,
+s1_makan_v01_f0053.jpg,5,one,1,0.99,
+s1_makan_v01_f0065.jpg,5,one,0,,no_hand
+s1_makan_v02_f0014.jpg,5,one,1,0.99,
+s1_makan_v02_f0025.jpg,5,one,1,1.00,
+s1_makan_v02_f0036.jpg,5,one,1,1.00,
+s1_makan_v02_f0046.jpg,5,one,1,1.00,
+s1_makan_v02_f0057.jpg,5,one,1,1.00,
+s1_makan_v03_f0016.jpg,5,one,0,,no_hand
+s1_makan_v03_f0028.jpg,5,one,1,1.00,
+s1_makan_v03_f0040.jpg,5,one,1,0.99,
+s1_makan_v03_f0052.jpg,5,one,1,0.99,
+s1_makan_v03_f0064.jpg,5,one,1,0.99,
+s1_makan_v04_f0016.jpg,5,one,1,0.99,
+s1_makan_v04_f0027.jpg,5,one,1,1.00,
+s1_makan_v04_f0039.jpg,5,one,1,0.99,
+s1_makan_v04_f0051.jpg,5,one,1,0.99,
+s1_makan_v04_f0062.jpg,5,one,1,0.99,
+s1_makan_v05_f0014.jpg,5,one,1,0.99,
+s1_makan_v05_f0025.jpg,5,one,1,0.96,
+s1_makan_v05_f0036.jpg,5,one,1,0.99,
+s1_makan_v05_f0046.jpg,5,one,1,0.99,
+s1_makan_v05_f0057.jpg,5,one,1,0.97,
+s1_makan_v06_f0015.jpg,5,one,1,0.89,
+s1_makan_v06_f0026.jpg,5,one,1,0.90,
+s1_makan_v06_f0036.jpg,5,one,1,0.99,
+s1_makan_v06_f0047.jpg,5,one,1,0.99,
+s1_makan_v06_f0058.jpg,5,one,0,,no_hand
+s1_makan_v07_f0015.jpg,5,one,1,0.92,
+s1_makan_v07_f0026.jpg,5,one,1,0.99,
+s1_makan_v07_f0037.jpg,5,one,1,0.99,
+s1_makan_v07_f0048.jpg,5,one,1,0.99,
+s1_makan_v07_f0059.jpg,5,one,1,0.99,
+s1_makan_v08_f0016.jpg,5,one,1,0.99,
+s1_makan_v08_f0028.jpg,5,one,1,0.97,
+s1_makan_v08_f0040.jpg,5,one,1,0.99,
+s1_makan_v08_f0051.jpg,5,one,1,0.99,
+s1_makan_v08_f0063.jpg,5,one,1,1.00,
+s1_makan_v09_f0017.jpg,5,one,1,0.99,
+s1_makan_v09_f0029.jpg,5,one,1,1.00,
+s1_makan_v09_f0042.jpg,5,one,1,0.99,
+s1_makan_v09_f0054.jpg,5,one,1,0.99,
+s1_makan_v09_f0066.jpg,5,one,1,0.97,
+s1_makan_v10_f0016.jpg,5,one,1,1.00,
+s1_makan_v10_f0028.jpg,5,one,1,0.98,
+s1_makan_v10_f0040.jpg,5,one,1,0.99,
+s1_makan_v10_f0052.jpg,5,one,1,0.98,
+s1_makan_v10_f0064.jpg,5,one,0,,no_hand
+s1_motor_v01_f0015.jpg,6,two,2,1.00 0.99,
+s1_motor_v01_f0027.jpg,6,two,2,0.99 1.00,
+s1_motor_v01_f0038.jpg,6,two,2,0.98 0.93,
+s1_motor_v01_f0049.jpg,6,two,2,0.98 1.00,
+s1_motor_v01_f0061.jpg,6,two,2,1.00 1.00,
+s1_motor_v02_f0015.jpg,6,two,2,0.99 0.99,
+s1_motor_v02_f0027.jpg,6,two,2,1.00 0.99,
+s1_motor_v02_f0038.jpg,6,two,2,0.99 1.00,
+s1_motor_v02_f0050.jpg,6,two,2,1.00 0.99,
+s1_motor_v02_f0062.jpg,6,two,1,0.97,two_class_one_hand
+s1_motor_v03_f0016.jpg,6,two,2,0.99 0.74,
+s1_motor_v03_f0028.jpg,6,two,2,0.99 1.00,
+s1_motor_v03_f0040.jpg,6,two,2,0.99 0.99,
+s1_motor_v03_f0053.jpg,6,two,2,0.98 1.00,
+s1_motor_v03_f0065.jpg,6,two,2,0.83 0.98,
+s1_motor_v04_f0016.jpg,6,two,2,0.98 0.82,
+s1_motor_v04_f0027.jpg,6,two,2,1.00 0.99,
+s1_motor_v04_f0039.jpg,6,two,2,0.99 1.00,
+s1_motor_v04_f0051.jpg,6,two,2,0.99 0.99,
+s1_motor_v04_f0062.jpg,6,two,2,1.00 0.98,
+s1_motor_v05_f0015.jpg,6,two,2,0.99 0.98,
+s1_motor_v05_f0026.jpg,6,two,2,0.99 1.00,
+s1_motor_v05_f0036.jpg,6,two,2,1.00 0.99,
+s1_motor_v05_f0047.jpg,6,two,2,0.99 1.00,
+s1_motor_v05_f0058.jpg,6,two,2,0.98 0.99,
+s1_motor_v06_f0014.jpg,6,two,2,0.95 0.99,
+s1_motor_v06_f0025.jpg,6,two,2,1.00 0.99,
+s1_motor_v06_f0036.jpg,6,two,2,0.99 0.99,
+s1_motor_v06_f0046.jpg,6,two,2,1.00 0.99,
+s1_motor_v06_f0057.jpg,6,two,2,0.96 0.98,
+s1_motor_v07_f0016.jpg,6,two,2,0.99 0.99,
+s1_motor_v07_f0028.jpg,6,two,2,1.00 0.99,
+s1_motor_v07_f0040.jpg,6,two,2,1.00 0.99,
+s1_motor_v07_f0051.jpg,6,two,2,1.00 0.97,
+s1_motor_v07_f0063.jpg,6,two,2,0.99 0.79,
+s1_motor_v08_f0015.jpg,6,two,2,1.00 0.96,
+s1_motor_v08_f0026.jpg,6,two,2,1.00 0.99,
+s1_motor_v08_f0036.jpg,6,two,2,1.00 1.00,
+s1_motor_v08_f0047.jpg,6,two,2,0.99 1.00,
+s1_motor_v08_f0058.jpg,6,two,1,0.95,two_class_one_hand
+s1_motor_v09_f0016.jpg,6,two,2,1.00 0.99,
+s1_motor_v09_f0027.jpg,6,two,2,0.96 1.00,
+s1_motor_v09_f0039.jpg,6,two,2,1.00 0.82,
+s1_motor_v09_f0051.jpg,6,two,2,1.00 0.97,
+s1_motor_v09_f0062.jpg,6,two,2,0.97 0.98,
+s1_motor_v10_f0015.jpg,6,two,2,1.00 0.98,
+s1_motor_v10_f0026.jpg,6,two,2,0.99 1.00,
+s1_motor_v10_f0037.jpg,6,two,2,1.00 0.94,
+s1_motor_v10_f0048.jpg,6,two,2,1.00 0.99,
+s1_motor_v10_f0059.jpg,6,two,2,0.92 0.59,
+s1_pagi_v01_f0015.jpg,14,one,1,0.99,
+s1_pagi_v01_f0027.jpg,14,one,1,0.99,
+s1_pagi_v01_f0038.jpg,14,one,1,1.00,
+s1_pagi_v01_f0049.jpg,14,one,1,0.99,
+s1_pagi_v01_f0061.jpg,14,one,1,1.00,
+s1_pagi_v02_f0015.jpg,14,one,1,0.99,
+s1_pagi_v02_f0027.jpg,14,one,1,0.99,
+s1_pagi_v02_f0038.jpg,14,one,1,0.99,
+s1_pagi_v02_f0050.jpg,14,one,1,0.99,
+s1_pagi_v02_f0062.jpg,14,one,1,0.98,
+s1_pagi_v03_f0016.jpg,14,one,1,0.99,
+s1_pagi_v03_f0028.jpg,14,one,1,0.99,
+s1_pagi_v03_f0040.jpg,14,one,1,0.99,
+s1_pagi_v03_f0051.jpg,14,one,1,0.99,
+s1_pagi_v03_f0063.jpg,14,one,1,0.99,
+s1_pagi_v04_f0017.jpg,14,one,1,0.95,
+s1_pagi_v04_f0029.jpg,14,one,1,0.99,
+s1_pagi_v04_f0042.jpg,14,one,1,1.00,
+s1_pagi_v04_f0054.jpg,14,one,1,1.00,
+s1_pagi_v04_f0066.jpg,14,one,1,1.00,
+s1_pagi_v05_f0015.jpg,14,one,1,0.98,
+s1_pagi_v05_f0027.jpg,14,one,1,1.00,
+s1_pagi_v05_f0038.jpg,14,one,1,1.00,
+s1_pagi_v05_f0050.jpg,14,one,1,0.99,
+s1_pagi_v05_f0062.jpg,14,one,1,0.99,
+s1_pagi_v06_f0016.jpg,14,one,1,0.98,
+s1_pagi_v06_f0028.jpg,14,one,1,1.00,
+s1_pagi_v06_f0040.jpg,14,one,1,1.00,
+s1_pagi_v06_f0052.jpg,14,one,1,0.99,
+s1_pagi_v06_f0064.jpg,14,one,1,0.99,
+s1_pagi_v07_f0017.jpg,14,one,1,1.00,
+s1_pagi_v07_f0029.jpg,14,one,1,0.99,
+s1_pagi_v07_f0042.jpg,14,one,1,0.99,
+s1_pagi_v07_f0054.jpg,14,one,1,0.99,
+s1_pagi_v07_f0066.jpg,14,one,1,0.99,
+s1_pagi_v08_f0010.jpg,14,one,0,,no_hand
+s1_pagi_v08_f0018.jpg,14,one,1,0.99,
+s1_pagi_v08_f0025.jpg,14,one,1,0.99,
+s1_pagi_v08_f0033.jpg,14,one,1,0.99,
+s1_pagi_v08_f0040.jpg,14,one,1,0.99,
+s1_pagi_v09_f0009.jpg,14,one,1,0.80,
+s1_pagi_v09_f0015.jpg,14,one,1,0.99,
+s1_pagi_v09_f0022.jpg,14,one,1,0.99,
+s1_pagi_v09_f0029.jpg,14,one,1,0.99,
+s1_pagi_v09_f0035.jpg,14,one,1,0.99,
+s1_pagi_v10_f0012.jpg,14,one,0,,no_hand
+s1_pagi_v10_f0021.jpg,14,one,1,0.99,
+s1_pagi_v10_f0030.jpg,14,one,1,0.99,
+s1_pagi_v10_f0038.jpg,14,one,1,0.99,
+s1_pagi_v10_f0047.jpg,14,one,1,1.00,
+s1_pagi_v11_f0011.jpg,14,one,0,,no_hand
+s1_pagi_v11_f0019.jpg,14,one,1,0.96,
+s1_pagi_v11_f0028.jpg,14,one,1,0.99,
+s1_pagi_v11_f0036.jpg,14,one,1,0.99,
+s1_pagi_v11_f0044.jpg,14,one,1,1.00,
+s1_pagi_v12_f0011.jpg,14,one,0,,no_hand
+s1_pagi_v12_f0020.jpg,14,one,1,0.99,
+s1_pagi_v12_f0028.jpg,14,one,1,0.99,
+s1_pagi_v12_f0036.jpg,14,one,1,0.99,
+s1_pagi_v12_f0045.jpg,14,one,1,1.00,
+s1_pagi_v13_f0016.jpg,14,one,0,,no_hand
+s1_pagi_v13_f0028.jpg,14,one,1,0.99,
+s1_pagi_v13_f0040.jpg,14,one,1,0.99,
+s1_pagi_v13_f0052.jpg,14,one,1,1.00,
+s1_pagi_v13_f0064.jpg,14,one,1,0.99,
+s1_pagi_v14_f0020.jpg,14,one,1,1.00,
+s1_pagi_v14_f0034.jpg,14,one,1,1.00,
+s1_pagi_v14_f0049.jpg,14,one,1,1.00,
+s1_pagi_v14_f0064.jpg,14,one,1,0.99,
+s1_pagi_v14_f0078.jpg,14,one,0,,no_hand
+s1_pagi_v15_f0016.jpg,14,one,1,0.99,
+s1_pagi_v15_f0028.jpg,14,one,1,0.98,
+s1_pagi_v15_f0040.jpg,14,one,1,0.99,
+s1_pagi_v15_f0053.jpg,14,one,1,0.99,
+s1_pagi_v15_f0065.jpg,14,one,1,0.99,
+s1_rumah_v01_f0017.jpg,13,two,0,,no_hand
+s1_rumah_v01_f0029.jpg,13,two,2,0.99 1.00,
+s1_rumah_v01_f0042.jpg,13,two,2,0.99 1.00,
+s1_rumah_v01_f0054.jpg,13,two,2,0.98 0.99,
+s1_rumah_v01_f0066.jpg,13,two,2,0.95 0.99,
+s1_rumah_v02_f0018.jpg,13,two,0,,no_hand
+s1_rumah_v02_f0031.jpg,13,two,2,0.97 0.99,
+s1_rumah_v02_f0044.jpg,13,two,2,0.93 1.00,
+s1_rumah_v02_f0057.jpg,13,two,2,0.93 0.98,
+s1_rumah_v02_f0070.jpg,13,two,2,0.71 0.65,
+s1_rumah_v03_f0014.jpg,13,two,2,0.91 0.99,
+s1_rumah_v03_f0025.jpg,13,two,2,1.00 0.99,
+s1_rumah_v03_f0035.jpg,13,two,2,0.98 0.94,
+s1_rumah_v03_f0046.jpg,13,two,2,0.97 0.97,
+s1_rumah_v03_f0056.jpg,13,two,1,0.96,two_class_one_hand
+s1_rumah_v04_f0015.jpg,13,two,1,0.97,two_class_one_hand
+s1_rumah_v04_f0026.jpg,13,two,2,0.89 0.97,
+s1_rumah_v04_f0036.jpg,13,two,2,1.00 0.98,
+s1_rumah_v04_f0047.jpg,13,two,2,0.99 0.98,
+s1_rumah_v04_f0058.jpg,13,two,1,0.93,two_class_one_hand
+s1_rumah_v05_f0016.jpg,13,two,0,,no_hand
+s1_rumah_v05_f0028.jpg,13,two,2,0.99 0.98,
+s1_rumah_v05_f0040.jpg,13,two,2,0.99 0.98,
+s1_rumah_v05_f0052.jpg,13,two,2,0.99 0.92,
+s1_rumah_v05_f0064.jpg,13,two,1,0.99,two_class_one_hand
+s1_rumah_v06_f0017.jpg,13,two,0,,no_hand
+s1_rumah_v06_f0030.jpg,13,two,2,0.89 0.98,
+s1_rumah_v06_f0042.jpg,13,two,2,0.99 0.95,
+s1_rumah_v06_f0055.jpg,13,two,2,0.99 0.96,
+s1_rumah_v06_f0068.jpg,13,two,0,,no_hand
+s1_rumah_v07_f0020.jpg,13,two,0,,no_hand
+s1_rumah_v07_f0035.jpg,13,two,1,1.00,two_class_one_hand
+s1_rumah_v07_f0050.jpg,13,two,2,0.99 0.81,
+s1_rumah_v07_f0064.jpg,13,two,2,0.99 0.80,
+s1_rumah_v07_f0079.jpg,13,two,1,0.99,two_class_one_hand
+s1_rumah_v08_f0012.jpg,13,two,1,0.83,two_class_one_hand
+s1_rumah_v08_f0022.jpg,13,two,2,0.99 0.96,
+s1_rumah_v08_f0031.jpg,13,two,2,0.72 0.95,
+s1_rumah_v08_f0040.jpg,13,two,2,0.97 0.93,
+s1_rumah_v08_f0050.jpg,13,two,2,0.90 0.92,
+s1_rumah_v09_f0012.jpg,13,two,0,,no_hand
+s1_rumah_v09_f0022.jpg,13,two,2,0.99 0.97,
+s1_rumah_v09_f0031.jpg,13,two,2,0.93 0.88,
+s1_rumah_v09_f0040.jpg,13,two,2,0.97 0.87,
+s1_rumah_v09_f0050.jpg,13,two,0,,no_hand
+s1_rumah_v10_f0014.jpg,13,two,0,,no_hand
+s1_rumah_v10_f0024.jpg,13,two,2,0.92 0.94,
+s1_rumah_v10_f0034.jpg,13,two,2,0.80 0.97,
+s1_rumah_v10_f0045.jpg,13,two,2,0.71 0.97,
+s1_rumah_v10_f0055.jpg,13,two,0,,no_hand
+s1_rumah_v11_f0013.jpg,13,two,0,,no_hand
+s1_rumah_v11_f0023.jpg,13,two,2,0.98 0.99,
+s1_rumah_v11_f0032.jpg,13,two,2,0.61 0.97,
+s1_rumah_v11_f0042.jpg,13,two,2,0.99 0.93,
+s1_rumah_v11_f0052.jpg,13,two,1,0.91,two_class_one_hand
+s1_rumah_v12_f0012.jpg,13,two,0,,no_hand
+s1_rumah_v12_f0021.jpg,13,two,2,0.99 1.00,
+s1_rumah_v12_f0030.jpg,13,two,2,0.70 0.97,
+s1_rumah_v12_f0039.jpg,13,two,2,0.90 0.93,
+s1_rumah_v12_f0048.jpg,13,two,2,0.61 0.91,
+s1_rumah_v13_f0019.jpg,13,two,0,,no_hand
+s1_rumah_v13_f0033.jpg,13,two,2,0.99 0.98,
+s1_rumah_v13_f0048.jpg,13,two,2,0.96 0.99,
+s1_rumah_v13_f0062.jpg,13,two,2,0.97 0.97,
+s1_rumah_v13_f0076.jpg,13,two,0,,no_hand
+s1_rumah_v14_f0017.jpg,13,two,0,,no_hand
+s1_rumah_v14_f0030.jpg,13,two,2,0.96 0.98,
+s1_rumah_v14_f0043.jpg,13,two,2,0.92 0.94,
+s1_rumah_v14_f0056.jpg,13,two,2,0.92 0.96,
+s1_rumah_v14_f0069.jpg,13,two,2,0.56 0.61,
+s1_rumah_v15_f0017.jpg,13,two,0,,no_hand
+s1_rumah_v15_f0030.jpg,13,two,2,0.97 0.99,
+s1_rumah_v15_f0044.jpg,13,two,2,0.99 0.99,
+s1_rumah_v15_f0057.jpg,13,two,2,0.99 0.98,
+s1_rumah_v15_f0070.jpg,13,two,2,0.74 1.00,
+s1_saya_v01_f0013.jpg,7,one,1,0.97,
+s1_saya_v01_f0023.jpg,7,one,1,0.87,
+s1_saya_v01_f0032.jpg,7,one,1,0.86,
+s1_saya_v01_f0042.jpg,7,one,1,0.90,
+s1_saya_v01_f0052.jpg,7,one,0,,no_hand
+s1_saya_v02_f0015.jpg,7,one,0,,no_hand
+s1_saya_v02_f0026.jpg,7,one,1,0.89,
+s1_saya_v02_f0038.jpg,7,one,1,0.89,
+s1_saya_v02_f0049.jpg,7,one,1,0.89,
+s1_saya_v02_f0060.jpg,7,one,1,0.97,
+s1_saya_v03_f0012.jpg,7,one,1,0.53,
+s1_saya_v03_f0022.jpg,7,one,1,0.86,
+s1_saya_v03_f0031.jpg,7,one,1,0.92,
+s1_saya_v03_f0040.jpg,7,one,1,0.94,
+s1_saya_v03_f0050.jpg,7,one,1,0.88,
+s1_saya_v04_f0013.jpg,7,one,1,0.99,
+s1_saya_v04_f0023.jpg,7,one,1,0.86,
+s1_saya_v04_f0034.jpg,7,one,1,0.86,
+s1_saya_v04_f0044.jpg,7,one,1,0.87,
+s1_saya_v04_f0054.jpg,7,one,1,0.84,
+s1_saya_v05_f0013.jpg,7,one,1,0.88,
+s1_saya_v05_f0023.jpg,7,one,1,0.92,
+s1_saya_v05_f0034.jpg,7,one,1,0.90,
+s1_saya_v05_f0044.jpg,7,one,1,0.94,
+s1_saya_v05_f0054.jpg,7,one,1,0.98,
+s1_saya_v06_f0013.jpg,7,one,1,0.84,
+s1_saya_v06_f0022.jpg,7,one,1,0.92,
+s1_saya_v06_f0032.jpg,7,one,1,0.88,
+s1_saya_v06_f0042.jpg,7,one,1,0.92,
+s1_saya_v06_f0051.jpg,7,one,0,,no_hand
+s1_saya_v07_f0010.jpg,7,one,1,0.87,
+s1_saya_v07_f0018.jpg,7,one,1,0.90,
+s1_saya_v07_f0025.jpg,7,one,1,0.91,
+s1_saya_v07_f0033.jpg,7,one,1,0.95,
+s1_saya_v07_f0040.jpg,7,one,1,0.99,
+s1_saya_v08_f0012.jpg,7,one,1,0.58,
+s1_saya_v08_f0020.jpg,7,one,1,0.89,
+s1_saya_v08_f0029.jpg,7,one,1,0.92,
+s1_saya_v08_f0038.jpg,7,one,1,0.94,
+s1_saya_v08_f0046.jpg,7,one,0,,no_hand
+s1_saya_v09_f0012.jpg,7,one,1,0.90,
+s1_saya_v09_f0021.jpg,7,one,1,0.77,
+s1_saya_v09_f0030.jpg,7,one,1,0.79,
+s1_saya_v09_f0040.jpg,7,one,1,0.88,
+s1_saya_v09_f0049.jpg,7,one,1,0.55,
+s1_saya_v10_f0013.jpg,7,one,1,0.90,
+s1_saya_v10_f0022.jpg,7,one,1,0.88,
+s1_saya_v10_f0032.jpg,7,one,1,0.88,
+s1_saya_v10_f0042.jpg,7,one,1,0.96,
+s1_saya_v10_f0051.jpg,7,one,1,0.79,
+s1_teman_v01_f0020.jpg,11,two,2,1.00 0.96,
+s1_teman_v01_f0035.jpg,11,two,2,0.90 1.00,
+s1_teman_v01_f0050.jpg,11,two,2,1.00 0.98,
+s1_teman_v01_f0064.jpg,11,two,2,1.00 1.00,
+s1_teman_v01_f0079.jpg,11,two,0,,no_hand
+s1_teman_v02_f0014.jpg,11,two,2,0.66 0.90,
+s1_teman_v02_f0025.jpg,11,two,2,0.85 1.00,
+s1_teman_v02_f0036.jpg,11,two,2,0.76 1.00,
+s1_teman_v02_f0046.jpg,11,two,2,0.89 1.00,
+s1_teman_v02_f0057.jpg,11,two,2,1.00 0.97,
+s1_teman_v03_f0018.jpg,11,two,0,,no_hand
+s1_teman_v03_f0031.jpg,11,two,1,0.50,two_class_one_hand
+s1_teman_v03_f0044.jpg,11,two,2,0.92 1.00,
+s1_teman_v03_f0058.jpg,11,two,2,1.00 0.84,
+s1_teman_v03_f0071.jpg,11,two,2,1.00 0.92,
+s1_teman_v04_f0015.jpg,11,two,2,1.00 0.78,
+s1_teman_v04_f0026.jpg,11,two,2,1.00 0.89,
+s1_teman_v04_f0038.jpg,11,two,2,1.00 0.85,
+s1_teman_v04_f0049.jpg,11,two,2,1.00 0.86,
+s1_teman_v04_f0060.jpg,11,two,2,0.95 0.92,
+s1_teman_v05_f0017.jpg,11,two,2,0.88 1.00,
+s1_teman_v05_f0029.jpg,11,two,2,0.69 0.99,
+s1_teman_v05_f0042.jpg,11,two,2,0.57 1.00,
+s1_teman_v05_f0054.jpg,11,two,2,0.73 1.00,
+s1_teman_v05_f0066.jpg,11,two,1,0.97,two_class_one_hand
+s1_teman_v06_f0015.jpg,11,two,2,0.50 1.00,
+s1_teman_v06_f0027.jpg,11,two,2,0.97 1.00,
+s1_teman_v06_f0038.jpg,11,two,2,0.51 1.00,
+s1_teman_v06_f0050.jpg,11,two,2,0.66 1.00,
+s1_teman_v06_f0062.jpg,11,two,2,0.88 0.98,
+s1_teman_v07_f0017.jpg,11,two,1,0.84,two_class_one_hand
+s1_teman_v07_f0029.jpg,11,two,2,1.00 0.99,
+s1_teman_v07_f0042.jpg,11,two,2,0.99 0.99,
+s1_teman_v07_f0054.jpg,11,two,2,0.99 1.00,
+s1_teman_v07_f0066.jpg,11,two,2,0.63 0.97,
+s1_teman_v08_f0013.jpg,11,two,1,0.97,two_class_one_hand
+s1_teman_v08_f0022.jpg,11,two,2,0.98 1.00,
+s1_teman_v08_f0032.jpg,11,two,2,0.99 1.00,
+s1_teman_v08_f0041.jpg,11,two,2,0.99 1.00,
+s1_teman_v08_f0050.jpg,11,two,0,,no_hand
+s1_teman_v09_f0010.jpg,11,two,1,0.91,two_class_one_hand
+s1_teman_v09_f0018.jpg,11,two,2,0.99 1.00,
+s1_teman_v09_f0026.jpg,11,two,2,1.00 0.68,
+s1_teman_v09_f0033.jpg,11,two,2,1.00 0.65,
+s1_teman_v09_f0041.jpg,11,two,2,1.00 0.99,
+s1_teman_v10_f0013.jpg,11,two,0,,no_hand
+s1_teman_v10_f0022.jpg,11,two,2,1.00 0.99,
+s1_teman_v10_f0032.jpg,11,two,2,1.00 1.00,
+s1_teman_v10_f0042.jpg,11,two,2,1.00 1.00,
+s1_teman_v10_f0051.jpg,11,two,1,0.76,two_class_one_hand
+s1_teman_v11_f0014.jpg,11,two,0,,no_hand
+s1_teman_v11_f0024.jpg,11,two,2,1.00 1.00,
+s1_teman_v11_f0034.jpg,11,two,2,1.00 1.00,
+s1_teman_v11_f0044.jpg,11,two,2,1.00 0.98,
+s1_teman_v11_f0054.jpg,11,two,2,1.00 0.69,
+s1_teman_v12_f0014.jpg,11,two,0,,no_hand
+s1_teman_v12_f0024.jpg,11,two,2,1.00 0.99,
+s1_teman_v12_f0034.jpg,11,two,2,1.00 0.99,
+s1_teman_v12_f0044.jpg,11,two,2,1.00 0.98,
+s1_teman_v12_f0054.jpg,11,two,0,,no_hand
+s1_teman_v13_f0017.jpg,11,two,0,,no_hand
+s1_teman_v13_f0030.jpg,11,two,2,0.97 0.99,
+s1_teman_v13_f0044.jpg,11,two,2,1.00 1.00,
+s1_teman_v13_f0057.jpg,11,two,2,1.00 0.99,
+s1_teman_v13_f0070.jpg,11,two,2,1.00 1.00,
+s1_teman_v14_f0015.jpg,11,two,2,0.96 1.00,
+s1_teman_v14_f0027.jpg,11,two,2,0.87 1.00,
+s1_teman_v14_f0038.jpg,11,two,2,1.00 0.99,
+s1_teman_v14_f0050.jpg,11,two,2,0.90 1.00,
+s1_teman_v14_f0062.jpg,11,two,2,1.00 0.93,
+s1_teman_v15_f0018.jpg,11,two,0,,no_hand
+s1_teman_v15_f0032.jpg,11,two,2,1.00 0.99,
+s1_teman_v15_f0046.jpg,11,two,2,1.00 0.79,
+s1_teman_v15_f0060.jpg,11,two,2,1.00 0.75,
+s1_teman_v15_f0074.jpg,11,two,2,0.98 0.68,
+s1_terimakasih_v01_f0013.jpg,8,one,0,,no_hand
+s1_terimakasih_v01_f0022.jpg,8,one,1,0.93,
+s1_terimakasih_v01_f0032.jpg,8,one,1,0.97,
+s1_terimakasih_v01_f0041.jpg,8,one,1,0.90,
+s1_terimakasih_v01_f0050.jpg,8,one,1,0.99,
+s1_terimakasih_v02_f0012.jpg,8,one,1,0.96,
+s1_terimakasih_v02_f0021.jpg,8,one,1,0.94,
+s1_terimakasih_v02_f0030.jpg,8,one,1,0.85,
+s1_terimakasih_v02_f0039.jpg,8,one,1,0.90,
+s1_terimakasih_v02_f0048.jpg,8,one,0,,no_hand
+s1_terimakasih_v03_f0012.jpg,8,one,1,0.99,
+s1_terimakasih_v03_f0021.jpg,8,one,1,0.94,
+s1_terimakasih_v03_f0030.jpg,8,one,1,0.87,
+s1_terimakasih_v03_f0038.jpg,8,one,1,0.75,
+s1_terimakasih_v03_f0047.jpg,8,one,1,0.97,
+s1_terimakasih_v04_f0011.jpg,8,one,1,0.92,
+s1_terimakasih_v04_f0020.jpg,8,one,1,0.93,
+s1_terimakasih_v04_f0028.jpg,8,one,1,0.94,
+s1_terimakasih_v04_f0036.jpg,8,one,1,0.94,
+s1_terimakasih_v04_f0045.jpg,8,one,1,0.98,
+s1_terimakasih_v05_f0012.jpg,8,one,1,0.91,
+s1_terimakasih_v05_f0021.jpg,8,one,1,0.94,
+s1_terimakasih_v05_f0030.jpg,8,one,1,0.92,
+s1_terimakasih_v05_f0038.jpg,8,one,1,0.93,
+s1_terimakasih_v05_f0047.jpg,8,one,0,,no_hand
+s1_terimakasih_v06_f0013.jpg,8,one,1,0.98,
+s1_terimakasih_v06_f0022.jpg,8,one,1,0.93,
+s1_terimakasih_v06_f0032.jpg,8,one,1,0.85,
+s1_terimakasih_v06_f0041.jpg,8,one,1,0.89,
+s1_terimakasih_v06_f0050.jpg,8,one,1,0.73,
+s1_terimakasih_v07_f0015.jpg,8,one,1,0.94,
+s1_terimakasih_v07_f0026.jpg,8,one,1,0.96,
+s1_terimakasih_v07_f0038.jpg,8,one,1,0.84,
+s1_terimakasih_v07_f0049.jpg,8,one,1,0.81,
+s1_terimakasih_v07_f0060.jpg,8,one,1,0.73,
+s1_terimakasih_v08_f0014.jpg,8,one,1,0.96,
+s1_terimakasih_v08_f0025.jpg,8,one,1,0.96,
+s1_terimakasih_v08_f0036.jpg,8,one,1,0.89,
+s1_terimakasih_v08_f0047.jpg,8,one,1,0.94,
+s1_terimakasih_v08_f0058.jpg,8,one,0,,no_hand
+s1_terimakasih_v09_f0012.jpg,8,one,1,0.89,
+s1_terimakasih_v09_f0020.jpg,8,one,1,0.90,
+s1_terimakasih_v09_f0029.jpg,8,one,1,0.94,
+s1_terimakasih_v09_f0038.jpg,8,one,1,0.92,
+s1_terimakasih_v09_f0046.jpg,8,one,1,0.52,
+s1_terimakasih_v10_f0013.jpg,8,one,1,0.99,
+s1_terimakasih_v10_f0022.jpg,8,one,1,0.96,
+s1_terimakasih_v10_f0032.jpg,8,one,1,0.88,
+s1_terimakasih_v10_f0041.jpg,8,one,1,0.91,
+s1_terimakasih_v10_f0050.jpg,8,one,1,0.91,
+s2_bagaimana_v01_f0011.jpg,9,two,1,0.66,two_class_one_hand
+s2_bagaimana_v01_f0020.jpg,9,two,2,0.99 0.98,
+s2_bagaimana_v01_f0028.jpg,9,two,2,0.99 0.98,
+s2_bagaimana_v01_f0036.jpg,9,two,2,0.85 0.84,
+s2_bagaimana_v01_f0045.jpg,9,two,2,0.96 0.99,
+s2_bagaimana_v02_f0014.jpg,9,two,0,,no_hand
+s2_bagaimana_v02_f0024.jpg,9,two,2,0.92 0.92,
+s2_bagaimana_v02_f0034.jpg,9,two,2,0.95 0.62,
+s2_bagaimana_v02_f0045.jpg,9,two,2,0.61 0.73,
+s2_bagaimana_v02_f0055.jpg,9,two,2,0.92 0.60,
+s2_bagaimana_v03_f0014.jpg,9,two,1,0.99,two_class_one_hand
+s2_bagaimana_v03_f0024.jpg,9,two,2,0.89 0.98,
+s2_bagaimana_v03_f0034.jpg,9,two,1,0.53,two_class_one_hand
+s2_bagaimana_v03_f0044.jpg,9,two,2,0.82 0.71,
+s2_bagaimana_v03_f0054.jpg,9,two,2,0.93 0.72,
+s2_bagaimana_v04_f0013.jpg,9,two,1,0.89,two_class_one_hand
+s2_bagaimana_v04_f0023.jpg,9,two,2,0.98 0.64,
+s2_bagaimana_v04_f0032.jpg,9,two,2,0.83 0.50,
+s2_bagaimana_v04_f0042.jpg,9,two,2,0.54 0.66,
+s2_bagaimana_v04_f0052.jpg,9,two,2,0.95 0.97,
+s2_bagaimana_v05_f0014.jpg,9,two,2,0.93 0.98,
+s2_bagaimana_v05_f0025.jpg,9,two,2,1.00 0.96,
+s2_bagaimana_v05_f0036.jpg,9,two,2,0.68 0.54,
+s2_bagaimana_v05_f0046.jpg,9,two,2,0.88 0.98,
+s2_bagaimana_v05_f0057.jpg,9,two,2,0.61 0.59,
+s2_bagaimana_v06_f0012.jpg,9,two,2,0.79 0.73,
+s2_bagaimana_v06_f0021.jpg,9,two,2,0.72 0.80,
+s2_bagaimana_v06_f0030.jpg,9,two,2,0.58 0.51,
+s2_bagaimana_v06_f0039.jpg,9,two,2,0.96 0.85,
+s2_bagaimana_v06_f0048.jpg,9,two,2,0.97 0.90,
+s2_bagaimana_v07_f0014.jpg,9,two,1,0.93,two_class_one_hand
+s2_bagaimana_v07_f0025.jpg,9,two,2,0.63 0.69,
+s2_bagaimana_v07_f0035.jpg,9,two,2,0.83 0.59,
+s2_bagaimana_v07_f0046.jpg,9,two,2,0.89 0.90,
+s2_bagaimana_v07_f0056.jpg,9,two,2,0.82 0.98,
+s2_bagaimana_v08_f0014.jpg,9,two,1,0.98,two_class_one_hand
+s2_bagaimana_v08_f0024.jpg,9,two,2,0.75 0.89,
+s2_bagaimana_v08_f0034.jpg,9,two,2,0.91 0.92,
+s2_bagaimana_v08_f0044.jpg,9,two,2,0.88 0.52,
+s2_bagaimana_v08_f0054.jpg,9,two,2,0.80 0.98,
+s2_bagaimana_v09_f0011.jpg,9,two,1,1.00,two_class_one_hand
+s2_bagaimana_v09_f0020.jpg,9,two,2,0.92 0.55,
+s2_bagaimana_v09_f0028.jpg,9,two,2,0.62 0.98,
+s2_bagaimana_v09_f0036.jpg,9,two,2,0.56 0.73,
+s2_bagaimana_v09_f0045.jpg,9,two,2,0.95 0.95,
+s2_bagaimana_v10_f0011.jpg,9,two,0,,no_hand
+s2_bagaimana_v10_f0020.jpg,9,two,2,0.99 0.67,
+s2_bagaimana_v10_f0028.jpg,9,two,2,0.88 0.96,
+s2_bagaimana_v10_f0037.jpg,9,two,2,0.68 0.99,
+s2_bagaimana_v10_f0046.jpg,9,two,2,0.81 0.97,
+s2_bagaimana_v11_f0013.jpg,9,two,2,0.97 0.71,
+s2_bagaimana_v11_f0022.jpg,9,two,2,0.72 0.51,
+s2_bagaimana_v11_f0032.jpg,9,two,2,0.65 0.53,
+s2_bagaimana_v11_f0042.jpg,9,two,2,0.93 0.71,
+s2_bagaimana_v11_f0051.jpg,9,two,2,0.98 0.94,
+s2_bagaimana_v12_f0015.jpg,9,two,2,0.86 0.99,
+s2_bagaimana_v12_f0026.jpg,9,two,2,0.78 0.54,
+s2_bagaimana_v12_f0037.jpg,9,two,2,0.75 0.69,
+s2_bagaimana_v12_f0048.jpg,9,two,2,0.71 0.68,
+s2_bagaimana_v12_f0059.jpg,9,two,2,0.83 0.89,
+s2_bagaimana_v13_f0013.jpg,9,two,1,0.89,two_class_one_hand
+s2_bagaimana_v13_f0023.jpg,9,two,2,0.75 0.60,
+s2_bagaimana_v13_f0032.jpg,9,two,2,0.85 0.90,
+s2_bagaimana_v13_f0042.jpg,9,two,2,0.80 0.61,
+s2_bagaimana_v13_f0052.jpg,9,two,2,0.91 0.98,
+s2_bagaimana_v14_f0013.jpg,9,two,0,,no_hand
+s2_bagaimana_v14_f0023.jpg,9,two,1,0.74,two_class_one_hand
+s2_bagaimana_v14_f0032.jpg,9,two,2,0.86 0.62,
+s2_bagaimana_v14_f0042.jpg,9,two,2,0.80 0.68,
+s2_bagaimana_v14_f0052.jpg,9,two,2,0.99 0.97,
+s2_bagaimana_v15_f0013.jpg,9,two,2,0.95 1.00,
+s2_bagaimana_v15_f0023.jpg,9,two,2,0.87 0.79,
+s2_bagaimana_v15_f0034.jpg,9,two,2,0.83 0.97,
+s2_bagaimana_v15_f0044.jpg,9,two,2,0.89 0.95,
+s2_bagaimana_v15_f0054.jpg,9,two,2,0.97 0.97,
+s2_berangkat_v01_f0011.jpg,10,one,0,,no_hand
+s2_berangkat_v01_f0020.jpg,10,one,1,0.95,
+s2_berangkat_v01_f0028.jpg,10,one,1,0.67,
+s2_berangkat_v01_f0037.jpg,10,one,1,0.97,
+s2_berangkat_v01_f0046.jpg,10,one,1,0.96,
+s2_berangkat_v02_f0014.jpg,10,one,1,0.97,
+s2_berangkat_v02_f0024.jpg,10,one,1,0.92,
+s2_berangkat_v02_f0034.jpg,10,one,1,0.94,
+s2_berangkat_v02_f0045.jpg,10,one,1,0.96,
+s2_berangkat_v02_f0055.jpg,10,one,1,0.96,
+s2_berangkat_v03_f0016.jpg,10,one,1,0.98,
+s2_berangkat_v03_f0028.jpg,10,one,1,0.88,
+s2_berangkat_v03_f0040.jpg,10,one,1,0.96,
+s2_berangkat_v03_f0051.jpg,10,one,1,0.95,
+s2_berangkat_v03_f0063.jpg,10,one,1,0.94,
+s2_berangkat_v04_f0014.jpg,10,one,1,0.95,
+s2_berangkat_v04_f0025.jpg,10,one,1,0.57,
+s2_berangkat_v04_f0036.jpg,10,one,1,0.96,
+s2_berangkat_v04_f0047.jpg,10,one,1,0.96,
+s2_berangkat_v04_f0058.jpg,10,one,1,0.98,
+s2_berangkat_v05_f0013.jpg,10,one,1,0.90,
+s2_berangkat_v05_f0023.jpg,10,one,1,0.58,
+s2_berangkat_v05_f0032.jpg,10,one,1,0.93,
+s2_berangkat_v05_f0042.jpg,10,one,1,0.93,
+s2_berangkat_v05_f0052.jpg,10,one,1,0.98,
+s2_berangkat_v06_f0013.jpg,10,one,1,0.97,
+s2_berangkat_v06_f0023.jpg,10,one,1,0.92,
+s2_berangkat_v06_f0034.jpg,10,one,1,0.97,
+s2_berangkat_v06_f0044.jpg,10,one,1,0.96,
+s2_berangkat_v06_f0054.jpg,10,one,1,0.96,
+s2_berangkat_v07_f0012.jpg,10,one,1,0.97,
+s2_berangkat_v07_f0021.jpg,10,one,1,0.94,
+s2_berangkat_v07_f0030.jpg,10,one,1,0.95,
+s2_berangkat_v07_f0038.jpg,10,one,1,0.93,
+s2_berangkat_v07_f0047.jpg,10,one,1,0.90,
+s2_berangkat_v08_f0013.jpg,10,one,1,0.92,
+s2_berangkat_v08_f0022.jpg,10,one,1,0.66,
+s2_berangkat_v08_f0032.jpg,10,one,1,0.96,
+s2_berangkat_v08_f0041.jpg,10,one,1,0.95,
+s2_berangkat_v08_f0050.jpg,10,one,1,0.97,
+s2_berangkat_v09_f0011.jpg,10,one,1,0.98,
+s2_berangkat_v09_f0020.jpg,10,one,1,0.92,
+s2_berangkat_v09_f0028.jpg,10,one,1,0.98,
+s2_berangkat_v09_f0037.jpg,10,one,1,0.98,
+s2_berangkat_v09_f0046.jpg,10,one,1,0.99,
+s2_berangkat_v10_f0012.jpg,10,one,1,0.98,
+s2_berangkat_v10_f0022.jpg,10,one,1,0.86,
+s2_berangkat_v10_f0031.jpg,10,one,1,0.97,
+s2_berangkat_v10_f0040.jpg,10,one,1,0.98,
+s2_berangkat_v10_f0050.jpg,10,one,1,0.94,
+s2_berangkat_v11_f0014.jpg,10,one,1,0.98,
+s2_berangkat_v11_f0025.jpg,10,one,1,0.96,
+s2_berangkat_v11_f0036.jpg,10,one,1,0.96,
+s2_berangkat_v11_f0046.jpg,10,one,1,0.97,
+s2_berangkat_v11_f0057.jpg,10,one,1,0.96,
+s2_berangkat_v12_f0014.jpg,10,one,0,,no_hand
+s2_berangkat_v12_f0025.jpg,10,one,1,0.95,
+s2_berangkat_v12_f0036.jpg,10,one,1,0.69,
+s2_berangkat_v12_f0046.jpg,10,one,1,0.98,
+s2_berangkat_v12_f0057.jpg,10,one,1,0.97,
+s2_berangkat_v13_f0012.jpg,10,one,1,0.97,
+s2_berangkat_v13_f0022.jpg,10,one,1,0.96,
+s2_berangkat_v13_f0031.jpg,10,one,1,0.83,
+s2_berangkat_v13_f0040.jpg,10,one,1,0.97,
+s2_berangkat_v13_f0050.jpg,10,one,1,0.97,
+s2_berangkat_v14_f0012.jpg,10,one,1,1.00,
+s2_berangkat_v14_f0021.jpg,10,one,1,0.79,
+s2_berangkat_v14_f0030.jpg,10,one,1,0.94,
+s2_berangkat_v14_f0038.jpg,10,one,1,0.97,
+s2_berangkat_v14_f0047.jpg,10,one,1,1.00,
+s2_berangkat_v15_f0012.jpg,10,one,1,0.99,
+s2_berangkat_v15_f0021.jpg,10,one,1,0.58,
+s2_berangkat_v15_f0030.jpg,10,one,1,0.98,
+s2_berangkat_v15_f0038.jpg,10,one,1,0.98,
+s2_berangkat_v15_f0047.jpg,10,one,1,1.00,
+s2_cari_v01_f0017.jpg,0,one,0,,no_hand
+s2_cari_v01_f0030.jpg,0,one,0,,no_hand
+s2_cari_v01_f0044.jpg,0,one,1,0.94,
+s2_cari_v01_f0057.jpg,0,one,1,1.00,
+s2_cari_v01_f0070.jpg,0,one,1,0.99,
+s2_cari_v02_f0017.jpg,0,one,1,0.99,
+s2_cari_v02_f0030.jpg,0,one,1,0.99,
+s2_cari_v02_f0043.jpg,0,one,1,0.68,
+s2_cari_v02_f0056.jpg,0,one,1,1.00,
+s2_cari_v02_f0069.jpg,0,one,1,0.98,
+s2_cari_v03_f0018.jpg,0,one,1,0.97,
+s2_cari_v03_f0032.jpg,0,one,1,1.00,
+s2_cari_v03_f0046.jpg,0,one,1,0.97,
+s2_cari_v03_f0059.jpg,0,one,1,1.00,
+s2_cari_v03_f0073.jpg,0,one,0,,no_hand
+s2_cari_v04_f0020.jpg,0,one,1,1.00,
+s2_cari_v04_f0035.jpg,0,one,1,0.99,
+s2_cari_v04_f0050.jpg,0,one,1,0.99,
+s2_cari_v04_f0066.jpg,0,one,1,1.00,
+s2_cari_v04_f0081.jpg,0,one,1,0.97,
+s2_cari_v05_f0017.jpg,0,one,0,,no_hand
+s2_cari_v05_f0030.jpg,0,one,1,0.77,
+s2_cari_v05_f0044.jpg,0,one,1,0.55,
+s2_cari_v05_f0057.jpg,0,one,1,1.00,
+s2_cari_v05_f0070.jpg,0,one,1,0.98,
+s2_cari_v06_f0016.jpg,0,one,0,,no_hand
+s2_cari_v06_f0028.jpg,0,one,0,,no_hand
+s2_cari_v06_f0040.jpg,0,one,1,1.00,
+s2_cari_v06_f0053.jpg,0,one,1,1.00,
+s2_cari_v06_f0065.jpg,0,one,1,1.00,
+s2_cari_v07_f0015.jpg,0,one,0,,no_hand
+s2_cari_v07_f0027.jpg,0,one,1,0.86,
+s2_cari_v07_f0038.jpg,0,one,1,0.94,
+s2_cari_v07_f0050.jpg,0,one,1,1.00,
+s2_cari_v07_f0062.jpg,0,one,1,0.97,
+s2_cari_v08_f0019.jpg,0,one,0,,no_hand
+s2_cari_v08_f0033.jpg,0,one,0,,no_hand
+s2_cari_v08_f0048.jpg,0,one,1,0.99,
+s2_cari_v08_f0062.jpg,0,one,1,0.99,
+s2_cari_v08_f0076.jpg,0,one,1,0.99,
+s2_cari_v09_f0019.jpg,0,one,1,1.00,
+s2_cari_v09_f0034.jpg,0,one,1,1.00,
+s2_cari_v09_f0048.jpg,0,one,1,0.99,
+s2_cari_v09_f0063.jpg,0,one,1,1.00,
+s2_cari_v09_f0078.jpg,0,one,1,0.99,
+s2_cari_v10_f0034.jpg,0,one,0,,no_hand
+s2_cari_v10_f0060.jpg,0,one,1,1.00,
+s2_cari_v10_f0086.jpg,0,one,1,0.96,
+s2_cari_v10_f0112.jpg,0,one,1,1.00,
+s2_cari_v10_f0138.jpg,0,one,0,,no_hand
+s2_hari_v01_f0013.jpg,1,one,1,0.98,
+s2_hari_v01_f0022.jpg,1,one,1,0.98,
+s2_hari_v01_f0032.jpg,1,one,1,0.75,
+s2_hari_v01_f0041.jpg,1,one,1,0.84,
+s2_hari_v01_f0050.jpg,1,one,0,,no_hand
+s2_hari_v02_f0012.jpg,1,one,0,,no_hand
+s2_hari_v02_f0021.jpg,1,one,1,0.98,
+s2_hari_v02_f0030.jpg,1,one,0,,no_hand
+s2_hari_v02_f0040.jpg,1,one,1,0.77,
+s2_hari_v02_f0049.jpg,1,one,1,0.99,
+s2_hari_v03_f0013.jpg,1,one,0,,no_hand
+s2_hari_v03_f0023.jpg,1,one,1,0.98,
+s2_hari_v03_f0032.jpg,1,one,1,0.55,
+s2_hari_v03_f0042.jpg,1,one,1,0.72,
+s2_hari_v03_f0052.jpg,1,one,1,0.85,
+s2_hari_v04_f0013.jpg,1,one,0,,no_hand
+s2_hari_v04_f0022.jpg,1,one,0,,no_hand
+s2_hari_v04_f0032.jpg,1,one,1,0.94,
+s2_hari_v04_f0041.jpg,1,one,1,0.84,
+s2_hari_v04_f0050.jpg,1,one,0,,no_hand
+s2_hari_v05_f0012.jpg,1,one,1,0.98,
+s2_hari_v05_f0022.jpg,1,one,0,,no_hand
+s2_hari_v05_f0031.jpg,1,one,1,0.77,
+s2_hari_v05_f0040.jpg,1,one,1,0.77,
+s2_hari_v05_f0050.jpg,1,one,1,0.99,
+s2_hari_v06_f0016.jpg,1,one,1,0.97,
+s2_hari_v06_f0028.jpg,1,one,0,,no_hand
+s2_hari_v06_f0040.jpg,1,one,1,0.79,
+s2_hari_v06_f0051.jpg,1,one,1,0.95,
+s2_hari_v06_f0063.jpg,1,one,0,,no_hand
+s2_hari_v07_f0016.jpg,1,one,0,,no_hand
+s2_hari_v07_f0028.jpg,1,one,0,,no_hand
+s2_hari_v07_f0040.jpg,1,one,1,0.98,
+s2_hari_v07_f0053.jpg,1,one,1,0.76,
+s2_hari_v07_f0065.jpg,1,one,1,0.98,
+s2_hari_v08_f0013.jpg,1,one,1,0.92,
+s2_hari_v08_f0022.jpg,1,one,1,0.96,
+s2_hari_v08_f0032.jpg,1,one,1,0.95,
+s2_hari_v08_f0041.jpg,1,one,1,0.93,
+s2_hari_v08_f0050.jpg,1,one,1,0.90,
+s2_hari_v09_f0016.jpg,1,one,0,,no_hand
+s2_hari_v09_f0027.jpg,1,one,1,0.87,
+s2_hari_v09_f0039.jpg,1,one,1,0.61,
+s2_hari_v09_f0051.jpg,1,one,1,0.87,
+s2_hari_v09_f0062.jpg,1,one,1,0.84,
+s2_hari_v10_f0014.jpg,1,one,1,0.92,
+s2_hari_v10_f0024.jpg,1,one,1,0.93,
+s2_hari_v10_f0034.jpg,1,one,1,0.57,
+s2_hari_v10_f0045.jpg,1,one,1,0.67,
+s2_hari_v10_f0055.jpg,1,one,1,0.98,
+s2_ingat_v01_f0012.jpg,2,one,1,0.62,
+s2_ingat_v01_f0021.jpg,2,one,1,1.00,
+s2_ingat_v01_f0030.jpg,2,one,1,1.00,
+s2_ingat_v01_f0040.jpg,2,one,1,1.00,
+s2_ingat_v01_f0049.jpg,2,one,1,0.99,
+s2_ingat_v02_f0014.jpg,2,one,1,0.82,
+s2_ingat_v02_f0025.jpg,2,one,1,1.00,
+s2_ingat_v02_f0036.jpg,2,one,1,0.99,
+s2_ingat_v02_f0046.jpg,2,one,1,0.99,
+s2_ingat_v02_f0057.jpg,2,one,0,,no_hand
+s2_ingat_v03_f0014.jpg,2,one,1,0.97,
+s2_ingat_v03_f0025.jpg,2,one,1,1.00,
+s2_ingat_v03_f0036.jpg,2,one,1,0.99,
+s2_ingat_v03_f0047.jpg,2,one,1,0.99,
+s2_ingat_v03_f0058.jpg,2,one,0,,no_hand
+s2_ingat_v04_f0014.jpg,2,one,0,,no_hand
+s2_ingat_v04_f0025.jpg,2,one,1,1.00,
+s2_ingat_v04_f0036.jpg,2,one,1,1.00,
+s2_ingat_v04_f0046.jpg,2,one,1,1.00,
+s2_ingat_v04_f0057.jpg,2,one,1,1.00,
+s2_ingat_v05_f0016.jpg,2,one,0,,no_hand
+s2_ingat_v05_f0028.jpg,2,one,1,1.00,
+s2_ingat_v05_f0040.jpg,2,one,1,0.99,
+s2_ingat_v05_f0051.jpg,2,one,1,0.99,
+s2_ingat_v05_f0063.jpg,2,one,0,,no_hand
+s2_ingat_v06_f0013.jpg,2,one,0,,no_hand
+s2_ingat_v06_f0023.jpg,2,one,1,0.98,
+s2_ingat_v06_f0034.jpg,2,one,1,0.99,
+s2_ingat_v06_f0044.jpg,2,one,1,0.99,
+s2_ingat_v06_f0054.jpg,2,one,1,1.00,
+s2_ingat_v07_f0011.jpg,2,one,1,0.99,
+s2_ingat_v07_f0019.jpg,2,one,1,1.00,
+s2_ingat_v07_f0027.jpg,2,one,1,0.99,
+s2_ingat_v07_f0035.jpg,2,one,1,0.99,
+s2_ingat_v07_f0043.jpg,2,one,1,0.99,
+s2_ingat_v08_f0014.jpg,2,one,0,,no_hand
+s2_ingat_v08_f0024.jpg,2,one,1,1.00,
+s2_ingat_v08_f0034.jpg,2,one,1,0.99,
+s2_ingat_v08_f0045.jpg,2,one,1,0.99,
+s2_ingat_v08_f0055.jpg,2,one,1,1.00,
+s2_ingat_v09_f0013.jpg,2,one,0,,no_hand
+s2_ingat_v09_f0023.jpg,2,one,1,1.00,
+s2_ingat_v09_f0033.jpg,2,one,1,1.00,
+s2_ingat_v09_f0043.jpg,2,one,1,1.00,
+s2_ingat_v09_f0053.jpg,2,one,1,0.99,
+s2_ingat_v10_f0013.jpg,2,one,0,,no_hand
+s2_ingat_v10_f0023.jpg,2,one,1,1.00,
+s2_ingat_v10_f0032.jpg,2,one,1,0.99,
+s2_ingat_v10_f0042.jpg,2,one,1,0.99,
+s2_ingat_v10_f0052.jpg,2,one,1,1.00,
+s2_keluarga_v01_f0013.jpg,12,one,1,0.98,
+s2_keluarga_v01_f0022.jpg,12,one,1,0.96,
+s2_keluarga_v01_f0032.jpg,12,one,1,0.81,
+s2_keluarga_v01_f0042.jpg,12,one,1,1.00,
+s2_keluarga_v01_f0051.jpg,12,one,1,1.00,
+s2_keluarga_v02_f0013.jpg,12,one,0,,no_hand
+s2_keluarga_v02_f0023.jpg,12,one,1,1.00,
+s2_keluarga_v02_f0034.jpg,12,one,1,0.91,
+s2_keluarga_v02_f0044.jpg,12,one,1,1.00,
+s2_keluarga_v02_f0054.jpg,12,one,1,1.00,
+s2_keluarga_v03_f0011.jpg,12,one,1,0.91,
+s2_keluarga_v03_f0020.jpg,12,one,1,1.00,
+s2_keluarga_v03_f0028.jpg,12,one,1,0.83,
+s2_keluarga_v03_f0036.jpg,12,one,1,1.00,
+s2_keluarga_v03_f0045.jpg,12,one,1,1.00,
+s2_keluarga_v04_f0013.jpg,12,one,1,0.98,
+s2_keluarga_v04_f0022.jpg,12,one,1,0.99,
+s2_keluarga_v04_f0032.jpg,12,one,1,0.89,
+s2_keluarga_v04_f0041.jpg,12,one,1,1.00,
+s2_keluarga_v04_f0050.jpg,12,one,1,1.00,
+s2_keluarga_v05_f0013.jpg,12,one,1,0.92,
+s2_keluarga_v05_f0022.jpg,12,one,1,0.99,
+s2_keluarga_v05_f0032.jpg,12,one,1,0.98,
+s2_keluarga_v05_f0041.jpg,12,one,1,1.00,
+s2_keluarga_v05_f0050.jpg,12,one,1,1.00,
+s2_keluarga_v06_f0014.jpg,12,one,1,0.88,
+s2_keluarga_v06_f0025.jpg,12,one,1,1.00,
+s2_keluarga_v06_f0036.jpg,12,one,0,,no_hand
+s2_keluarga_v06_f0046.jpg,12,one,1,1.00,
+s2_keluarga_v06_f0057.jpg,12,one,1,1.00,
+s2_keluarga_v07_f0013.jpg,12,one,1,0.69,
+s2_keluarga_v07_f0023.jpg,12,one,1,0.99,
+s2_keluarga_v07_f0033.jpg,12,one,1,0.95,
+s2_keluarga_v07_f0043.jpg,12,one,1,1.00,
+s2_keluarga_v07_f0053.jpg,12,one,1,1.00,
+s2_keluarga_v08_f0013.jpg,12,one,1,0.96,
+s2_keluarga_v08_f0023.jpg,12,one,1,1.00,
+s2_keluarga_v08_f0032.jpg,12,one,1,0.84,
+s2_keluarga_v08_f0042.jpg,12,one,1,1.00,
+s2_keluarga_v08_f0052.jpg,12,one,1,1.00,
+s2_keluarga_v09_f0012.jpg,12,one,1,0.96,
+s2_keluarga_v09_f0022.jpg,12,one,1,1.00,
+s2_keluarga_v09_f0031.jpg,12,one,1,0.83,
+s2_keluarga_v09_f0040.jpg,12,one,1,1.00,
+s2_keluarga_v09_f0050.jpg,12,one,1,1.00,
+s2_keluarga_v10_f0012.jpg,12,one,0,,no_hand
+s2_keluarga_v10_f0022.jpg,12,one,1,0.98,
+s2_keluarga_v10_f0031.jpg,12,one,1,0.99,
+s2_keluarga_v10_f0040.jpg,12,one,1,1.00,
+s2_keluarga_v10_f0050.jpg,12,one,1,1.00,
+s2_keluarga_v11_f0012.jpg,12,one,1,0.99,
+s2_keluarga_v11_f0022.jpg,12,one,1,0.99,
+s2_keluarga_v11_f0031.jpg,12,one,1,0.98,
+s2_keluarga_v11_f0040.jpg,12,one,1,1.00,
+s2_keluarga_v11_f0050.jpg,12,one,1,1.00,
+s2_keluarga_v12_f0014.jpg,12,one,1,0.97,
+s2_keluarga_v12_f0024.jpg,12,one,1,1.00,
+s2_keluarga_v12_f0034.jpg,12,one,1,0.98,
+s2_keluarga_v12_f0045.jpg,12,one,1,1.00,
+s2_keluarga_v12_f0055.jpg,12,one,1,1.00,
+s2_keluarga_v13_f0012.jpg,12,one,1,0.62,
+s2_keluarga_v13_f0021.jpg,12,one,1,1.00,
+s2_keluarga_v13_f0030.jpg,12,one,1,0.93,
+s2_keluarga_v13_f0038.jpg,12,one,1,1.00,
+s2_keluarga_v13_f0047.jpg,12,one,1,1.00,
+s2_keluarga_v14_f0015.jpg,12,one,1,0.94,
+s2_keluarga_v14_f0026.jpg,12,one,1,0.99,
+s2_keluarga_v14_f0036.jpg,12,one,1,1.00,
+s2_keluarga_v14_f0047.jpg,12,one,1,1.00,
+s2_keluarga_v14_f0058.jpg,12,one,1,1.00,
+s2_keluarga_v15_f0013.jpg,12,one,1,0.98,
+s2_keluarga_v15_f0023.jpg,12,one,1,1.00,
+s2_keluarga_v15_f0032.jpg,12,one,1,0.98,
+s2_keluarga_v15_f0042.jpg,12,one,1,1.00,
+s2_keluarga_v15_f0052.jpg,12,one,1,1.00,
+s2_lagi_v01_f0012.jpg,3,one,1,0.99,
+s2_lagi_v01_f0020.jpg,3,one,1,0.99,
+s2_lagi_v01_f0029.jpg,3,one,1,0.99,
+s2_lagi_v01_f0038.jpg,3,one,1,0.99,
+s2_lagi_v01_f0046.jpg,3,one,0,,no_hand
+s2_lagi_v02_f0016.jpg,3,one,1,1.00,
+s2_lagi_v02_f0028.jpg,3,one,1,0.99,
+s2_lagi_v02_f0040.jpg,3,one,1,0.99,
+s2_lagi_v02_f0052.jpg,3,one,1,0.86,
+s2_lagi_v02_f0064.jpg,3,one,0,,no_hand
+s2_lagi_v03_f0013.jpg,3,one,0,,no_hand
+s2_lagi_v03_f0022.jpg,3,one,1,1.00,
+s2_lagi_v03_f0032.jpg,3,one,1,0.99,
+s2_lagi_v03_f0042.jpg,3,one,1,0.99,
+s2_lagi_v03_f0051.jpg,3,one,0,,no_hand
+s2_lagi_v04_f0016.jpg,3,one,0,,no_hand
+s2_lagi_v04_f0028.jpg,3,one,1,1.00,
+s2_lagi_v04_f0040.jpg,3,one,1,0.99,
+s2_lagi_v04_f0051.jpg,3,one,1,0.99,
+s2_lagi_v04_f0063.jpg,3,one,0,,no_hand
+s2_lagi_v05_f0016.jpg,3,one,0,,no_hand
+s2_lagi_v05_f0028.jpg,3,one,1,0.99,
+s2_lagi_v05_f0040.jpg,3,one,1,1.00,
+s2_lagi_v05_f0052.jpg,3,one,1,1.00,
+s2_lagi_v05_f0064.jpg,3,one,0,,no_hand
+s2_lagi_v06_f0014.jpg,3,one,1,1.00,
+s2_lagi_v06_f0025.jpg,3,one,1,1.00,
+s2_lagi_v06_f0036.jpg,3,one,1,0.99,
+s2_lagi_v06_f0047.jpg,3,one,1,1.00,
+s2_lagi_v06_f0058.jpg,3,one,0,,no_hand
+s2_lagi_v07_f0015.jpg,3,one,0,,no_hand
+s2_lagi_v07_f0026.jpg,3,one,1,1.00,
+s2_lagi_v07_f0038.jpg,3,one,1,0.99,
+s2_lagi_v07_f0049.jpg,3,one,1,1.00,
+s2_lagi_v07_f0060.jpg,3,one,0,,no_hand
+s2_lagi_v08_f0014.jpg,3,one,0,,no_hand
+s2_lagi_v08_f0025.jpg,3,one,1,1.00,
+s2_lagi_v08_f0036.jpg,3,one,1,0.99,
+s2_lagi_v08_f0046.jpg,3,one,1,0.99,
+s2_lagi_v08_f0057.jpg,3,one,1,0.99,
+s2_lagi_v09_f0015.jpg,3,one,0,,no_hand
+s2_lagi_v09_f0026.jpg,3,one,1,1.00,
+s2_lagi_v09_f0038.jpg,3,one,1,1.00,
+s2_lagi_v09_f0049.jpg,3,one,1,1.00,
+s2_lagi_v09_f0060.jpg,3,one,0,,no_hand
+s2_lagi_v10_f0015.jpg,3,one,0,,no_hand
+s2_lagi_v10_f0026.jpg,3,one,1,1.00,
+s2_lagi_v10_f0036.jpg,3,one,1,1.00,
+s2_lagi_v10_f0047.jpg,3,one,1,1.00,
+s2_lagi_v10_f0058.jpg,3,one,0,,no_hand
+s2_maaf_v01_f0013.jpg,4,one,0,,no_hand
+s2_maaf_v01_f0023.jpg,4,one,1,0.99,
+s2_maaf_v01_f0032.jpg,4,one,1,0.97,
+s2_maaf_v01_f0042.jpg,4,one,1,0.99,
+s2_maaf_v01_f0052.jpg,4,one,0,,no_hand
+s2_maaf_v02_f0015.jpg,4,one,1,0.98,
+s2_maaf_v02_f0026.jpg,4,one,1,1.00,
+s2_maaf_v02_f0038.jpg,4,one,1,0.99,
+s2_maaf_v02_f0049.jpg,4,one,1,1.00,
+s2_maaf_v02_f0060.jpg,4,one,1,0.99,
+s2_maaf_v03_f0016.jpg,4,one,1,1.00,
+s2_maaf_v03_f0028.jpg,4,one,1,1.00,
+s2_maaf_v03_f0040.jpg,4,one,1,0.99,
+s2_maaf_v03_f0052.jpg,4,one,1,1.00,
+s2_maaf_v03_f0064.jpg,4,one,0,,no_hand
+s2_maaf_v04_f0014.jpg,4,one,1,0.98,
+s2_maaf_v04_f0025.jpg,4,one,1,0.99,
+s2_maaf_v04_f0036.jpg,4,one,1,0.98,
+s2_maaf_v04_f0046.jpg,4,one,1,0.98,
+s2_maaf_v04_f0057.jpg,4,one,1,0.79,
+s2_maaf_v05_f0016.jpg,4,one,1,0.99,
+s2_maaf_v05_f0027.jpg,4,one,1,1.00,
+s2_maaf_v05_f0039.jpg,4,one,1,1.00,
+s2_maaf_v05_f0051.jpg,4,one,1,1.00,
+s2_maaf_v05_f0062.jpg,4,one,1,0.98,
+s2_maaf_v06_f0014.jpg,4,one,1,1.00,
+s2_maaf_v06_f0024.jpg,4,one,1,0.99,
+s2_maaf_v06_f0034.jpg,4,one,1,0.98,
+s2_maaf_v06_f0045.jpg,4,one,1,0.99,
+s2_maaf_v06_f0055.jpg,4,one,1,1.00,
+s2_maaf_v07_f0015.jpg,4,one,1,0.93,
+s2_maaf_v07_f0027.jpg,4,one,1,1.00,
+s2_maaf_v07_f0038.jpg,4,one,1,0.99,
+s2_maaf_v07_f0050.jpg,4,one,1,0.99,
+s2_maaf_v07_f0062.jpg,4,one,1,1.00,
+s2_maaf_v08_f0017.jpg,4,one,1,1.00,
+s2_maaf_v08_f0030.jpg,4,one,1,1.00,
+s2_maaf_v08_f0043.jpg,4,one,1,0.99,
+s2_maaf_v08_f0056.jpg,4,one,1,0.99,
+s2_maaf_v08_f0069.jpg,4,one,0,,no_hand
+s2_maaf_v09_f0017.jpg,4,one,0,,no_hand
+s2_maaf_v09_f0030.jpg,4,one,1,0.99,
+s2_maaf_v09_f0044.jpg,4,one,1,1.00,
+s2_maaf_v09_f0057.jpg,4,one,1,1.00,
+s2_maaf_v09_f0070.jpg,4,one,1,1.00,
+s2_maaf_v10_f0017.jpg,4,one,1,0.93,
+s2_maaf_v10_f0030.jpg,4,one,1,0.98,
+s2_maaf_v10_f0042.jpg,4,one,1,0.98,
+s2_maaf_v10_f0055.jpg,4,one,1,0.99,
+s2_maaf_v10_f0068.jpg,4,one,1,0.98,
+s2_makan_v01_f0014.jpg,5,one,1,0.53,
+s2_makan_v01_f0025.jpg,5,one,1,1.00,
+s2_makan_v01_f0036.jpg,5,one,1,1.00,
+s2_makan_v01_f0046.jpg,5,one,1,0.98,
+s2_makan_v01_f0057.jpg,5,one,0,,no_hand
+s2_makan_v02_f0013.jpg,5,one,0,,no_hand
+s2_makan_v02_f0023.jpg,5,one,1,0.96,
+s2_makan_v02_f0034.jpg,5,one,1,1.00,
+s2_makan_v02_f0044.jpg,5,one,1,0.98,
+s2_makan_v02_f0054.jpg,5,one,0,,no_hand
+s2_makan_v03_f0012.jpg,5,one,1,0.53,
+s2_makan_v03_f0020.jpg,5,one,1,0.77,
+s2_makan_v03_f0029.jpg,5,one,1,1.00,
+s2_makan_v03_f0038.jpg,5,one,1,1.00,
+s2_makan_v03_f0046.jpg,5,one,1,0.97,
+s2_makan_v04_f0016.jpg,5,one,0,,no_hand
+s2_makan_v04_f0028.jpg,5,one,0,,no_hand
+s2_makan_v04_f0040.jpg,5,one,1,0.99,
+s2_makan_v04_f0053.jpg,5,one,1,0.99,
+s2_makan_v04_f0065.jpg,5,one,1,0.97,
+s2_makan_v05_f0014.jpg,5,one,1,0.66,
+s2_makan_v05_f0025.jpg,5,one,1,0.99,
+s2_makan_v05_f0035.jpg,5,one,1,0.99,
+s2_makan_v05_f0046.jpg,5,one,1,0.97,
+s2_makan_v05_f0056.jpg,5,one,0,,no_hand
+s2_makan_v06_f0015.jpg,5,one,0,,no_hand
+s2_makan_v06_f0027.jpg,5,one,1,0.89,
+s2_makan_v06_f0038.jpg,5,one,1,1.00,
+s2_makan_v06_f0050.jpg,5,one,1,1.00,
+s2_makan_v06_f0062.jpg,5,one,0,,no_hand
+s2_makan_v07_f0014.jpg,5,one,1,0.99,
+s2_makan_v07_f0025.jpg,5,one,1,1.00,
+s2_makan_v07_f0035.jpg,5,one,1,1.00,
+s2_makan_v07_f0046.jpg,5,one,1,0.98,
+s2_makan_v07_f0056.jpg,5,one,0,,no_hand
+s2_makan_v08_f0011.jpg,5,one,0,,no_hand
+s2_makan_v08_f0020.jpg,5,one,1,1.00,
+s2_makan_v08_f0028.jpg,5,one,1,1.00,
+s2_makan_v08_f0037.jpg,5,one,1,1.00,
+s2_makan_v08_f0046.jpg,5,one,1,0.58,
+s2_makan_v09_f0018.jpg,5,one,0,,no_hand
+s2_makan_v09_f0032.jpg,5,one,1,0.99,
+s2_makan_v09_f0046.jpg,5,one,1,0.99,
+s2_makan_v09_f0060.jpg,5,one,1,0.99,
+s2_makan_v09_f0074.jpg,5,one,1,0.97,
+s2_makan_v10_f0014.jpg,5,one,0,,no_hand
+s2_makan_v10_f0025.jpg,5,one,1,1.00,
+s2_makan_v10_f0036.jpg,5,one,1,1.00,
+s2_makan_v10_f0046.jpg,5,one,1,1.00,
+s2_makan_v10_f0057.jpg,5,one,1,0.95,
+s2_motor_v01_f0012.jpg,6,two,0,,no_hand
+s2_motor_v01_f0021.jpg,6,two,2,1.00 0.62,
+s2_motor_v01_f0030.jpg,6,two,2,0.65 0.99,
+s2_motor_v01_f0038.jpg,6,two,2,1.00 0.57,
+s2_motor_v01_f0047.jpg,6,two,2,1.00 0.99,
+s2_motor_v02_f0015.jpg,6,two,0,,no_hand
+s2_motor_v02_f0026.jpg,6,two,2,0.96 0.95,
+s2_motor_v02_f0038.jpg,6,two,2,1.00 0.99,
+s2_motor_v02_f0049.jpg,6,two,2,0.99 1.00,
+s2_motor_v02_f0060.jpg,6,two,2,0.97 0.98,
+s2_motor_v03_f0013.jpg,6,two,0,,no_hand
+s2_motor_v03_f0023.jpg,6,two,2,0.99 0.95,
+s2_motor_v03_f0033.jpg,6,two,2,1.00 1.00,
+s2_motor_v03_f0043.jpg,6,two,2,1.00 1.00,
+s2_motor_v03_f0053.jpg,6,two,0,,no_hand
+s2_motor_v04_f0019.jpg,6,two,0,,no_hand
+s2_motor_v04_f0033.jpg,6,two,0,,no_hand
+s2_motor_v04_f0048.jpg,6,two,2,0.99 0.97,
+s2_motor_v04_f0062.jpg,6,two,2,0.98 0.96,
+s2_motor_v04_f0076.jpg,6,two,0,,no_hand
+s2_motor_v05_f0016.jpg,6,two,0,,no_hand
+s2_motor_v05_f0028.jpg,6,two,2,0.96 0.98,
+s2_motor_v05_f0040.jpg,6,two,2,0.99 0.98,
+s2_motor_v05_f0051.jpg,6,two,2,1.00 0.99,
+s2_motor_v05_f0063.jpg,6,two,0,,no_hand
+s2_motor_v06_f0013.jpg,6,two,2,0.99 0.99,
+s2_motor_v06_f0023.jpg,6,two,2,0.99 0.98,
+s2_motor_v06_f0032.jpg,6,two,2,1.00 0.98,
+s2_motor_v06_f0042.jpg,6,two,2,1.00 0.98,
+s2_motor_v06_f0052.jpg,6,two,0,,no_hand
+s2_motor_v07_f0015.jpg,6,two,0,,no_hand
+s2_motor_v07_f0026.jpg,6,two,2,0.97 0.88,
+s2_motor_v07_f0037.jpg,6,two,2,0.96 0.99,
+s2_motor_v07_f0048.jpg,6,two,2,0.97 0.99,
+s2_motor_v07_f0059.jpg,6,two,0,,no_hand
+s2_motor_v08_f0018.jpg,6,two,0,,no_hand
+s2_motor_v08_f0032.jpg,6,two,2,0.78 0.97,
+s2_motor_v08_f0046.jpg,6,two,2,0.99 0.94,
+s2_motor_v08_f0059.jpg,6,two,1,1.00,two_class_one_hand
+s2_motor_v08_f0073.jpg,6,two,0,,no_hand
+s2_motor_v09_f0017.jpg,6,two,0,,no_hand
+s2_motor_v09_f0030.jpg,6,two,2,0.91 0.99,
+s2_motor_v09_f0043.jpg,6,two,2,1.00 0.99,
+s2_motor_v09_f0056.jpg,6,two,2,0.98 0.85,
+s2_motor_v09_f0069.jpg,6,two,0,,no_hand
+s2_motor_v10_f0017.jpg,6,two,2,1.00 1.00,
+s2_motor_v10_f0029.jpg,6,two,2,1.00 0.88,
+s2_motor_v10_f0042.jpg,6,two,2,1.00 0.78,
+s2_motor_v10_f0054.jpg,6,two,2,0.99 0.99,
+s2_motor_v10_f0066.jpg,6,two,0,,no_hand
+s2_pagi_v01_f0012.jpg,14,one,1,0.99,
+s2_pagi_v01_f0022.jpg,14,one,1,0.99,
+s2_pagi_v01_f0031.jpg,14,one,1,1.00,
+s2_pagi_v01_f0040.jpg,14,one,1,0.99,
+s2_pagi_v01_f0050.jpg,14,one,1,0.99,
+s2_pagi_v02_f0013.jpg,14,one,1,0.92,
+s2_pagi_v02_f0023.jpg,14,one,1,1.00,
+s2_pagi_v02_f0032.jpg,14,one,1,1.00,
+s2_pagi_v02_f0042.jpg,14,one,1,1.00,
+s2_pagi_v02_f0052.jpg,14,one,1,1.00,
+s2_pagi_v03_f0014.jpg,14,one,1,0.99,
+s2_pagi_v03_f0024.jpg,14,one,1,0.99,
+s2_pagi_v03_f0034.jpg,14,one,1,0.99,
+s2_pagi_v03_f0045.jpg,14,one,1,0.99,
+s2_pagi_v03_f0055.jpg,14,one,1,0.98,
+s2_pagi_v04_f0015.jpg,14,one,1,1.00,
+s2_pagi_v04_f0026.jpg,14,one,1,1.00,
+s2_pagi_v04_f0038.jpg,14,one,1,1.00,
+s2_pagi_v04_f0049.jpg,14,one,1,0.99,
+s2_pagi_v04_f0060.jpg,14,one,1,0.99,
+s2_pagi_v05_f0015.jpg,14,one,1,0.99,
+s2_pagi_v05_f0027.jpg,14,one,1,1.00,
+s2_pagi_v05_f0038.jpg,14,one,1,0.99,
+s2_pagi_v05_f0049.jpg,14,one,1,0.99,
+s2_pagi_v05_f0061.jpg,14,one,1,0.99,
+s2_pagi_v06_f0013.jpg,14,one,1,0.98,
+s2_pagi_v06_f0022.jpg,14,one,1,0.98,
+s2_pagi_v06_f0032.jpg,14,one,1,0.99,
+s2_pagi_v06_f0041.jpg,14,one,1,0.99,
+s2_pagi_v06_f0050.jpg,14,one,1,0.99,
+s2_pagi_v07_f0016.jpg,14,one,0,,no_hand
+s2_pagi_v07_f0027.jpg,14,one,1,0.99,
+s2_pagi_v07_f0039.jpg,14,one,1,0.99,
+s2_pagi_v07_f0051.jpg,14,one,1,0.99,
+s2_pagi_v07_f0062.jpg,14,one,1,0.99,
+s2_pagi_v08_f0014.jpg,14,one,1,0.99,
+s2_pagi_v08_f0024.jpg,14,one,1,1.00,
+s2_pagi_v08_f0034.jpg,14,one,1,1.00,
+s2_pagi_v08_f0044.jpg,14,one,1,1.00,
+s2_pagi_v08_f0054.jpg,14,one,1,0.99,
+s2_pagi_v09_f0012.jpg,14,one,1,0.98,
+s2_pagi_v09_f0021.jpg,14,one,1,1.00,
+s2_pagi_v09_f0030.jpg,14,one,1,1.00,
+s2_pagi_v09_f0040.jpg,14,one,1,1.00,
+s2_pagi_v09_f0049.jpg,14,one,1,0.99,
+s2_pagi_v10_f0013.jpg,14,one,0,,no_hand
+s2_pagi_v10_f0022.jpg,14,one,1,1.00,
+s2_pagi_v10_f0032.jpg,14,one,1,1.00,
+s2_pagi_v10_f0042.jpg,14,one,1,0.99,
+s2_pagi_v10_f0051.jpg,14,one,1,0.98,
+s2_pagi_v11_f0015.jpg,14,one,0,,no_hand
+s2_pagi_v11_f0026.jpg,14,one,1,0.99,
+s2_pagi_v11_f0036.jpg,14,one,1,0.98,
+s2_pagi_v11_f0047.jpg,14,one,1,0.99,
+s2_pagi_v11_f0058.jpg,14,one,1,0.99,
+s2_pagi_v12_f0014.jpg,14,one,0,,no_hand
+s2_pagi_v12_f0024.jpg,14,one,1,0.99,
+s2_pagi_v12_f0034.jpg,14,one,1,0.99,
+s2_pagi_v12_f0044.jpg,14,one,1,1.00,
+s2_pagi_v12_f0054.jpg,14,one,1,1.00,
+s2_pagi_v13_f0013.jpg,14,one,1,0.98,
+s2_pagi_v13_f0022.jpg,14,one,1,1.00,
+s2_pagi_v13_f0032.jpg,14,one,1,0.99,
+s2_pagi_v13_f0041.jpg,14,one,1,0.99,
+s2_pagi_v13_f0050.jpg,14,one,1,0.99,
+s2_pagi_v14_f0012.jpg,14,one,1,0.98,
+s2_pagi_v14_f0022.jpg,14,one,1,0.99,
+s2_pagi_v14_f0031.jpg,14,one,1,0.99,
+s2_pagi_v14_f0040.jpg,14,one,1,0.99,
+s2_pagi_v14_f0050.jpg,14,one,1,0.98,
+s2_pagi_v15_f0012.jpg,14,one,1,0.99,
+s2_pagi_v15_f0021.jpg,14,one,1,0.99,
+s2_pagi_v15_f0030.jpg,14,one,1,0.99,
+s2_pagi_v15_f0038.jpg,14,one,1,0.99,
+s2_pagi_v15_f0047.jpg,14,one,1,0.99,
+s2_rumah_v01_f0011.jpg,13,two,1,0.93,two_class_one_hand
+s2_rumah_v01_f0020.jpg,13,two,2,0.98 0.94,
+s2_rumah_v01_f0028.jpg,13,two,2,0.95 0.98,
+s2_rumah_v01_f0037.jpg,13,two,2,0.99 0.99,
+s2_rumah_v01_f0046.jpg,13,two,2,0.99 0.99,
+s2_rumah_v02_f0013.jpg,13,two,1,1.00,two_class_one_hand
+s2_rumah_v02_f0022.jpg,13,two,2,1.00 0.96,
+s2_rumah_v02_f0032.jpg,13,two,2,0.99 0.91,
+s2_rumah_v02_f0042.jpg,13,two,2,0.99 0.98,
+s2_rumah_v02_f0051.jpg,13,two,2,0.96 0.98,
+s2_rumah_v03_f0013.jpg,13,two,0,,no_hand
+s2_rumah_v03_f0023.jpg,13,two,2,0.97 0.99,
+s2_rumah_v03_f0034.jpg,13,two,2,0.98 0.95,
+s2_rumah_v03_f0044.jpg,13,two,2,1.00 1.00,
+s2_rumah_v03_f0054.jpg,13,two,2,0.94 0.99,
+s2_rumah_v04_f0013.jpg,13,two,1,0.98,two_class_one_hand
+s2_rumah_v04_f0023.jpg,13,two,2,0.99 0.99,
+s2_rumah_v04_f0032.jpg,13,two,2,1.00 0.87,
+s2_rumah_v04_f0042.jpg,13,two,2,0.95 0.99,
+s2_rumah_v04_f0052.jpg,13,two,2,0.98 0.98,
+s2_rumah_v05_f0012.jpg,13,two,1,0.98,two_class_one_hand
+s2_rumah_v05_f0022.jpg,13,two,2,0.96 0.99,
+s2_rumah_v05_f0031.jpg,13,two,2,0.99 0.99,
+s2_rumah_v05_f0040.jpg,13,two,2,1.00 0.99,
+s2_rumah_v05_f0050.jpg,13,two,2,0.98 0.99,
+s2_rumah_v06_f0013.jpg,13,two,2,1.00 0.99,
+s2_rumah_v06_f0023.jpg,13,two,2,1.00 0.99,
+s2_rumah_v06_f0032.jpg,13,two,2,0.97 0.96,
+s2_rumah_v06_f0042.jpg,13,two,2,0.98 0.99,
+s2_rumah_v06_f0052.jpg,13,two,2,0.96 1.00,
+s2_rumah_v07_f0012.jpg,13,two,2,1.00 1.00,
+s2_rumah_v07_f0020.jpg,13,two,2,0.98 0.94,
+s2_rumah_v07_f0029.jpg,13,two,2,0.98 1.00,
+s2_rumah_v07_f0038.jpg,13,two,2,1.00 0.99,
+s2_rumah_v07_f0046.jpg,13,two,2,1.00 0.98,
+s2_rumah_v08_f0012.jpg,13,two,0,,no_hand
+s2_rumah_v08_f0022.jpg,13,two,0,,no_hand
+s2_rumah_v08_f0031.jpg,13,two,2,0.96 0.98,
+s2_rumah_v08_f0040.jpg,13,two,2,0.99 0.99,
+s2_rumah_v08_f0050.jpg,13,two,2,0.99 0.97,
+s2_rumah_v09_f0012.jpg,13,two,2,0.97 0.97,
+s2_rumah_v09_f0021.jpg,13,two,2,0.98 0.99,
+s2_rumah_v09_f0030.jpg,13,two,2,0.98 0.99,
+s2_rumah_v09_f0038.jpg,13,two,2,0.96 0.99,
+s2_rumah_v09_f0047.jpg,13,two,2,0.95 0.99,
+s2_rumah_v10_f0012.jpg,13,two,0,,no_hand
+s2_rumah_v10_f0021.jpg,13,two,2,0.99 0.96,
+s2_rumah_v10_f0030.jpg,13,two,2,0.99 0.98,
+s2_rumah_v10_f0040.jpg,13,two,2,0.99 0.99,
+s2_rumah_v10_f0049.jpg,13,two,2,1.00 1.00,
+s2_rumah_v11_f0014.jpg,13,two,2,0.84 0.93,
+s2_rumah_v11_f0024.jpg,13,two,2,0.99 1.00,
+s2_rumah_v11_f0034.jpg,13,two,2,0.99 0.99,
+s2_rumah_v11_f0044.jpg,13,two,2,0.99 1.00,
+s2_rumah_v11_f0054.jpg,13,two,2,0.93 1.00,
+s2_rumah_v12_f0012.jpg,13,two,2,1.00 0.99,
+s2_rumah_v12_f0020.jpg,13,two,2,0.98 0.99,
+s2_rumah_v12_f0029.jpg,13,two,2,0.98 0.99,
+s2_rumah_v12_f0038.jpg,13,two,2,1.00 0.98,
+s2_rumah_v12_f0046.jpg,13,two,2,0.98 0.95,
+s2_rumah_v13_f0013.jpg,13,two,1,1.00,two_class_one_hand
+s2_rumah_v13_f0022.jpg,13,two,2,0.99 0.77,
+s2_rumah_v13_f0032.jpg,13,two,2,0.99 1.00,
+s2_rumah_v13_f0041.jpg,13,two,2,1.00 0.99,
+s2_rumah_v13_f0050.jpg,13,two,2,1.00 0.99,
+s2_rumah_v14_f0013.jpg,13,two,2,0.99 1.00,
+s2_rumah_v14_f0023.jpg,13,two,2,1.00 0.99,
+s2_rumah_v14_f0034.jpg,13,two,2,0.99 0.87,
+s2_rumah_v14_f0044.jpg,13,two,2,0.99 0.98,
+s2_rumah_v14_f0054.jpg,13,two,2,0.98 1.00,
+s2_rumah_v15_f0012.jpg,13,two,2,0.98 0.97,
+s2_rumah_v15_f0021.jpg,13,two,2,1.00 0.97,
+s2_rumah_v15_f0030.jpg,13,two,2,0.98 0.94,
+s2_rumah_v15_f0039.jpg,13,two,2,0.93 0.99,
+s2_rumah_v15_f0048.jpg,13,two,2,0.91 1.00,
+s2_saya_v01_f0010.jpg,7,one,1,0.95,
+s2_saya_v01_f0018.jpg,7,one,1,0.99,
+s2_saya_v01_f0025.jpg,7,one,1,0.97,
+s2_saya_v01_f0033.jpg,7,one,1,0.97,
+s2_saya_v01_f0040.jpg,7,one,1,0.99,
+s2_saya_v02_f0014.jpg,7,one,1,1.00,
+s2_saya_v02_f0024.jpg,7,one,1,0.97,
+s2_saya_v02_f0034.jpg,7,one,1,0.95,
+s2_saya_v02_f0044.jpg,7,one,1,0.96,
+s2_saya_v02_f0054.jpg,7,one,0,,no_hand
+s2_saya_v03_f0013.jpg,7,one,0,,no_hand
+s2_saya_v03_f0023.jpg,7,one,1,0.98,
+s2_saya_v03_f0032.jpg,7,one,1,0.98,
+s2_saya_v03_f0042.jpg,7,one,1,0.96,
+s2_saya_v03_f0052.jpg,7,one,1,0.96,
+s2_saya_v04_f0015.jpg,7,one,0,,no_hand
+s2_saya_v04_f0027.jpg,7,one,1,0.97,
+s2_saya_v04_f0038.jpg,7,one,1,0.96,
+s2_saya_v04_f0050.jpg,7,one,1,0.95,
+s2_saya_v04_f0062.jpg,7,one,1,0.98,
+s2_saya_v05_f0012.jpg,7,one,1,0.98,
+s2_saya_v05_f0021.jpg,7,one,1,0.97,
+s2_saya_v05_f0030.jpg,7,one,1,0.94,
+s2_saya_v05_f0040.jpg,7,one,1,0.95,
+s2_saya_v05_f0049.jpg,7,one,1,0.95,
+s2_saya_v06_f0013.jpg,7,one,1,0.97,
+s2_saya_v06_f0022.jpg,7,one,1,0.97,
+s2_saya_v06_f0032.jpg,7,one,1,0.96,
+s2_saya_v06_f0042.jpg,7,one,1,0.94,
+s2_saya_v06_f0051.jpg,7,one,1,0.98,
+s2_saya_v07_f0013.jpg,7,one,1,0.99,
+s2_saya_v07_f0022.jpg,7,one,1,0.97,
+s2_saya_v07_f0032.jpg,7,one,1,0.98,
+s2_saya_v07_f0041.jpg,7,one,1,0.98,
+s2_saya_v07_f0050.jpg,7,one,1,1.00,
+s2_saya_v08_f0016.jpg,7,one,0,,no_hand
+s2_saya_v08_f0028.jpg,7,one,1,0.99,
+s2_saya_v08_f0040.jpg,7,one,1,0.98,
+s2_saya_v08_f0053.jpg,7,one,1,0.96,
+s2_saya_v08_f0065.jpg,7,one,1,0.98,
+s2_saya_v09_f0014.jpg,7,one,0,,no_hand
+s2_saya_v09_f0025.jpg,7,one,1,0.94,
+s2_saya_v09_f0036.jpg,7,one,1,0.96,
+s2_saya_v09_f0046.jpg,7,one,1,0.94,
+s2_saya_v09_f0057.jpg,7,one,1,0.99,
+s2_saya_v10_f0014.jpg,7,one,0,,no_hand
+s2_saya_v10_f0024.jpg,7,one,1,0.96,
+s2_saya_v10_f0034.jpg,7,one,1,0.96,
+s2_saya_v10_f0045.jpg,7,one,1,0.95,
+s2_saya_v10_f0055.jpg,7,one,1,0.96,
+s2_teman_v01_f0011.jpg,11,two,1,0.88,two_class_one_hand
+s2_teman_v01_f0019.jpg,11,two,2,0.89 1.00,
+s2_teman_v01_f0027.jpg,11,two,2,1.00 0.80,
+s2_teman_v01_f0035.jpg,11,two,2,1.00 1.00,
+s2_teman_v01_f0043.jpg,11,two,2,1.00 0.94,
+s2_teman_v02_f0018.jpg,11,two,2,0.96 0.98,
+s2_teman_v02_f0032.jpg,11,two,2,1.00 0.88,
+s2_teman_v02_f0046.jpg,11,two,2,1.00 0.66,
+s2_teman_v02_f0059.jpg,11,two,2,1.00 0.98,
+s2_teman_v02_f0073.jpg,11,two,2,1.00 1.00,
+s2_teman_v03_f0014.jpg,11,two,0,,no_hand
+s2_teman_v03_f0025.jpg,11,two,2,1.00 0.98,
+s2_teman_v03_f0036.jpg,11,two,1,1.00,two_class_one_hand
+s2_teman_v03_f0046.jpg,11,two,2,1.00 0.62,
+s2_teman_v03_f0057.jpg,11,two,2,1.00 0.86,
+s2_teman_v04_f0014.jpg,11,two,0,,no_hand
+s2_teman_v04_f0025.jpg,11,two,2,0.99 0.76,
+s2_teman_v04_f0036.jpg,11,two,2,1.00 0.55,
+s2_teman_v04_f0047.jpg,11,two,2,1.00 0.64,
+s2_teman_v04_f0058.jpg,11,two,2,1.00 1.00,
+s2_teman_v05_f0014.jpg,11,two,2,0.87 0.66,
+s2_teman_v05_f0025.jpg,11,two,2,1.00 0.65,
+s2_teman_v05_f0036.jpg,11,two,2,1.00 0.67,
+s2_teman_v05_f0046.jpg,11,two,2,1.00 0.66,
+s2_teman_v05_f0057.jpg,11,two,2,1.00 1.00,
+s2_teman_v06_f0013.jpg,11,two,1,0.97,two_class_one_hand
+s2_teman_v06_f0022.jpg,11,two,2,1.00 0.63,
+s2_teman_v06_f0032.jpg,11,two,2,1.00 0.91,
+s2_teman_v06_f0042.jpg,11,two,2,1.00 0.75,
+s2_teman_v06_f0051.jpg,11,two,2,0.99 1.00,
+s2_teman_v07_f0014.jpg,11,two,1,0.56,two_class_one_hand
+s2_teman_v07_f0024.jpg,11,two,2,1.00 0.79,
+s2_teman_v07_f0034.jpg,11,two,1,1.00,two_class_one_hand
+s2_teman_v07_f0044.jpg,11,two,1,1.00,two_class_one_hand
+s2_teman_v07_f0054.jpg,11,two,1,0.96,two_class_one_hand
+s2_teman_v08_f0013.jpg,11,two,0,,no_hand
+s2_teman_v08_f0023.jpg,11,two,2,1.00 0.86,
+s2_teman_v08_f0033.jpg,11,two,2,1.00 0.75,
+s2_teman_v08_f0043.jpg,11,two,2,1.00 0.81,
+s2_teman_v08_f0053.jpg,11,two,2,0.99 0.62,
+s2_teman_v09_f0012.jpg,11,two,2,1.00 0.99,
+s2_teman_v09_f0021.jpg,11,two,2,1.00 0.96,
+s2_teman_v09_f0030.jpg,11,two,2,1.00 0.76,
+s2_teman_v09_f0038.jpg,11,two,2,1.00 0.72,
+s2_teman_v09_f0047.jpg,11,two,2,1.00 1.00,
+s2_teman_v10_f0012.jpg,11,two,0,,no_hand
+s2_teman_v10_f0021.jpg,11,two,2,0.88 1.00,
+s2_teman_v10_f0030.jpg,11,two,2,1.00 1.00,
+s2_teman_v10_f0039.jpg,11,two,2,1.00 1.00,
+s2_teman_v10_f0048.jpg,11,two,2,0.99 0.99,
+s2_teman_v11_f0012.jpg,11,two,2,0.94 0.58,
+s2_teman_v11_f0022.jpg,11,two,2,0.97 0.99,
+s2_teman_v11_f0031.jpg,11,two,1,1.00,two_class_one_hand
+s2_teman_v11_f0040.jpg,11,two,2,0.56 1.00,
+s2_teman_v11_f0050.jpg,11,two,2,1.00 0.53,
+s2_teman_v12_f0013.jpg,11,two,2,0.73 0.53,
+s2_teman_v12_f0023.jpg,11,two,2,1.00 1.00,
+s2_teman_v12_f0034.jpg,11,two,2,1.00 0.97,
+s2_teman_v12_f0044.jpg,11,two,2,1.00 0.99,
+s2_teman_v12_f0054.jpg,11,two,1,1.00,two_class_one_hand
+s2_teman_v13_f0015.jpg,11,two,1,0.90,two_class_one_hand
+s2_teman_v13_f0026.jpg,11,two,2,1.00 1.00,
+s2_teman_v13_f0037.jpg,11,two,2,1.00 1.00,
+s2_teman_v13_f0048.jpg,11,two,2,1.00 1.00,
+s2_teman_v13_f0059.jpg,11,two,2,1.00 1.00,
+s2_teman_v14_f0011.jpg,11,two,1,0.85,two_class_one_hand
+s2_teman_v14_f0019.jpg,11,two,2,1.00 1.00,
+s2_teman_v14_f0026.jpg,11,two,2,1.00 0.81,
+s2_teman_v14_f0034.jpg,11,two,2,0.73 1.00,
+s2_teman_v14_f0042.jpg,11,two,2,0.99 1.00,
+s2_teman_v15_f0013.jpg,11,two,0,,no_hand
+s2_teman_v15_f0023.jpg,11,two,1,1.00,two_class_one_hand
+s2_teman_v15_f0033.jpg,11,two,2,1.00 0.58,
+s2_teman_v15_f0043.jpg,11,two,2,1.00 0.88,
+s2_teman_v15_f0053.jpg,11,two,2,0.99 1.00,
+s2_terimakasih_v01_f0014.jpg,8,one,1,0.98,
+s2_terimakasih_v01_f0025.jpg,8,one,1,0.97,
+s2_terimakasih_v01_f0036.jpg,8,one,1,0.98,
+s2_terimakasih_v01_f0047.jpg,8,one,1,0.97,
+s2_terimakasih_v01_f0058.jpg,8,one,0,,no_hand
+s2_terimakasih_v02_f0014.jpg,8,one,1,0.97,
+s2_terimakasih_v02_f0024.jpg,8,one,1,0.97,
+s2_terimakasih_v02_f0034.jpg,8,one,1,0.97,
+s2_terimakasih_v02_f0044.jpg,8,one,1,0.98,
+s2_terimakasih_v02_f0054.jpg,8,one,1,0.99,
+s2_terimakasih_v03_f0014.jpg,8,one,1,0.98,
+s2_terimakasih_v03_f0024.jpg,8,one,1,0.96,
+s2_terimakasih_v03_f0034.jpg,8,one,1,0.96,
+s2_terimakasih_v03_f0044.jpg,8,one,1,0.96,
+s2_terimakasih_v03_f0054.jpg,8,one,1,0.91,
+s2_terimakasih_v04_f0016.jpg,8,one,1,0.98,
+s2_terimakasih_v04_f0027.jpg,8,one,1,0.94,
+s2_terimakasih_v04_f0039.jpg,8,one,1,0.96,
+s2_terimakasih_v04_f0051.jpg,8,one,1,0.96,
+s2_terimakasih_v04_f0062.jpg,8,one,0,,no_hand
+s2_terimakasih_v05_f0017.jpg,8,one,1,0.95,
+s2_terimakasih_v05_f0029.jpg,8,one,1,0.96,
+s2_terimakasih_v05_f0042.jpg,8,one,1,0.96,
+s2_terimakasih_v05_f0055.jpg,8,one,1,0.95,
+s2_terimakasih_v05_f0067.jpg,8,one,0,,no_hand
+s2_terimakasih_v06_f0018.jpg,8,one,1,0.95,
+s2_terimakasih_v06_f0032.jpg,8,one,1,0.98,
+s2_terimakasih_v06_f0045.jpg,8,one,1,0.74,
+s2_terimakasih_v06_f0059.jpg,8,one,1,0.62,
+s2_terimakasih_v06_f0072.jpg,8,one,1,0.70,
+s2_terimakasih_v07_f0017.jpg,8,one,1,0.97,
+s2_terimakasih_v07_f0029.jpg,8,one,1,0.97,
+s2_terimakasih_v07_f0042.jpg,8,one,1,0.98,
+s2_terimakasih_v07_f0054.jpg,8,one,1,0.96,
+s2_terimakasih_v07_f0066.jpg,8,one,0,,no_hand
+s2_terimakasih_v08_f0018.jpg,8,one,1,0.96,
+s2_terimakasih_v08_f0031.jpg,8,one,1,0.96,
+s2_terimakasih_v08_f0044.jpg,8,one,1,0.97,
+s2_terimakasih_v08_f0058.jpg,8,one,1,0.95,
+s2_terimakasih_v08_f0071.jpg,8,one,0,,no_hand
+s2_terimakasih_v09_f0017.jpg,8,one,1,1.00,
+s2_terimakasih_v09_f0029.jpg,8,one,1,0.92,
+s2_terimakasih_v09_f0042.jpg,8,one,1,0.97,
+s2_terimakasih_v09_f0055.jpg,8,one,1,0.93,
+s2_terimakasih_v09_f0067.jpg,8,one,1,0.89,
+s2_terimakasih_v10_f0013.jpg,8,one,1,0.96,
+s2_terimakasih_v10_f0023.jpg,8,one,1,0.94,
+s2_terimakasih_v10_f0032.jpg,8,one,1,0.94,
+s2_terimakasih_v10_f0042.jpg,8,one,1,0.96,
+s2_terimakasih_v10_f0052.jpg,8,one,1,0.95,
+s3_bagaimana_v01_f0011.jpg,9,two,2,0.95 0.99,
+s3_bagaimana_v01_f0019.jpg,9,two,1,0.99,two_class_one_hand
+s3_bagaimana_v01_f0026.jpg,9,two,2,0.78 0.77,
+s3_bagaimana_v01_f0034.jpg,9,two,2,0.89 0.95,
+s3_bagaimana_v01_f0042.jpg,9,two,2,0.77 0.99,
+s3_bagaimana_v02_f0010.jpg,9,two,2,0.98 0.96,
+s3_bagaimana_v02_f0018.jpg,9,two,2,0.93 0.98,
+s3_bagaimana_v02_f0026.jpg,9,two,2,0.64 0.93,
+s3_bagaimana_v02_f0033.jpg,9,two,2,0.89 0.98,
+s3_bagaimana_v02_f0041.jpg,9,two,2,0.98 0.99,
+s3_bagaimana_v03_f0010.jpg,9,two,1,0.97,two_class_one_hand
+s3_bagaimana_v03_f0018.jpg,9,two,2,0.90 0.97,
+s3_bagaimana_v03_f0026.jpg,9,two,2,0.70 0.80,
+s3_bagaimana_v03_f0033.jpg,9,two,2,0.96 0.97,
+s3_bagaimana_v03_f0041.jpg,9,two,2,0.77 0.55,
+s3_bagaimana_v04_f0011.jpg,9,two,2,0.94 0.95,
+s3_bagaimana_v04_f0020.jpg,9,two,2,0.85 0.98,
+s3_bagaimana_v04_f0028.jpg,9,two,2,0.99 0.76,
+s3_bagaimana_v04_f0036.jpg,9,two,2,0.89 0.98,
+s3_bagaimana_v04_f0045.jpg,9,two,1,0.71,two_class_one_hand
+s3_bagaimana_v05_f0011.jpg,9,two,1,0.97,two_class_one_hand
+s3_bagaimana_v05_f0019.jpg,9,two,2,0.94 0.99,
+s3_bagaimana_v05_f0028.jpg,9,two,2,0.85 0.94,
+s3_bagaimana_v05_f0036.jpg,9,two,2,0.97 0.96,
+s3_bagaimana_v05_f0044.jpg,9,two,2,0.95 0.92,
+s3_bagaimana_v06_f0011.jpg,9,two,2,0.68 0.83,
+s3_bagaimana_v06_f0019.jpg,9,two,2,0.97 0.99,
+s3_bagaimana_v06_f0026.jpg,9,two,2,0.96 0.74,
+s3_bagaimana_v06_f0034.jpg,9,two,2,0.96 0.98,
+s3_bagaimana_v06_f0042.jpg,9,two,1,0.94,two_class_one_hand
+s3_bagaimana_v07_f0011.jpg,9,two,2,0.74 0.94,
+s3_bagaimana_v07_f0020.jpg,9,two,2,0.92 0.96,
+s3_bagaimana_v07_f0028.jpg,9,two,2,0.76 0.95,
+s3_bagaimana_v07_f0036.jpg,9,two,2,0.95 0.86,
+s3_bagaimana_v07_f0045.jpg,9,two,2,0.71 0.80,
+s3_bagaimana_v08_f0011.jpg,9,two,2,0.88 0.97,
+s3_bagaimana_v08_f0020.jpg,9,two,2,0.99 0.96,
+s3_bagaimana_v08_f0028.jpg,9,two,2,0.68 0.67,
+s3_bagaimana_v08_f0036.jpg,9,two,2,0.95 0.99,
+s3_bagaimana_v08_f0045.jpg,9,two,2,0.99 0.67,
+s3_bagaimana_v09_f0012.jpg,9,two,2,0.90 0.97,
+s3_bagaimana_v09_f0021.jpg,9,two,1,0.96,two_class_one_hand
+s3_bagaimana_v09_f0030.jpg,9,two,2,0.61 0.67,
+s3_bagaimana_v09_f0038.jpg,9,two,2,0.97 0.98,
+s3_bagaimana_v09_f0047.jpg,9,two,2,0.57 0.73,
+s3_bagaimana_v10_f0010.jpg,9,two,0,,no_hand
+s3_bagaimana_v10_f0018.jpg,9,two,2,0.90 0.98,
+s3_bagaimana_v10_f0026.jpg,9,two,2,0.91 0.85,
+s3_bagaimana_v10_f0034.jpg,9,two,2,0.98 0.98,
+s3_bagaimana_v10_f0042.jpg,9,two,2,0.87 0.81,
+s3_berangkat_v01_f0011.jpg,10,one,1,0.99,
+s3_berangkat_v01_f0019.jpg,10,one,1,0.99,
+s3_berangkat_v01_f0026.jpg,10,one,0,,no_hand
+s3_berangkat_v01_f0034.jpg,10,one,1,0.94,
+s3_berangkat_v01_f0042.jpg,10,one,1,0.94,
+s3_berangkat_v02_f0010.jpg,10,one,0,,no_hand
+s3_berangkat_v02_f0018.jpg,10,one,1,0.99,
+s3_berangkat_v02_f0026.jpg,10,one,1,0.92,
+s3_berangkat_v02_f0033.jpg,10,one,1,0.99,
+s3_berangkat_v02_f0041.jpg,10,one,1,0.97,
+s3_berangkat_v03_f0011.jpg,10,one,1,0.99,
+s3_berangkat_v03_f0020.jpg,10,one,1,0.99,
+s3_berangkat_v03_f0028.jpg,10,one,0,,no_hand
+s3_berangkat_v03_f0036.jpg,10,one,1,0.98,
+s3_berangkat_v03_f0045.jpg,10,one,1,0.99,
+s3_berangkat_v04_f0011.jpg,10,one,1,0.97,
+s3_berangkat_v04_f0020.jpg,10,one,1,0.55,
+s3_berangkat_v04_f0028.jpg,10,one,1,0.98,
+s3_berangkat_v04_f0036.jpg,10,one,1,0.83,
+s3_berangkat_v04_f0045.jpg,10,one,1,0.95,
+s3_berangkat_v05_f0011.jpg,10,one,0,,no_hand
+s3_berangkat_v05_f0019.jpg,10,one,0,,no_hand
+s3_berangkat_v05_f0028.jpg,10,one,1,0.94,
+s3_berangkat_v05_f0036.jpg,10,one,1,0.89,
+s3_berangkat_v05_f0044.jpg,10,one,1,0.97,
+s3_berangkat_v06_f0011.jpg,10,one,0,,no_hand
+s3_berangkat_v06_f0020.jpg,10,one,0,,no_hand
+s3_berangkat_v06_f0028.jpg,10,one,1,0.98,
+s3_berangkat_v06_f0037.jpg,10,one,1,0.96,
+s3_berangkat_v06_f0046.jpg,10,one,1,0.94,
+s3_berangkat_v07_f0011.jpg,10,one,1,0.98,
+s3_berangkat_v07_f0019.jpg,10,one,0,,no_hand
+s3_berangkat_v07_f0028.jpg,10,one,1,0.98,
+s3_berangkat_v07_f0036.jpg,10,one,1,0.98,
+s3_berangkat_v07_f0044.jpg,10,one,1,0.98,
+s3_berangkat_v08_f0011.jpg,10,one,1,0.99,
+s3_berangkat_v08_f0020.jpg,10,one,1,0.93,
+s3_berangkat_v08_f0028.jpg,10,one,1,0.97,
+s3_berangkat_v08_f0037.jpg,10,one,0,,no_hand
+s3_berangkat_v08_f0046.jpg,10,one,1,0.97,
+s3_berangkat_v09_f0011.jpg,10,one,1,0.99,
+s3_berangkat_v09_f0020.jpg,10,one,1,0.98,
+s3_berangkat_v09_f0028.jpg,10,one,1,0.96,
+s3_berangkat_v09_f0036.jpg,10,one,1,0.97,
+s3_berangkat_v09_f0045.jpg,10,one,1,0.99,
+s3_berangkat_v10_f0011.jpg,10,one,1,0.96,
+s3_berangkat_v10_f0020.jpg,10,one,1,0.98,
+s3_berangkat_v10_f0028.jpg,10,one,1,0.96,
+s3_berangkat_v10_f0036.jpg,10,one,1,0.93,
+s3_berangkat_v10_f0045.jpg,10,one,1,0.91,
+s3_cari_v01_f0013.jpg,0,one,0,,no_hand
+s3_cari_v01_f0022.jpg,0,one,1,0.63,
+s3_cari_v01_f0032.jpg,0,one,1,0.98,
+s3_cari_v01_f0042.jpg,0,one,1,0.97,
+s3_cari_v01_f0051.jpg,0,one,0,,no_hand
+s3_cari_v02_f0011.jpg,0,one,0,,no_hand
+s3_cari_v02_f0019.jpg,0,one,1,0.99,
+s3_cari_v02_f0028.jpg,0,one,1,0.73,
+s3_cari_v02_f0036.jpg,0,one,1,0.98,
+s3_cari_v02_f0044.jpg,0,one,1,0.98,
+s3_cari_v03_f0012.jpg,0,one,1,0.91,
+s3_cari_v03_f0021.jpg,0,one,1,0.98,
+s3_cari_v03_f0030.jpg,0,one,1,0.98,
+s3_cari_v03_f0038.jpg,0,one,1,0.99,
+s3_cari_v03_f0047.jpg,0,one,1,1.00,
+s3_cari_v04_f0012.jpg,0,one,0,,no_hand
+s3_cari_v04_f0021.jpg,0,one,1,1.00,
+s3_cari_v04_f0030.jpg,0,one,1,0.94,
+s3_cari_v04_f0038.jpg,0,one,1,0.99,
+s3_cari_v04_f0047.jpg,0,one,1,0.99,
+s3_cari_v05_f0009.jpg,0,one,2,0.99 0.96,
+s3_cari_v05_f0016.jpg,0,one,2,0.98 0.96,
+s3_cari_v05_f0024.jpg,0,one,2,0.94 0.98,
+s3_cari_v05_f0031.jpg,0,one,2,0.99 0.98,
+s3_cari_v05_f0038.jpg,0,one,2,0.94 0.95,
+s3_cari_v06_f0012.jpg,0,one,0,,no_hand
+s3_cari_v06_f0021.jpg,0,one,2,1.00 0.93,
+s3_cari_v06_f0030.jpg,0,one,2,0.99 0.94,
+s3_cari_v06_f0040.jpg,0,one,1,0.94,
+s3_cari_v06_f0049.jpg,0,one,1,1.00,
+s3_cari_v07_f0011.jpg,0,one,1,0.97,
+s3_cari_v07_f0020.jpg,0,one,1,1.00,
+s3_cari_v07_f0028.jpg,0,one,1,0.94,
+s3_cari_v07_f0036.jpg,0,one,1,0.98,
+s3_cari_v07_f0045.jpg,0,one,2,1.00 0.96,
+s3_cari_v08_f0011.jpg,0,one,2,0.99 0.96,
+s3_cari_v08_f0020.jpg,0,one,1,0.99,
+s3_cari_v08_f0028.jpg,0,one,1,0.99,
+s3_cari_v08_f0036.jpg,0,one,1,0.93,
+s3_cari_v08_f0045.jpg,0,one,2,1.00 0.89,
+s3_cari_v09_f0012.jpg,0,one,1,0.99,
+s3_cari_v09_f0021.jpg,0,one,1,0.97,
+s3_cari_v09_f0030.jpg,0,one,1,1.00,
+s3_cari_v09_f0038.jpg,0,one,1,0.96,
+s3_cari_v09_f0047.jpg,0,one,1,0.99,
+s3_cari_v10_f0011.jpg,0,one,1,0.97,
+s3_cari_v10_f0019.jpg,0,one,1,1.00,
+s3_cari_v10_f0028.jpg,0,one,2,1.00 0.93,
+s3_cari_v10_f0036.jpg,0,one,1,0.86,
+s3_cari_v10_f0044.jpg,0,one,2,0.99 0.95,
+s3_hari_v01_f0010.jpg,1,one,2,0.97 0.95,
+s3_hari_v01_f0018.jpg,1,one,1,0.91,
+s3_hari_v01_f0026.jpg,1,one,1,0.86,
+s3_hari_v01_f0034.jpg,1,one,2,0.84 0.98,
+s3_hari_v01_f0042.jpg,1,one,1,1.00,
+s3_hari_v02_f0011.jpg,1,one,1,0.89,
+s3_hari_v02_f0020.jpg,1,one,2,0.95 0.95,
+s3_hari_v02_f0028.jpg,1,one,1,0.91,
+s3_hari_v02_f0037.jpg,1,one,1,0.95,
+s3_hari_v02_f0046.jpg,1,one,1,0.99,
+s3_hari_v03_f0012.jpg,1,one,0,,no_hand
+s3_hari_v03_f0021.jpg,1,one,1,0.56,
+s3_hari_v03_f0030.jpg,1,one,0,,no_hand
+s3_hari_v03_f0038.jpg,1,one,1,0.97,
+s3_hari_v03_f0047.jpg,1,one,1,1.00,
+s3_hari_v04_f0011.jpg,1,one,0,,no_hand
+s3_hari_v04_f0020.jpg,1,one,1,0.87,
+s3_hari_v04_f0028.jpg,1,one,0,,no_hand
+s3_hari_v04_f0036.jpg,1,one,1,0.98,
+s3_hari_v04_f0045.jpg,1,one,0,,no_hand
+s3_hari_v05_f0011.jpg,1,one,1,0.99,
+s3_hari_v05_f0020.jpg,1,one,1,0.67,
+s3_hari_v05_f0028.jpg,1,one,0,,no_hand
+s3_hari_v05_f0036.jpg,1,one,1,1.00,
+s3_hari_v05_f0045.jpg,1,one,1,0.99,
+s3_hari_v06_f0012.jpg,1,one,0,,no_hand
+s3_hari_v06_f0021.jpg,1,one,2,0.93 0.96,
+s3_hari_v06_f0030.jpg,1,one,1,0.94,
+s3_hari_v06_f0040.jpg,1,one,2,0.97 0.79,
+s3_hari_v06_f0049.jpg,1,one,0,,no_hand
+s3_hari_v07_f0011.jpg,1,one,1,0.99,
+s3_hari_v07_f0020.jpg,1,one,0,,no_hand
+s3_hari_v07_f0028.jpg,1,one,2,0.94 0.90,
+s3_hari_v07_f0036.jpg,1,one,1,0.97,
+s3_hari_v07_f0045.jpg,1,one,0,,no_hand
+s3_hari_v08_f0011.jpg,1,one,0,,no_hand
+s3_hari_v08_f0020.jpg,1,one,1,0.93,
+s3_hari_v08_f0028.jpg,1,one,0,,no_hand
+s3_hari_v08_f0036.jpg,1,one,0,,no_hand
+s3_hari_v08_f0045.jpg,1,one,1,1.00,
+s3_hari_v09_f0011.jpg,1,one,0,,no_hand
+s3_hari_v09_f0019.jpg,1,one,0,,no_hand
+s3_hari_v09_f0027.jpg,1,one,0,,no_hand
+s3_hari_v09_f0035.jpg,1,one,1,0.97,
+s3_hari_v09_f0043.jpg,1,one,0,,no_hand
+s3_hari_v10_f0011.jpg,1,one,0,,no_hand
+s3_hari_v10_f0019.jpg,1,one,0,,no_hand
+s3_hari_v10_f0026.jpg,1,one,0,,no_hand
+s3_hari_v10_f0034.jpg,1,one,1,1.00,
+s3_hari_v10_f0042.jpg,1,one,1,1.00,
+s3_ingat_v01_f0012.jpg,2,one,0,,no_hand
+s3_ingat_v01_f0020.jpg,2,one,1,1.00,
+s3_ingat_v01_f0029.jpg,2,one,1,0.99,
+s3_ingat_v01_f0038.jpg,2,one,1,0.99,
+s3_ingat_v01_f0046.jpg,2,one,0,,no_hand
+s3_ingat_v02_f0011.jpg,2,one,0,,no_hand
+s3_ingat_v02_f0019.jpg,2,one,1,1.00,
+s3_ingat_v02_f0027.jpg,2,one,1,1.00,
+s3_ingat_v02_f0035.jpg,2,one,1,1.00,
+s3_ingat_v02_f0043.jpg,2,one,1,0.99,
+s3_ingat_v03_f0010.jpg,2,one,1,0.98,
+s3_ingat_v03_f0018.jpg,2,one,1,0.99,
+s3_ingat_v03_f0026.jpg,2,one,1,0.99,
+s3_ingat_v03_f0033.jpg,2,one,1,0.99,
+s3_ingat_v03_f0041.jpg,2,one,1,0.99,
+s3_ingat_v04_f0011.jpg,2,one,1,0.97,
+s3_ingat_v04_f0020.jpg,2,one,1,1.00,
+s3_ingat_v04_f0028.jpg,2,one,1,1.00,
+s3_ingat_v04_f0036.jpg,2,one,1,0.99,
+s3_ingat_v04_f0045.jpg,2,one,1,0.99,
+s3_ingat_v05_f0011.jpg,2,one,0,,no_hand
+s3_ingat_v05_f0019.jpg,2,one,1,0.99,
+s3_ingat_v05_f0026.jpg,2,one,1,0.99,
+s3_ingat_v05_f0034.jpg,2,one,1,1.00,
+s3_ingat_v05_f0042.jpg,2,one,1,1.00,
+s3_ingat_v06_f0010.jpg,2,one,0,,no_hand
+s3_ingat_v06_f0018.jpg,2,one,1,1.00,
+s3_ingat_v06_f0026.jpg,2,one,1,0.99,
+s3_ingat_v06_f0033.jpg,2,one,1,1.00,
+s3_ingat_v06_f0041.jpg,2,one,1,1.00,
+s3_ingat_v07_f0011.jpg,2,one,1,0.93,
+s3_ingat_v07_f0020.jpg,2,one,1,0.99,
+s3_ingat_v07_f0028.jpg,2,one,1,0.99,
+s3_ingat_v07_f0036.jpg,2,one,1,0.99,
+s3_ingat_v07_f0045.jpg,2,one,1,1.00,
+s3_ingat_v08_f0009.jpg,2,one,0,,no_hand
+s3_ingat_v08_f0016.jpg,2,one,1,1.00,
+s3_ingat_v08_f0024.jpg,2,one,1,0.99,
+s3_ingat_v08_f0031.jpg,2,one,1,0.99,
+s3_ingat_v08_f0038.jpg,2,one,1,0.98,
+s3_ingat_v09_f0011.jpg,2,one,1,0.98,
+s3_ingat_v09_f0019.jpg,2,one,0,,no_hand
+s3_ingat_v09_f0028.jpg,2,one,1,0.99,
+s3_ingat_v09_f0036.jpg,2,one,1,0.99,
+s3_ingat_v09_f0044.jpg,2,one,1,0.99,
+s3_ingat_v10_f0011.jpg,2,one,1,0.95,
+s3_ingat_v10_f0020.jpg,2,one,1,0.99,
+s3_ingat_v10_f0028.jpg,2,one,1,1.00,
+s3_ingat_v10_f0036.jpg,2,one,1,1.00,
+s3_ingat_v10_f0045.jpg,2,one,1,0.98,
+s3_keluarga_v01_f0011.jpg,12,one,1,0.99,
+s3_keluarga_v01_f0020.jpg,12,one,1,0.94,
+s3_keluarga_v01_f0028.jpg,12,one,1,0.93,
+s3_keluarga_v01_f0036.jpg,12,one,0,,no_hand
+s3_keluarga_v01_f0045.jpg,12,one,1,0.99,
+s3_keluarga_v02_f0011.jpg,12,one,1,0.92,
+s3_keluarga_v02_f0019.jpg,12,one,1,0.67,
+s3_keluarga_v02_f0026.jpg,12,one,1,0.80,
+s3_keluarga_v02_f0034.jpg,12,one,1,0.99,
+s3_keluarga_v02_f0042.jpg,12,one,1,0.91,
+s3_keluarga_v03_f0011.jpg,12,one,1,0.99,
+s3_keluarga_v03_f0019.jpg,12,one,1,0.98,
+s3_keluarga_v03_f0028.jpg,12,one,1,1.00,
+s3_keluarga_v03_f0036.jpg,12,one,1,0.82,
+s3_keluarga_v03_f0044.jpg,12,one,1,0.96,
+s3_keluarga_v04_f0010.jpg,12,one,1,0.99,
+s3_keluarga_v04_f0018.jpg,12,one,1,0.97,
+s3_keluarga_v04_f0025.jpg,12,one,1,0.99,
+s3_keluarga_v04_f0033.jpg,12,one,1,0.63,
+s3_keluarga_v04_f0040.jpg,12,one,1,0.80,
+s3_keluarga_v05_f0011.jpg,12,one,0,,no_hand
+s3_keluarga_v05_f0019.jpg,12,one,1,1.00,
+s3_keluarga_v05_f0026.jpg,12,one,0,,no_hand
+s3_keluarga_v05_f0034.jpg,12,one,1,0.96,
+s3_keluarga_v05_f0042.jpg,12,one,1,0.77,
+s3_keluarga_v06_f0011.jpg,12,one,1,1.00,
+s3_keluarga_v06_f0019.jpg,12,one,1,1.00,
+s3_keluarga_v06_f0026.jpg,12,one,1,1.00,
+s3_keluarga_v06_f0034.jpg,12,one,0,,no_hand
+s3_keluarga_v06_f0042.jpg,12,one,1,0.58,
+s3_keluarga_v07_f0011.jpg,12,one,0,,no_hand
+s3_keluarga_v07_f0019.jpg,12,one,1,0.91,
+s3_keluarga_v07_f0027.jpg,12,one,1,0.96,
+s3_keluarga_v07_f0035.jpg,12,one,1,0.92,
+s3_keluarga_v07_f0043.jpg,12,one,1,0.99,
+s3_keluarga_v08_f0011.jpg,12,one,0,,no_hand
+s3_keluarga_v08_f0019.jpg,12,one,1,0.91,
+s3_keluarga_v08_f0026.jpg,12,one,1,0.99,
+s3_keluarga_v08_f0034.jpg,12,one,1,0.83,
+s3_keluarga_v08_f0042.jpg,12,one,1,0.94,
+s3_keluarga_v09_f0011.jpg,12,one,1,0.99,
+s3_keluarga_v09_f0019.jpg,12,one,1,0.94,
+s3_keluarga_v09_f0027.jpg,12,one,1,1.00,
+s3_keluarga_v09_f0035.jpg,12,one,1,0.75,
+s3_keluarga_v09_f0043.jpg,12,one,1,0.99,
+s3_keluarga_v10_f0011.jpg,12,one,1,0.98,
+s3_keluarga_v10_f0020.jpg,12,one,0,,no_hand
+s3_keluarga_v10_f0028.jpg,12,one,1,0.98,
+s3_keluarga_v10_f0036.jpg,12,one,0,,no_hand
+s3_keluarga_v10_f0045.jpg,12,one,1,0.88,
+s3_lagi_v01_f0009.jpg,3,one,0,,no_hand
+s3_lagi_v01_f0016.jpg,3,one,0,,no_hand
+s3_lagi_v01_f0023.jpg,3,one,1,1.00,
+s3_lagi_v01_f0030.jpg,3,one,1,0.99,
+s3_lagi_v01_f0037.jpg,3,one,1,0.97,
+s3_lagi_v02_f0009.jpg,3,one,0,,no_hand
+s3_lagi_v02_f0016.jpg,3,one,1,0.59,
+s3_lagi_v02_f0023.jpg,3,one,1,1.00,
+s3_lagi_v02_f0030.jpg,3,one,1,1.00,
+s3_lagi_v02_f0037.jpg,3,one,0,,no_hand
+s3_lagi_v03_f0009.jpg,3,one,0,,no_hand
+s3_lagi_v03_f0016.jpg,3,one,1,0.91,
+s3_lagi_v03_f0023.jpg,3,one,1,1.00,
+s3_lagi_v03_f0030.jpg,3,one,1,1.00,
+s3_lagi_v03_f0037.jpg,3,one,1,0.66,
+s3_lagi_v04_f0009.jpg,3,one,0,,no_hand
+s3_lagi_v04_f0015.jpg,3,one,1,0.99,
+s3_lagi_v04_f0022.jpg,3,one,1,1.00,
+s3_lagi_v04_f0029.jpg,3,one,1,1.00,
+s3_lagi_v04_f0035.jpg,3,one,1,0.99,
+s3_lagi_v05_f0009.jpg,3,one,0,,no_hand
+s3_lagi_v05_f0016.jpg,3,one,0,,no_hand
+s3_lagi_v05_f0023.jpg,3,one,1,1.00,
+s3_lagi_v05_f0030.jpg,3,one,1,1.00,
+s3_lagi_v05_f0037.jpg,3,one,1,0.89,
+s3_lagi_v06_f0009.jpg,3,one,0,,no_hand
+s3_lagi_v06_f0016.jpg,3,one,0,,no_hand
+s3_lagi_v06_f0023.jpg,3,one,1,0.99,
+s3_lagi_v06_f0030.jpg,3,one,1,1.00,
+s3_lagi_v06_f0037.jpg,3,one,1,1.00,
+s3_lagi_v07_f0008.jpg,3,one,1,0.51,
+s3_lagi_v07_f0014.jpg,3,one,1,0.99,
+s3_lagi_v07_f0020.jpg,3,one,1,0.99,
+s3_lagi_v07_f0027.jpg,3,one,1,1.00,
+s3_lagi_v07_f0033.jpg,3,one,1,0.89,
+s3_lagi_v08_f0010.jpg,3,one,0,,no_hand
+s3_lagi_v08_f0017.jpg,3,one,0,,no_hand
+s3_lagi_v08_f0024.jpg,3,one,1,0.98,
+s3_lagi_v08_f0031.jpg,3,one,1,0.99,
+s3_lagi_v08_f0038.jpg,3,one,1,1.00,
+s3_lagi_v09_f0010.jpg,3,one,0,,no_hand
+s3_lagi_v09_f0018.jpg,3,one,1,1.00,
+s3_lagi_v09_f0026.jpg,3,one,1,1.00,
+s3_lagi_v09_f0033.jpg,3,one,1,1.00,
+s3_lagi_v09_f0041.jpg,3,one,0,,no_hand
+s3_lagi_v10_f0010.jpg,3,one,0,,no_hand
+s3_lagi_v10_f0018.jpg,3,one,1,0.87,
+s3_lagi_v10_f0025.jpg,3,one,1,0.97,
+s3_lagi_v10_f0033.jpg,3,one,1,1.00,
+s3_lagi_v10_f0040.jpg,3,one,1,0.67,
+s3_maaf_v01_f0010.jpg,4,one,0,,no_hand
+s3_maaf_v01_f0018.jpg,4,one,1,0.90,
+s3_maaf_v01_f0026.jpg,4,one,1,0.98,
+s3_maaf_v01_f0034.jpg,4,one,1,0.99,
+s3_maaf_v01_f0042.jpg,4,one,0,,no_hand
+s3_maaf_v02_f0009.jpg,4,one,1,0.52,
+s3_maaf_v02_f0015.jpg,4,one,1,0.97,
+s3_maaf_v02_f0022.jpg,4,one,1,0.99,
+s3_maaf_v02_f0029.jpg,4,one,1,0.99,
+s3_maaf_v02_f0035.jpg,4,one,1,0.91,
+s3_maaf_v03_f0010.jpg,4,one,1,0.80,
+s3_maaf_v03_f0018.jpg,4,one,1,0.87,
+s3_maaf_v03_f0025.jpg,4,one,1,1.00,
+s3_maaf_v03_f0033.jpg,4,one,1,0.99,
+s3_maaf_v03_f0040.jpg,4,one,1,0.93,
+s3_maaf_v04_f0011.jpg,4,one,1,0.98,
+s3_maaf_v04_f0019.jpg,4,one,1,0.92,
+s3_maaf_v04_f0026.jpg,4,one,1,0.99,
+s3_maaf_v04_f0034.jpg,4,one,1,0.99,
+s3_maaf_v04_f0042.jpg,4,one,1,0.98,
+s3_maaf_v05_f0010.jpg,4,one,0,,no_hand
+s3_maaf_v05_f0018.jpg,4,one,1,0.62,
+s3_maaf_v05_f0025.jpg,4,one,1,0.98,
+s3_maaf_v05_f0033.jpg,4,one,1,0.98,
+s3_maaf_v05_f0040.jpg,4,one,1,0.73,
+s3_maaf_v06_f0011.jpg,4,one,1,0.60,
+s3_maaf_v06_f0019.jpg,4,one,1,0.90,
+s3_maaf_v06_f0026.jpg,4,one,1,0.95,
+s3_maaf_v06_f0034.jpg,4,one,1,0.98,
+s3_maaf_v06_f0042.jpg,4,one,1,0.97,
+s3_maaf_v07_f0009.jpg,4,one,1,0.98,
+s3_maaf_v07_f0015.jpg,4,one,0,,no_hand
+s3_maaf_v07_f0022.jpg,4,one,1,0.99,
+s3_maaf_v07_f0028.jpg,4,one,1,0.98,
+s3_maaf_v07_f0034.jpg,4,one,0,,no_hand
+s3_maaf_v08_f0011.jpg,4,one,1,0.81,
+s3_maaf_v08_f0019.jpg,4,one,1,0.89,
+s3_maaf_v08_f0027.jpg,4,one,1,0.98,
+s3_maaf_v08_f0035.jpg,4,one,1,0.98,
+s3_maaf_v08_f0043.jpg,4,one,1,0.96,
+s3_maaf_v09_f0010.jpg,4,one,1,0.95,
+s3_maaf_v09_f0018.jpg,4,one,1,0.97,
+s3_maaf_v09_f0025.jpg,4,one,1,0.95,
+s3_maaf_v09_f0033.jpg,4,one,1,0.93,
+s3_maaf_v09_f0040.jpg,4,one,1,0.97,
+s3_maaf_v10_f0010.jpg,4,one,0,,no_hand
+s3_maaf_v10_f0018.jpg,4,one,1,0.90,
+s3_maaf_v10_f0026.jpg,4,one,1,0.98,
+s3_maaf_v10_f0033.jpg,4,one,1,0.99,
+s3_maaf_v10_f0041.jpg,4,one,1,0.93,
+s3_makan_v01_f0012.jpg,5,one,0,,no_hand
+s3_makan_v01_f0021.jpg,5,one,0,,no_hand
+s3_makan_v01_f0030.jpg,5,one,1,0.99,
+s3_makan_v01_f0040.jpg,5,one,1,1.00,
+s3_makan_v01_f0049.jpg,5,one,0,,no_hand
+s3_makan_v02_f0010.jpg,5,one,0,,no_hand
+s3_makan_v02_f0017.jpg,5,one,0,,no_hand
+s3_makan_v02_f0024.jpg,5,one,1,1.00,
+s3_makan_v02_f0031.jpg,5,one,1,1.00,
+s3_makan_v02_f0038.jpg,5,one,1,0.87,
+s3_makan_v03_f0011.jpg,5,one,0,,no_hand
+s3_makan_v03_f0019.jpg,5,one,1,0.99,
+s3_makan_v03_f0027.jpg,5,one,1,1.00,
+s3_makan_v03_f0035.jpg,5,one,1,0.98,
+s3_makan_v03_f0043.jpg,5,one,1,0.79,
+s3_makan_v04_f0011.jpg,5,one,1,0.94,
+s3_makan_v04_f0019.jpg,5,one,0,,no_hand
+s3_makan_v04_f0026.jpg,5,one,0,,no_hand
+s3_makan_v04_f0034.jpg,5,one,1,0.99,
+s3_makan_v04_f0042.jpg,5,one,0,,no_hand
+s3_makan_v05_f0011.jpg,5,one,1,0.99,
+s3_makan_v05_f0019.jpg,5,one,0,,no_hand
+s3_makan_v05_f0026.jpg,5,one,1,0.99,
+s3_makan_v05_f0034.jpg,5,one,0,,no_hand
+s3_makan_v05_f0042.jpg,5,one,1,1.00,
+s3_makan_v06_f0010.jpg,5,one,0,,no_hand
+s3_makan_v06_f0018.jpg,5,one,0,,no_hand
+s3_makan_v06_f0026.jpg,5,one,1,0.88,
+s3_makan_v06_f0033.jpg,5,one,1,0.98,
+s3_makan_v06_f0041.jpg,5,one,0,,no_hand
+s3_makan_v07_f0011.jpg,5,one,1,0.99,
+s3_makan_v07_f0019.jpg,5,one,0,,no_hand
+s3_makan_v07_f0027.jpg,5,one,1,0.94,
+s3_makan_v07_f0035.jpg,5,one,1,0.99,
+s3_makan_v07_f0043.jpg,5,one,1,1.00,
+s3_makan_v08_f0010.jpg,5,one,0,,no_hand
+s3_makan_v08_f0017.jpg,5,one,0,,no_hand
+s3_makan_v08_f0024.jpg,5,one,1,0.99,
+s3_makan_v08_f0031.jpg,5,one,1,0.99,
+s3_makan_v08_f0038.jpg,5,one,1,0.99,
+s3_makan_v09_f0010.jpg,5,one,1,0.98,
+s3_makan_v09_f0017.jpg,5,one,0,,no_hand
+s3_makan_v09_f0024.jpg,5,one,1,0.99,
+s3_makan_v09_f0032.jpg,5,one,1,0.99,
+s3_makan_v09_f0039.jpg,5,one,0,,no_hand
+s3_makan_v10_f0011.jpg,5,one,1,0.96,
+s3_makan_v10_f0019.jpg,5,one,1,0.82,
+s3_makan_v10_f0026.jpg,5,one,1,0.98,
+s3_makan_v10_f0034.jpg,5,one,1,0.99,
+s3_makan_v10_f0042.jpg,5,one,0,,no_hand
+s3_motor_v01_f0011.jpg,6,two,2,0.99 0.98,
+s3_motor_v01_f0019.jpg,6,two,2,0.99 0.75,
+s3_motor_v01_f0027.jpg,6,two,2,0.96 0.99,
+s3_motor_v01_f0035.jpg,6,two,2,0.99 0.98,
+s3_motor_v01_f0043.jpg,6,two,2,1.00 0.94,
+s3_motor_v02_f0011.jpg,6,two,2,0.99 0.94,
+s3_motor_v02_f0019.jpg,6,two,2,0.99 0.99,
+s3_motor_v02_f0026.jpg,6,two,2,1.00 0.98,
+s3_motor_v02_f0034.jpg,6,two,2,1.00 0.98,
+s3_motor_v02_f0042.jpg,6,two,2,0.99 0.90,
+s3_motor_v03_f0010.jpg,6,two,1,0.84,two_class_one_hand
+s3_motor_v03_f0018.jpg,6,two,2,0.99 0.97,
+s3_motor_v03_f0026.jpg,6,two,2,0.95 0.95,
+s3_motor_v03_f0033.jpg,6,two,2,0.95 0.89,
+s3_motor_v03_f0041.jpg,6,two,2,1.00 0.90,
+s3_motor_v04_f0011.jpg,6,two,1,1.00,two_class_one_hand
+s3_motor_v04_f0019.jpg,6,two,2,1.00 0.67,
+s3_motor_v04_f0026.jpg,6,two,2,0.98 0.76,
+s3_motor_v04_f0034.jpg,6,two,2,1.00 0.88,
+s3_motor_v04_f0042.jpg,6,two,2,1.00 0.76,
+s3_motor_v05_f0010.jpg,6,two,1,0.99,two_class_one_hand
+s3_motor_v05_f0018.jpg,6,two,2,0.99 0.99,
+s3_motor_v05_f0026.jpg,6,two,2,1.00 0.98,
+s3_motor_v05_f0033.jpg,6,two,2,1.00 0.99,
+s3_motor_v05_f0041.jpg,6,two,2,1.00 0.99,
+s3_motor_v06_f0011.jpg,6,two,2,0.97 0.99,
+s3_motor_v06_f0020.jpg,6,two,1,1.00,two_class_one_hand
+s3_motor_v06_f0028.jpg,6,two,2,0.99 1.00,
+s3_motor_v06_f0036.jpg,6,two,2,0.99 0.99,
+s3_motor_v06_f0045.jpg,6,two,2,1.00 0.98,
+s3_motor_v07_f0011.jpg,6,two,2,0.98 0.97,
+s3_motor_v07_f0019.jpg,6,two,2,0.99 0.99,
+s3_motor_v07_f0026.jpg,6,two,2,0.99 0.96,
+s3_motor_v07_f0034.jpg,6,two,2,1.00 1.00,
+s3_motor_v07_f0042.jpg,6,two,2,0.97 0.98,
+s3_motor_v08_f0010.jpg,6,two,1,0.99,two_class_one_hand
+s3_motor_v08_f0018.jpg,6,two,2,1.00 0.92,
+s3_motor_v08_f0025.jpg,6,two,2,1.00 0.97,
+s3_motor_v08_f0033.jpg,6,two,2,0.96 0.95,
+s3_motor_v08_f0040.jpg,6,two,2,0.75 0.99,
+s3_motor_v09_f0010.jpg,6,two,2,0.98 0.90,
+s3_motor_v09_f0018.jpg,6,two,2,0.98 1.00,
+s3_motor_v09_f0026.jpg,6,two,2,1.00 0.99,
+s3_motor_v09_f0033.jpg,6,two,2,0.98 0.98,
+s3_motor_v09_f0041.jpg,6,two,2,0.93 1.00,
+s3_motor_v10_f0011.jpg,6,two,2,0.99 0.99,
+s3_motor_v10_f0020.jpg,6,two,2,0.94 0.99,
+s3_motor_v10_f0028.jpg,6,two,2,0.99 0.88,
+s3_motor_v10_f0036.jpg,6,two,2,0.98 1.00,
+s3_motor_v10_f0045.jpg,6,two,2,1.00 0.97,
+s3_pagi_v01_f0010.jpg,14,one,0,,no_hand
+s3_pagi_v01_f0018.jpg,14,one,1,1.00,
+s3_pagi_v01_f0026.jpg,14,one,1,0.82,
+s3_pagi_v01_f0034.jpg,14,one,1,0.98,
+s3_pagi_v01_f0042.jpg,14,one,0,,no_hand
+s3_pagi_v02_f0010.jpg,14,one,0,,no_hand
+s3_pagi_v02_f0018.jpg,14,one,1,0.97,
+s3_pagi_v02_f0025.jpg,14,one,1,0.75,
+s3_pagi_v02_f0033.jpg,14,one,1,1.00,
+s3_pagi_v02_f0040.jpg,14,one,0,,no_hand
+s3_pagi_v03_f0009.jpg,14,one,1,0.98,
+s3_pagi_v03_f0016.jpg,14,one,1,0.53,
+s3_pagi_v03_f0024.jpg,14,one,1,0.96,
+s3_pagi_v03_f0031.jpg,14,one,1,0.93,
+s3_pagi_v03_f0038.jpg,14,one,1,0.98,
+s3_pagi_v04_f0010.jpg,14,one,1,0.98,
+s3_pagi_v04_f0017.jpg,14,one,1,0.59,
+s3_pagi_v04_f0024.jpg,14,one,1,0.80,
+s3_pagi_v04_f0031.jpg,14,one,1,0.93,
+s3_pagi_v04_f0038.jpg,14,one,1,0.99,
+s3_pagi_v05_f0011.jpg,14,one,0,,no_hand
+s3_pagi_v05_f0019.jpg,14,one,0,,no_hand
+s3_pagi_v05_f0026.jpg,14,one,1,0.99,
+s3_pagi_v05_f0034.jpg,14,one,1,0.99,
+s3_pagi_v05_f0042.jpg,14,one,0,,no_hand
+s3_pagi_v06_f0010.jpg,14,one,0,,no_hand
+s3_pagi_v06_f0017.jpg,14,one,0,,no_hand
+s3_pagi_v06_f0024.jpg,14,one,1,0.99,
+s3_pagi_v06_f0032.jpg,14,one,1,0.99,
+s3_pagi_v06_f0039.jpg,14,one,1,0.98,
+s3_pagi_v07_f0010.jpg,14,one,0,,no_hand
+s3_pagi_v07_f0018.jpg,14,one,0,,no_hand
+s3_pagi_v07_f0026.jpg,14,one,1,0.99,
+s3_pagi_v07_f0034.jpg,14,one,1,0.96,
+s3_pagi_v07_f0042.jpg,14,one,1,0.98,
+s3_pagi_v08_f0010.jpg,14,one,0,,no_hand
+s3_pagi_v08_f0018.jpg,14,one,1,0.92,
+s3_pagi_v08_f0025.jpg,14,one,1,0.98,
+s3_pagi_v08_f0033.jpg,14,one,1,0.96,
+s3_pagi_v08_f0040.jpg,14,one,0,,no_hand
+s3_pagi_v09_f0011.jpg,14,one,1,0.96,
+s3_pagi_v09_f0019.jpg,14,one,1,0.72,
+s3_pagi_v09_f0028.jpg,14,one,1,0.99,
+s3_pagi_v09_f0036.jpg,14,one,1,0.99,
+s3_pagi_v09_f0044.jpg,14,one,0,,no_hand
+s3_pagi_v10_f0010.jpg,14,one,0,,no_hand
+s3_pagi_v10_f0017.jpg,14,one,1,0.87,
+s3_pagi_v10_f0024.jpg,14,one,1,0.83,
+s3_pagi_v10_f0031.jpg,14,one,1,0.97,
+s3_pagi_v10_f0038.jpg,14,one,1,1.00,
+s3_rumah_v01_f0011.jpg,13,two,0,,no_hand
+s3_rumah_v01_f0019.jpg,13,two,0,,no_hand
+s3_rumah_v01_f0026.jpg,13,two,2,0.99 0.80,
+s3_rumah_v01_f0034.jpg,13,two,2,1.00 1.00,
+s3_rumah_v01_f0042.jpg,13,two,2,0.97 1.00,
+s3_rumah_v02_f0010.jpg,13,two,1,0.66,two_class_one_hand
+s3_rumah_v02_f0018.jpg,13,two,1,0.98,two_class_one_hand
+s3_rumah_v02_f0025.jpg,13,two,2,0.95 0.98,
+s3_rumah_v02_f0033.jpg,13,two,2,0.91 1.00,
+s3_rumah_v02_f0040.jpg,13,two,2,1.00 1.00,
+s3_rumah_v03_f0010.jpg,13,two,1,0.83,two_class_one_hand
+s3_rumah_v03_f0018.jpg,13,two,1,0.94,two_class_one_hand
+s3_rumah_v03_f0026.jpg,13,two,2,0.94 0.98,
+s3_rumah_v03_f0033.jpg,13,two,2,0.84 0.98,
+s3_rumah_v03_f0041.jpg,13,two,2,0.99 0.99,
+s3_rumah_v04_f0011.jpg,13,two,0,,no_hand
+s3_rumah_v04_f0019.jpg,13,two,2,0.52 0.56,
+s3_rumah_v04_f0026.jpg,13,two,2,0.99 0.98,
+s3_rumah_v04_f0034.jpg,13,two,2,0.91 1.00,
+s3_rumah_v04_f0042.jpg,13,two,2,1.00 0.99,
+s3_rumah_v05_f0011.jpg,13,two,1,0.97,two_class_one_hand
+s3_rumah_v05_f0019.jpg,13,two,0,,no_hand
+s3_rumah_v05_f0026.jpg,13,two,2,0.95 0.99,
+s3_rumah_v05_f0034.jpg,13,two,2,0.90 0.99,
+s3_rumah_v05_f0042.jpg,13,two,2,1.00 0.99,
+s3_rumah_v06_f0010.jpg,13,two,0,,no_hand
+s3_rumah_v06_f0017.jpg,13,two,0,,no_hand
+s3_rumah_v06_f0024.jpg,13,two,2,0.76 1.00,
+s3_rumah_v06_f0032.jpg,13,two,2,1.00 0.98,
+s3_rumah_v06_f0039.jpg,13,two,2,1.00 0.98,
+s3_rumah_v07_f0011.jpg,13,two,1,0.97,two_class_one_hand
+s3_rumah_v07_f0019.jpg,13,two,2,0.99 0.99,
+s3_rumah_v07_f0026.jpg,13,two,2,0.97 0.99,
+s3_rumah_v07_f0034.jpg,13,two,2,0.92 1.00,
+s3_rumah_v07_f0042.jpg,13,two,2,1.00 0.99,
+s3_rumah_v08_f0010.jpg,13,two,0,,no_hand
+s3_rumah_v08_f0018.jpg,13,two,2,0.61 0.98,
+s3_rumah_v08_f0025.jpg,13,two,2,0.98 0.99,
+s3_rumah_v08_f0033.jpg,13,two,2,0.99 0.99,
+s3_rumah_v08_f0040.jpg,13,two,2,1.00 0.97,
+s3_rumah_v09_f0010.jpg,13,two,0,,no_hand
+s3_rumah_v09_f0017.jpg,13,two,2,0.99 0.97,
+s3_rumah_v09_f0024.jpg,13,two,2,0.87 0.97,
+s3_rumah_v09_f0031.jpg,13,two,2,1.00 0.98,
+s3_rumah_v09_f0038.jpg,13,two,2,1.00 0.94,
+s3_rumah_v10_f0011.jpg,13,two,1,0.53,two_class_one_hand
+s3_rumah_v10_f0019.jpg,13,two,1,1.00,two_class_one_hand
+s3_rumah_v10_f0027.jpg,13,two,2,0.99 0.88,
+s3_rumah_v10_f0035.jpg,13,two,2,0.99 0.99,
+s3_rumah_v10_f0043.jpg,13,two,1,0.99,two_class_one_hand
+s3_saya_v01_f0011.jpg,7,one,2,0.99 0.97,
+s3_saya_v01_f0020.jpg,7,one,1,0.99,
+s3_saya_v01_f0028.jpg,7,one,2,0.97 0.99,
+s3_saya_v01_f0036.jpg,7,one,2,0.99 0.60,
+s3_saya_v01_f0045.jpg,7,one,2,0.97 0.98,
+s3_saya_v02_f0011.jpg,7,one,2,0.97 0.97,
+s3_saya_v02_f0020.jpg,7,one,2,0.99 0.92,
+s3_saya_v02_f0028.jpg,7,one,1,0.97,
+s3_saya_v02_f0036.jpg,7,one,2,0.96 0.77,
+s3_saya_v02_f0045.jpg,7,one,2,0.96 0.97,
+s3_saya_v03_f0012.jpg,7,one,1,0.97,
+s3_saya_v03_f0021.jpg,7,one,0,,no_hand
+s3_saya_v03_f0030.jpg,7,one,2,0.92 0.94,
+s3_saya_v03_f0038.jpg,7,one,1,0.96,
+s3_saya_v03_f0047.jpg,7,one,1,0.93,
+s3_saya_v04_f0012.jpg,7,one,2,0.95 0.98,
+s3_saya_v04_f0021.jpg,7,one,1,0.95,
+s3_saya_v04_f0030.jpg,7,one,2,0.94 0.92,
+s3_saya_v04_f0038.jpg,7,one,2,0.51 0.95,
+s3_saya_v04_f0047.jpg,7,one,1,0.98,
+s3_saya_v05_f0011.jpg,7,one,2,0.96 0.99,
+s3_saya_v05_f0019.jpg,7,one,2,0.99 0.91,
+s3_saya_v05_f0028.jpg,7,one,2,0.96 0.63,
+s3_saya_v05_f0036.jpg,7,one,2,0.98 0.93,
+s3_saya_v05_f0044.jpg,7,one,2,0.99 0.97,
+s3_saya_v06_f0011.jpg,7,one,2,0.99 0.96,
+s3_saya_v06_f0019.jpg,7,one,2,0.98 0.98,
+s3_saya_v06_f0026.jpg,7,one,2,0.98 0.56,
+s3_saya_v06_f0034.jpg,7,one,2,0.98 0.87,
+s3_saya_v06_f0042.jpg,7,one,2,0.99 0.96,
+s3_saya_v07_f0010.jpg,7,one,2,0.99 0.98,
+s3_saya_v07_f0018.jpg,7,one,2,0.98 0.94,
+s3_saya_v07_f0025.jpg,7,one,2,0.98 0.88,
+s3_saya_v07_f0033.jpg,7,one,2,0.98 0.90,
+s3_saya_v07_f0040.jpg,7,one,2,0.98 0.97,
+s3_saya_v08_f0011.jpg,7,one,2,0.97 0.97,
+s3_saya_v08_f0020.jpg,7,one,2,0.96 0.53,
+s3_saya_v08_f0028.jpg,7,one,2,0.96 0.62,
+s3_saya_v08_f0036.jpg,7,one,2,0.98 0.62,
+s3_saya_v08_f0045.jpg,7,one,2,0.99 0.97,
+s3_saya_v09_f0010.jpg,7,one,2,0.96 0.98,
+s3_saya_v09_f0018.jpg,7,one,2,0.98 0.98,
+s3_saya_v09_f0025.jpg,7,one,2,0.97 0.81,
+s3_saya_v09_f0033.jpg,7,one,2,0.98 0.73,
+s3_saya_v09_f0040.jpg,7,one,2,0.91 0.97,
+s3_saya_v10_f0010.jpg,7,one,2,0.96 0.93,
+s3_saya_v10_f0018.jpg,7,one,1,0.96,
+s3_saya_v10_f0025.jpg,7,one,2,0.89 0.98,
+s3_saya_v10_f0033.jpg,7,one,2,0.97 0.53,
+s3_saya_v10_f0040.jpg,7,one,2,0.97 0.97,
+s3_teman_v01_f0010.jpg,11,two,0,,no_hand
+s3_teman_v01_f0018.jpg,11,two,1,0.88,two_class_one_hand
+s3_teman_v01_f0026.jpg,11,two,2,0.99 0.99,
+s3_teman_v01_f0033.jpg,11,two,2,1.00 0.98,
+s3_teman_v01_f0041.jpg,11,two,2,1.00 0.99,
+s3_teman_v02_f0011.jpg,11,two,0,,no_hand
+s3_teman_v02_f0019.jpg,11,two,1,0.59,two_class_one_hand
+s3_teman_v02_f0026.jpg,11,two,2,0.97 0.98,
+s3_teman_v02_f0034.jpg,11,two,2,1.00 0.99,
+s3_teman_v02_f0042.jpg,11,two,2,1.00 1.00,
+s3_teman_v03_f0010.jpg,11,two,2,0.96 0.97,
+s3_teman_v03_f0018.jpg,11,two,2,0.98 0.99,
+s3_teman_v03_f0025.jpg,11,two,2,0.92 0.99,
+s3_teman_v03_f0033.jpg,11,two,2,0.99 1.00,
+s3_teman_v03_f0040.jpg,11,two,2,0.95 1.00,
+s3_teman_v04_f0011.jpg,11,two,0,,no_hand
+s3_teman_v04_f0020.jpg,11,two,2,1.00 0.97,
+s3_teman_v04_f0028.jpg,11,two,2,1.00 0.84,
+s3_teman_v04_f0036.jpg,11,two,2,1.00 0.94,
+s3_teman_v04_f0045.jpg,11,two,2,1.00 0.91,
+s3_teman_v05_f0011.jpg,11,two,1,0.98,two_class_one_hand
+s3_teman_v05_f0019.jpg,11,two,2,0.80 0.58,
+s3_teman_v05_f0026.jpg,11,two,2,1.00 0.92,
+s3_teman_v05_f0034.jpg,11,two,2,1.00 0.63,
+s3_teman_v05_f0042.jpg,11,two,2,0.88 1.00,
+s3_teman_v06_f0010.jpg,11,two,1,0.94,two_class_one_hand
+s3_teman_v06_f0018.jpg,11,two,2,0.71 0.87,
+s3_teman_v06_f0025.jpg,11,two,2,1.00 0.99,
+s3_teman_v06_f0033.jpg,11,two,2,1.00 0.66,
+s3_teman_v06_f0040.jpg,11,two,2,0.98 1.00,
+s3_teman_v07_f0010.jpg,11,two,2,0.95 0.89,
+s3_teman_v07_f0018.jpg,11,two,2,1.00 0.99,
+s3_teman_v07_f0026.jpg,11,two,2,0.91 0.84,
+s3_teman_v07_f0033.jpg,11,two,2,1.00 0.92,
+s3_teman_v07_f0041.jpg,11,two,2,0.96 1.00,
+s3_teman_v08_f0010.jpg,11,two,1,0.96,two_class_one_hand
+s3_teman_v08_f0018.jpg,11,two,2,0.97 0.87,
+s3_teman_v08_f0025.jpg,11,two,2,1.00 0.98,
+s3_teman_v08_f0033.jpg,11,two,2,1.00 1.00,
+s3_teman_v08_f0040.jpg,11,two,2,0.99 1.00,
+s3_teman_v09_f0010.jpg,11,two,0,,no_hand
+s3_teman_v09_f0018.jpg,11,two,2,0.89 0.77,
+s3_teman_v09_f0026.jpg,11,two,2,1.00 0.97,
+s3_teman_v09_f0033.jpg,11,two,2,1.00 0.94,
+s3_teman_v09_f0041.jpg,11,two,2,0.98 0.98,
+s3_teman_v10_f0010.jpg,11,two,2,0.56 0.98,
+s3_teman_v10_f0018.jpg,11,two,1,1.00,two_class_one_hand
+s3_teman_v10_f0025.jpg,11,two,2,0.99 0.97,
+s3_teman_v10_f0033.jpg,11,two,2,0.87 1.00,
+s3_teman_v10_f0040.jpg,11,two,2,0.97 0.99,
+s3_terimakasih_v01_f0011.jpg,8,one,1,0.98,
+s3_terimakasih_v01_f0020.jpg,8,one,2,0.99 0.86,
+s3_terimakasih_v01_f0028.jpg,8,one,2,0.97 0.98,
+s3_terimakasih_v01_f0036.jpg,8,one,2,0.94 0.97,
+s3_terimakasih_v01_f0045.jpg,8,one,1,0.96,
+s3_terimakasih_v02_f0010.jpg,8,one,1,0.98,
+s3_terimakasih_v02_f0017.jpg,8,one,2,0.93 0.98,
+s3_terimakasih_v02_f0024.jpg,8,one,2,0.65 0.98,
+s3_terimakasih_v02_f0031.jpg,8,one,2,0.96 0.97,
+s3_terimakasih_v02_f0038.jpg,8,one,2,0.98 0.98,
+s3_terimakasih_v03_f0012.jpg,8,one,2,0.99 0.96,
+s3_terimakasih_v03_f0021.jpg,8,one,1,0.96,
+s3_terimakasih_v03_f0030.jpg,8,one,2,0.98 0.76,
+s3_terimakasih_v03_f0038.jpg,8,one,2,0.91 0.98,
+s3_terimakasih_v03_f0047.jpg,8,one,2,0.97 0.97,
+s3_terimakasih_v04_f0011.jpg,8,one,2,0.98 0.98,
+s3_terimakasih_v04_f0020.jpg,8,one,2,0.98 0.99,
+s3_terimakasih_v04_f0028.jpg,8,one,2,0.77 0.96,
+s3_terimakasih_v04_f0036.jpg,8,one,2,0.90 0.97,
+s3_terimakasih_v04_f0045.jpg,8,one,2,0.96 0.97,
+s3_terimakasih_v05_f0012.jpg,8,one,2,0.98 0.98,
+s3_terimakasih_v05_f0021.jpg,8,one,1,0.99,
+s3_terimakasih_v05_f0030.jpg,8,one,2,0.67 0.97,
+s3_terimakasih_v05_f0040.jpg,8,one,2,0.88 0.98,
+s3_terimakasih_v05_f0049.jpg,8,one,2,0.98 0.96,
+s3_terimakasih_v06_f0011.jpg,8,one,1,0.99,
+s3_terimakasih_v06_f0020.jpg,8,one,2,0.98 0.95,
+s3_terimakasih_v06_f0028.jpg,8,one,2,0.66 0.98,
+s3_terimakasih_v06_f0036.jpg,8,one,2,0.92 0.98,
+s3_terimakasih_v06_f0045.jpg,8,one,2,0.94 0.97,
+s3_terimakasih_v07_f0011.jpg,8,one,2,0.98 0.98,
+s3_terimakasih_v07_f0020.jpg,8,one,1,0.98,
+s3_terimakasih_v07_f0028.jpg,8,one,1,0.97,
+s3_terimakasih_v07_f0036.jpg,8,one,2,0.87 0.97,
+s3_terimakasih_v07_f0045.jpg,8,one,2,0.99 0.97,
+s3_terimakasih_v08_f0011.jpg,8,one,1,0.96,
+s3_terimakasih_v08_f0020.jpg,8,one,2,0.79 0.97,
+s3_terimakasih_v08_f0028.jpg,8,one,2,0.77 0.96,
+s3_terimakasih_v08_f0036.jpg,8,one,2,0.89 0.97,
+s3_terimakasih_v08_f0045.jpg,8,one,2,0.95 0.96,
+s3_terimakasih_v09_f0011.jpg,8,one,2,0.98 0.93,
+s3_terimakasih_v09_f0019.jpg,8,one,2,0.98 0.88,
+s3_terimakasih_v09_f0026.jpg,8,one,2,0.89 0.97,
+s3_terimakasih_v09_f0034.jpg,8,one,2,0.92 0.98,
+s3_terimakasih_v09_f0042.jpg,8,one,2,0.98 0.95,
+s3_terimakasih_v10_f0011.jpg,8,one,1,0.98,
+s3_terimakasih_v10_f0019.jpg,8,one,2,0.99 0.95,
+s3_terimakasih_v10_f0028.jpg,8,one,2,0.82 0.97,
+s3_terimakasih_v10_f0036.jpg,8,one,2,0.94 0.97,
+s3_terimakasih_v10_f0044.jpg,8,one,2,1.00 0.97,
+s4_bagaimana_v01_f0015.jpg,9,two,1,0.99,two_class_one_hand
+s4_bagaimana_v01_f0027.jpg,9,two,0,,no_hand
+s4_bagaimana_v01_f0038.jpg,9,two,2,1.00 0.99,
+s4_bagaimana_v01_f0050.jpg,9,two,2,0.66 0.73,
+s4_bagaimana_v01_f0062.jpg,9,two,0,,no_hand
+s4_bagaimana_v02_f0012.jpg,9,two,0,,no_hand
+s4_bagaimana_v02_f0021.jpg,9,two,1,0.79,two_class_one_hand
+s4_bagaimana_v02_f0030.jpg,9,two,2,1.00 0.94,
+s4_bagaimana_v02_f0038.jpg,9,two,2,0.96 0.83,
+s4_bagaimana_v02_f0047.jpg,9,two,0,,no_hand
+s4_bagaimana_v03_f0013.jpg,9,two,0,,no_hand
+s4_bagaimana_v03_f0023.jpg,9,two,1,0.99,two_class_one_hand
+s4_bagaimana_v03_f0032.jpg,9,two,1,0.98,two_class_one_hand
+s4_bagaimana_v03_f0042.jpg,9,two,2,0.74 0.75,
+s4_bagaimana_v03_f0052.jpg,9,two,2,0.51 0.98,
+s4_bagaimana_v04_f0013.jpg,9,two,2,0.99 0.99,
+s4_bagaimana_v04_f0023.jpg,9,two,2,0.96 0.84,
+s4_bagaimana_v04_f0032.jpg,9,two,2,0.98 1.00,
+s4_bagaimana_v04_f0042.jpg,9,two,2,0.51 0.84,
+s4_bagaimana_v04_f0052.jpg,9,two,2,0.81 0.99,
+s4_bagaimana_v05_f0012.jpg,9,two,0,,no_hand
+s4_bagaimana_v05_f0020.jpg,9,two,2,0.98 0.89,
+s4_bagaimana_v05_f0029.jpg,9,two,0,,no_hand
+s4_bagaimana_v05_f0038.jpg,9,two,2,0.89 0.88,
+s4_bagaimana_v05_f0046.jpg,9,two,2,0.96 0.74,
+s4_bagaimana_v06_f0015.jpg,9,two,0,,no_hand
+s4_bagaimana_v06_f0026.jpg,9,two,2,0.99 0.99,
+s4_bagaimana_v06_f0037.jpg,9,two,2,0.90 0.77,
+s4_bagaimana_v06_f0048.jpg,9,two,1,0.95,two_class_one_hand
+s4_bagaimana_v06_f0059.jpg,9,two,2,0.84 0.66,
+s4_bagaimana_v07_f0011.jpg,9,two,2,0.99 1.00,
+s4_bagaimana_v07_f0019.jpg,9,two,2,0.92 0.82,
+s4_bagaimana_v07_f0026.jpg,9,two,2,0.98 0.98,
+s4_bagaimana_v07_f0034.jpg,9,two,2,0.97 0.94,
+s4_bagaimana_v07_f0042.jpg,9,two,2,0.84 0.56,
+s4_bagaimana_v08_f0011.jpg,9,two,2,1.00 0.99,
+s4_bagaimana_v08_f0020.jpg,9,two,2,0.96 0.81,
+s4_bagaimana_v08_f0028.jpg,9,two,2,0.97 1.00,
+s4_bagaimana_v08_f0036.jpg,9,two,2,0.96 0.67,
+s4_bagaimana_v08_f0045.jpg,9,two,2,0.94 0.81,
+s4_bagaimana_v09_f0012.jpg,9,two,2,1.00 1.00,
+s4_bagaimana_v09_f0021.jpg,9,two,2,0.95 0.82,
+s4_bagaimana_v09_f0030.jpg,9,two,2,0.99 0.99,
+s4_bagaimana_v09_f0038.jpg,9,two,2,0.97 0.73,
+s4_bagaimana_v09_f0047.jpg,9,two,1,0.71,two_class_one_hand
+s4_bagaimana_v10_f0011.jpg,9,two,2,0.99 1.00,
+s4_bagaimana_v10_f0019.jpg,9,two,2,0.65 0.93,
+s4_bagaimana_v10_f0026.jpg,9,two,2,0.99 1.00,
+s4_bagaimana_v10_f0034.jpg,9,two,2,0.94 0.86,
+s4_bagaimana_v10_f0042.jpg,9,two,2,0.88 0.87,
+s4_berangkat_v01_f0009.jpg,10,one,0,,no_hand
+s4_berangkat_v01_f0016.jpg,10,one,1,0.97,
+s4_berangkat_v01_f0024.jpg,10,one,1,0.96,
+s4_berangkat_v01_f0031.jpg,10,one,1,0.99,
+s4_berangkat_v01_f0038.jpg,10,one,1,0.85,
+s4_berangkat_v02_f0010.jpg,10,one,0,,no_hand
+s4_berangkat_v02_f0018.jpg,10,one,0,,no_hand
+s4_berangkat_v02_f0026.jpg,10,one,1,0.53,
+s4_berangkat_v02_f0033.jpg,10,one,1,0.81,
+s4_berangkat_v02_f0041.jpg,10,one,1,0.96,
+s4_berangkat_v03_f0010.jpg,10,one,0,,no_hand
+s4_berangkat_v03_f0018.jpg,10,one,1,0.64,
+s4_berangkat_v03_f0025.jpg,10,one,1,0.99,
+s4_berangkat_v03_f0033.jpg,10,one,1,0.97,
+s4_berangkat_v03_f0040.jpg,10,one,1,0.50,
+s4_berangkat_v04_f0010.jpg,10,one,0,,no_hand
+s4_berangkat_v04_f0018.jpg,10,one,1,0.99,
+s4_berangkat_v04_f0025.jpg,10,one,1,0.89,
+s4_berangkat_v04_f0033.jpg,10,one,1,0.81,
+s4_berangkat_v04_f0040.jpg,10,one,1,0.98,
+s4_berangkat_v05_f0009.jpg,10,one,0,,no_hand
+s4_berangkat_v05_f0016.jpg,10,one,1,0.99,
+s4_berangkat_v05_f0023.jpg,10,one,1,0.72,
+s4_berangkat_v05_f0030.jpg,10,one,1,0.90,
+s4_berangkat_v05_f0037.jpg,10,one,1,0.70,
+s4_berangkat_v06_f0010.jpg,10,one,0,,no_hand
+s4_berangkat_v06_f0017.jpg,10,one,0,,no_hand
+s4_berangkat_v06_f0024.jpg,10,one,1,0.55,
+s4_berangkat_v06_f0032.jpg,10,one,1,0.52,
+s4_berangkat_v06_f0039.jpg,10,one,1,0.91,
+s4_berangkat_v07_f0010.jpg,10,one,0,,no_hand
+s4_berangkat_v07_f0017.jpg,10,one,0,,no_hand
+s4_berangkat_v07_f0024.jpg,10,one,1,0.60,
+s4_berangkat_v07_f0032.jpg,10,one,2,0.86 0.94,
+s4_berangkat_v07_f0039.jpg,10,one,1,0.97,
+s4_berangkat_v08_f0009.jpg,10,one,0,,no_hand
+s4_berangkat_v08_f0016.jpg,10,one,1,0.79,
+s4_berangkat_v08_f0024.jpg,10,one,1,0.96,
+s4_berangkat_v08_f0031.jpg,10,one,1,0.82,
+s4_berangkat_v08_f0038.jpg,10,one,1,0.93,
+s4_berangkat_v09_f0010.jpg,10,one,0,,no_hand
+s4_berangkat_v09_f0017.jpg,10,one,1,0.94,
+s4_berangkat_v09_f0024.jpg,10,one,1,0.70,
+s4_berangkat_v09_f0032.jpg,10,one,1,0.85,
+s4_berangkat_v09_f0039.jpg,10,one,1,0.85,
+s4_berangkat_v10_f0008.jpg,10,one,0,,no_hand
+s4_berangkat_v10_f0014.jpg,10,one,1,0.99,
+s4_berangkat_v10_f0020.jpg,10,one,1,0.89,
+s4_berangkat_v10_f0027.jpg,10,one,1,0.99,
+s4_berangkat_v10_f0033.jpg,10,one,0,,no_hand
+s4_cari_v01_f0012.jpg,0,one,0,,no_hand
+s4_cari_v01_f0022.jpg,0,one,0,,no_hand
+s4_cari_v01_f0031.jpg,0,one,0,,no_hand
+s4_cari_v01_f0040.jpg,0,one,1,0.93,
+s4_cari_v01_f0050.jpg,0,one,0,,no_hand
+s4_cari_v02_f0010.jpg,0,one,0,,no_hand
+s4_cari_v02_f0018.jpg,0,one,0,,no_hand
+s4_cari_v02_f0026.jpg,0,one,0,,no_hand
+s4_cari_v02_f0033.jpg,0,one,0,,no_hand
+s4_cari_v02_f0041.jpg,0,one,0,,no_hand
+s4_cari_v03_f0011.jpg,0,one,0,,no_hand
+s4_cari_v03_f0019.jpg,0,one,0,,no_hand
+s4_cari_v03_f0027.jpg,0,one,0,,no_hand
+s4_cari_v03_f0035.jpg,0,one,1,0.94,
+s4_cari_v03_f0043.jpg,0,one,0,,no_hand
+s4_cari_v04_f0012.jpg,0,one,0,,no_hand
+s4_cari_v04_f0022.jpg,0,one,0,,no_hand
+s4_cari_v04_f0031.jpg,0,one,1,0.94,
+s4_cari_v04_f0040.jpg,0,one,1,0.68,
+s4_cari_v04_f0050.jpg,0,one,1,0.98,
+s4_cari_v05_f0012.jpg,0,one,0,,no_hand
+s4_cari_v05_f0022.jpg,0,one,0,,no_hand
+s4_cari_v05_f0031.jpg,0,one,0,,no_hand
+s4_cari_v05_f0040.jpg,0,one,0,,no_hand
+s4_cari_v05_f0050.jpg,0,one,0,,no_hand
+s4_cari_v06_f0013.jpg,0,one,0,,no_hand
+s4_cari_v06_f0023.jpg,0,one,0,,no_hand
+s4_cari_v06_f0032.jpg,0,one,1,0.98,
+s4_cari_v06_f0042.jpg,0,one,1,0.62,
+s4_cari_v06_f0052.jpg,0,one,1,0.81,
+s4_cari_v07_f0012.jpg,0,one,0,,no_hand
+s4_cari_v07_f0021.jpg,0,one,0,,no_hand
+s4_cari_v07_f0030.jpg,0,one,1,0.98,
+s4_cari_v07_f0038.jpg,0,one,1,0.69,
+s4_cari_v07_f0047.jpg,0,one,1,0.75,
+s4_cari_v08_f0012.jpg,0,one,0,,no_hand
+s4_cari_v08_f0021.jpg,0,one,0,,no_hand
+s4_cari_v08_f0030.jpg,0,one,0,,no_hand
+s4_cari_v08_f0038.jpg,0,one,1,0.68,
+s4_cari_v08_f0047.jpg,0,one,1,0.97,
+s4_cari_v09_f0011.jpg,0,one,0,,no_hand
+s4_cari_v09_f0020.jpg,0,one,0,,no_hand
+s4_cari_v09_f0028.jpg,0,one,1,0.79,
+s4_cari_v09_f0037.jpg,0,one,1,0.94,
+s4_cari_v09_f0046.jpg,0,one,1,0.96,
+s4_cari_v10_f0011.jpg,0,one,0,,no_hand
+s4_cari_v10_f0020.jpg,0,one,0,,no_hand
+s4_cari_v10_f0028.jpg,0,one,0,,no_hand
+s4_cari_v10_f0036.jpg,0,one,1,0.95,
+s4_cari_v10_f0045.jpg,0,one,1,0.77,
+s4_hari_v01_f0012.jpg,1,one,0,,no_hand
+s4_hari_v01_f0021.jpg,1,one,1,0.98,
+s4_hari_v01_f0030.jpg,1,one,1,0.96,
+s4_hari_v01_f0040.jpg,1,one,1,0.99,
+s4_hari_v01_f0049.jpg,1,one,1,0.99,
+s4_hari_v02_f0012.jpg,1,one,0,,no_hand
+s4_hari_v02_f0020.jpg,1,one,0,,no_hand
+s4_hari_v02_f0029.jpg,1,one,0,,no_hand
+s4_hari_v02_f0038.jpg,1,one,1,0.98,
+s4_hari_v02_f0046.jpg,1,one,1,0.87,
+s4_hari_v03_f0015.jpg,1,one,0,,no_hand
+s4_hari_v03_f0026.jpg,1,one,0,,no_hand
+s4_hari_v03_f0036.jpg,1,one,1,0.98,
+s4_hari_v03_f0047.jpg,1,one,1,0.98,
+s4_hari_v03_f0058.jpg,1,one,1,0.91,
+s4_hari_v04_f0013.jpg,1,one,0,,no_hand
+s4_hari_v04_f0023.jpg,1,one,1,0.99,
+s4_hari_v04_f0032.jpg,1,one,1,0.98,
+s4_hari_v04_f0042.jpg,1,one,1,0.98,
+s4_hari_v04_f0052.jpg,1,one,0,,no_hand
+s4_hari_v05_f0013.jpg,1,one,0,,no_hand
+s4_hari_v05_f0022.jpg,1,one,1,0.99,
+s4_hari_v05_f0032.jpg,1,one,0,,no_hand
+s4_hari_v05_f0041.jpg,1,one,1,0.98,
+s4_hari_v05_f0050.jpg,1,one,1,0.99,
+s4_hari_v06_f0013.jpg,1,one,0,,no_hand
+s4_hari_v06_f0022.jpg,1,one,1,0.98,
+s4_hari_v06_f0032.jpg,1,one,0,,no_hand
+s4_hari_v06_f0042.jpg,1,one,1,0.97,
+s4_hari_v06_f0051.jpg,1,one,1,0.95,
+s4_hari_v07_f0013.jpg,1,one,0,,no_hand
+s4_hari_v07_f0023.jpg,1,one,1,0.98,
+s4_hari_v07_f0033.jpg,1,one,0,,no_hand
+s4_hari_v07_f0043.jpg,1,one,1,0.99,
+s4_hari_v07_f0053.jpg,1,one,1,0.99,
+s4_hari_v08_f0012.jpg,1,one,0,,no_hand
+s4_hari_v08_f0021.jpg,1,one,0,,no_hand
+s4_hari_v08_f0030.jpg,1,one,1,0.98,
+s4_hari_v08_f0038.jpg,1,one,0,,no_hand
+s4_hari_v08_f0047.jpg,1,one,1,0.99,
+s4_hari_v09_f0011.jpg,1,one,0,,no_hand
+s4_hari_v09_f0020.jpg,1,one,0,,no_hand
+s4_hari_v09_f0028.jpg,1,one,1,0.98,
+s4_hari_v09_f0036.jpg,1,one,0,,no_hand
+s4_hari_v09_f0045.jpg,1,one,1,0.99,
+s4_hari_v10_f0011.jpg,1,one,0,,no_hand
+s4_hari_v10_f0020.jpg,1,one,1,0.98,
+s4_hari_v10_f0028.jpg,1,one,0,,no_hand
+s4_hari_v10_f0036.jpg,1,one,1,0.99,
+s4_hari_v10_f0045.jpg,1,one,1,1.00,
+s4_ingat_v01_f0012.jpg,2,one,0,,no_hand
+s4_ingat_v01_f0021.jpg,2,one,0,,no_hand
+s4_ingat_v01_f0030.jpg,2,one,1,1.00,
+s4_ingat_v01_f0040.jpg,2,one,1,0.99,
+s4_ingat_v01_f0049.jpg,2,one,1,0.98,
+s4_ingat_v02_f0012.jpg,2,one,0,,no_hand
+s4_ingat_v02_f0021.jpg,2,one,0,,no_hand
+s4_ingat_v02_f0030.jpg,2,one,1,1.00,
+s4_ingat_v02_f0040.jpg,2,one,1,0.99,
+s4_ingat_v02_f0049.jpg,2,one,1,1.00,
+s4_ingat_v03_f0013.jpg,2,one,0,,no_hand
+s4_ingat_v03_f0023.jpg,2,one,1,0.99,
+s4_ingat_v03_f0032.jpg,2,one,1,0.99,
+s4_ingat_v03_f0042.jpg,2,one,1,0.99,
+s4_ingat_v03_f0052.jpg,2,one,0,,no_hand
+s4_ingat_v04_f0010.jpg,2,one,0,,no_hand
+s4_ingat_v04_f0018.jpg,2,one,1,1.00,
+s4_ingat_v04_f0026.jpg,2,one,1,0.99,
+s4_ingat_v04_f0034.jpg,2,one,1,0.99,
+s4_ingat_v04_f0042.jpg,2,one,0,,no_hand
+s4_ingat_v05_f0010.jpg,2,one,0,,no_hand
+s4_ingat_v05_f0018.jpg,2,one,1,0.99,
+s4_ingat_v05_f0026.jpg,2,one,1,0.99,
+s4_ingat_v05_f0034.jpg,2,one,1,0.99,
+s4_ingat_v05_f0042.jpg,2,one,0,,no_hand
+s4_ingat_v06_f0011.jpg,2,one,0,,no_hand
+s4_ingat_v06_f0020.jpg,2,one,1,0.99,
+s4_ingat_v06_f0028.jpg,2,one,1,1.00,
+s4_ingat_v06_f0036.jpg,2,one,0,,no_hand
+s4_ingat_v06_f0045.jpg,2,one,0,,no_hand
+s4_ingat_v07_f0013.jpg,2,one,0,,no_hand
+s4_ingat_v07_f0023.jpg,2,one,1,0.99,
+s4_ingat_v07_f0032.jpg,2,one,1,1.00,
+s4_ingat_v07_f0042.jpg,2,one,1,0.99,
+s4_ingat_v07_f0052.jpg,2,one,1,0.97,
+s4_ingat_v08_f0010.jpg,2,one,0,,no_hand
+s4_ingat_v08_f0018.jpg,2,one,0,,no_hand
+s4_ingat_v08_f0026.jpg,2,one,1,0.99,
+s4_ingat_v08_f0034.jpg,2,one,0,,no_hand
+s4_ingat_v08_f0042.jpg,2,one,0,,no_hand
+s4_ingat_v09_f0011.jpg,2,one,0,,no_hand
+s4_ingat_v09_f0019.jpg,2,one,1,1.00,
+s4_ingat_v09_f0028.jpg,2,one,1,0.99,
+s4_ingat_v09_f0036.jpg,2,one,1,0.99,
+s4_ingat_v09_f0044.jpg,2,one,0,,no_hand
+s4_ingat_v10_f0011.jpg,2,one,0,,no_hand
+s4_ingat_v10_f0019.jpg,2,one,1,0.99,
+s4_ingat_v10_f0028.jpg,2,one,1,0.99,
+s4_ingat_v10_f0036.jpg,2,one,0,,no_hand
+s4_ingat_v10_f0044.jpg,2,one,0,,no_hand
+s4_keluarga_v01_f0010.jpg,12,one,1,0.99,
+s4_keluarga_v01_f0018.jpg,12,one,1,0.84,
+s4_keluarga_v01_f0025.jpg,12,one,1,1.00,
+s4_keluarga_v01_f0033.jpg,12,one,1,0.97,
+s4_keluarga_v01_f0040.jpg,12,one,1,1.00,
+s4_keluarga_v02_f0010.jpg,12,one,0,,no_hand
+s4_keluarga_v02_f0018.jpg,12,one,1,0.63,
+s4_keluarga_v02_f0025.jpg,12,one,0,,no_hand
+s4_keluarga_v02_f0033.jpg,12,one,1,0.99,
+s4_keluarga_v02_f0040.jpg,12,one,0,,no_hand
+s4_keluarga_v03_f0011.jpg,12,one,1,0.95,
+s4_keluarga_v03_f0019.jpg,12,one,0,,no_hand
+s4_keluarga_v03_f0026.jpg,12,one,1,0.99,
+s4_keluarga_v03_f0034.jpg,12,one,1,0.99,
+s4_keluarga_v03_f0042.jpg,12,one,0,,no_hand
+s4_keluarga_v04_f0010.jpg,12,one,1,0.64,
+s4_keluarga_v04_f0018.jpg,12,one,1,0.93,
+s4_keluarga_v04_f0025.jpg,12,one,0,,no_hand
+s4_keluarga_v04_f0033.jpg,12,one,1,0.85,
+s4_keluarga_v04_f0040.jpg,12,one,1,1.00,
+s4_keluarga_v05_f0010.jpg,12,one,1,0.82,
+s4_keluarga_v05_f0017.jpg,12,one,1,0.97,
+s4_keluarga_v05_f0024.jpg,12,one,1,0.59,
+s4_keluarga_v05_f0031.jpg,12,one,1,1.00,
+s4_keluarga_v05_f0038.jpg,12,one,1,0.84,
+s4_keluarga_v06_f0011.jpg,12,one,0,,no_hand
+s4_keluarga_v06_f0019.jpg,12,one,0,,no_hand
+s4_keluarga_v06_f0027.jpg,12,one,1,0.97,
+s4_keluarga_v06_f0035.jpg,12,one,1,0.99,
+s4_keluarga_v06_f0043.jpg,12,one,0,,no_hand
+s4_keluarga_v07_f0011.jpg,12,one,1,0.96,
+s4_keluarga_v07_f0020.jpg,12,one,1,0.57,
+s4_keluarga_v07_f0028.jpg,12,one,1,0.99,
+s4_keluarga_v07_f0036.jpg,12,one,1,0.80,
+s4_keluarga_v07_f0045.jpg,12,one,1,0.99,
+s4_keluarga_v08_f0011.jpg,12,one,1,0.95,
+s4_keluarga_v08_f0019.jpg,12,one,1,0.97,
+s4_keluarga_v08_f0026.jpg,12,one,1,1.00,
+s4_keluarga_v08_f0034.jpg,12,one,1,0.95,
+s4_keluarga_v08_f0042.jpg,12,one,1,1.00,
+s4_keluarga_v09_f0010.jpg,12,one,0,,no_hand
+s4_keluarga_v09_f0018.jpg,12,one,1,0.98,
+s4_keluarga_v09_f0026.jpg,12,one,1,0.99,
+s4_keluarga_v09_f0033.jpg,12,one,1,0.68,
+s4_keluarga_v09_f0041.jpg,12,one,1,1.00,
+s4_keluarga_v10_f0010.jpg,12,one,1,0.74,
+s4_keluarga_v10_f0018.jpg,12,one,1,0.94,
+s4_keluarga_v10_f0025.jpg,12,one,1,1.00,
+s4_keluarga_v10_f0033.jpg,12,one,1,0.99,
+s4_keluarga_v10_f0040.jpg,12,one,1,0.99,
+s4_lagi_v01_f0010.jpg,3,one,0,,no_hand
+s4_lagi_v01_f0018.jpg,3,one,1,1.00,
+s4_lagi_v01_f0026.jpg,3,one,1,1.00,
+s4_lagi_v01_f0033.jpg,3,one,1,1.00,
+s4_lagi_v01_f0041.jpg,3,one,0,,no_hand
+s4_lagi_v02_f0010.jpg,3,one,0,,no_hand
+s4_lagi_v02_f0018.jpg,3,one,1,1.00,
+s4_lagi_v02_f0026.jpg,3,one,1,1.00,
+s4_lagi_v02_f0034.jpg,3,one,1,1.00,
+s4_lagi_v02_f0042.jpg,3,one,0,,no_hand
+s4_lagi_v03_f0012.jpg,3,one,0,,no_hand
+s4_lagi_v03_f0021.jpg,3,one,1,1.00,
+s4_lagi_v03_f0030.jpg,3,one,1,1.00,
+s4_lagi_v03_f0038.jpg,3,one,1,1.00,
+s4_lagi_v03_f0047.jpg,3,one,0,,no_hand
+s4_lagi_v04_f0011.jpg,3,one,0,,no_hand
+s4_lagi_v04_f0019.jpg,3,one,1,1.00,
+s4_lagi_v04_f0027.jpg,3,one,1,1.00,
+s4_lagi_v04_f0035.jpg,3,one,1,0.99,
+s4_lagi_v04_f0043.jpg,3,one,1,0.99,
+s4_lagi_v05_f0010.jpg,3,one,0,,no_hand
+s4_lagi_v05_f0017.jpg,3,one,1,1.00,
+s4_lagi_v05_f0024.jpg,3,one,1,1.00,
+s4_lagi_v05_f0031.jpg,3,one,1,1.00,
+s4_lagi_v05_f0038.jpg,3,one,1,0.94,
+s4_lagi_v06_f0011.jpg,3,one,0,,no_hand
+s4_lagi_v06_f0019.jpg,3,one,1,1.00,
+s4_lagi_v06_f0028.jpg,3,one,1,1.00,
+s4_lagi_v06_f0036.jpg,3,one,1,1.00,
+s4_lagi_v06_f0044.jpg,3,one,1,0.84,
+s4_lagi_v07_f0011.jpg,3,one,0,,no_hand
+s4_lagi_v07_f0019.jpg,3,one,1,1.00,
+s4_lagi_v07_f0028.jpg,3,one,1,1.00,
+s4_lagi_v07_f0036.jpg,3,one,1,1.00,
+s4_lagi_v07_f0044.jpg,3,one,0,,no_hand
+s4_lagi_v08_f0015.jpg,3,one,0,,no_hand
+s4_lagi_v08_f0027.jpg,3,one,0,,no_hand
+s4_lagi_v08_f0038.jpg,3,one,1,1.00,
+s4_lagi_v08_f0050.jpg,3,one,1,1.00,
+s4_lagi_v08_f0062.jpg,3,one,1,0.95,
+s4_lagi_v09_f0010.jpg,3,one,0,,no_hand
+s4_lagi_v09_f0018.jpg,3,one,1,1.00,
+s4_lagi_v09_f0025.jpg,3,one,1,1.00,
+s4_lagi_v09_f0033.jpg,3,one,1,1.00,
+s4_lagi_v09_f0040.jpg,3,one,1,0.69,
+s4_lagi_v10_f0012.jpg,3,one,0,,no_hand
+s4_lagi_v10_f0021.jpg,3,one,1,1.00,
+s4_lagi_v10_f0030.jpg,3,one,1,1.00,
+s4_lagi_v10_f0038.jpg,3,one,1,1.00,
+s4_lagi_v10_f0047.jpg,3,one,0,,no_hand
+s4_maaf_v01_f0014.jpg,4,one,0,,no_hand
+s4_maaf_v01_f0025.jpg,4,one,1,0.99,
+s4_maaf_v01_f0035.jpg,4,one,1,0.99,
+s4_maaf_v01_f0046.jpg,4,one,1,0.99,
+s4_maaf_v01_f0056.jpg,4,one,0,,no_hand
+s4_maaf_v02_f0010.jpg,4,one,0,,no_hand
+s4_maaf_v02_f0018.jpg,4,one,1,0.98,
+s4_maaf_v02_f0026.jpg,4,one,1,0.98,
+s4_maaf_v02_f0034.jpg,4,one,1,1.00,
+s4_maaf_v02_f0042.jpg,4,one,0,,no_hand
+s4_maaf_v03_f0012.jpg,4,one,0,,no_hand
+s4_maaf_v03_f0021.jpg,4,one,1,0.99,
+s4_maaf_v03_f0030.jpg,4,one,1,0.98,
+s4_maaf_v03_f0038.jpg,4,one,1,0.98,
+s4_maaf_v03_f0047.jpg,4,one,1,0.99,
+s4_maaf_v04_f0011.jpg,4,one,0,,no_hand
+s4_maaf_v04_f0020.jpg,4,one,1,0.99,
+s4_maaf_v04_f0028.jpg,4,one,1,0.99,
+s4_maaf_v04_f0036.jpg,4,one,1,0.99,
+s4_maaf_v04_f0045.jpg,4,one,0,,no_hand
+s4_maaf_v05_f0010.jpg,4,one,0,,no_hand
+s4_maaf_v05_f0018.jpg,4,one,1,0.99,
+s4_maaf_v05_f0025.jpg,4,one,1,1.00,
+s4_maaf_v05_f0033.jpg,4,one,1,0.99,
+s4_maaf_v05_f0040.jpg,4,one,0,,no_hand
+s4_maaf_v06_f0013.jpg,4,one,0,,no_hand
+s4_maaf_v06_f0022.jpg,4,one,1,0.99,
+s4_maaf_v06_f0032.jpg,4,one,1,0.99,
+s4_maaf_v06_f0041.jpg,4,one,1,0.99,
+s4_maaf_v06_f0050.jpg,4,one,1,0.99,
+s4_maaf_v07_f0011.jpg,4,one,0,,no_hand
+s4_maaf_v07_f0019.jpg,4,one,1,0.99,
+s4_maaf_v07_f0026.jpg,4,one,1,0.98,
+s4_maaf_v07_f0034.jpg,4,one,1,0.99,
+s4_maaf_v07_f0042.jpg,4,one,0,,no_hand
+s4_maaf_v08_f0010.jpg,4,one,0,,no_hand
+s4_maaf_v08_f0018.jpg,4,one,1,0.99,
+s4_maaf_v08_f0025.jpg,4,one,1,1.00,
+s4_maaf_v08_f0033.jpg,4,one,1,1.00,
+s4_maaf_v08_f0040.jpg,4,one,1,0.61,
+s4_maaf_v09_f0012.jpg,4,one,0,,no_hand
+s4_maaf_v09_f0020.jpg,4,one,1,0.98,
+s4_maaf_v09_f0029.jpg,4,one,1,0.98,
+s4_maaf_v09_f0038.jpg,4,one,1,0.99,
+s4_maaf_v09_f0046.jpg,4,one,0,,no_hand
+s4_maaf_v10_f0010.jpg,4,one,0,,no_hand
+s4_maaf_v10_f0018.jpg,4,one,1,0.98,
+s4_maaf_v10_f0025.jpg,4,one,1,0.99,
+s4_maaf_v10_f0033.jpg,4,one,1,1.00,
+s4_maaf_v10_f0040.jpg,4,one,1,0.92,
+s4_makan_v01_f0012.jpg,5,one,0,,no_hand
+s4_makan_v01_f0021.jpg,5,one,1,0.99,
+s4_makan_v01_f0030.jpg,5,one,1,0.94,
+s4_makan_v01_f0038.jpg,5,one,1,0.87,
+s4_makan_v01_f0047.jpg,5,one,0,,no_hand
+s4_makan_v02_f0012.jpg,5,one,0,,no_hand
+s4_makan_v02_f0021.jpg,5,one,0,,no_hand
+s4_makan_v02_f0030.jpg,5,one,1,0.92,
+s4_makan_v02_f0040.jpg,5,one,1,0.99,
+s4_makan_v02_f0049.jpg,5,one,0,,no_hand
+s4_makan_v03_f0011.jpg,5,one,0,,no_hand
+s4_makan_v03_f0019.jpg,5,one,0,,no_hand
+s4_makan_v03_f0026.jpg,5,one,0,,no_hand
+s4_makan_v03_f0034.jpg,5,one,0,,no_hand
+s4_makan_v03_f0042.jpg,5,one,0,,no_hand
+s4_makan_v04_f0010.jpg,5,one,0,,no_hand
+s4_makan_v04_f0018.jpg,5,one,0,,no_hand
+s4_makan_v04_f0025.jpg,5,one,1,0.96,
+s4_makan_v04_f0033.jpg,5,one,1,0.98,
+s4_makan_v04_f0040.jpg,5,one,0,,no_hand
+s4_makan_v05_f0011.jpg,5,one,0,,no_hand
+s4_makan_v05_f0019.jpg,5,one,0,,no_hand
+s4_makan_v05_f0028.jpg,5,one,1,0.68,
+s4_makan_v05_f0036.jpg,5,one,1,0.98,
+s4_makan_v05_f0044.jpg,5,one,0,,no_hand
+s4_makan_v06_f0012.jpg,5,one,0,,no_hand
+s4_makan_v06_f0021.jpg,5,one,0,,no_hand
+s4_makan_v06_f0030.jpg,5,one,1,0.98,
+s4_makan_v06_f0040.jpg,5,one,0,,no_hand
+s4_makan_v06_f0049.jpg,5,one,0,,no_hand
+s4_makan_v07_f0012.jpg,5,one,0,,no_hand
+s4_makan_v07_f0020.jpg,5,one,0,,no_hand
+s4_makan_v07_f0029.jpg,5,one,1,0.60,
+s4_makan_v07_f0038.jpg,5,one,1,0.91,
+s4_makan_v07_f0046.jpg,5,one,0,,no_hand
+s4_makan_v08_f0011.jpg,5,one,0,,no_hand
+s4_makan_v08_f0019.jpg,5,one,1,0.64,
+s4_makan_v08_f0028.jpg,5,one,1,0.99,
+s4_makan_v08_f0036.jpg,5,one,1,0.98,
+s4_makan_v08_f0044.jpg,5,one,0,,no_hand
+s4_makan_v09_f0012.jpg,5,one,0,,no_hand
+s4_makan_v09_f0021.jpg,5,one,0,,no_hand
+s4_makan_v09_f0030.jpg,5,one,1,1.00,
+s4_makan_v09_f0038.jpg,5,one,1,0.99,
+s4_makan_v09_f0047.jpg,5,one,1,0.99,
+s4_makan_v10_f0012.jpg,5,one,0,,no_hand
+s4_makan_v10_f0021.jpg,5,one,0,,no_hand
+s4_makan_v10_f0030.jpg,5,one,1,0.90,
+s4_makan_v10_f0040.jpg,5,one,1,0.96,
+s4_makan_v10_f0049.jpg,5,one,0,,no_hand
+s4_motor_v01_f0012.jpg,6,two,0,,no_hand
+s4_motor_v01_f0021.jpg,6,two,2,0.94 0.95,
+s4_motor_v01_f0030.jpg,6,two,2,0.98 0.97,
+s4_motor_v01_f0038.jpg,6,two,2,1.00 0.97,
+s4_motor_v01_f0047.jpg,6,two,2,0.97 0.96,
+s4_motor_v02_f0013.jpg,6,two,0,,no_hand
+s4_motor_v02_f0023.jpg,6,two,2,0.96 0.53,
+s4_motor_v02_f0034.jpg,6,two,2,0.99 0.96,
+s4_motor_v02_f0044.jpg,6,two,2,0.98 0.99,
+s4_motor_v02_f0054.jpg,6,two,1,0.99,two_class_one_hand
+s4_motor_v03_f0012.jpg,6,two,0,,no_hand
+s4_motor_v03_f0021.jpg,6,two,1,0.73,two_class_one_hand
+s4_motor_v03_f0030.jpg,6,two,1,0.83,two_class_one_hand
+s4_motor_v03_f0039.jpg,6,two,2,0.99 0.97,
+s4_motor_v03_f0048.jpg,6,two,1,0.90,two_class_one_hand
+s4_motor_v04_f0013.jpg,6,two,0,,no_hand
+s4_motor_v04_f0023.jpg,6,two,2,0.95 0.92,
+s4_motor_v04_f0032.jpg,6,two,1,0.77,two_class_one_hand
+s4_motor_v04_f0042.jpg,6,two,1,0.62,two_class_one_hand
+s4_motor_v04_f0052.jpg,6,two,2,0.97 0.51,
+s4_motor_v05_f0012.jpg,6,two,0,,no_hand
+s4_motor_v05_f0021.jpg,6,two,2,1.00 0.99,
+s4_motor_v05_f0030.jpg,6,two,2,0.96 0.98,
+s4_motor_v05_f0038.jpg,6,two,2,0.90 0.93,
+s4_motor_v05_f0047.jpg,6,two,1,0.96,two_class_one_hand
+s4_motor_v06_f0012.jpg,6,two,0,,no_hand
+s4_motor_v06_f0022.jpg,6,two,1,0.88,two_class_one_hand
+s4_motor_v06_f0031.jpg,6,two,1,0.98,two_class_one_hand
+s4_motor_v06_f0040.jpg,6,two,1,0.98,two_class_one_hand
+s4_motor_v06_f0050.jpg,6,two,1,0.53,two_class_one_hand
+s4_motor_v07_f0014.jpg,6,two,0,,no_hand
+s4_motor_v07_f0025.jpg,6,two,0,,no_hand
+s4_motor_v07_f0036.jpg,6,two,2,0.98 0.94,
+s4_motor_v07_f0046.jpg,6,two,2,0.97 0.99,
+s4_motor_v07_f0057.jpg,6,two,1,0.98,two_class_one_hand
+s4_motor_v08_f0012.jpg,6,two,0,,no_hand
+s4_motor_v08_f0021.jpg,6,two,0,,no_hand
+s4_motor_v08_f0030.jpg,6,two,2,0.96 0.91,
+s4_motor_v08_f0039.jpg,6,two,2,0.79 0.98,
+s4_motor_v08_f0048.jpg,6,two,0,,no_hand
+s4_motor_v09_f0013.jpg,6,two,0,,no_hand
+s4_motor_v09_f0023.jpg,6,two,2,0.95 0.94,
+s4_motor_v09_f0032.jpg,6,two,2,1.00 0.96,
+s4_motor_v09_f0042.jpg,6,two,2,0.95 0.99,
+s4_motor_v09_f0052.jpg,6,two,0,,no_hand
+s4_motor_v10_f0012.jpg,6,two,0,,no_hand
+s4_motor_v10_f0020.jpg,6,two,2,0.99 0.99,
+s4_motor_v10_f0029.jpg,6,two,2,0.91 0.85,
+s4_motor_v10_f0038.jpg,6,two,2,0.67 0.96,
+s4_motor_v10_f0046.jpg,6,two,1,0.99,two_class_one_hand
+s4_pagi_v01_f0012.jpg,14,one,0,,no_hand
+s4_pagi_v01_f0021.jpg,14,one,1,0.61,
+s4_pagi_v01_f0030.jpg,14,one,1,1.00,
+s4_pagi_v01_f0038.jpg,14,one,1,1.00,
+s4_pagi_v01_f0047.jpg,14,one,1,0.97,
+s4_pagi_v02_f0009.jpg,14,one,0,,no_hand
+s4_pagi_v02_f0016.jpg,14,one,1,1.00,
+s4_pagi_v02_f0024.jpg,14,one,1,0.88,
+s4_pagi_v02_f0031.jpg,14,one,1,0.99,
+s4_pagi_v02_f0038.jpg,14,one,0,,no_hand
+s4_pagi_v03_f0008.jpg,14,one,0,,no_hand
+s4_pagi_v03_f0015.jpg,14,one,1,0.52,
+s4_pagi_v03_f0021.jpg,14,one,1,1.00,
+s4_pagi_v03_f0027.jpg,14,one,1,1.00,
+s4_pagi_v03_f0034.jpg,14,one,1,0.98,
+s4_pagi_v04_f0009.jpg,14,one,0,,no_hand
+s4_pagi_v04_f0016.jpg,14,one,1,0.99,
+s4_pagi_v04_f0022.jpg,14,one,1,0.70,
+s4_pagi_v04_f0029.jpg,14,one,1,0.98,
+s4_pagi_v04_f0036.jpg,14,one,0,,no_hand
+s4_pagi_v05_f0009.jpg,14,one,0,,no_hand
+s4_pagi_v05_f0015.jpg,14,one,1,1.00,
+s4_pagi_v05_f0022.jpg,14,one,1,0.75,
+s4_pagi_v05_f0029.jpg,14,one,1,0.88,
+s4_pagi_v05_f0035.jpg,14,one,0,,no_hand
+s4_pagi_v06_f0010.jpg,14,one,0,,no_hand
+s4_pagi_v06_f0018.jpg,14,one,1,0.92,
+s4_pagi_v06_f0025.jpg,14,one,1,0.99,
+s4_pagi_v06_f0033.jpg,14,one,1,0.99,
+s4_pagi_v06_f0040.jpg,14,one,0,,no_hand
+s4_pagi_v07_f0008.jpg,14,one,1,0.69,
+s4_pagi_v07_f0014.jpg,14,one,1,0.88,
+s4_pagi_v07_f0020.jpg,14,one,1,0.99,
+s4_pagi_v07_f0027.jpg,14,one,1,0.97,
+s4_pagi_v07_f0033.jpg,14,one,0,,no_hand
+s4_pagi_v08_f0009.jpg,14,one,0,,no_hand
+s4_pagi_v08_f0016.jpg,14,one,1,0.95,
+s4_pagi_v08_f0024.jpg,14,one,1,1.00,
+s4_pagi_v08_f0031.jpg,14,one,1,1.00,
+s4_pagi_v08_f0038.jpg,14,one,0,,no_hand
+s4_pagi_v09_f0009.jpg,14,one,0,,no_hand
+s4_pagi_v09_f0015.jpg,14,one,1,1.00,
+s4_pagi_v09_f0022.jpg,14,one,1,0.99,
+s4_pagi_v09_f0029.jpg,14,one,1,0.99,
+s4_pagi_v09_f0035.jpg,14,one,0,,no_hand
+s4_pagi_v10_f0009.jpg,14,one,0,,no_hand
+s4_pagi_v10_f0015.jpg,14,one,1,0.99,
+s4_pagi_v10_f0022.jpg,14,one,1,0.99,
+s4_pagi_v10_f0029.jpg,14,one,1,0.99,
+s4_pagi_v10_f0035.jpg,14,one,0,,no_hand
+s4_rumah_v01_f0010.jpg,13,two,0,,no_hand
+s4_rumah_v01_f0018.jpg,13,two,1,0.59,two_class_one_hand
+s4_rumah_v01_f0026.jpg,13,two,1,0.99,two_class_one_hand
+s4_rumah_v01_f0033.jpg,13,two,1,0.99,two_class_one_hand
+s4_rumah_v01_f0041.jpg,13,two,0,,no_hand
+s4_rumah_v02_f0010.jpg,13,two,0,,no_hand
+s4_rumah_v02_f0018.jpg,13,two,1,0.99,two_class_one_hand
+s4_rumah_v02_f0026.jpg,13,two,1,0.98,two_class_one_hand
+s4_rumah_v02_f0033.jpg,13,two,0,,no_hand
+s4_rumah_v02_f0041.jpg,13,two,0,,no_hand
+s4_rumah_v03_f0010.jpg,13,two,0,,no_hand
+s4_rumah_v03_f0018.jpg,13,two,2,0.97 0.99,
+s4_rumah_v03_f0025.jpg,13,two,1,0.99,two_class_one_hand
+s4_rumah_v03_f0033.jpg,13,two,2,0.97 1.00,
+s4_rumah_v03_f0040.jpg,13,two,0,,no_hand
+s4_rumah_v04_f0010.jpg,13,two,0,,no_hand
+s4_rumah_v04_f0017.jpg,13,two,1,0.97,two_class_one_hand
+s4_rumah_v04_f0024.jpg,13,two,1,0.97,two_class_one_hand
+s4_rumah_v04_f0032.jpg,13,two,2,1.00 0.99,
+s4_rumah_v04_f0039.jpg,13,two,2,1.00 0.63,
+s4_rumah_v05_f0009.jpg,13,two,0,,no_hand
+s4_rumah_v05_f0015.jpg,13,two,1,0.95,two_class_one_hand
+s4_rumah_v05_f0022.jpg,13,two,1,0.99,two_class_one_hand
+s4_rumah_v05_f0028.jpg,13,two,2,0.99 1.00,
+s4_rumah_v05_f0034.jpg,13,two,0,,no_hand
+s4_rumah_v06_f0010.jpg,13,two,0,,no_hand
+s4_rumah_v06_f0018.jpg,13,two,1,0.99,two_class_one_hand
+s4_rumah_v06_f0025.jpg,13,two,1,0.95,two_class_one_hand
+s4_rumah_v06_f0033.jpg,13,two,2,0.56 0.98,
+s4_rumah_v06_f0040.jpg,13,two,0,,no_hand
+s4_rumah_v07_f0009.jpg,13,two,0,,no_hand
+s4_rumah_v07_f0016.jpg,13,two,0,,no_hand
+s4_rumah_v07_f0023.jpg,13,two,1,0.93,two_class_one_hand
+s4_rumah_v07_f0030.jpg,13,two,2,0.89 0.98,
+s4_rumah_v07_f0037.jpg,13,two,0,,no_hand
+s4_rumah_v08_f0011.jpg,13,two,0,,no_hand
+s4_rumah_v08_f0020.jpg,13,two,0,,no_hand
+s4_rumah_v08_f0028.jpg,13,two,2,0.98 0.99,
+s4_rumah_v08_f0037.jpg,13,two,1,0.96,two_class_one_hand
+s4_rumah_v08_f0046.jpg,13,two,1,0.99,two_class_one_hand
+s4_rumah_v09_f0012.jpg,13,two,0,,no_hand
+s4_rumah_v09_f0021.jpg,13,two,1,0.99,two_class_one_hand
+s4_rumah_v09_f0030.jpg,13,two,1,0.99,two_class_one_hand
+s4_rumah_v09_f0038.jpg,13,two,1,0.98,two_class_one_hand
+s4_rumah_v09_f0047.jpg,13,two,0,,no_hand
+s4_rumah_v10_f0011.jpg,13,two,0,,no_hand
+s4_rumah_v10_f0019.jpg,13,two,2,0.99 0.90,
+s4_rumah_v10_f0026.jpg,13,two,1,0.99,two_class_one_hand
+s4_rumah_v10_f0034.jpg,13,two,2,0.99 1.00,
+s4_rumah_v10_f0042.jpg,13,two,0,,no_hand
+s4_saya_v01_f0013.jpg,7,one,0,,no_hand
+s4_saya_v01_f0022.jpg,7,one,1,0.94,
+s4_saya_v01_f0032.jpg,7,one,1,0.95,
+s4_saya_v01_f0042.jpg,7,one,1,0.93,
+s4_saya_v01_f0051.jpg,7,one,1,0.84,
+s4_saya_v02_f0011.jpg,7,one,0,,no_hand
+s4_saya_v02_f0019.jpg,7,one,1,0.90,
+s4_saya_v02_f0027.jpg,7,one,1,0.89,
+s4_saya_v02_f0035.jpg,7,one,1,0.90,
+s4_saya_v02_f0043.jpg,7,one,1,0.92,
+s4_saya_v03_f0011.jpg,7,one,0,,no_hand
+s4_saya_v03_f0019.jpg,7,one,1,0.99,
+s4_saya_v03_f0026.jpg,7,one,1,0.91,
+s4_saya_v03_f0034.jpg,7,one,1,0.96,
+s4_saya_v03_f0042.jpg,7,one,1,0.82,
+s4_saya_v04_f0010.jpg,7,one,0,,no_hand
+s4_saya_v04_f0018.jpg,7,one,1,0.90,
+s4_saya_v04_f0025.jpg,7,one,1,0.89,
+s4_saya_v04_f0033.jpg,7,one,1,0.90,
+s4_saya_v04_f0040.jpg,7,one,1,0.95,
+s4_saya_v05_f0010.jpg,7,one,0,,no_hand
+s4_saya_v05_f0018.jpg,7,one,1,0.87,
+s4_saya_v05_f0026.jpg,7,one,1,0.70,
+s4_saya_v05_f0033.jpg,7,one,1,0.85,
+s4_saya_v05_f0041.jpg,7,one,0,,no_hand
+s4_saya_v06_f0013.jpg,7,one,0,,no_hand
+s4_saya_v06_f0022.jpg,7,one,1,0.95,
+s4_saya_v06_f0032.jpg,7,one,1,0.96,
+s4_saya_v06_f0041.jpg,7,one,1,0.92,
+s4_saya_v06_f0050.jpg,7,one,1,0.95,
+s4_saya_v07_f0011.jpg,7,one,1,0.95,
+s4_saya_v07_f0019.jpg,7,one,1,0.98,
+s4_saya_v07_f0026.jpg,7,one,1,0.87,
+s4_saya_v07_f0034.jpg,7,one,1,0.58,
+s4_saya_v07_f0042.jpg,7,one,0,,no_hand
+s4_saya_v08_f0013.jpg,7,one,0,,no_hand
+s4_saya_v08_f0022.jpg,7,one,1,0.92,
+s4_saya_v08_f0032.jpg,7,one,1,0.93,
+s4_saya_v08_f0042.jpg,7,one,1,0.90,
+s4_saya_v08_f0051.jpg,7,one,1,0.87,
+s4_saya_v09_f0012.jpg,7,one,0,,no_hand
+s4_saya_v09_f0021.jpg,7,one,1,0.84,
+s4_saya_v09_f0030.jpg,7,one,1,0.91,
+s4_saya_v09_f0039.jpg,7,one,1,0.89,
+s4_saya_v09_f0048.jpg,7,one,1,0.83,
+s4_saya_v10_f0013.jpg,7,one,0,,no_hand
+s4_saya_v10_f0022.jpg,7,one,1,0.95,
+s4_saya_v10_f0032.jpg,7,one,1,0.92,
+s4_saya_v10_f0041.jpg,7,one,1,0.89,
+s4_saya_v10_f0050.jpg,7,one,1,0.89,
+s4_teman_v01_f0010.jpg,11,two,1,0.91,two_class_one_hand
+s4_teman_v01_f0017.jpg,11,two,1,0.73,two_class_one_hand
+s4_teman_v01_f0024.jpg,11,two,1,0.99,two_class_one_hand
+s4_teman_v01_f0032.jpg,11,two,1,0.99,two_class_one_hand
+s4_teman_v01_f0039.jpg,11,two,0,,no_hand
+s4_teman_v02_f0010.jpg,11,two,0,,no_hand
+s4_teman_v02_f0017.jpg,11,two,1,0.98,two_class_one_hand
+s4_teman_v02_f0024.jpg,11,two,2,0.62 0.97,
+s4_teman_v02_f0032.jpg,11,two,2,0.62 0.58,
+s4_teman_v02_f0039.jpg,11,two,2,0.89 0.97,
+s4_teman_v03_f0010.jpg,11,two,0,,no_hand
+s4_teman_v03_f0017.jpg,11,two,1,1.00,two_class_one_hand
+s4_teman_v03_f0024.jpg,11,two,2,1.00 0.87,
+s4_teman_v03_f0031.jpg,11,two,2,0.98 0.73,
+s4_teman_v03_f0038.jpg,11,two,2,1.00 0.99,
+s4_teman_v04_f0010.jpg,11,two,0,,no_hand
+s4_teman_v04_f0018.jpg,11,two,1,0.92,two_class_one_hand
+s4_teman_v04_f0025.jpg,11,two,1,0.98,two_class_one_hand
+s4_teman_v04_f0033.jpg,11,two,1,0.99,two_class_one_hand
+s4_teman_v04_f0040.jpg,11,two,1,1.00,two_class_one_hand
+s4_teman_v05_f0010.jpg,11,two,0,,no_hand
+s4_teman_v05_f0018.jpg,11,two,2,0.78 0.98,
+s4_teman_v05_f0025.jpg,11,two,1,0.62,two_class_one_hand
+s4_teman_v05_f0033.jpg,11,two,1,1.00,two_class_one_hand
+s4_teman_v05_f0040.jpg,11,two,1,0.98,two_class_one_hand
+s4_teman_v06_f0011.jpg,11,two,0,,no_hand
+s4_teman_v06_f0019.jpg,11,two,1,0.74,two_class_one_hand
+s4_teman_v06_f0026.jpg,11,two,2,1.00 0.60,
+s4_teman_v06_f0034.jpg,11,two,2,0.99 0.64,
+s4_teman_v06_f0042.jpg,11,two,2,0.88 0.89,
+s4_teman_v07_f0009.jpg,11,two,1,0.99,two_class_one_hand
+s4_teman_v07_f0016.jpg,11,two,1,0.98,two_class_one_hand
+s4_teman_v07_f0023.jpg,11,two,2,1.00 0.84,
+s4_teman_v07_f0030.jpg,11,two,2,1.00 0.63,
+s4_teman_v07_f0037.jpg,11,two,1,0.96,two_class_one_hand
+s4_teman_v08_f0010.jpg,11,two,1,0.95,two_class_one_hand
+s4_teman_v08_f0018.jpg,11,two,1,0.99,two_class_one_hand
+s4_teman_v08_f0026.jpg,11,two,1,0.81,two_class_one_hand
+s4_teman_v08_f0034.jpg,11,two,1,0.98,two_class_one_hand
+s4_teman_v08_f0042.jpg,11,two,1,1.00,two_class_one_hand
+s4_teman_v09_f0011.jpg,11,two,0,,no_hand
+s4_teman_v09_f0020.jpg,11,two,2,0.80 0.94,
+s4_teman_v09_f0028.jpg,11,two,2,0.99 0.92,
+s4_teman_v09_f0036.jpg,11,two,1,0.99,two_class_one_hand
+s4_teman_v09_f0045.jpg,11,two,1,0.91,two_class_one_hand
+s4_teman_v10_f0009.jpg,11,two,1,0.71,two_class_one_hand
+s4_teman_v10_f0016.jpg,11,two,0,,no_hand
+s4_teman_v10_f0024.jpg,11,two,2,0.99 0.93,
+s4_teman_v10_f0031.jpg,11,two,2,0.99 0.91,
+s4_teman_v10_f0038.jpg,11,two,1,0.97,two_class_one_hand
+s4_terimakasih_v01_f0014.jpg,8,one,0,,no_hand
+s4_terimakasih_v01_f0025.jpg,8,one,1,0.97,
+s4_terimakasih_v01_f0036.jpg,8,one,1,0.85,
+s4_terimakasih_v01_f0046.jpg,8,one,1,0.69,
+s4_terimakasih_v01_f0057.jpg,8,one,1,0.92,
+s4_terimakasih_v02_f0010.jpg,8,one,0,,no_hand
+s4_terimakasih_v02_f0018.jpg,8,one,1,0.91,
+s4_terimakasih_v02_f0026.jpg,8,one,1,0.94,
+s4_terimakasih_v02_f0033.jpg,8,one,1,0.63,
+s4_terimakasih_v02_f0041.jpg,8,one,1,0.66,
+s4_terimakasih_v03_f0012.jpg,8,one,0,,no_hand
+s4_terimakasih_v03_f0022.jpg,8,one,1,0.93,
+s4_terimakasih_v03_f0031.jpg,8,one,1,0.93,
+s4_terimakasih_v03_f0040.jpg,8,one,1,0.50,
+s4_terimakasih_v03_f0050.jpg,8,one,1,1.00,
+s4_terimakasih_v04_f0011.jpg,8,one,0,,no_hand
+s4_terimakasih_v04_f0020.jpg,8,one,1,0.99,
+s4_terimakasih_v04_f0028.jpg,8,one,1,0.94,
+s4_terimakasih_v04_f0036.jpg,8,one,2,0.86 0.99,
+s4_terimakasih_v04_f0045.jpg,8,one,1,0.52,
+s4_terimakasih_v05_f0011.jpg,8,one,0,,no_hand
+s4_terimakasih_v05_f0019.jpg,8,one,0,,no_hand
+s4_terimakasih_v05_f0028.jpg,8,one,1,0.98,
+s4_terimakasih_v05_f0036.jpg,8,one,1,0.65,
+s4_terimakasih_v05_f0044.jpg,8,one,1,0.93,
+s4_terimakasih_v06_f0011.jpg,8,one,0,,no_hand
+s4_terimakasih_v06_f0020.jpg,8,one,1,0.94,
+s4_terimakasih_v06_f0028.jpg,8,one,1,0.96,
+s4_terimakasih_v06_f0036.jpg,8,one,1,0.78,
+s4_terimakasih_v06_f0045.jpg,8,one,1,0.89,
+s4_terimakasih_v07_f0011.jpg,8,one,0,,no_hand
+s4_terimakasih_v07_f0020.jpg,8,one,1,0.93,
+s4_terimakasih_v07_f0028.jpg,8,one,1,0.94,
+s4_terimakasih_v07_f0036.jpg,8,one,1,0.55,
+s4_terimakasih_v07_f0045.jpg,8,one,1,0.95,
+s4_terimakasih_v08_f0011.jpg,8,one,0,,no_hand
+s4_terimakasih_v08_f0019.jpg,8,one,1,0.96,
+s4_terimakasih_v08_f0026.jpg,8,one,1,0.94,
+s4_terimakasih_v08_f0034.jpg,8,one,1,0.74,
+s4_terimakasih_v08_f0042.jpg,8,one,1,0.99,
+s4_terimakasih_v09_f0012.jpg,8,one,0,,no_hand
+s4_terimakasih_v09_f0021.jpg,8,one,1,0.95,
+s4_terimakasih_v09_f0030.jpg,8,one,1,0.94,
+s4_terimakasih_v09_f0038.jpg,8,one,1,0.96,
+s4_terimakasih_v09_f0047.jpg,8,one,1,0.84,
+s4_terimakasih_v10_f0011.jpg,8,one,0,,no_hand
+s4_terimakasih_v10_f0019.jpg,8,one,1,0.79,
+s4_terimakasih_v10_f0028.jpg,8,one,1,0.75,
+s4_terimakasih_v10_f0036.jpg,8,one,1,0.95,
+s4_terimakasih_v10_f0044.jpg,8,one,0,,no_hand
