@@ -1,0 +1,60 @@
+# 15 gestures selected from WL-BISINDO (locked 27 Oct 2026).
+# new_id -> gloss, original WL-BISINDO label index, group.
+# Groups were fixed BEFORE training and must never be changed based on detection results.
+# two = two-handed (C_two), one = one-handed (C_one).
+
+nc: 15
+
+names:
+  0: Cari
+  1: Hari
+  2: Ingat
+  3: Lagi
+  4: Maaf
+  5: Makan
+  6: Motor
+  7: Saya
+  8: Terima kasih
+  9: Bagaimana
+  10: Berangkat
+  11: Teman
+  12: Keluarga
+  13: Rumah
+  14: Pagi
+
+# original WL-BISINDO label -> new_id
+orig_to_new:
+  2: 0
+  3: 1
+  4: 2
+  5: 3
+  6: 4
+  7: 5
+  8: 6
+  9: 7
+  10: 8
+  17: 9
+  23: 10
+  25: 11
+  26: 12
+  27: 13
+  28: 14
+
+groups:
+  0: one
+  1: one
+  2: one
+  3: one
+  4: one
+  5: one
+  6: two
+  7: one
+  8: one
+  9: two
+  10: one
+  11: two   # only gesture with hand-over-hand occlusion
+  12: one
+  13: two
+  14: one
+
+occlusion_class: 11  # Teman, reported separately

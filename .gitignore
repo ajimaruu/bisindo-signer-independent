@@ -1,0 +1,16 @@
+# Track only scripts/ and configs/ (plus this file).
+/*
+!/.gitignore
+!/scripts/
+!/configs/
+
+# Explicitly never tracked
+data/
+runs/
+results/
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pt
+*.pth
