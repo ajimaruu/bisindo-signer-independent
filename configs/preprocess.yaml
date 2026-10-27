@@ -31,3 +31,14 @@ annotation:
   # Two-handed gestures: a single box encloses both hands.
   # The face is never included in the box, even when a hand touches it.
   boxes_per_frame: 1
+
+exclusion:
+  # Locked 27 Oct 2026. Decided per frame during annotation, before any training,
+  # identically for every gloss and signer. Excluded frames stay in data/frames/
+  # and are listed in data/excluded_frames.csv (columns: file,reason).
+  # If several apply, record the first in the order a -> b -> c.
+  list_file: data/excluded_frames.csv
+  reasons:
+    a: hands still at rest, or not yet raised into the signing space
+    b: handshape blurred by motion
+    c: hands mostly outside the frame
