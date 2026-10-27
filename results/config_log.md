@@ -171,3 +171,19 @@ Started 27 Oct 2026. One section per decision or check; newest at the bottom.
   - Per signer: s0 450, s1 900, s2 900, s3 750, s4 750.
   - 250 frames per gloss.
   - No errors. Manifest: `data/frames/manifest.csv`. Log: `runs/extract_frames.log`.
+
+## 10. Annotation tool (27 Oct 2026)
+
+- **Version and environment:** LabelImg 1.8.6 (the last release; the project is archived), with PyQt5 5.15.11 / Qt 5.15.2.
+  - It is installed in a **separate env**, `.venv-labelimg`, on Python 3.9.25 (via uv), not tracked by git.
+  - Reason: LabelImg 1.8.6 crashes on Python ≥ 3.10 because PyQt5 rejects float arguments, and `.venv` is Python 3.11. Keeping it separate also keeps PyQt5 out of the experiment env.
+- **Launch:**
+  - `scripts/labelimg.bat` runs `scripts/labelimg_launch.py`. Desktop shortcut: "LabelImg BISINDO".
+  - It opens `data/frames` with class file `data/labels_yolo/classes.txt` and save dir `data/labels_yolo`.
+  - It sets the YOLO format through LabelImg's own `set_format`, because there is no CLI flag for it.
+- **Offscreen test:**
+  - 3,750 images loaded, 15 classes in project order, format YOLO, save dir correct.
+  - One box saved through LabelImg on a scratch copy gave `11 0.468750 0.555556 0.156250 0.277778` for Teman. This is the correct class id and normalised coordinates.
+- **Behaviour to know:**
+  - LabelImg rewrites `classes.txt` on every save, with the same content and order but CRLF line endings. `check_annotations.py` verifies the order.
+  - LabelImg remembers the last opened image in `~/.labelImgSettings.pkl`, so a new session resumes where the last one stopped.
