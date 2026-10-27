@@ -1,10 +1,16 @@
 """Check annotation coverage: every extracted frame must be labelled or explicitly excluded.
 
-Reads data/frames/, data/labels_yolo/ (LabelImg YOLO .txt) and data/excluded_frames.csv.
+Reads data/frames/, data/labels_yolo/ (LabelImg YOLO .txt), data/excluded_frames.csv,
+data/reviewed_labels.csv and (for statistics) data/labels_auto/ and data/exclusion_candidates.csv.
 Writes nothing except the report results/annotation_check.csv. Exit code 1 if any issue.
+
+A frame counts as done only if it is excluded, or its label has been saved from LabelImg
+(scripts/labelimg_launch.py) and has not changed since: pre-annotation boxes are not done.
 
 Issue types:
   missed          frame has no label (or an empty label file) and is not in the exclusion list
+  unreviewed      label exists but was never saved from LabelImg, or changed after review
+  review_stale    reviewed entry for a frame that now has no label or does not exist
   conflict        frame has a box but is also in the exclusion list
   multi_box       more than one box (rule: one box per frame)
   class_mismatch  box class id differs from the gloss in the file name
@@ -26,10 +32,10 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 import yaml
+from PIL import Image
 
-ROOT = Path(__file__).resolve().parents[1]
-FRAMES = ROOT / "data" / "frames"
-LABELS = ROOT / "data" / "labels_yolo"
+from annot_common import AUTO, CANDIDATES, FRAMES, LABELS, REVIEWED, ROOT, label_digest, read_table
+
 REPORT = ROOT / "results" / "annotation_check.csv"
 FRAME_RE = re.compile(r"^s(\d+)_([a-z]+)_v(\d{2})_f(\d{4})$")
 
@@ -80,6 +86,55 @@ def read_exclusions(path, valid_reasons, issues):
     return excluded
 
 
+def iou(a, b):
+    """IoU of two YOLO boxes (xc, yc, w, h), normalised coordinates."""
+    ax1, ay1, ax2, ay2 = a[0] - a[2] / 2, a[1] - a[3] / 2, a[0] + a[2] / 2, a[1] + a[3] / 2
+    bx1, by1, bx2, by2 = b[0] - b[2] / 2, b[1] - b[3] / 2, b[0] + b[2] / 2, b[1] + b[3] / 2
+    iw, ih = max(0.0, min(ax2, bx2) - max(ax1, bx1)), max(0.0, min(ay2, by2) - max(ay1, by1))
+    inter = iw * ih
+    union = a[2] * a[3] + b[2] * b[3] - inter
+    return inter / union if union > 0 else 0.0
+
+
+def max_edge_shift_px(a, b, w, h):
+    """Largest shift of any box edge, in pixels, between two YOLO boxes."""
+    ea = (a[0] - a[2] / 2, a[1] - a[3] / 2, a[0] + a[2] / 2, a[1] + a[3] / 2)
+    eb = (b[0] - b[2] / 2, b[1] - b[3] / 2, b[0] + b[2] / 2, b[1] + b[3] / 2)
+    return max(abs(x - y) * s for x, y, s in zip(ea, eb, (w, h, w, h)))
+
+
+def print_preannotation_stats(status, excluded):
+    """How the manual review changed the pre-annotation (for config_log / the paper)."""
+    if not AUTO.exists():
+        return
+    candidates = read_table(CANDIDATES)
+    ious, unchanged, manual_only, auto_excluded = [], 0, 0, Counter()
+    for stem, st in status.items():
+        auto = AUTO / f"{stem}.txt"
+        if st == "labelled":
+            if not auto.exists():
+                manual_only += 1
+                continue
+            a = list(map(float, auto.read_text(encoding="utf-8").split()[1:5]))
+            b = list(map(float, (LABELS / f"{stem}.txt").read_text(encoding="utf-8").split()[1:5]))
+            ious.append(iou(a, b))
+            with Image.open(FRAMES / f"{stem}.jpg") as im:   # reads the header only
+                w, h = im.size
+            # LabelImg rounds to whole pixels when it re-saves, so allow a 2 px tolerance.
+            unchanged += max_edge_shift_px(a, b, w, h) <= 2
+        elif st == "excluded":
+            auto_excluded["had auto box" if auto.exists() else "no auto box"] += 1
+    if ious:
+        ious.sort()
+        print(f"  pre-annotation vs reviewed: {len(ious)} boxes, unchanged (<=2 px) {unchanged}, "
+              f"IoU median {ious[len(ious) // 2]:.3f}, IoU<0.9: {sum(v < 0.9 for v in ious)}, "
+              f"drawn manually (no auto box) {manual_only}")
+    if auto_excluded:
+        print(f"  excluded frames: {dict(auto_excluded)}")
+    open_cand = [s for s in candidates if status.get(s) not in ("excluded", "labelled")]
+    print(f"  exclusion candidates (no hand detected): {len(candidates)}, still undecided {len(open_cand)}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--show", type=int, default=20, help="examples printed per issue type")
@@ -94,6 +149,7 @@ def main():
     frames = sorted(p.stem for p in FRAMES.glob("*.jpg"))
     frame_set = set(frames)
     excluded = read_exclusions(ROOT / prep["exclusion"]["list_file"], valid_reasons, issues)
+    reviewed = read_table(REVIEWED)
 
     classes_txt = LABELS / "classes.txt"
     if classes_txt.exists():
@@ -119,7 +175,12 @@ def main():
             status[stem] = "conflict"
             issues.append(("conflict", stem, f"{len(boxes)} box(es) but excluded (reason {excluded[stem]})"))
         elif boxes:
-            status[stem] = "labelled"
+            rev = reviewed.get(stem)
+            if rev and rev["sha1"] == label_digest(lab):
+                status[stem] = "labelled"
+            else:
+                status[stem] = "unreviewed"
+                issues.append(("unreviewed", stem, "changed after review" if rev else "not reviewed in LabelImg"))
             if len(boxes) > 1:
                 issues.append(("multi_box", stem, f"{len(boxes)} boxes"))
             wrong = {b[0] for b in boxes} - {slug_to_id[slug]}
@@ -131,6 +192,9 @@ def main():
             status[stem] = "missed"
             issues.append(("missed", stem, "empty label file" if lab.exists() else "no label file"))
 
+    for stem in sorted(reviewed):
+        if stem not in frame_set or not (LABELS / f"{stem}.txt").exists():
+            issues.append(("review_stale", stem, "reviewed entry but no frame/label"))
     for stem in sorted(set(excluded) - frame_set):
         issues.append(("excl_unknown", stem, "not found in data/frames/"))
     for p in sorted(LABELS.glob("*.txt")):
@@ -149,14 +213,16 @@ def main():
 
     counts = Counter(status.values())
     print(f"frames: {len(frames)}  videos: {len(videos)}")
-    print(f"  labelled {counts['labelled']}  excluded {counts['excluded']}  "
-          f"missed {counts['missed']}  conflict {counts['conflict']}")
+    print(f"  reviewed labels {counts['labelled']}  excluded {counts['excluded']}  "
+          f"unreviewed {counts['unreviewed']}  missed {counts['missed']}  conflict {counts['conflict']}")
     reasons = Counter(excluded[s] for s, st in status.items() if st == "excluded")
     print("  excluded by reason:", {r: reasons.get(r, 0) for r in sorted(valid_reasons)})
     done = counts["labelled"] + counts["excluded"]
     print(f"  progress: {done}/{len(frames)} frames decided ({done / max(len(frames), 1):.1%})")
 
-    if counts["missed"] == 0 and counts["conflict"] == 0:
+    print_preannotation_stats(status, excluded)
+
+    if counts["missed"] == 0 and counts["conflict"] == 0 and counts["unreviewed"] == 0:
         empty = [f"s{k[0]}_{k[1]}_v{k[2]}" for k, st in videos.items()
                  if not any(status.get(s) == "labelled" for s in st)]
         kept = Counter()

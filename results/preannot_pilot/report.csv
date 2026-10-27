@@ -1,0 +1,21 @@
+file,class_id,group,n_hands,scores,flag
+s2_motor_v05_f0016.jpg,6,two,0,,no_hand
+s4_motor_v09_f0023.jpg,6,two,2,0.95 0.94,
+s2_bagaimana_v12_f0037.jpg,9,two,2,0.75 0.69,
+s1_bagaimana_v03_f0056.jpg,9,two,2,0.97 0.56,
+s2_teman_v02_f0073.jpg,11,two,2,1.00 1.00,
+s3_teman_v03_f0010.jpg,11,two,2,0.96 0.97,
+s3_rumah_v02_f0018.jpg,13,two,1,0.98,two_class_one_hand
+s2_rumah_v11_f0034.jpg,13,two,2,0.99 0.99,
+s1_cari_v10_f0056.jpg,0,one,1,1.00,
+s3_hari_v01_f0042.jpg,1,one,1,1.00,
+s2_ingat_v03_f0014.jpg,2,one,1,0.97,
+s3_lagi_v08_f0017.jpg,3,one,0,,no_hand
+s1_maaf_v04_f0044.jpg,4,one,1,0.98,
+s3_makan_v03_f0035.jpg,5,one,1,0.98,
+s0_saya_v09_f0054.jpg,7,one,0,,no_hand
+s1_terimakasih_v09_f0012.jpg,8,one,1,0.89,
+s1_berangkat_v09_f0023.jpg,10,one,1,0.79,
+s4_keluarga_v09_f0026.jpg,12,one,1,0.99,
+s1_pagi_v07_f0054.jpg,14,one,1,0.99,
+s3_teman_v10_f0040.jpg,11,two,2,0.97 0.99,

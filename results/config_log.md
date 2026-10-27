@@ -187,3 +187,34 @@ Started 27 Oct 2026. One section per decision or check; newest at the bottom.
 - **Behaviour to know:**
   - LabelImg rewrites `classes.txt` on every save, with the same content and order but CRLF line endings. `check_annotations.py` verifies the order.
   - LabelImg remembers the last opened image in `~/.labelImgSettings.pkl`, so a new session resumes where the last one stopped.
+
+## 11. Pre-annotation and manual verification (27 Oct 2026)
+
+- **All boxes are verified by hand.** The initial boxes come from automatic pre-annotation, and **every box is verified manually** in LabelImg before it counts as annotated. No pre-annotated box enters training unreviewed. `check_annotations.py` fails while any label is still unreviewed.
+- **Detector:**
+  - MediaPipe 1.1.1, HandLandmarker (Tasks API), `hand_landmarker.task` float16, 7,819,105 bytes.
+  - Model SHA-256 `fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1`, published 26 Apr 2023.
+  - Settings: IMAGE mode, `num_hands=2`, detection and presence confidence 0.5 (defaults).
+  - It runs on the CPU in a separate env, `.venv-mediapipe` (Python 3.11), so that MediaPipe's dependencies stay out of `.venv`.
+- **Box rule:**
+  - Each detected hand gets a tight box around its 21 landmarks, expanded by 8% of the hand box's longer side on every side.
+  - C_two: the union of the detected hand boxes. A single detected hand is flagged `two_class_one_hand`.
+  - C_one: only the hand with the highest landmark centroid.
+  - Class id comes from the gloss in the file name.
+- **Frames with no detected hand:** these get no label. They are listed in `data/exclusion_candidates.csv` only. The exclusion decision stays manual.
+- **Bookkeeping files:**
+  - `data/labels_auto/`: raw pre-annotation, never edited.
+  - `data/reviewed_labels.csv`: the sha1 of each label at the time it was saved from LabelImg.
+  - `data/excluded_frames.csv`: written by LabelImg hotkeys Ctrl+1/2/3 (reason a/b/c), undone with Ctrl+0.
+- **Correction statistics:** `check_annotations.py` reports how much the review changed the pre-annotation. It counts unchanged boxes (every edge within 2 px; LabelImg rounds to whole pixels when it re-saves), the IoU distribution, manually drawn boxes and excluded frames that had an automatic box. These numbers go in the paper's annotation description.
+- **Pilot (20 frames):** each C_two gloss ×2, each C_one gloss ×1, plus one extra Teman; all five frame positions. Output in `results/preannot_pilot/`.
+  - 16 frames got a box, 3 had no hand detected and 1 was flagged `two_class_one_hand`.
+  - No hand detected:
+    - `s2_motor_v05_f0016` and `s0_saya_v09_f0054`: hands at rest.
+    - `s3_lagi_v08_f0017`: handshape blurred.
+    - All three would fall under exclusion criteria a/b.
+  - `s3_rumah_v02_f0018`: the second hand was missed and the box covers only one hand.
+  - `s3_teman_v03_f0010`: both hands are at rest at the waist but were detected and boxed. **The detector does not apply criterion (a)**, so rest frames with visible hands must be excluded manually.
+  - `s4_motor_v09_f0023`: the motion-blurred right hand is slightly cut off.
+  - Otherwise the boxes are tight and on the correct hand.
+- **Workflow test:** an end-to-end test on a scratch copy of the project passed. It covered Space-approve, Ctrl+1 exclude, edit and save, exclude then Ctrl+0, and an external edit reverting a label to unreviewed.

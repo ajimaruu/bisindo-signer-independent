@@ -10,6 +10,12 @@
 !/data/
 /data/*
 !/data/excluded_frames.csv
+!/data/reviewed_labels.csv
+!/data/exclusion_candidates.csv
+!/data/preannot_report.csv
+!/data/labels_auto/
+/data/labels_auto/*
+!/data/labels_auto/*.txt
 !/data/labels_yolo/
 /data/labels_yolo/*
 !/data/labels_yolo/*.txt
