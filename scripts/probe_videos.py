@@ -9,6 +9,7 @@ import argparse
 import csv
 import json
 import re
+import shutil
 import statistics
 import subprocess
 from collections import Counter
@@ -19,27 +20,34 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
 OUT = ROOT / "results" / "video_probe.csv"
+WINGET_BIN = Path.home() / ("AppData/Local/Microsoft/WinGet/Packages/"
+                            "Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin")
 NAME_RE = re.compile(r"signer(\d+)_label(\d+)_sample(\d+)\.mp4$")
 
 
 def probe(ffprobe, path):
-    cmd = [ffprobe, "-v", "error", "-select_streams", "v:0", "-count_packets",
-           "-show_entries", "stream=width,height,r_frame_rate,avg_frame_rate,nb_read_packets,codec_name",
+    # n_frames = decoded frames; n_packets can be larger when the MP4 has an edit list (trimmed clip).
+    cmd = [ffprobe, "-v", "error", "-select_streams", "v:0", "-count_packets", "-count_frames",
+           "-show_entries",
+           "stream=width,height,r_frame_rate,avg_frame_rate,nb_read_packets,nb_read_frames,codec_name,color_transfer",
            "-show_entries", "format=duration", "-of", "json", str(path)]
     info = json.loads(subprocess.run(cmd, capture_output=True, text=True, check=True).stdout)
     st = info["streams"][0]
     num, den = map(int, st["avg_frame_rate"].split("/"))
     return {
         "width": st["width"], "height": st["height"], "codec": st["codec_name"],
+        "color_transfer": st.get("color_transfer", ""),
         "r_frame_rate": st["r_frame_rate"], "fps": round(num / den, 3) if den else 0.0,
-        "n_frames": int(st["nb_read_packets"]), "duration_s": float(info["format"]["duration"]),
+        "n_frames": int(st["nb_read_frames"]), "n_packets": int(st["nb_read_packets"]),
+        "duration_s": float(info["format"]["duration"]),
     }
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--ffprobe", default="ffprobe")
+    ap.add_argument("--ffprobe")
     args = ap.parse_args()
+    ffprobe = args.ffprobe or shutil.which("ffprobe") or str(WINGET_BIN / "ffprobe.exe")
 
     cfg = yaml.safe_load(open(ROOT / "configs" / "classes.yaml", encoding="utf-8"))
     orig_to_new = {int(k): int(v) for k, v in cfg["orig_to_new"].items()}
@@ -52,7 +60,7 @@ def main():
         signer, label, sample = map(int, m.groups())
         new_id = orig_to_new[label]
         rows.append({"file": p.name, "signer": signer, "orig_label": label, "new_id": new_id,
-                     "gloss": cfg["names"][new_id], "sample": sample, **probe(args.ffprobe, p)})
+                     "gloss": cfg["names"][new_id], "sample": sample, **probe(ffprobe, p)})
 
     OUT.parent.mkdir(exist_ok=True)
     with open(OUT, "w", newline="", encoding="utf-8") as f:
