@@ -1,5 +1,5 @@
 # Track only: scripts/, configs/, CLAUDE.md, annotation text files, and the
-# text records in results/ (config_log.md and all .csv). Everything else is ignored.
+# text records in results/ (config_log.md, requirements_freeze.txt and all .csv). Everything else is ignored.
 /*
 !/.gitignore
 !/CLAUDE.md
@@ -20,6 +20,7 @@
 /results/**
 !/results/**/
 !/results/config_log.md
+!/results/requirements_freeze.txt
 !/results/**/*.csv
 
 # Explicitly never tracked
