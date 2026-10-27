@@ -1,0 +1,16 @@
+video,signer,new_id,gloss,sample,hlg,n_frames,frame_indices,files,sheet
+signer0_label2_sample1.mp4,0,0,Cari,1,0,69,14 24 34 44 54,s0_cari_v01_f0014.jpg s0_cari_v01_f0024.jpg s0_cari_v01_f0034.jpg s0_cari_v01_f0044.jpg s0_cari_v01_f0054.jpg,00_cari_s0_v01.jpg
+signer1_label3_sample2.mp4,1,1,Hari,2,1,73,14 25 36 47 58,s1_hari_v02_f0014.jpg s1_hari_v02_f0025.jpg s1_hari_v02_f0036.jpg s1_hari_v02_f0047.jpg s1_hari_v02_f0058.jpg,01_hari_s1_v02.jpg
+signer2_label4_sample3.mp4,2,2,Ingat,3,0,73,14 25 36 47 58,s2_ingat_v03_f0014.jpg s2_ingat_v03_f0025.jpg s2_ingat_v03_f0036.jpg s2_ingat_v03_f0047.jpg s2_ingat_v03_f0058.jpg,02_ingat_s2_v03.jpg
+signer3_label5_sample4.mp4,3,3,Lagi,4,1,45,9 15 22 29 35,s3_lagi_v04_f0009.jpg s3_lagi_v04_f0015.jpg s3_lagi_v04_f0022.jpg s3_lagi_v04_f0029.jpg s3_lagi_v04_f0035.jpg,03_lagi_s3_v04.jpg
+signer4_label6_sample5.mp4,4,4,Maaf,5,1,51,10 18 25 33 40,s4_maaf_v05_f0010.jpg s4_maaf_v05_f0018.jpg s4_maaf_v05_f0025.jpg s4_maaf_v05_f0033.jpg s4_maaf_v05_f0040.jpg,04_maaf_s4_v05.jpg
+signer0_label7_sample6.mp4,0,5,Makan,6,0,59,12 20 29 38 46,s0_makan_v06_f0012.jpg s0_makan_v06_f0020.jpg s0_makan_v06_f0029.jpg s0_makan_v06_f0038.jpg s0_makan_v06_f0046.jpg,05_makan_s0_v06.jpg
+signer1_label8_sample7.mp4,1,6,Motor,7,1,80,16 28 40 51 63,s1_motor_v07_f0016.jpg s1_motor_v07_f0028.jpg s1_motor_v07_f0040.jpg s1_motor_v07_f0051.jpg s1_motor_v07_f0063.jpg,06_motor_s1_v07.jpg
+signer2_label9_sample8.mp4,2,7,Saya,8,0,82,16 28 40 53 65,s2_saya_v08_f0016.jpg s2_saya_v08_f0028.jpg s2_saya_v08_f0040.jpg s2_saya_v08_f0053.jpg s2_saya_v08_f0065.jpg,07_saya_s2_v08.jpg
+signer3_label10_sample9.mp4,3,8,Terima kasih,9,1,54,11 19 26 34 42,s3_terimakasih_v09_f0011.jpg s3_terimakasih_v09_f0019.jpg s3_terimakasih_v09_f0026.jpg s3_terimakasih_v09_f0034.jpg s3_terimakasih_v09_f0042.jpg,08_terimakasih_s3_v09.jpg
+signer2_label17_sample10.mp4,2,9,Bagaimana,10,0,58,11 20 28 37 46,s2_bagaimana_v10_f0011.jpg s2_bagaimana_v10_f0020.jpg s2_bagaimana_v10_f0028.jpg s2_bagaimana_v10_f0037.jpg s2_bagaimana_v10_f0046.jpg,09_bagaimana_s2_v10.jpg
+signer3_label23_sample1.mp4,3,10,Berangkat,1,1,54,11 19 26 34 42,s3_berangkat_v01_f0011.jpg s3_berangkat_v01_f0019.jpg s3_berangkat_v01_f0026.jpg s3_berangkat_v01_f0034.jpg s3_berangkat_v01_f0042.jpg,10_berangkat_s3_v01.jpg
+signer4_label25_sample2.mp4,4,11,Teman,2,1,50,10 17 24 32 39,s4_teman_v02_f0010.jpg s4_teman_v02_f0017.jpg s4_teman_v02_f0024.jpg s4_teman_v02_f0032.jpg s4_teman_v02_f0039.jpg,11_teman_s4_v02.jpg
+signer1_label26_sample3.mp4,1,12,Keluarga,3,1,88,17 30 44 57 70,s1_keluarga_v03_f0017.jpg s1_keluarga_v03_f0030.jpg s1_keluarga_v03_f0044.jpg s1_keluarga_v03_f0057.jpg s1_keluarga_v03_f0070.jpg,12_keluarga_s1_v03.jpg
+signer2_label27_sample4.mp4,2,13,Rumah,4,1,66,13 23 32 42 52,s2_rumah_v04_f0013.jpg s2_rumah_v04_f0023.jpg s2_rumah_v04_f0032.jpg s2_rumah_v04_f0042.jpg s2_rumah_v04_f0052.jpg,13_rumah_s2_v04.jpg
+signer3_label28_sample5.mp4,3,14,Pagi,5,1,54,11 19 26 34 42,s3_pagi_v05_f0011.jpg s3_pagi_v05_f0019.jpg s3_pagi_v05_f0026.jpg s3_pagi_v05_f0034.jpg s3_pagi_v05_f0042.jpg,14_pagi_s3_v05.jpg

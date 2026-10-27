@@ -1,6 +1,8 @@
-# Track only scripts/, configs/, the annotation labels and the exclusion list (plus this file).
+# Track only: scripts/, configs/, CLAUDE.md, annotation text files, and the
+# text records in results/ (config_log.md and all .csv). Everything else is ignored.
 /*
 !/.gitignore
+!/CLAUDE.md
 !/scripts/
 !/configs/
 
@@ -12,9 +14,16 @@
 /data/labels_yolo/*
 !/data/labels_yolo/*.txt
 
+# From results/, track only config_log.md and .csv files (any subfolder);
+# images, contact sheets and HTML stay untracked.
+!/results/
+/results/**
+!/results/**/
+!/results/config_log.md
+!/results/**/*.csv
+
 # Explicitly never tracked
 runs/
-results/
 .venv/
 venv/
 __pycache__/
