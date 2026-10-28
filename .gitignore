@@ -1,10 +1,11 @@
-# Track only: scripts/, configs/, CLAUDE.md, annotation text files, and the
+# Track only: scripts/, configs/, splits/, CLAUDE.md, annotation text files, and the
 # text records in results/ (config_log.md, requirements_freeze.txt and all .csv). Everything else is ignored.
 /*
 !/.gitignore
 !/CLAUDE.md
 !/scripts/
 !/configs/
+!/splits/
 
 # From data/, track only the small text files that record annotation decisions.
 !/data/

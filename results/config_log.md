@@ -269,3 +269,33 @@ Started 27 Oct 2026. One section per decision or check; newest at the bottom.
   - s3: `cari_v08`, `hari_v05`, `hari_v10`, `keluarga_v04`, `lagi_v10`, `makan_v06`, `makan_v10`, `saya_v04`
   - s4: `cari_v02`, `motor_v06`
 - Kept frames per video: 0 → 12 videos, 1 → 48, 2 → 184, 3 → 352, 4 → 134, 5 → 20.
+
+## 14. Splits (28 Oct 2026)
+- **Rules** (decided by the user, also in CLAUDE.md):
+  - **P1**: random frame-level split, stratified per class, 70/15/15, split seed 0. Frames of the same video may fall into different partitions on purpose, because that leakage is what P1 measures.
+  - **LOSO validation**: 15% of the videos of the training signers (signer0 included), stratified per class, seed 0. All frames of a video stay in one partition, and the test signer is never used for validation.
+  - Per-class sizes are `round(fraction × n)`; the remainder goes to test (P1) or train (LOSO).
+- **Script:** `scripts/make_splits.py`, which runs `check_annotations.py` first and refuses to run if it fails.
+- **Input:** only the 2,108 kept frames.
+- **Checks passed:**
+  - partitions are disjoint and together cover all kept frames;
+  - the test signer is absent from train/val;
+  - no LOSO video is split across partitions.
+- **Output:** `splits/*.txt` (frame file names) and `results/split_counts.csv` (frames per class per partition).
+
+| Split | Train | Val | Test |
+|---|---|---|---|
+| P1 | 1,477 | 315 | 316 |
+| LOSO s1 | 1,340 (84 val videos) | 242 | 526 |
+| LOSO s2 | 1,286 | 235 | 587 |
+| LOSO s3 | 1,495 | 277 | 336 |
+| LOSO s4 | 1,432 | 273 | 403 |
+
+- **Smallest classes in each test partition:**
+  - P1: Hari 15, Cari 16.
+  - s1: Cari 21, Hari 23.
+  - s2: Cari 16, Hari 20.
+  - **s3: Hari 12**, Cari 16, Makan 17, Berangkat 17.
+  - s4: Cari 14, Keluarga 21.
+
+  Per-class AP on small test sets (12–16 frames) is noisy. This is worth a sentence in the paper.
