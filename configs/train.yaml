@@ -1,0 +1,73 @@
+# Training configuration, locked 28 Oct 2026 (CLAUDE.md, "Konfigurasi training").
+# Read by scripts/train_ultralytics.py and scripts/train_frcnn.py. Batch, max epochs and patience are filled
+# in after the Kaggle pilot and locked before the main runs.
+# All 30 training runs run on Kaggle, on one GPU type, single GPU, no DDP (decided 28 Oct 2026); the laptop
+# is used only for the final pycocotools evaluation and the FPS measurement.
+
+imgsz: 640
+amp: true
+workers: 2
+seeds: [0, 1]            # training seeds; independent of the split seed (0)
+
+# Identical for all three models: the same Ultralytics transform classes (v8_transforms: RandomPerspective
+# with letterbox, RandomHSV, RandomFlip) are used in the torchvision dataset for Faster R-CNN.
+augment:
+  hsv_h: 0.015
+  hsv_s: 0.4
+  hsv_v: 0.3
+  translate: 0.1
+  scale: 0.2
+  fliplr: 0.0
+  flipud: 0.0
+  mosaic: 0.0
+  mixup: 0.0
+  cutmix: 0.0
+  copy_paste: 0.0
+  degrees: 0.0
+  shear: 0.0
+  perspective: 0.0
+  erasing: 0.0
+  bgr: 0.0
+  close_mosaic: 0
+
+models:
+  yolo11m:
+    framework: ultralytics
+    weights: data/models/yolo11m.pt          # COCO-pretrained
+    optimizer: SGD
+    lr0: 0.01
+    momentum: 0.937
+    weight_decay: 0.0005
+  rtdetr-l:
+    framework: ultralytics
+    weights: data/models/rtdetr-l.pt         # COCO-pretrained
+    optimizer: AdamW
+    lr0: 0.0001
+    momentum: 0.9                             # AdamW beta1 (Ultralytics passes momentum as beta1)
+    weight_decay: 0.0001
+    warmup_bias_lr: 0.0                       # Ultralytics default 0.1 is meant for SGD
+  frcnn-r50fpn:
+    framework: torchvision
+    weights: COCO_V1                          # fasterrcnn_resnet50_fpn, FasterRCNN_ResNet50_FPN_Weights.COCO_V1
+    optimizer: SGD
+    lr_base: 0.02                             # lr = lr_base * batch / lr_ref_batch
+    lr_ref_batch: 16
+    momentum: 0.9
+    weight_decay: 0.0001
+    min_size: 640
+    max_size: 640
+    warmup_epochs: 3.0                        # linear warmup from 0 (at least 100 iterations), as Ultralytics
+    lrf: 0.01                                 # then linear decay to lr * lrf at the last epoch, as Ultralytics
+
+# Gradient accumulation: each framework keeps its own default (decided 28 Oct 2026). Ultralytics accumulates
+# to a nominal batch of nbs=64 (and scales weight decay by batch*accumulate/64); the torchvision loop for
+# Faster R-CNN does not accumulate and scales lr by batch/16 instead.
+
+# Early stopping on validation mAP@[.50:.95]; values fixed after the pilot.
+early_stopping:
+  max_epochs: null
+  patience: null
+
+# Batch size per model, set from the Kaggle probe: the same batch for all three models if it fits
+# (target 16). Laptop batches (4 GB) were yolo11m 6, rtdetr-l 4, frcnn 6 (config_log section 16).
+batch: {yolo11m: null, rtdetr-l: null, frcnn-r50fpn: null}

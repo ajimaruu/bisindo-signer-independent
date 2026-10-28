@@ -1,0 +1,13 @@
+# Run plans for scripts/kaggle_session.py (--plan <name>). Runs execute in order; finished runs are skipped
+# and unfinished ones resume from last.pt, so the same plan can be run again in the next session.
+# The batch comes from the one-off Kaggle probe (runs/kaggle_batch.json), the same for all three models.
+
+# Pilot (28 Oct 2026): YOLO11m to early stopping, max 100 epochs, patience 20; RT-DETR-L and Faster R-CNN
+# 2 epochs each, only to check the pipeline and measure the time per epoch on the Kaggle GPU.
+pilot:
+  - {model: yolo11m, split: p1, seed: 0, epochs: 100, patience: 20, name: pilot_yolo11m_p1_seed0}
+  - {model: rtdetr-l, split: p1, seed: 0, epochs: 2, name: pilot2ep_rtdetr-l_p1_seed0}
+  - {model: frcnn-r50fpn, split: p1, seed: 0, epochs: 2, name: pilot2ep_frcnn-r50fpn_p1_seed0}
+
+# Main runs (30): filled in after the pilot, once max epochs and patience are locked in configs/train.yaml.
+main: []

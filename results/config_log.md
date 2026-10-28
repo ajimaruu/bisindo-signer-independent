@@ -299,3 +299,128 @@ Started 27 Oct 2026. One section per decision or check; newest at the bottom.
   - s4: Cari 14, Keluarga 21.
 
   Per-class AP on small test sets (12–16 frames) is noisy. This is worth a sentence in the paper.
+
+## 15. Training configuration (locked 28 Oct 2026)
+- **Source of truth:** `configs/train.yaml`, also summarised in CLAUDE.md.
+- **Models:** all COCO-pretrained.
+  - RT-DETR-L and YOLO11m (Ultralytics 8.4.190).
+  - Faster R-CNN ResNet-50 FPN v1 (torchvision 0.29.1, `COCO_V1` weights).
+- **Input:** 640. Faster R-CNN uses `min_size=max_size=640`.
+- **Augmentation, identical for all models:**
+  - On: hsv_h 0.015, hsv_s 0.4, hsv_v 0.3, translate 0.1, scale 0.2.
+  - Off: fliplr, flipud, mosaic, mixup, cutmix, copy_paste, degrees, shear, perspective, erasing, bgr.
+  - Faster R-CNN is trained through the same Ultralytics transform classes (RandomPerspective with letterbox, RandomHSV) inside its torchvision training loop.
+  - Albumentations is not installed, so Ultralytics' Albumentations step is a no-op.
+  - RT-DETR uses the same letterbox pipeline as YOLO in this Ultralytics version (`RTDETRDataset` does not override `build_transforms`).
+- **Optimisers (explicit, not `auto`):**
+  - YOLO11m: SGD, lr0 0.01, momentum 0.937, weight decay 5e-4.
+  - RT-DETR-L: AdamW, lr0 1e-4, weight decay 1e-4.
+  - Faster R-CNN: SGD, lr 0.02 × batch/16, momentum 0.9, weight decay 1e-4.
+  - All models use warmup and AMP.
+- **Seeds:** training seeds 0 and 1, independent of the split seed 0.
+- **Epochs:** early stopping on validation mAP@[.50:.95]. The maximum number of epochs and the patience will be set from the pilot and locked before the main runs.
+
+## 16. Conversion and pilot (28 Oct 2026)
+
+### Conversion
+- `scripts/prepare_data.py` writes `data/coco/<split>.json` for all 15 split lists:
+  - pixel boxes, `category_id` = class + 1, fixed `image_id` per frame;
+  - the YOLO → COCO → YOLO round trip has a maximum error of 0.0005 px.
+- The COCO boxes of 10 random P1-test frames were redrawn (`results/coco_check/`) and all sit tightly on the signing hands with the right gloss.
+- For Ultralytics, the same script builds `data/yolo/` with directory junctions to `data/frames` and `data/labels_yolo` (no copies), the list files and `<split>.yaml`.
+
+### Common evaluator
+- `scripts/coco_eval.py` handles all models with the same export settings: conf 0.001, NMS IoU 0.7 and at most 100 detections per image.
+- Faster R-CNN uses `box_score_thresh=0.001`, `box_nms_thresh=0.7` and `box_detections_per_img=100`.
+
+### Batch size (largest without spilling)
+- On Windows the driver spills into shared system memory instead of raising out-of-memory. A batch therefore "fits" only when peak reserved VRAM stays below 4 GiB **and** time per image does not grow.
+- The display uses another 0.2–0.9 GB.
+- Probes ran 1 epoch on 20% of P1-train (295 images).
+
+| Model | Batch | Peak reserved (GiB) | Train time for 295 images | Verdict |
+|---|---|---|---|---|
+| YOLO11m | 4 | 2.17 | 76 s | fits |
+| YOLO11m | **6** | 3.15 | 78 s | **chosen** |
+| YOLO11m | 8 | 4.09 | 92 s | spills |
+| YOLO11m | 16 | 7.88 | 263 s | spills |
+| RT-DETR-L | 2 | 2.23 | 201 s | fits |
+| RT-DETR-L | **4** | 3.65 | 190 s | **chosen**, close to the limit |
+| Faster R-CNN | 4 | 2.46 | 176 s | fits |
+| Faster R-CNN | **6** | 3.28 | 178 s | **chosen**, lr = 0.02 × 6/16 = 0.0075 |
+| Faster R-CNN | 8 | 4.25 | 349 s | spills |
+
+### Speed limits
+- The data loader delivers 150 images/s, so the GPU is the bottleneck.
+- The GPU reaches 87–94 °C under load and reports thermal clock slowdown (throttle reason 0x20).
+- Deterministic mode is not the cause of the low speed.
+
+### Pilot YOLO11m, P1, seed 0, 10 epochs, batch 6
+- Train+val took 379–534 s per epoch (mean ≈ 470 s), 78 min in total.
+- Validation mAP50-95 (Ultralytics, used as fitness), epochs 1–10: 0.629, 0.688, 0.679, 0.700, 0.728, 0.748, 0.776, 0.782, 0.801, 0.834. It was still rising at epoch 10, so the model has not converged.
+- **Test (best.pt):**
+
+| Evaluator | mAP50 | mAP50-95 |
+|---|---|---|
+| pycocotools | 0.9945 | 0.8255 |
+| Ultralytics `val` | 0.9902 | 0.8214 |
+
+- The differences are 0.004 overall and at most 0.018 for any class (Bagaimana).
+- Ultralytics caps AP50 at 0.995 because of its interpolation.
+- The conversion and the export are therefore consistent.
+- Lowest AP50-95: Hari 0.632, Cari 0.734, Keluarga 0.764.
+
+### Pipeline test RT-DETR-L, P1, 1 epoch, batch 4
+- 846 s train, 910 s train+val.
+- Test mAP50-95: pycocotools 0.0071, Ultralytics 0.0072.
+- The whole epoch is inside the 3-epoch warmup, so a near-zero mAP is expected. The loss decreased (cls 70 → 56, as summed over decoder layers and denoising) and did not diverge.
+
+### Pipeline test Faster R-CNN, P1, 1 epoch, batch 6
+- The run was stopped by the host at iteration 240/247 because system RAM ran low. This was not an error in the script.
+- Training was stable: loss 3.40 → 0.52, peak 3.28 GiB.
+- The validation and test path (prediction → `scale_boxes` → pycocotools) is **not yet verified** and must be rerun.
+- Estimated train time from the probe: ≈ 890 s per epoch.
+
+## 17. Decisions after the laptop pilot; training moved to Kaggle (28 Oct 2026)
+
+### Decisions (user)
+- **RT-DETR-L:** `warmup_bias_lr=0` and AdamW beta1 (`momentum`) 0.9. The Ultralytics default bias warmup of 0.1 is meant for SGD; Ultralytics itself sets it to 0 when it picks AdamW automatically.
+- **Gradient accumulation (for the paper):** each framework keeps its own default.
+  - Ultralytics accumulates gradients up to a nominal batch of `nbs=64` and scales weight decay by batch × accumulate / 64.
+  - The torchvision loop for Faster R-CNN does not accumulate; instead it scales lr by batch/16.
+- **Faster R-CNN lr schedule:** linear warmup over 3 epochs (at least 100 iterations) from 0, then linear decay to 1% of lr at the last epoch, the same as Ultralytics (`warmup_epochs`, `lrf` in `configs/train.yaml`).
+- **All 30 training runs on Kaggle:**
+  - one GPU type, a single GPU, no DDP;
+  - the same batch for all three models if it fits (target 16; Faster R-CNN lr = 0.02 × batch/16);
+  - the laptop is used only for the final pycocotools evaluation and FPS.
+  - The laptop batch values in §16 (6/4/6) no longer apply to the main runs.
+
+### Kaggle workflow
+- **Laptop → dataset:** `scripts/kaggle_build_dataset.py` writes `kaggle_upload/bisindo-wl15/` and a zip (348 MB, untracked).
+  - Contents: 2,108 kept frames, their labels, splits, configs, scripts, `requirements_freeze.txt` and the three exact pretrained weight files (`yolo11m.pt` sha256 d5ffc1a6…, `rtdetr-l.pt` 6de60b10…, `fasterrcnn_resnet50_fpn_coco-258fb6c6.pth`).
+  - Also a sha256 manifest of 4,220 files and the sha256 of the 15 COCO files.
+- **Kaggle notebook:** `scripts/kaggle_notebook.ipynb` runs `scripts/kaggle_session.py --plan <name>` (plans in `configs/kaggle_plan.yaml`), which:
+  - installs torch 2.14.1 / torchvision 0.29.1, using the laptop's CUDA build cu130 if it works on the Kaggle driver, otherwise cu128, then cu126;
+  - installs the other pinned packages, and records every difference from the laptop in `runs/env_kaggle.json`;
+  - checks the manifest, regenerates the COCO/YOLO views and requires byte-identical COCO files;
+  - restores `runs/` from an attached earlier output;
+  - probes the batch once (16 → 12 → 8 for all three models; the GPU type is fixed from then on);
+  - runs the plan and writes `runs/session_report.json` and `runs/sessions.csv` (GPU hours).
+- **Resuming across 12 h sessions:**
+  - Checkpoints are saved every epoch.
+  - After a saved epoch, the training scripts exit with code 3 if the next epoch would end after the 11 h budget.
+  - The next session resumes from `last.pt` and restores the early-stopping state: Ultralytics would otherwise restart the patience count, so it is rebuilt from `results.csv`.
+- **Batch guard:** Ultralytics 8.4.190 silently halves the batch after an out-of-memory error in epoch 1. The script stops the run instead, so the locked batch is never changed unnoticed.
+- **Kaggle → laptop:** `scripts/kaggle_download.py --kernel <user>/<slug>` (Kaggle CLI 2.2.5 in `.venv-kaggle`) or `--zip <output.zip>`.
+  - Everything goes to `runs/kaggle/<timestamp>/`.
+  - The CSV/JSON results are copied to `results/kaggle/`.
+
+### Tests on the laptop (temporary 60/30/30-image split, removed afterwards)
+- **YOLO11m:**
+  - with the deadline set to "now", it stopped after epoch 1 (exit 3);
+  - rerun, it resumed at epoch 2 with the early-stopping state restored (best epoch 1), finished epoch 3 and scored the test split with both evaluators.
+- **Faster R-CNN:**
+  - the same stop/resume behaviour;
+  - this also verifies the validation and test path that the interrupted laptop test (§16) had not reached;
+  - predictions are mapped back to the original 1280×720 frames (max x2 = 1127; median best IoU with the ground truth 0.73 after 3 tiny epochs).
+- The test runs remain in `runs/ultralytics/zztest_yolo` and `runs/frcnn/zztest_frcnn`.
