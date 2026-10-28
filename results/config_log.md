@@ -235,9 +235,37 @@ Started 27 Oct 2026. One section per decision or check; newest at the bottom.
   - 3,080 labels were written to `data/labels_auto/` and copied to `data/labels_yolo/`. No labels existed before, so none were overwritten.
   - No hand detected, by frame position (20/35/50/65/80%): 328 / 80 / 32 / 16 / 214. The misses concentrate at the start and end of the video, as expected for rest poses.
   - No hand detected, by signer: s0 89/450, s1 93/900, s2 115/900, s3 119/750, **s4 254/750**.
-  - signer4 stands farther from the camera, so her hands are small. Some mid-video frames with a visible hand were missed (for example `s4_cari_v01_f0022`). These need a box drawn by hand.
+  - signer4 stands farther from the camera, so their hands are small. Some mid-video frames with a visible hand were missed (for example `s4_cari_v01_f0022`). These need a box drawn by hand.
   - Videos with no hand detected in any of the 5 frames: `s4_cari_v02`, `s4_cari_v05`, `s4_makan_v03`.
   - C_one frames with two hands detected (the highest one was used): 101.
 - **Rejected second pass:** detection on the central half of the frame, upscaled 2×.
   - It recovered 136 of the 670 no-hand frames, but most of the recovered boxes were resting hands at the waist, and in several frames it boxed the resting hand instead of the moving one.
   - It would add boxes to delete rather than save work, so it was not applied. Pre-annotation stays single-pass as piloted.
+
+## 13. Annotation result (completed 28 Oct 2026)
+- `scripts/check_annotations.py` passes: 3,750/3,750 frames decided. There are no missed frames, no unreviewed labels, no conflicts, no multi-box labels and no class mismatches.
+- Breakdown per class, signer and reason: `scripts/annotation_summary.py` → `results/annotation_summary.csv`.
+- **Kept 2,108 frames, excluded 1,642 (43.8%)**: reason a 876, b 766, c 0.
+- By signer (kept / excluded %):
+  - s0 256 / 43.1%
+  - s1 526 / 41.6%
+  - s2 587 / 34.8%
+  - s3 336 / 55.2%
+  - s4 403 / 46.3%
+
+  The LOSO test fold for signer3 is the smallest.
+- By class (kept): Cari 108, Hari 105, Ingat 147, Lagi 141, Maaf 147, Makan 119, Motor 144, Saya 147, Terima kasih 156, Bagaimana 154, Berangkat 134, Teman 143, Keluarga 147, Rumah 155, Pagi 161.
+- By group (kept / excluded %): C_one 1,512 / 45.0%, C_two 596 / 40.4%.
+- **Pre-annotation vs manual review** (2,108 kept boxes):
+  - **2,055 (97.5%) accepted unchanged** (every edge within 2 px).
+  - 41 (1.9%) corrected.
+  - 12 (0.6%) drawn manually on frames where no hand was detected.
+  - Median IoU between the automatic and the final box is 0.990.
+  - Another 984 automatic boxes belonged to frames that were excluded.
+  - The final boxes are therefore essentially MediaPipe landmark boxes with an 8% margin, each one checked by eye. This should be stated in the paper.
+- **Videos with no kept frame (12)**, reported as required by the exclusion rules:
+  - s1: `rumah_v07`
+  - s2: `cari_v05`
+  - s3: `cari_v08`, `hari_v05`, `hari_v10`, `keluarga_v04`, `lagi_v10`, `makan_v06`, `makan_v10`, `saya_v04`
+  - s4: `cari_v02`, `motor_v06`
+- Kept frames per video: 0 → 12 videos, 1 → 48, 2 → 184, 3 → 352, 4 → 134, 5 → 20.
