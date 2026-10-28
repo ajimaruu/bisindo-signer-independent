@@ -1,0 +1,10 @@
+# Weights used by scripts/app_detect.py and scripts/measure_fps.py (paths relative to the repo root).
+# TEMPORARY until the Kaggle runs finish (28 Oct 2026):
+#   yolo11m       laptop pilot, P1 seed 0, 10 epochs (test mAP50-95 0.826)
+#   rtdetr-l      1-epoch pipeline test (not trained; boxes are meaningless)
+#   frcnn-r50fpn  3-epoch test on a 60-image subset (not trained; boxes are meaningless)
+# Replace with the final checkpoints (runs/kaggle/...) before measuring FPS for the paper.
+weights:
+  yolo11m: runs/ultralytics/pilot_yolo11m_p1_seed0/weights/best.pt
+  rtdetr-l: runs/ultralytics/test1ep_rtdetr-l_p1_seed0/weights/best.pt
+  frcnn-r50fpn: runs/frcnn/zztest_frcnn/weights/best.pt

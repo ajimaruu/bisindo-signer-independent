@@ -424,3 +424,49 @@ Started 27 Oct 2026. One section per decision or check; newest at the bottom.
   - this also verifies the validation and test path that the interrupted laptop test (§16) had not reached;
   - predictions are mapped back to the original 1280×720 frames (max x2 = 1127; median best IoU with the ground truth 0.73 after 3 tiny epochs).
 - The test runs remain in `runs/ultralytics/zztest_yolo` and `runs/frcnn/zztest_frcnn`.
+
+## 18. Desktop application and FPS measurement (28 Oct 2026)
+- **Manuscript section 2.6** (`BISINDO_JAIC2027.docx`) defines `t_inf` in eq. (18) as the model prediction stage alone, excluding frame acquisition and interface rendering. CLAUDE.md rule 7 says the same.
+
+### Scripts
+- **`scripts/detectors.py`:** one interface for YOLO11m, RT-DETR-L and Faster R-CNN.
+  - Each stage (preprocess, inference, postprocess) is timed with Ultralytics' `ops.Profile`, which synchronises CUDA.
+  - Ultralytics models use their own predictor (LetterBox 640, minimal padding).
+  - Faster R-CNN uses the same LetterBox. Its "inference" includes torchvision's normalisation, RPN and ROI NMS; its "postprocess" is the rescale only.
+- **`scripts/app_detect.py`:** the desktop app (Python + OpenCV).
+  - Reads the webcam and draws the box with gloss and score; C_two boxes are orange, C_one green.
+  - Shows **Display FPS** (the whole loop) and **Model latency** (the three stages) separately. Keys 1/2/3 switch model.
+  - Frames are not mirrored, because the training frames were never flipped.
+  - Weights come from `configs/app.yaml`. They are temporary for now: the YOLO11m laptop pilot, and RT-DETR-L and Faster R-CNN test checkpoints that are not trained.
+- **`scripts/measure_fps.py`:** the paper FPS.
+  - P1-test frames are loaded into memory before timing; nothing is drawn; batch 1; FP16.
+  - Same settings as the mAP evaluation: conf 0.001, NMS IoU 0.7, max 100 detections.
+  - 50 warm-up iterations, then the mean over 500 iterations.
+  - `fps = 1000 / mean(pre + inf + post)` (eq. 18), `fps_net` = network forward only.
+  - Also records parameter count, GPU temperature and SM clock before and after, with a cooldown between models.
+  - Appends to `results/fps.csv`; tests go to `runs/fps_test.csv`.
+
+### Webcam findings
+- With DirectShow the camera ignores the MJPG request and delivers 1280×720 YUY2 at 10 FPS. Media Foundation (MSMF) delivers 29.7–30.7 FPS, so the app uses MSMF.
+- Camera reading runs in a background thread that keeps only the newest frame, so camera wait and model time do not add up. Before this change RT-DETR-L showed 9.3 display FPS; after it, 22.5.
+
+### Test values with temporary weights (not for the paper)
+
+| Model | pre (ms) | inf (ms) | post (ms) | pred (ms) | FPS | Net-only FPS | Params | GPU |
+|---|---|---|---|---|---|---|---|---|
+| YOLO11m | 0.9 | 13.7 | 1.6 | 16.3 | 61.5 | 72.8 | 20.1 M | 73→80 °C |
+| RT-DETR-L | 2.3 | 33.2 | 0.8 | 36.4 | 27.5 | 30.1 | 32.8 M | 76→85 °C |
+| Faster R-CNN | 1.3 | 42.7 | 0.6 | 44.6 | 22.4 | 23.4 | 41.4 M | 79→86 °C |
+
+- These used 200 iterations per model.
+- App display FPS on the webcam: YOLO11m ≈ 30 (camera-bound), RT-DETR-L 22.5, Faster R-CNN 15.2.
+- A transient drop of YOLO11m to 15 FPS in one run was not reproduced (29.9 on rerun). The camera's auto-exposure and GPU throttling make display FPS unstable, which is why it is not used for the paper.
+- With the model trained on non-transition frames only, the app labels hands moving to rest with a gloss (for example "Teman" 0.78 on a lowered hand in `signer0_label9_sample1`). Excluded transition frames were never seen in training. This is relevant for the discussion of the application.
+- **Final FPS rules (user, 28 Oct 2026; also in CLAUDE.md):**
+  - Measure after all training, with the final Kaggle checkpoints.
+  - Laptop on the charger, high-performance power mode, cooling pad, Chrome and Discord closed.
+  - Cool down until the GPU is back to normal (≤ idle temperature at start + 5 °C) before every measurement.
+  - 3 repeats per model, reported as mean ± SD with GPU temperatures.
+  - FP16 for all three models.
+  - `measure_fps.py` implements the cooldown wait and the repeats. A test with 2 repeats gave YOLO11m 57.6 ± 0.3 FPS, then at 67→79 °C (temporary weights).
+- **Rest-hand detections:** recorded as discussion and limitation material only; the training data are not changed.
