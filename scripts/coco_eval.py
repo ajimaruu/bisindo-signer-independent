@@ -7,8 +7,10 @@ Labels per box in the exported detections (decided 29 Oct 2026, config_log secti
 several class labels, as the standard COCO-style evaluation does.
   - YOLO11m: predict() preprocessing, but NMS with multi_label=True (every class above CONF per candidate box, then
     class-wise NMS), as in Ultralytics' validator; predict()'s default keeps only the top class per box.
-  - RT-DETR-L: no NMS; the 300 highest query-class scores over all decoder queries and classes (unchanged).
-  - Faster R-CNN: one class-specific box per class above CONF for every proposal, then class-wise NMS (torchvision).
+  - RT-DETR-L: no NMS; the decoder ranks all query-class pairs (300 queries x 15 classes) and predict() keeps the
+    100 highest above CONF (max_det) (unchanged).
+  - Faster R-CNN: one class-specific box per class above CONF for every proposal, then class-wise NMS at NMS_IOU
+    (box_nms_thresh set in train_frcnn.build_model; torchvision's default is 0.5).
 The desktop application and the FPS measurement keep the plain predict() (one label per box).
 """
 import contextlib

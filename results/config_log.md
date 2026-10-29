@@ -677,7 +677,7 @@ Implementation:
 - No retraining; checkpoints and checkpoint selection are unchanged.
 
 **Why:**
-1. **Uniform across models.** Faster R-CNN (torchvision) already emits one class-specific box per class above the threshold for each proposal. RT-DETR-L already keeps the 300 highest query–class scores over all queries and classes, so a query can carry several labels. Only YOLO11m was exported with one label per box.
+1. **Uniform across models.** Faster R-CNN (torchvision) already emits one class-specific box per class above the threshold for each proposal. RT-DETR-L's head already ranks all query–class pairs (300 queries × 15 classes) and the exported top 100 can contain several labels for one query. Only YOLO11m was exported with one label per box.
 2. **Consistent with checkpoint selection.** YOLO11m's best checkpoint and early stopping use Ultralytics' validator, which is multi-label. With the single-label export the test metric did not match the definition used to select the checkpoint (§24, `yolo11m_p1_seed1`).
 
 **Source of the paper numbers (chosen):**
@@ -713,6 +713,10 @@ Implementation:
   - Δtwo: −0.009 ± 0.004 → −0.008 ± 0.008
 - **P1 summary, RT-DETR-L:** Δtwo −0.018 → −0.017. **Faster R-CNN:** −0.011 → −0.011.
 
-**Manuscript sentence (methods, export):** "For evaluation, the predictions of every model were exported at a confidence threshold of 0.001 with at most 100 detections per image, and a box could carry more than one class label: YOLO11m kept every class whose score exceeded the threshold for each candidate box before class-wise NMS (IoU 0.7), Faster R-CNN likewise produced one class-specific box for every class above the threshold for each proposal before class-wise NMS (IoU 0.7), and RT-DETR-L, which uses no NMS, kept the 300 highest query–class scores over all decoder queries and classes."
+**Manuscript sentence (methods, export):** "For evaluation, the predictions of every model were exported at a confidence threshold of 0.001 with at most 100 detections per image, and a box could carry more than one class label: YOLO11m kept every class whose score exceeded the threshold for each candidate box before class-wise NMS (IoU 0.7), Faster R-CNN produced one class-specific box for every class above the threshold for each proposal before class-wise NMS (IoU 0.7, set explicitly instead of the torchvision default of 0.5), and RT-DETR-L, which uses no NMS, kept the 100 highest query–class scores over its 300 decoder queries and 15 classes."
+  - Checked against the code (29 Oct 2026):
+    - Faster R-CNN: `build_model` sets `box_nms_thresh = 0.7`, `box_score_thresh = 0.001`, `box_detections_per_img = 100` (torchvision default NMS 0.5 not used); the RPN NMS stays at its default 0.7.
+    - RT-DETR-L: the decoder returns its 300 best query–class pairs sorted by score, and `predict()` keeps those above 0.001, then the first `max_det = 100`. Exported files have exactly 100 detections per image, so pycocotools' maxDets 100 cuts nothing further.
+    - YOLO11m and Faster R-CNN exports stay well below 100 per image (at most 20 and 36).
 
 **Unchanged:** the desktop application (`app_detect.py`) and the FPS measurement (`measure_fps.py`, via `detectors.py`) keep the plain `predict()`, with one label per box.
