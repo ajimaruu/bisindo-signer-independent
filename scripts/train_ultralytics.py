@@ -177,7 +177,7 @@ def main():
              "per_class": {names[int(c)]: (float(uv.box.ap50[i]), float(uv.box.ap[i]))
                            for i, c in enumerate(uv.box.ap_class_index)}}
     out = {"model": args.model, "split": args.split, "seed": args.seed, "batch": batch, "epochs_max": epochs,
-           "patience": patience, "selection": SELECTION,
+           "patience": patience, "selection": SELECTION, "yolo_multi_label": True,
            "eval": {"conf": CONF, "nms_iou": NMS_IOU, "max_det_coco": MAX_DET},
            "pycocotools": coco, "ultralytics": ultra}
     (run_dir / "eval_test.json").write_text(json.dumps(out, indent=1), encoding="utf-8")

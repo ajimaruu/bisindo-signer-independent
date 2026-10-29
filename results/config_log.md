@@ -664,3 +664,55 @@ Implementation (`scripts/coco_eval.py`: `match_iou50`, `prf`, `select_threshold`
   - `yolo11m_p1_seed0`: all three agree.
   - So YOLO's selection is consistent with a multi-label definition, not with the single-label test export. RT-DETR's selection is consistent with its export.
 - Reported to the user for a decision before anything is changed.
+
+## 25. Multi-label export for YOLO11m; all paper numbers from the laptop export (29 Oct 2026)
+
+**Decided by the user after the P1 and LOSO-s1 results had been seen** (§24).
+
+**What changed:** YOLO11m's exported predictions (test, and validation for the P/R/F1 threshold) now use NMS with `multi_label=True`. Every class above conf 0.001 is kept for each candidate box, then class-wise NMS is applied.
+
+Implementation:
+- `coco_eval.predict_ultralytics(..., multi_label=True)`: `predict()` preprocessing is unchanged; Ultralytics' NMS is patched only for the duration of the call.
+- Applied to all YOLO runs, P1 and LOSO, test and validation.
+- No retraining; checkpoints and checkpoint selection are unchanged.
+
+**Why:**
+1. **Uniform across models.** Faster R-CNN (torchvision) already emits one class-specific box per class above the threshold for each proposal. RT-DETR-L already keeps the 300 highest query–class scores over all queries and classes, so a query can carry several labels. Only YOLO11m was exported with one label per box.
+2. **Consistent with checkpoint selection.** YOLO11m's best checkpoint and early stopping use Ultralytics' validator, which is multi-label. With the single-label export the test metric did not match the definition used to select the checkpoint (§24, `yolo11m_p1_seed1`).
+
+**Source of the paper numbers (chosen):**
+- All paper numbers for all three models (mAP, per-class AP, threshold, P/R/F1) come from predictions exported on the laptop (RTX 3050) from the Kaggle `best.pt`.
+- The Kaggle code and dataset are not changed mid-plan. Main session 3 was already running with the old code, and changing it would mix two export versions. One code version and one machine thus serve all 30 runs.
+- Kaggle's `preds_test_coco.json` and `eval_test.json` remain a cross-check in `collect_results.py`:
+  - they are re-scored exactly;
+  - the laptop export made the way Kaggle made it (single-label YOLO for runs without the `yolo_multi_label` field) must match Kaggle's test mAP within 0.002. Measured: ≤ 4.4 × 10⁻⁴.
+- `train_ultralytics.py` now also exports multi-label and writes `yolo_multi_label: true`, in case the dataset is ever updated. `collect_results.py` handles both cases.
+- Faster R-CNN on the laptop uses a loader batch of 8 (Kaggle: 32).
+
+**Old numbers kept:** `results/runs_singlelabel.csv`, `per_class_singlelabel.csv`, `summary_p1_singlelabel.csv` and `summary_p1_per_class_singlelabel.csv`. These are the Kaggle test predictions, single-label for YOLO. Cached single-label laptop predictions are in `runs/laptop_preds/yolo11m_*/preds_*_coco_singlelabel.json`.
+
+**Before → after (test):**
+
+| Run | mAP50 | mAP50-95 (Δ) | P / R / F1, conf_thr |
+|---|---|---|---|
+| yolo11m P1 s0 | 0.9818 → 0.9884 | 0.8589 → 0.8631 (+0.0041) | unchanged (thr 0.811) |
+| yolo11m P1 s1 | 0.9890 → 0.9930 | 0.8593 → 0.8624 (+0.0031) | unchanged (thr 0.813) |
+| yolo11m LOSO-s1 s0 | 0.9201 → 0.9484 | 0.7184 → 0.7367 (+0.0183) | P 0.9195 → 0.9183, F1 0.8872 → 0.8865 (thr 0.518) |
+| yolo11m LOSO-s1 s1 | 0.9163 → 0.9342 | 0.7393 → 0.7508 (+0.0115) | unchanged (thr 0.646) |
+| rtdetr-l P1 s0 / s1 | ≤ 0.0002 | −0.0001 / −0.0004 | unchanged |
+| rtdetr-l LOSO-s1 s0 | −0.0002 | +0.0000 | unchanged |
+| frcnn P1 s0 / s1 | 0 | +0.0004 / +0.0001 | unchanged |
+| frcnn LOSO-s1 s0 | 0 | −0.0002 | unchanged |
+
+- The RT-DETR-L and Faster R-CNN changes come only from the switch to the laptop export. Their per-class AP50-95 changes by at most 0.0085.
+- **YOLO per-class:** the largest gains are Cari (LOSO-s1 +0.174 and +0.116) and Berangkat (LOSO-s1 s0 +0.056; P1 s1 +0.046).
+- **YOLO thresholds:** the chosen thresholds are unchanged, because the extra labels have low scores.
+- **P1 summary (mean ± SD), YOLO11m:**
+  - mAP50: 0.985 ± 0.005 → 0.991 ± 0.003
+  - mAP50-95: 0.859 ± 0.000 → 0.863 ± 0.000
+  - Δtwo: −0.009 ± 0.004 → −0.008 ± 0.008
+- **P1 summary, RT-DETR-L:** Δtwo −0.018 → −0.017. **Faster R-CNN:** −0.011 → −0.011.
+
+**Manuscript sentence (methods, export):** "For evaluation, the predictions of every model were exported at a confidence threshold of 0.001 with at most 100 detections per image, and a box could carry more than one class label: YOLO11m kept every class whose score exceeded the threshold for each candidate box before class-wise NMS (IoU 0.7), Faster R-CNN likewise produced one class-specific box for every class above the threshold for each proposal before class-wise NMS (IoU 0.7), and RT-DETR-L, which uses no NMS, kept the 300 highest query–class scores over all decoder queries and classes."
+
+**Unchanged:** the desktop application (`app_detect.py`) and the FPS measurement (`measure_fps.py`, via `detectors.py`) keep the plain `predict()`, with one label per box.

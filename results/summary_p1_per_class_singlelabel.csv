@@ -1,0 +1,55 @@
+model,protocol,class,group,ap50_95_mean,ap50_95_sd
+yolo11m,P1,Cari,one,0.76807,4e-05
+rtdetr-l,P1,Cari,one,0.81917,0.01486
+frcnn-r50fpn,P1,Cari,one,0.7332,0.00174
+yolo11m,P1,Hari,one,0.67162,0.00911
+rtdetr-l,P1,Hari,one,0.70613,0.0156
+frcnn-r50fpn,P1,Hari,one,0.63416,0.00948
+yolo11m,P1,Ingat,one,0.90218,1e-05
+rtdetr-l,P1,Ingat,one,0.90342,0.00721
+frcnn-r50fpn,P1,Ingat,one,0.85164,0.0044
+yolo11m,P1,Lagi,one,0.93128,0.0091
+rtdetr-l,P1,Lagi,one,0.93233,0.02807
+frcnn-r50fpn,P1,Lagi,one,0.92487,0.01393
+yolo11m,P1,Maaf,one,0.92705,0.00108
+rtdetr-l,P1,Maaf,one,0.92189,0.00163
+frcnn-r50fpn,P1,Maaf,one,0.9006,0.0075
+yolo11m,P1,Makan,one,0.79175,0.01216
+rtdetr-l,P1,Makan,one,0.86735,0.01234
+frcnn-r50fpn,P1,Makan,one,0.78049,0.009
+yolo11m,P1,Motor,two,0.96415,0.00136
+rtdetr-l,P1,Motor,two,0.97181,0.00767
+frcnn-r50fpn,P1,Motor,two,0.92217,0.00455
+yolo11m,P1,Saya,one,0.95927,0.00969
+rtdetr-l,P1,Saya,one,0.98394,0.00811
+frcnn-r50fpn,P1,Saya,one,0.95776,0.00368
+yolo11m,P1,Terima kasih,one,0.8796,0.01575
+rtdetr-l,P1,Terima kasih,one,0.9023,0.00158
+frcnn-r50fpn,P1,Terima kasih,one,0.84231,0.00459
+yolo11m,P1,Bagaimana,two,0.85854,0.02195
+rtdetr-l,P1,Bagaimana,two,0.90712,0.00013
+frcnn-r50fpn,P1,Bagaimana,two,0.82034,0.00343
+yolo11m,P1,Berangkat,one,0.86965,0.00552
+rtdetr-l,P1,Berangkat,one,0.91676,0.0194
+frcnn-r50fpn,P1,Berangkat,one,0.86679,0.011
+yolo11m,P1,Teman,two,0.82985,0.02589
+rtdetr-l,P1,Teman,two,0.83899,0.01071
+frcnn-r50fpn,P1,Teman,two,0.80147,0.01167
+yolo11m,P1,Keluarga,one,0.81244,0.00214
+rtdetr-l,P1,Keluarga,one,0.82869,0.00244
+frcnn-r50fpn,P1,Keluarga,one,0.74263,0.00402
+yolo11m,P1,Rumah,two,0.81055,0.01421
+rtdetr-l,P1,Rumah,two,0.87875,0.01603
+frcnn-r50fpn,P1,Rumah,two,0.81548,0.00515
+yolo11m,P1,Pagi,one,0.91085,0.00825
+rtdetr-l,P1,Pagi,one,0.91547,0.00311
+frcnn-r50fpn,P1,Pagi,one,0.88302,0.00064
+yolo11m,P1,mean C_one,,0.8567,0.0014
+yolo11m,P1,mean C_two,,0.86577,0.00291
+yolo11m,P1,delta_two,,-0.00907,0.00431
+rtdetr-l,P1,mean C_one,,0.88158,0.00433
+rtdetr-l,P1,mean C_two,,0.89917,0.00473
+rtdetr-l,P1,delta_two,,-0.01758,0.00041
+frcnn-r50fpn,P1,mean C_one,,0.82886,0.00171
+frcnn-r50fpn,P1,mean C_two,,0.83987,0.00362
+frcnn-r50fpn,P1,delta_two,,-0.011,0.00534

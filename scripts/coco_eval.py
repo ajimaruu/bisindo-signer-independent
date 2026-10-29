@@ -2,8 +2,17 @@
 with pycocotools (mAP@0.5, mAP@[.50:.95], 101-point interpolation, maxDets 100, area 'all').
 
 Ground truth: data/coco/<split>.json (scripts/prepare_data.py). category_id = class id + 1.
+
+Labels per box in the exported detections (decided 29 Oct 2026, config_log section 25): every model may give one box
+several class labels, as the standard COCO-style evaluation does.
+  - YOLO11m: predict() preprocessing, but NMS with multi_label=True (every class above CONF per candidate box, then
+    class-wise NMS), as in Ultralytics' validator; predict()'s default keeps only the top class per box.
+  - RT-DETR-L: no NMS; the 300 highest query-class scores over all decoder queries and classes (unchanged).
+  - Faster R-CNN: one class-specific box per class above CONF for every proposal, then class-wise NMS (torchvision).
+The desktop application and the FPS measurement keep the plain predict() (one label per box).
 """
 import contextlib
+import functools
 import io
 import json
 from pathlib import Path
@@ -104,8 +113,22 @@ def select_threshold(matched):
     return float(cands[i]), float(P[i]), float(R[i]), float(F[i])
 
 
-def predict_ultralytics(weights, split, batch=8):
-    """Run an Ultralytics model (YOLO or RT-DETR) on a split and return COCO-format detections."""
+@contextlib.contextmanager
+def multi_label_nms():
+    """Inside this block Ultralytics' NMS keeps every class above conf for each box (multi_label=True)."""
+    from ultralytics.utils import nms
+    orig = nms.non_max_suppression
+    nms.non_max_suppression = functools.partial(orig, multi_label=True)
+    try:
+        yield
+    finally:
+        nms.non_max_suppression = orig
+
+
+def predict_ultralytics(weights, split, batch=8, multi_label=True):
+    """Run an Ultralytics model (YOLO or RT-DETR) on a split and return COCO-format detections.
+    multi_label: YOLO NMS keeps every class above CONF per box (the paper export); False = predict() default,
+    used only to compare with predictions exported before 29 Oct 2026. No effect on RT-DETR (no NMS)."""
     from ultralytics import RTDETR, YOLO
 
     gt = load_gt(split)
@@ -114,8 +137,10 @@ def predict_ultralytics(weights, split, batch=8):
     files = [str(FRAMES / f) for f in sorted(ids)]
     dets = []
     for i in range(0, len(files), batch):
-        for r in model.predict(files[i:i + batch], imgsz=640, conf=CONF, iou=NMS_IOU, max_det=MAX_DET,
-                               half=True, verbose=False):
+        with multi_label_nms() if multi_label else contextlib.nullcontext():
+            results = model.predict(files[i:i + batch], imgsz=640, conf=CONF, iou=NMS_IOU, max_det=MAX_DET,
+                                    half=True, verbose=False)
+        for r in results:
             b = r.boxes
             for (x1, y1, x2, y2), c, s in zip(b.xyxy.tolist(), b.cls.tolist(), b.conf.tolist()):
                 dets.append({"image_id": ids[Path(r.path).name], "category_id": int(c) + 1,

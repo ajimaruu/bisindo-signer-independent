@@ -1,0 +1,11 @@
+model,protocol,fold,seed,epochs,batch,imgsz,map50,map50_95,precision,recall,f1,conf_thr,val_f1,fps,params_M,train_time_min,checkpoint_path
+yolo11m,P1,,0,100,16,640,0.98176,0.85894,0.98971,0.96232,0.9751,0.81055,0.98678,,20.065,69.5,runs/kaggle/20261029-2046/bisindo/runs/ultralytics/yolo11m_p1_seed0/weights/best.pt
+rtdetr-l,P1,,0,95,16,640,0.9993,0.88314,0.99028,0.99364,0.99183,0.41675,0.99381,,32.837,145.3,runs/kaggle/20261029-2046/bisindo/runs/ultralytics/rtdetr-l_p1_seed0/weights/best.pt
+frcnn-r50fpn,P1,,0,100,16,640,0.99538,0.832,0.99697,0.9928,0.99475,0.75297,0.98991,,41.371,192.9,runs/kaggle/20261029-2046/bisindo/runs/frcnn/frcnn-r50fpn_p1_seed0/weights/best.pt
+yolo11m,P1,,1,100,16,640,0.989,0.8593,0.99167,0.97965,0.98515,0.81299,0.98745,,20.065,68.5,runs/kaggle/20261029-2046/bisindo/runs/ultralytics/yolo11m_p1_seed1/weights/best.pt
+rtdetr-l,P1,,1,100,16,640,0.99558,0.88941,0.98127,0.99583,0.98832,0.27368,0.98728,,32.837,153.5,runs/kaggle/20261029-2046/bisindo/runs/ultralytics/rtdetr-l_p1_seed1/weights/best.pt
+frcnn-r50fpn,P1,,1,100,16,640,0.9951,0.83159,0.9943,0.98644,0.9902,0.76224,0.98836,,41.371,191.3,runs/kaggle/20261029-2046/bisindo/runs/frcnn/frcnn-r50fpn_p1_seed1/weights/best.pt
+yolo11m,LOSO,s1,0,100,16,640,0.9201,0.7184,0.91948,0.90657,0.8872,0.51758,0.97713,,20.065,60.4,runs/kaggle/20261029-2046/bisindo/runs/ultralytics/yolo11m_loso_s1_seed0/weights/best.pt
+rtdetr-l,LOSO,s1,0,96,16,640,0.95726,0.79012,0.96789,0.93518,0.94893,0.89893,0.98162,,32.837,130.6,runs/kaggle/20261029-2046/bisindo/runs/ultralytics/rtdetr-l_loso_s1_seed0/weights/best.pt
+frcnn-r50fpn,LOSO,s1,0,100,16,640,0.95578,0.73318,0.93398,0.9134,0.91379,0.69724,0.9704,,41.371,170.9,runs/kaggle/20261029-2046/bisindo/runs/frcnn/frcnn-r50fpn_loso_s1_seed0/weights/best.pt
+yolo11m,LOSO,s1,1,99,16,640,0.91629,0.73929,0.95907,0.88583,0.89645,0.646,0.98261,,20.065,59.9,runs/kaggle/20261029-2046/bisindo/runs/ultralytics/yolo11m_loso_s1_seed1/weights/best.pt

@@ -1,19 +1,21 @@
 """Collect the finished Kaggle runs of the main plan into results/runs.csv and results/per_class.csv (CLAUDE.md,
-"Format hasil").
+"Format hasil"). Both CSVs are rebuilt from scratch on every call (no hand edits).
 
-Source: the downloaded session outputs in runs/kaggle/<timestamp>/ (scripts/kaggle_download.py). Every session's
-output holds all runs so far, so each run is taken from the newest download that has its eval_test.json.
+Source of the training runs: the downloaded session outputs in runs/kaggle/<timestamp>/ (scripts/kaggle_download.py).
+Every session's output holds all runs so far, so each run is taken from the newest download with its eval_test.json.
 
-For every finished run the test predictions saved on Kaggle (preds_test_coco.json) are scored again here with the
-common pycocotools evaluator (scripts/coco_eval.py) and must reproduce the Kaggle numbers in eval_test.json; the
-laptop's values are the ones written. Both CSVs are rebuilt from scratch on every call (no hand edits).
+All paper numbers come from predictions exported on this laptop (decided 29 Oct 2026, config_log section 25):
+best.pt from Kaggle predicts the validation and test splits here with the common export (scripts/coco_eval.py:
+conf 0.001, NMS IoU 0.7, at most 100 detections, FP16, YOLO multi-label NMS). Kaggle's own test predictions and
+eval_test.json are only a cross-check:
+  1. Kaggle's saved test predictions, re-scored here, must reproduce its eval_test.json exactly (TOL);
+  2. this laptop's export made the way Kaggle exported that run must match Kaggle's test mAP within MAP_TOL. Runs
+     trained before the change carry no "yolo_multi_label" field and were exported single-label for YOLO, so the
+     laptop's single-label YOLO export (cached as *_singlelabel.json) is compared for them.
+Faster R-CNN uses a loader batch of FRCNN_PRED_BATCH on the laptop (Kaggle: 32, which does not fit in 4 GB).
 
-Precision / recall / F1 (CLAUDE.md, decided 29 Oct 2026): IoU 0.5, macro-averaged over the 15 classes, from the
-COCO-format predictions (pycocotools matching, scripts/coco_eval.py). The confidence threshold is chosen per run on
-the validation split (the one that maximises macro-F1) and then applied to the Kaggle test predictions; it is
-written to runs.csv (conf_thr, with the validation macro-F1). Validation predictions were not saved on Kaggle, so
-best.pt predicts the validation split here on the laptop with the test settings (conf 0.001, NMS IoU 0.7, FP16;
-same batch for YOLO/RT-DETR, Faster R-CNN loader batch FRCNN_PRED_BATCH instead of 32, which does not fit in 4 GB). As a check, the test split is predicted here too: its mAP must match Kaggle's within MAP_TOL.
+From the laptop export: mAP50, mAP50-95 and per-class AP (test); precision / recall / F1 at IoU 0.5, macro-averaged
+over the 15 classes, at the confidence threshold that maximises macro-F1 on the validation split (conf_thr, val_f1).
 Laptop predictions are cached in runs/laptop_preds/<run>/.
 
 fps stays empty until the final FPS measurement (results/fps.csv). train_time_min = sum of per-epoch train +
@@ -43,9 +45,11 @@ LAPTOP_PREDS = ROOT / "runs" / "laptop_preds"
 FRCNN_PRED_BATCH = 8   # images per Faster R-CNN val/test batch on the laptop (Kaggle: 2 x 16 = 32)
 
 
-def laptop_preds(model, split, part, best, batch, name):
-    """COCO-format predictions of best.pt on <split>_<part>, made on this laptop exactly as on Kaggle."""
-    path = LAPTOP_PREDS / name / f"preds_{part}_coco.json"
+def laptop_preds(model, split, part, best, batch, name, multi_label=True):
+    """COCO-format predictions of best.pt on <split>_<part>, exported on this laptop. multi_label=False (YOLO only):
+    the single-label export used on Kaggle before 29 Oct 2026, for the cross-check."""
+    single = model == "yolo11m" and not multi_label
+    path = LAPTOP_PREDS / name / f"preds_{part}_coco{'_singlelabel' if single else ''}.json"
     if path.exists():
         return json.loads(path.read_text(encoding="utf-8"))
     if model == "frcnn-r50fpn":
@@ -58,7 +62,7 @@ def laptop_preds(model, split, part, best, batch, name):
         del net
         torch.cuda.empty_cache()
     else:
-        dets = predict_ultralytics(best, f"{split}_{part}", batch=batch)
+        dets = predict_ultralytics(best, f"{split}_{part}", batch=batch, multi_label=not single)
     path.parent.mkdir(parents=True, exist_ok=True)
     save_dets(dets, path)
     return dets
@@ -96,14 +100,18 @@ def main():
         if max(diffs) > TOL:
             raise SystemExit(f"{name}: laptop pycocotools differs from Kaggle's eval_test.json by {max(diffs):.2e}")
         best = rdir / "weights" / "best.pt"
-        # P / R / F1: threshold from the validation split, applied to Kaggle's test predictions
-        val_dets = laptop_preds(model, split, "val", best, ev["batch"], name)
-        thr, _, _, val_f1 = select_threshold(match_iou50(f"{split}_val", val_dets))
-        prec, rec, f1 = (float(x[0]) for x in prf(match_iou50(f"{split}_test", dets), [thr]))
-        lap = evaluate(f"{split}_test", laptop_preds(model, split, "test", best, ev["batch"], name))
-        lap_diff = max(abs(lap[k] - coco[k]) for k in ("map50", "map50_95"))
+        # cross-check: the laptop export made the way Kaggle exported this run reproduces Kaggle's test mAP
+        kaggle_ml = ev.get("yolo_multi_label", False)
+        chk = evaluate(f"{split}_test", laptop_preds(model, split, "test", best, ev["batch"], name, kaggle_ml))
+        lap_diff = max(abs(chk[k] - coco[k]) for k in ("map50", "map50_95"))
         if lap_diff > MAP_TOL:
             raise SystemExit(f"{name}: laptop test mAP differs from Kaggle's by {lap_diff:.4f}")
+        # paper numbers: laptop export (YOLO multi-label); threshold from validation, applied to test
+        test_dets = laptop_preds(model, split, "test", best, ev["batch"], name)
+        coco = evaluate(f"{split}_test", test_dets)
+        val_dets = laptop_preds(model, split, "val", best, ev["batch"], name)
+        thr, _, _, val_f1 = select_threshold(match_iou50(f"{split}_val", val_dets))
+        prec, rec, f1 = (float(x[0]) for x in prf(match_iou50(f"{split}_test", test_dets), [thr]))
         if model not in n_params:
             n_params[model] = load_detector(model, best, conf=0.001).n_params / 1e6
         ep = epoch_rows(model, rdir)
@@ -119,8 +127,8 @@ def main():
             per_class.append({"model": model, "protocol": protocol, "fold": fold, "seed": seed, "class": c,
                               "ap50": round(ap50, 5), "ap50_95": round(ap, 5), "group": GROUP[c]})
         print(f"{name:<28} epochs {len(ep):3d}  mAP50 {coco['map50']:.4f}  mAP50-95 {coco['map50_95']:.4f}  "
-              f"(= Kaggle, max diff {max(diffs):.1e})  thr {thr:.3f} (val F1 {val_f1:.4f})  test P {prec:.4f} "
-              f"R {rec:.4f} F1 {f1:.4f}  laptop test mAP diff {lap_diff:.1e}")
+              f"thr {thr:.3f} (val F1 {val_f1:.4f})  test P {prec:.4f} R {rec:.4f} F1 {f1:.4f}  "
+              f"[Kaggle {kag['map50_95']:.4f}, laptop as Kaggle diff {lap_diff:.1e}]")
     for path, cols, rows in ((ROOT / "results" / "runs.csv", RUN_COLS, runs),
                              (ROOT / "results" / "per_class.csv", CLASS_COLS, per_class)):
         with open(path, "w", newline="", encoding="utf-8") as f:
