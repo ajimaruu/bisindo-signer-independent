@@ -720,3 +720,68 @@ Implementation:
     - YOLO11m and Faster R-CNN exports stay well below 100 per image (at most 20 and 36).
 
 **Unchanged:** the desktop application (`app_detect.py`) and the FPS measurement (`measure_fps.py`, via `detectors.py`) keep the plain `predict()`, with one label per box.
+
+## 26. Main session 3 (notebook version 6), LOSO fold s1 complete, and the LOSO aggregation rules (30 Oct 2026)
+
+**Session 3:** 5.48 h on a Tesla T4, with `MAX_HOURS = 5.5` set in the notebook cell (§22) because less weekly quota was left. Downloaded with `kaggle_download.py --kernel ajimaru12/bisindo-wl15-training/6` to `runs/kaggle/20261030-0222/`.
+
+| Run | Epochs | Best epoch | Val mAP50-95 | s/epoch | Train h | Test mAP50-95 (laptop export) | Ended by |
+|---|---|---|---|---|---|---|---|
+| rtdetr-l_loso_s1_seed1 | 62 | 42 | 0.8565 | 81.8 | 1.41 | 0.7731 | patience (resumed from epoch 44) |
+| frcnn-r50fpn_loso_s1_seed1 | 100 | 89 | 0.8069 | 102.5 | 2.85 | 0.7320 | cap (100) |
+| yolo11m_loso_s2_seed0 | 100 | 91 | 0.8264 | 34.8 | 0.97 | 0.7596 | cap (100) |
+| rtdetr-l_loso_s2_seed0 | 52 so far | 39 | 0.8505 | 77.3 | 1.12 | – | paused at the session deadline |
+
+- `runs.csv` / `per_class.csv`: 13 runs. LOSO fold s1 is complete (3 models × 2 seeds).
+- **Cross-checks (`collect_results.py`):**
+  - All 13 runs: Kaggle's test predictions re-scored on the laptop reproduce `eval_test.json` exactly.
+  - The laptop export made the way Kaggle exported each run matches Kaggle's test mAP within 5.4 × 10⁻⁴ (limit 2 × 10⁻³).
+  - The P1 rows are unchanged; only `checkpoint_path` now points to the newest download.
+- **yolo11m_loso_s2_seed0, export:**
+  - It was scored on Kaggle with the single-label export, because the Kaggle code is deliberately unchanged mid-plan (§25): 0.7430.
+  - The paper number is the laptop multi-label export: 0.7596 (+0.0166).
+- **100-epoch cap:** `rtdetr-l_loso_s1_seed1` is the first run that stopped well before the cap by patience. Of the 12 runs finished up to fold s1, 8 ended at the cap (100 epochs) and 4 by patience: `rtdetr-l_p1_seed0` (95), `rtdetr-l_loso_s1_seed0` (96), `yolo11m_loso_s1_seed1` (99, best 79) and `rtdetr-l_loso_s1_seed1` (62). Most runs still reaching the cap is reported, as decided (§22).
+
+**Fold s1 against P1** (mean of the 2 seeds; SI over one fold only, so preliminary):
+
+| Model | mAP50-95 s1 | mAP50-95 P1 | Δabs (Δrel) | F1 s1 | F1 P1 |
+|---|---|---|---|---|---|
+| YOLO11m | 0.744 ± 0.010 | 0.863 ± 0.000 | 0.119 (13.8 %) | 0.891 ± 0.007 | 0.980 ± 0.007 |
+| RT-DETR-L | 0.782 ± 0.012 | 0.886 ± 0.004 | 0.104 (11.8 %) | 0.930 ± 0.027 | 0.990 ± 0.002 |
+| Faster R-CNN | 0.732 ± 0.001 | 0.832 ± 0.001 | 0.100 (12.0 %) | 0.918 ± 0.006 | 0.992 ± 0.003 |
+
+- **mAP50 drops less** (3.4–5.0 %). The drop is mainly in box precision on the unseen signer.
+- **Weakest classes in s1, all three models:** Cari and Hari (one-handed).
+- **Δtwo in s1:**
+  - YOLO11m +0.008, seed SD 0.048, so its sign is not interpretable;
+  - RT-DETR-L −0.052;
+  - Faster R-CNN −0.050.
+  - The P1 values are −0.008, −0.017 and −0.011.
+
+**LOSO aggregation rules (decided by the user on 30 Oct 2026; fold s1 had been seen, s2–s4 not finished).** Recorded in CLAUDE.md ("Format hasil") and implemented in `scripts/summarise.py --protocol LOSO`:
+1. **Per fold:** mean of the 2 seeds ± SD over seeds.
+2. **mAP^SI (eq. 7):** the mean over the 4 folds of the per-fold seed means, ± SD over folds. The seed SD is reported separately, as the mean over folds of the within-fold seed SD.
+3. **Δabs and Δrel:**
+   - Δabs = mAP^rand − mAP^SI.
+   - Δrel = Δabs / mAP^rand × 100.
+   - mAP^rand is the mean of the 2 P1 seeds.
+   - Computed for mAP50, mAP50-95 and F1. P and R are given with their SI and rand values only.
+4. **Per-class AP (LOSO):** the mean over 4 folds × 2 seeds. Δtwo comes from these class means. Δtwo is also given per fold (from the per-fold seed means), with the number of folds where it is positive, to show whether its sign is consistent.
+5. **Model comparison:**
+   - Per fold, the paired difference of the seed means (A − B).
+   - Reported as the mean ± SD of the differences, plus the number of folds (of 4) whose order agrees with the order of the means.
+   - No formal significance test, because n = 4.
+
+Implementation notes:
+- **Fold completeness:** a fold counts for a model only when both seeds are finished. The pairwise comparison uses the folds complete for both models. Until all 4 folds are complete, the output is marked "Preliminary" and the number of folds used is shown.
+- **Output tables, by chapter section:**
+  - 3.2: per-fold table; SI vs rand with Δabs and Δrel.
+  - 3.3: per-class SI and P1, C_one, C_two, Δtwo, and Δtwo per fold.
+  - 3.4: paired differences.
+- **Output files:**
+  - `results/summary_loso.md` (gitignored, like `summary_p1.md`);
+  - `summary_loso.csv`, `summary_loso_folds.csv`, `summary_loso_per_class.csv`, `summary_loso_pairs.csv`.
+- **Tested:**
+  1. On the real data (fold s1): equal to an independent hand computation.
+  2. On a synthetic 4-fold copy of s1, with the YOLO metrics shifted by −0.02, +0.01 and +0.03, in memory only: SI, SD over folds, paired differences and the agreeing-fold counts are as expected, including a 3/4 case. Δtwo per fold is unchanged under a uniform shift.
+  3. The P1 output is byte-identical to before the change.

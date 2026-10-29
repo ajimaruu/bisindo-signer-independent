@@ -1,3 +1,4 @@
 start_utc,end_utc,hours,gpu,plan,batch,runs_touched
 2026-10-28T14:47:56+00:00,2026-10-29T01:46:57+00:00,10.984,"Tesla T4, 580.178.04, 15360 MiB; Tesla T4, 580.178.04, 15360 MiB",main,16,yolo11m_p1_seed0 rtdetr-l_p1_seed0 frcnn-r50fpn_p1_seed0 yolo11m_p1_seed1 rtdetr-l_p1_seed1 frcnn-r50fpn_p1_seed1
 2026-10-29T02:04:45+00:00,2026-10-29T13:04:19+00:00,10.993,"Tesla T4, 580.178.04, 15360 MiB; Tesla T4, 580.178.04, 15360 MiB",main,16,frcnn-r50fpn_p1_seed1 yolo11m_loso_s1_seed0 rtdetr-l_loso_s1_seed0 frcnn-r50fpn_loso_s1_seed0 yolo11m_loso_s1_seed1 rtdetr-l_loso_s1_seed1
+2026-10-29T13:46:14+00:00,2026-10-29T19:15:06+00:00,5.481,"Tesla T4, 580.178.04, 15360 MiB; Tesla T4, 580.178.04, 15360 MiB",main,16,rtdetr-l_loso_s1_seed1 frcnn-r50fpn_loso_s1_seed1 yolo11m_loso_s2_seed0 rtdetr-l_loso_s2_seed0
