@@ -799,7 +799,7 @@ Implementation notes:
 
 **Confusion matrix:** `scripts/confusion_matrix.py --protocol LOSO` (or `P1`).
 - **Requested by the user:** per model, all folds combined, from the test predictions at the run's `conf_thr`.
-- **Details chosen by me (proposed default, to be confirmed by the user):**
+- **Details proposed by me and confirmed by the user on 30 Oct 2026 (all three: column rule, background row and uncounted duplicates, summing the seeds):**
   - **Predictions:** the laptop test export (`runs/laptop_preds/<run>/preds_test_coco.json`), the same predictions behind the paper's mAP and P/R/F1. Detections with score ≥ the run's `conf_thr` are kept.
   - **Rows and columns:** each test frame has exactly one ground-truth box (the script checks this).
     - Row = true class.
@@ -820,3 +820,9 @@ Implementation notes:
 
 - **YOLO11m, Cari (42):** labelled Keluarga in 40 % and Berangkat in 21 % of cases, missed in 26 %, correct in only 12 %. This matches its AP drop.
 - **P1 (2 seeds, 632 pairs):** correct 0.973 / 0.992 / 0.991.
+- **Figure caption (requested by the user, 30 Oct 2026):** every confusion-matrix figure carries a caption below the matrix. It names:
+  - the folds × seeds combined (4 folds × 2 seeds when complete; until then the folds used, marked preliminary);
+  - the matching rule (highest-scoring detection with IoU ≥ 0.5, at each run's validation-chosen `conf_thr`);
+  - the row normalisation;
+  - the number of duplicate detections not counted.
+  The same text is in `results/confusion/captions_<p1|loso>.csv`, with the columns `folds`, `n_pairs` and `duplicates_not_counted`, ready for the manuscript.

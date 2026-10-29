@@ -14,13 +14,17 @@ counted in the matrix; their number is reported.
 
 LOSO: summed over the folds complete for the model (both seeds) x 2 seeds; P1: summed over the 2 seeds.
 Output: results/confusion/confusion_<p1|loso>_<model>.csv (counts) and .png (rows normalised to the number of
-ground-truth images of the class; the background row shows counts).
+ground-truth images of the class; the background row shows counts). Each figure carries its caption (below the
+matrix), which is also written to results/confusion/captions_<p1|loso>.csv for the manuscript. It states the folds x
+seeds combined, the matching rule (IoU >= 0.5 at each run's conf_thr), the row normalisation and the number of
+duplicate detections not counted.
 
 Usage: python scripts/confusion_matrix.py --protocol LOSO
 """
 import argparse
 import csv
 import json
+import textwrap
 from collections import defaultdict
 from pathlib import Path
 
@@ -78,11 +82,11 @@ def run_matrix(split, dets, thr):
     return m, ignored
 
 
-def plot(m, title, path):
+def plot(m, title, caption, path):
     nc = len(NAMES)
     n_gt = m[:nc].sum(axis=1, keepdims=True)
     frac = np.vstack([m[:nc] / n_gt, np.zeros((1, nc + 1))])
-    fig, ax = plt.subplots(figsize=(8.6, 7.6), dpi=200)
+    fig, ax = plt.subplots(figsize=(8.6, 8.4), dpi=200)
     ax.imshow(frac, cmap=CMAP, vmin=0, vmax=1)
     for i in range(nc + 1):
         for j in range(nc + 1):
@@ -102,7 +106,8 @@ def plot(m, title, path):
     ax.tick_params(length=0)
     for s in ax.spines.values():
         s.set_visible(False)
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, 0.09, 1, 1))
+    fig.text(0.04, 0.012, textwrap.fill(caption, 135), fontsize=7, color="#3a3a3a", va="bottom", ha="left")
     fig.savefig(path)
     plt.close(fig)
 
@@ -115,6 +120,7 @@ def main():
         runs = [r for r in csv.DictReader(f) if r["protocol"] == args.protocol]
     OUT.mkdir(parents=True, exist_ok=True)
     tag = args.protocol.lower()
+    captions = []
     for model, label in MODELS.items():
         rr = [r for r in runs if r["model"] == model]
         if args.protocol == "LOSO":
@@ -143,11 +149,28 @@ def main():
         correct = int(np.trace(total[:nc, :nc]))
         n_gt = int(total[:nc].sum())
         prelim = " (preliminary)" if args.protocol == "LOSO" and len(folds) < len(FOLDS) else ""
-        plot(total, f"{label}, {args.protocol}{prelim}: {scope}, conf ≥ run threshold", OUT / f"confusion_{tag}_{model}.png")
+        if args.protocol == "LOSO":
+            pooled = (f"signer-independent protocol, test predictions of {len(folds)} fold{'s' * (len(folds) > 1)} (test signer "
+                      f"{', '.join(folds)}) × {len(SEEDS)} training seeds combined")
+        else:
+            pooled = f"random frame split, test predictions of {len(SEEDS)} training seeds combined"
+        caption = (f"{label}, {pooled}{prelim} ({n_gt} image–seed pairs). A frame is assigned to the class of its "
+                   "highest-scoring detection with IoU ≥ 0.5 to the ground-truth box, keeping only detections at or "
+                   "above each run's confidence threshold conf_thr (chosen on validation); 'missed' = no such "
+                   "detection. Rows are normalised to the number of ground-truth frames of the class (in brackets); "
+                   "the background row gives counts of detections with IoU < 0.5. "
+                   f"{ignored} further (duplicate) detections overlapping the ground truth are not counted.")
+        captions.append({"protocol": args.protocol, "model": model, "folds": " ".join(folds), "n_pairs": n_gt,
+                         "duplicates_not_counted": ignored, "caption": caption})
+        plot(total, f"{label}, {args.protocol}{prelim}", caption, OUT / f"confusion_{tag}_{model}.png")
         print(f"{label:<22} {scope}: {n_gt} test images, correct {correct} ({correct / n_gt:.3f}), "
               f"confused {n_gt - correct - int(total[:nc, nc].sum())}, missed {int(total[:nc, nc].sum())}, "
               f"background detections {int(total[nc].sum())}, ignored overlapping {ignored}")
-    print(f"-> {OUT.relative_to(ROOT).as_posix()}/confusion_{tag}_<model>.csv / .png")
+    with open(OUT / f"captions_{tag}.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=list(captions[0]))
+        w.writeheader()
+        w.writerows(captions)
+    print(f"-> {OUT.relative_to(ROOT).as_posix()}/confusion_{tag}_<model>.csv / .png, captions_{tag}.csv")
 
 
 if __name__ == "__main__":
