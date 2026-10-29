@@ -1,6 +1,6 @@
-model,protocol,fold,seed,epochs,batch,imgsz,map50,map50_95,precision,recall,f1,fps,params_M,train_time_min,checkpoint_path
-yolo11m,P1,,0,100,16,640,0.98176,0.85894,,,,,20.065,69.5,runs/kaggle/20261029-0906/bisindo/runs/ultralytics/yolo11m_p1_seed0/weights/best.pt
-rtdetr-l,P1,,0,95,16,640,0.9993,0.88314,,,,,32.837,145.3,runs/kaggle/20261029-0906/bisindo/runs/ultralytics/rtdetr-l_p1_seed0/weights/best.pt
-frcnn-r50fpn,P1,,0,100,16,640,0.99538,0.832,,,,,41.371,192.9,runs/kaggle/20261029-0906/bisindo/runs/frcnn/frcnn-r50fpn_p1_seed0/weights/best.pt
-yolo11m,P1,,1,100,16,640,0.989,0.8593,,,,,20.065,68.5,runs/kaggle/20261029-0906/bisindo/runs/ultralytics/yolo11m_p1_seed1/weights/best.pt
-rtdetr-l,P1,,1,100,16,640,0.99558,0.88941,,,,,32.837,153.5,runs/kaggle/20261029-0906/bisindo/runs/ultralytics/rtdetr-l_p1_seed1/weights/best.pt
+model,protocol,fold,seed,epochs,batch,imgsz,map50,map50_95,precision,recall,f1,conf_thr,val_f1,fps,params_M,train_time_min,checkpoint_path
+yolo11m,P1,,0,100,16,640,0.98176,0.85894,0.98971,0.96232,0.9751,0.81055,0.98678,,20.065,69.5,runs/kaggle/20261029-0906/bisindo/runs/ultralytics/yolo11m_p1_seed0/weights/best.pt
+rtdetr-l,P1,,0,95,16,640,0.9993,0.88314,0.99028,0.99364,0.99183,0.41675,0.99381,,32.837,145.3,runs/kaggle/20261029-0906/bisindo/runs/ultralytics/rtdetr-l_p1_seed0/weights/best.pt
+frcnn-r50fpn,P1,,0,100,16,640,0.99538,0.832,0.99697,0.9928,0.99475,0.75297,0.98991,,41.371,192.9,runs/kaggle/20261029-0906/bisindo/runs/frcnn/frcnn-r50fpn_p1_seed0/weights/best.pt
+yolo11m,P1,,1,100,16,640,0.989,0.8593,0.99167,0.97965,0.98515,0.81299,0.98745,,20.065,68.5,runs/kaggle/20261029-0906/bisindo/runs/ultralytics/yolo11m_p1_seed1/weights/best.pt
+rtdetr-l,P1,,1,100,16,640,0.99558,0.88941,0.98127,0.99583,0.98832,0.27368,0.98728,,32.837,153.5,runs/kaggle/20261029-0906/bisindo/runs/ultralytics/rtdetr-l_p1_seed1/weights/best.pt

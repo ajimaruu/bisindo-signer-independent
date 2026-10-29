@@ -598,3 +598,34 @@ Started 27 Oct 2026. One section per decision or check; newest at the bottom.
 - **100-epoch cap:** four of the five finished runs ended at the cap rather than by patience (only `rtdetr-l_p1_seed0` stopped by patience). The cap stays as decided (§21); it is reported per run. The session time estimate is therefore closer to the upper bound of §21 (~69 GPU h, 7 sessions).
 - **`results/runs.csv`, `results/per_class.csv`:** built by `scripts/collect_results.py` from the downloaded outputs. It re-scores each run's saved test predictions with the common pycocotools evaluator on the laptop and stops if the result differs from Kaggle's `eval_test.json` (all five: identical). `fps` stays empty until the final FPS measurement; `precision`, `recall`, `f1` stay empty until their definition is decided.
 - **Session length limit:** `kaggle_session.py --max-hours` (notebook cell `MAX_HOURS`, default 10.8 h; allowed (0, 11.5]). It is counted from the start of the session script; no epoch is started that would end after it, and no run is started with < 20 min left. The report and the saving of the notebook output take a few more minutes. Lower it when less than ~11 h of the weekly Kaggle GPU quota is left, so the quota never cuts a session off before its output is saved.
+
+## 23. Precision, recall and F1: definition and threshold from validation (29 Oct 2026)
+
+Decided by the user:
+- **Definition:** precision, recall and F1 come from the same COCO-format predictions for all three models, at IoU 0.5, macro-averaged over the 15 classes.
+- **Threshold:** the confidence threshold is chosen per run on the validation split (the one that maximises macro-F1), then applied to the test split.
+- **Recording:** the chosen threshold is recorded per run in `runs.csv`. The same threshold will later be the desktop application's default for the checkpoint it uses.
+
+Implementation (`scripts/coco_eval.py`: `match_iou50`, `prf`, `select_threshold`; `scripts/collect_results.py`):
+- **Matching:** pycocotools' own matching (greedy by score, IoU ≥ 0.5, at most 100 detections per image, area "all"). It is the same matching as the AP50, run with `iouThrs = [0.5]`.
+- **Per class, at threshold t** (detections with score ≥ t are kept):
+  - P = TP / (TP + FP), or 0 when no detection is kept;
+  - R = TP / n_gt;
+  - F1 = 2PR / (P + R), or 0 when P + R = 0.
+- **Macro:** P, R and F1 are means over the 15 classes. Macro-F1 is the mean of the per-class F1, not the harmonic mean of macro-P and macro-R.
+- **Threshold search:** every detection score on the validation split is a candidate (exact maximisation). On ties the highest threshold is taken.
+- **Checked** against an independent brute-force matcher on `rtdetr-l_p1_seed0` test predictions at t = 0.001, 0.25 and 0.5: identical to 6 decimals.
+- **Validation predictions:** Kaggle saved only the test predictions, so `best.pt` predicts the validation split on the laptop (RTX 3050). Settings are the same as the test predictions: conf 0.001, NMS IoU 0.7, FP16. YOLO11m and RT-DETR-L use batch 16. Faster R-CNN uses a loader batch of 8 instead of 32, because 32 does not fit in 4 GB. Cached in `runs/laptop_preds/<run>/`.
+- **Check:** the test split is also predicted on the laptop.
+  - Test mAP vs Kaggle: max difference 4.4 × 10⁻⁴ (limit 2 × 10⁻³).
+  - Test P/R/F1 at the chosen threshold: identical to 5 decimals with laptop or Kaggle test predictions.
+  - The values written use Kaggle's test predictions, which are the same ones behind the mAP.
+- **`runs.csv`:** new columns `conf_thr` and `val_f1` (macro-F1 on validation at that threshold).
+
+| Run | conf_thr | val macro-F1 | test P | test R | test F1 |
+|---|---|---|---|---|---|
+| yolo11m_p1_seed0 | 0.811 | 0.9868 | 0.9897 | 0.9623 | 0.9751 |
+| rtdetr-l_p1_seed0 | 0.417 | 0.9938 | 0.9903 | 0.9936 | 0.9918 |
+| frcnn-r50fpn_p1_seed0 | 0.753 | 0.9899 | 0.9970 | 0.9928 | 0.9947 |
+| yolo11m_p1_seed1 | 0.813 | 0.9874 | 0.9917 | 0.9797 | 0.9852 |
+| rtdetr-l_p1_seed1 | 0.274 | 0.9873 | 0.9813 | 0.9958 | 0.9883 |
