@@ -18,6 +18,8 @@ Every stage is timed with Ultralytics' ops.Profile, which synchronises CUDA befo
 """
 from pathlib import Path
 
+import run_guards  # noqa: I001  (before torch: disables torch.compile)
+
 import numpy as np
 import torch
 import yaml
@@ -25,6 +27,7 @@ from ultralytics.data.augment import LetterBox
 from ultralytics.utils.ops import Profile, scale_boxes
 
 ROOT = Path(__file__).resolve().parents[1]
+run_guards.apply()   # same RoIAlign kernel and no torch.compile, as in training
 MODELS = ("yolo11m", "rtdetr-l", "frcnn-r50fpn")
 LABELS = {"yolo11m": "YOLO11m", "rtdetr-l": "RT-DETR-L", "frcnn-r50fpn": "Faster R-CNN R50-FPN"}
 

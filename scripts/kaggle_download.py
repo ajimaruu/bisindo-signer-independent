@@ -7,6 +7,8 @@ newer session's copies; checkpoints are never deleted.
 
 Usage:
   python scripts/kaggle_download.py --kernel <user>/<notebook-slug>   # Kaggle CLI (.venv-kaggle), latest version
+  python scripts/kaggle_download.py --kernel <user>/<notebook-slug>/4 # a given notebook version (e.g. while a
+                                                                      # newer version is still running)
   python scripts/kaggle_download.py --zip path/to/output.zip         # 'Download' from the notebook's Output tab
 """
 import argparse
@@ -35,6 +37,10 @@ def main():
         r = subprocess.run([str(KAGGLE), "kernels", "output", args.kernel, "-p", str(dest)])
         if r.returncode:
             sys.exit("kaggle CLI failed (token in %USERPROFILE%\\.kaggle\\kaggle.json? notebook slug right?)")
+        if not any(dest.iterdir()):
+            dest.rmdir()
+            sys.exit("nothing downloaded: that version has no output yet (still running?). "
+                     "Pass the finished version as <user>/<notebook-slug>/<version>.")
     else:
         with zipfile.ZipFile(args.zip) as z:
             z.extractall(dest)

@@ -19,11 +19,13 @@ import sys
 import time
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import run_guards  # noqa: E402,I001  (before torch: disables torch.compile)
+
 import torch
 import yaml
 from ultralytics import RTDETR, YOLO
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from coco_eval import (CONF, MAX_DET, NMS_IOU, evaluate, format_result, predict_ultralytics,  # noqa: E402
                        save_dets)
 
@@ -34,11 +36,27 @@ CFG = yaml.safe_load(open(ROOT / "configs" / "train.yaml", encoding="utf-8"))
 DEADLINE_EXIT = 3        # exit code: stopped before the session deadline, resumable
 
 
+SELECTION = "best validation mAP50-95; fitness weights (P, R, mAP50, mAP50-95) = (0, 0, 0, 1)"
+
+
+def check_fitness_rule():
+    """Checkpoint selection and early stopping use Ultralytics' fitness; it must be pure mAP50-95, as the
+    pycocotools mAP50-95 used for Faster R-CNN (older Ultralytics versions used 0.1 mAP50 + 0.9 mAP50-95)."""
+    from ultralytics.utils.metrics import Metric
+    m = Metric()
+    m.mean_results = lambda: [0.11, 0.22, 0.33, 0.44]   # P, R, mAP50, mAP50-95
+    f = m.fitness() if callable(m.fitness) else m.fitness
+    if abs(f - 0.44) > 1e-12:
+        sys.exit(f"Ultralytics fitness is not pure mAP50-95 (got {f} for mAP50-95 = 0.44)")
+    return SELECTION
+
+
 def gpu_logger(run_dir, batch):
     state = {}
     deadline = float(os.environ.get("BISINDO_DEADLINE", "inf"))
 
     def on_train_start(trainer):
+        print(f"train transforms: {run_guards.check_transforms(trainer.train_loader.dataset)}", flush=True)
         # Resume across sessions: Ultralytics restores best_fitness but starts a fresh EarlyStopping, which
         # would restart the patience count. Rebuild its state from results.csv (fitness = mAP50-95).
         csv_path = Path(trainer.save_dir) / "results.csv"
@@ -66,6 +84,9 @@ def gpu_logger(run_dir, batch):
     def on_fit_epoch_end(trainer):
         if not state.pop("pending", False):   # the final evaluation of best.pt fires this hook again
             return
+        m5095 = trainer.metrics.get("metrics/mAP50-95(B)")
+        if m5095 is not None and abs(float(trainer.fitness) - float(m5095)) > 1e-9:
+            raise RuntimeError(f"fitness {trainer.fitness} != val mAP50-95 {m5095}")
         path = Path(trainer.save_dir) / "gpu_log.csv"
         new = not path.exists()
         with open(path, "a", newline="") as f:
@@ -122,6 +143,8 @@ def main():
     run_dir = project / name
     last = run_dir / "weights" / "last.pt"
 
+    print(f"guards: {run_guards.apply()}", flush=True)
+    print(f"selection: {check_fitness_rule()}, patience {patience}, max epochs {epochs}", flush=True)
     callbacks = gpu_logger(run_dir, batch)
     if last.exists() and not args.probe and not finished(last):
         print(f"resuming {last}")
@@ -135,7 +158,7 @@ def main():
             model.add_callback(k, fn)
         opt = {k: m[k] for k in ("optimizer", "lr0", "momentum", "weight_decay", "warmup_bias_lr") if k in m}
         model.train(data=str(data), epochs=epochs, patience=patience, batch=batch, imgsz=CFG["imgsz"],
-                    seed=args.seed, deterministic=True, amp=CFG["amp"], workers=CFG["workers"],
+                    seed=args.seed, deterministic=True, amp=CFG["amp"], workers=CFG["workers"], compile=False,
                     project=str(project), name=name, exist_ok=True, plots=False, verbose=True,
                     fraction=args.fraction if args.probe else 1.0, **opt, **CFG["augment"])
     if args.probe:
@@ -154,6 +177,7 @@ def main():
              "per_class": {names[int(c)]: (float(uv.box.ap50[i]), float(uv.box.ap[i]))
                            for i, c in enumerate(uv.box.ap_class_index)}}
     out = {"model": args.model, "split": args.split, "seed": args.seed, "batch": batch, "epochs_max": epochs,
+           "patience": patience, "selection": SELECTION,
            "eval": {"conf": CONF, "nms_iou": NMS_IOU, "max_det_coco": MAX_DET},
            "pycocotools": coco, "ultralytics": ultra}
     (run_dir / "eval_test.json").write_text(json.dumps(out, indent=1), encoding="utf-8")

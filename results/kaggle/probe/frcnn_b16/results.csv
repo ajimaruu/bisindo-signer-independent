@@ -1,0 +1,2 @@
+epoch,train_loss,lr,val_map50,val_map50_95,train_s,train_val_s,peak_reserved_gib,batch,n_train
+1,1.42113,0.0036,nan,nan,22.7,23.1,9.027,16,295

@@ -1,0 +1,2 @@
+epoch,train_s,train_val_s,peak_reserved_gib,batch,n_train,fitness
+1,10.5,14.8,7.83,16,295,3e-05

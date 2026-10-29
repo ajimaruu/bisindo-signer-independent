@@ -9,5 +9,37 @@ pilot:
   - {model: rtdetr-l, split: p1, seed: 0, epochs: 2, name: pilot2ep_rtdetr-l_p1_seed0}
   - {model: frcnn-r50fpn, split: p1, seed: 0, epochs: 2, name: pilot2ep_frcnn-r50fpn_p1_seed0}
 
-# Main runs (30): filled in after the pilot, once max epochs and patience are locked in configs/train.yaml.
-main: []
+# Main runs (30, locked 28 Oct 2026): P1 seed 0 then seed 1, then the LOSO folds s1-s4 (seed 0 then 1 within a
+# fold); within each block YOLO11m, RT-DETR-L, Faster R-CNN. Batch, max epochs (100) and patience (20) come from
+# configs/train.yaml. Run names: <model>_<split>_seed<seed> (runs/ultralytics/ or runs/frcnn/).
+main:
+  - {model: yolo11m, split: p1, seed: 0}
+  - {model: rtdetr-l, split: p1, seed: 0}
+  - {model: frcnn-r50fpn, split: p1, seed: 0}
+  - {model: yolo11m, split: p1, seed: 1}
+  - {model: rtdetr-l, split: p1, seed: 1}
+  - {model: frcnn-r50fpn, split: p1, seed: 1}
+  - {model: yolo11m, split: loso_s1, seed: 0}
+  - {model: rtdetr-l, split: loso_s1, seed: 0}
+  - {model: frcnn-r50fpn, split: loso_s1, seed: 0}
+  - {model: yolo11m, split: loso_s1, seed: 1}
+  - {model: rtdetr-l, split: loso_s1, seed: 1}
+  - {model: frcnn-r50fpn, split: loso_s1, seed: 1}
+  - {model: yolo11m, split: loso_s2, seed: 0}
+  - {model: rtdetr-l, split: loso_s2, seed: 0}
+  - {model: frcnn-r50fpn, split: loso_s2, seed: 0}
+  - {model: yolo11m, split: loso_s2, seed: 1}
+  - {model: rtdetr-l, split: loso_s2, seed: 1}
+  - {model: frcnn-r50fpn, split: loso_s2, seed: 1}
+  - {model: yolo11m, split: loso_s3, seed: 0}
+  - {model: rtdetr-l, split: loso_s3, seed: 0}
+  - {model: frcnn-r50fpn, split: loso_s3, seed: 0}
+  - {model: yolo11m, split: loso_s3, seed: 1}
+  - {model: rtdetr-l, split: loso_s3, seed: 1}
+  - {model: frcnn-r50fpn, split: loso_s3, seed: 1}
+  - {model: yolo11m, split: loso_s4, seed: 0}
+  - {model: rtdetr-l, split: loso_s4, seed: 0}
+  - {model: frcnn-r50fpn, split: loso_s4, seed: 0}
+  - {model: yolo11m, split: loso_s4, seed: 1}
+  - {model: rtdetr-l, split: loso_s4, seed: 1}
+  - {model: frcnn-r50fpn, split: loso_s4, seed: 1}

@@ -29,6 +29,9 @@ import sys
 import time
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import run_guards  # noqa: E402,I001  (before torch: disables torch.compile)
+
 import numpy as np
 import torch
 import yaml
@@ -40,7 +43,6 @@ from ultralytics.data.utils import check_det_dataset
 from ultralytics.utils.ops import scale_boxes
 from ultralytics.utils.torch_utils import init_seeds
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from coco_eval import CONF, MAX_DET, NMS_IOU, evaluate, format_result, load_gt, save_dets  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -144,8 +146,10 @@ def main():
     (run_dir / "weights").mkdir(parents=True, exist_ok=True)
     device = torch.device("cuda")
 
+    print(f"guards: {run_guards.apply()}", flush=True)
     init_seeds(args.seed, deterministic=True)          # same seeding as Ultralytics
     dl, data = loaders(args.split, batch, args.probe, args.fraction)
+    print(f"train transforms: {run_guards.check_transforms(dl['train'].dataset)}", flush=True)
     model = build_model(len(data["names"])).to(device)
     params = [p for p in model.parameters() if p.requires_grad]
     opt = torch.optim.SGD(params, lr=lr, momentum=M["momentum"], weight_decay=M["weight_decay"])
@@ -234,6 +238,8 @@ def main():
     res = evaluate(f"{args.split}_test", dets)
     (run_dir / "eval_test.json").write_text(json.dumps(
         {"model": "frcnn-r50fpn", "split": args.split, "seed": args.seed, "batch": batch, "best_epoch": best_epoch,
+         "epochs_max": epochs, "patience": patience, "lr": lr,
+         "selection": "best validation mAP50-95 (pycocotools)",
          "eval": {"conf": CONF, "nms_iou": NMS_IOU, "max_det_coco": MAX_DET}, "pycocotools": res}, indent=1))
     print(f"test pycocotools: {format_result(res)}")
 

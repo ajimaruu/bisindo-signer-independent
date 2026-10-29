@@ -63,11 +63,16 @@ models:
 # to a nominal batch of nbs=64 (and scales weight decay by batch*accumulate/64); the torchvision loop for
 # Faster R-CNN does not accumulate and scales lr by batch/16 instead.
 
-# Early stopping on validation mAP@[.50:.95]; values fixed after the pilot.
+# Early stopping and best checkpoint (locked 28 Oct 2026 after Kaggle pilot-3): pure validation mAP@[.50:.95]
+# for all three models. Ultralytics 8.4.190 fitness = (P, R, mAP50, mAP50-95) . (0, 0, 0, 1), checked at run
+# time by train_ultralytics.py; Faster R-CNN uses the pycocotools mAP50-95 of the validation split.
+# Stop when (epoch - best epoch) >= patience, in both trainers.
 early_stopping:
-  max_epochs: null
-  patience: null
+  max_epochs: 100
+  patience: 20
 
-# Batch size per model, set from the Kaggle probe: the same batch for all three models if it fits
-# (target 16). Laptop batches (4 GB) were yolo11m 6, rtdetr-l 4, frcnn 6 (config_log section 16).
-batch: {yolo11m: null, rtdetr-l: null, frcnn-r50fpn: null}
+# Batch (locked 28 Oct 2026 from the Kaggle probe, runs/kaggle_batch.json): 16 fits all three models on a
+# Tesla T4 (peak reserved: yolo11m 7.8, rtdetr-l 12.4, frcnn 9.0 GiB). Faster R-CNN lr = 0.02 * 16/16.
+# Laptop batches (4 GB) were yolo11m 6, rtdetr-l 4, frcnn 6 (config_log section 16) - not used for results.
+batch: {yolo11m: 16, rtdetr-l: 16, frcnn-r50fpn: 16}
+kaggle_gpu: Tesla T4      # every main run must use this GPU type (kaggle_session.py stops otherwise)

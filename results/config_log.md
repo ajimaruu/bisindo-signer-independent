@@ -470,3 +470,131 @@ Started 27 Oct 2026. One section per decision or check; newest at the bottom.
   - FP16 for all three models.
   - `measure_fps.py` implements the cooldown wait and the repeats. A test with 2 repeats gave YOLO11m 57.6 ± 0.3 FPS, then at 67→79 °C (temporary weights).
 - **Rest-hand detections:** recorded as discussion and limitation material only; the training data are not changed.
+
+## 19. First Kaggle pilot attempt failed in stage_env; fix (28 Oct 2026)
+- **Failure:** `stage_env` stopped after about 3 min with a `JSONDecodeError`. The torch build (cu130) had installed fine.
+  - Cause: on the first import, Ultralytics writes a three-line "Creating new Ultralytics Settings…" notice to stdout. The child that reports the environment printed its JSON after that notice, so the whole stdout was not valid JSON.
+  - Reproduced on the laptop with an empty `YOLO_CONFIG_DIR`. No training ran, so no results are affected.
+- **Fix in `kaggle_session.py`:** `child_json()` prints the JSON on one line prefixed with `@@BISINDO_JSON@@` and parses only that line. On any failure it stops with the code, the full stdout and the full stderr.
+- **Other subprocess reads checked, none of them parse JSON from stdout:**
+  - `cuda_works`: uses the exit code.
+  - `pip freeze`: reads lines containing `==`.
+  - `nvidia-smi`: CSV output.
+  - `prepare_data`: uses the exit code.
+  - Training runs: piped to a log; the results come from CSV files.
+- **Duplicated log lines:** the notebook now pipes the session's output and prints it line by line. A child that writes straight to the kernel's stdout appears more than once in the saved Kaggle log.
+- **Local rehearsal hooks:**
+  - `BISINDO_DATASET`, `BISINDO_WORK`, `BISINDO_INPUT` point the script at local folders.
+  - `BISINDO_SKIP_INSTALL=1` skips the package installs.
+  - `BISINDO_PROBE_BATCHES` sets the probe batches.
+  - On Windows, junctions replace symlinks.
+  - Kaggle runs with none of these set, so it behaves exactly as before.
+- **Rehearsal on the laptop:**
+  - Setup: the built dataset folder, an empty work folder, an empty `YOLO_CONFIG_DIR` (the settings notice did appear) and an empty `TORCH_HOME`; probe batch 2.
+  - Every stage passed: env (0 differences) → manifest → COCO identical → restore (fresh) → probe (YOLO 1.26 / RT-DETR 2.23 / FRCNN 1.48 GiB) → `pilot_yolo11m_p1_seed0` started training. It was stopped at epoch 1, iteration 36.
+- **Dataset:** uploaded as a new version of `ajimaru12/bisindo-wl15`. Kaggle's copy of `kaggle_session.py` is byte-identical to the repo's.
+
+## 20. Kaggle pilot-2 stopped in the batch probe; laptop and Kaggle code paths aligned (28 Oct 2026)
+**Pilot-2 (T4 ×2, only GPU 0 used):** env OK.
+- Python is 3.13.15 on Kaggle vs 3.11 on the laptop. The image's Python cannot be pinned, so this is recorded as a difference.
+- Probe results:
+  - YOLO11m fits at batch 16/12/8 (peak 7.84/5.94/4.07 GiB).
+  - RT-DETR-L fits at batch 16/12/8 (peak 12.44/9.65/6.53 GiB).
+  - Faster R-CNN ran out of memory at all three batches, already in the first iteration (backward pass).
+
+**1. Faster R-CNN OOM: the cause was torch.compile inside torchvision, not the resize.**
+- `min_size = max_size = 640` comes from `configs/train.yaml` on both machines, and the data loader is the same.
+- `init_seeds(deterministic=True)` turns on `torch.use_deterministic_algorithms`. With that on, torchvision 0.29's `roi_align` switches to a pure-Python `_roi_align` wrapped in `torch.compile`, but only when `is_compile_supported('cuda')` is true:
+  - Kaggle (Linux, triton): true.
+  - Laptop (Windows, no triton): false, so the laptop always used the C++/CUDA RoIAlign kernel.
+- The compiled backward (`aten.index_put_` with accumulate) needed about 12 GB at batch 8.
+- The deterministic mode itself is the same on both machines; only this RoIAlign branch differed.
+
+**Fix: `scripts/run_guards.py`, imported first by `train_ultralytics.py`, `train_frcnn.py` and `detectors.py`.**
+- Dynamo is disabled (`TORCHDYNAMO_DISABLE=1`, `torch._dynamo.config.disable`), so `torch.compile` returns the function unchanged in every model. Ultralytics also gets `compile=False` explicitly.
+- torchvision's `is_compile_supported` check is answered "not supported", so RoIAlign uses the C++/CUDA kernel on both machines.
+  - Consequence: the RoIAlign backward is not bit-deterministic (atomicAdd). PyTorch warns because `warn_only=True`. This was already the case in every laptop run.
+  - The other deterministic settings are unchanged.
+- **Tested on the laptop:**
+  - With `is_compile_supported` forced to true (as on Kaggle), the compiled Python path is taken without the guard and the CUDA kernel with it.
+  - `torch.compile(f) is f`.
+  - Faster R-CNN at batch 6 peaks at 3.27 GiB, the same as the earlier laptop test (3.3 GB).
+
+**2. Albumentations was active on Kaggle in all three models:** Blur, MedianBlur, ToGray and CLAHE, p = 0.01 each. Kaggle has the package preinstalled, and Ultralytics adds these transforms whenever the package can be imported.
+- They are not in the locked augmentation and are now removed everywhere:
+  - `kaggle_session.py` uninstalls `albumentations` after the pinned installs. The session stops if the package can still be imported, which `env_kaggle.json` records.
+  - `run_guards.apply()` stops every training run if the package can be imported (laptop as well).
+  - `run_guards.check_transforms()` checks the training dataset's transform pipeline at the start of every run and stops if an Albumentations step is active.
+  - `run_logged` stops any run whose output contains `albumentations:`, which Ultralytics prints only when those transforms are active. The probe or plan then stops (exit 4).
+- **Laptop pilot not affected:**
+  - albumentations is not installed in `.venv`, so Ultralytics' Albumentations step was a no-op (§15); it is not in `requirements_freeze.txt`.
+  - triton is not installed either.
+- Only the Kaggle pilot-2 probe epochs (never used for results) ran with albumentations.
+
+**3. Manifest check took 8 min per session on Kaggle.** The cause is per-file latency on the network-mounted `/kaggle/input`.
+- Files are now hashed in parallel (32 threads). Every file is still fully hashed with sha256 against the laptop manifest, so the integrity guarantee is unchanged.
+
+**Rehearsal on the laptop** (empty settings and torch hub, probe batch 2): all stages passed up to the start of the YOLO pilot.
+- Every run log shows `guards: torch.compile off, RoIAlign = torchvision CUDA kernel, albumentations absent` and the transform list.
+- Batch rule unchanged: the same batch for all three models, tried 16 → 12 → 8.
+
+## 21. Kaggle pilot-3 and locked main configuration (28 Oct 2026)
+**Pilot-3 (Tesla T4, GPU 0 only, batch 16; session 1.44 h):**
+- Manifest check took 2 s (was 8 min); the guards were active in all 6 runs; no `albumentations:` line.
+- Probe at batch 16, peak reserved: YOLO11m 7.83 GiB, RT-DETR-L 12.45 GiB, Faster R-CNN 9.03 GiB. All fit, so 16 → 12 → 8 stopped at 16.
+
+| Run | Epochs | Best epoch | s/epoch (train+val) | Best val mAP50-95 | Test mAP50-95 pycocotools / Ultralytics |
+|---|---|---|---|---|---|
+| YOLO11m P1 seed 0, max 100, patience 20 | 100 (ran to the cap) | 95 | 43.3 | 0.8706 | 0.8589 / 0.8619 |
+| RT-DETR-L P1 seed 0, 2 epochs | 2 | 2 | 98.9 | 0.0913 | 0.0903 / 0.0904 |
+| Faster R-CNN P1 seed 0, 2 epochs | 2 | 2 | 122.4 | 0.2608 | 0.2672 / – |
+
+**Locked for the main runs (user decision):**
+- **Batch:** 16 for all three models; Faster R-CNN lr = 0.02 × 16/16 = 0.02. `configs/train.yaml` holds `batch` and `kaggle_gpu: Tesla T4`; `kaggle_session.py` takes the locked batch (no new probe) and stops if the GPU is not a Tesla T4.
+- **Epochs:** max 100, patience 20, for all three models.
+- **Best checkpoint and early stopping:** pure validation mAP50-95 for all three models. Both trainers stop when (epoch − best epoch) ≥ patience, and an epoch counts as better only with a strictly higher value.
+  - Ultralytics 8.4.190: fitness = (P, R, mAP50, mAP50-95) · (0, 0, 0, 1) (`Metric.fitness`), so it is not changed.
+  - The 0.1 mAP50 + 0.9 mAP50-95 form is from older Ultralytics versions. In 8.4.190 it survives only in the faster-coco-eval branch for COCO/LVIS JSON outside training, which our runs never take.
+  - Pilot evidence: over all 100 epochs, |fitness − val mAP50-95| = 0 (the 0.9/0.1 mix would differ by up to 0.029); the best epoch (95) is the argmax of val mAP50-95.
+  - The rule is enforced and recorded:
+    - `train_ultralytics.py` checks the weights at start-up (stops otherwise).
+    - Every epoch it checks that fitness equals val mAP50-95 (stops otherwise).
+    - The rule is printed in the run log and stored in `eval_test.json` (`selection`, `patience`, `epochs_max`).
+    - Faster R-CNN: pycocotools mAP50-95 on the validation split; `eval_test.json` records the same fields.
+  - Remaining difference (for the manuscript): the per-epoch validation mAP50-95 of YOLO11m and RT-DETR-L comes from Ultralytics' validator, and that of Faster R-CNN from pycocotools. Both are COCO-style AP over IoU 0.50:0.95 with 101-point interpolation; on the pilot test split they differ by ~0.003. All reported test numbers use pycocotools for all three models (rule 6).
+- **Main plan** (`configs/kaggle_plan.yaml`, 30 runs):
+  - Order: P1 seed 0, P1 seed 1, then loso_s1 seed 0/1, s2, s3, s4.
+  - Within each block: YOLO11m → RT-DETR-L → Faster R-CNN.
+  - Names: `<model>_<split>_seed<seed>`.
+  - The pilot runs are not reused as main runs; YOLO11m P1 seed 0 is trained again under the main plan.
+- **Sessions:** budget ≤ 11 h. A run is paused after a saved epoch when the next epoch would not finish in time, and no run is started with < 20 min left. Each later session must attach the previous session's output, and restore then resumes the unfinished run from `last.pt`, with early-stopping state.
+
+**Estimate:**
+- Epoch time scales with each fold's train/val size (P1 1477/315; s1 1340/242; s2 1286/235; s3 1495/277; s4 1432/273); about 2 min per run for test evaluation; about 10.5 usable hours per session.
+
+| Scenario (epochs actually run) | YOLO11m | RT-DETR-L | Faster R-CNN | Total GPU h | Sessions | Weeks at 30 h |
+|---|---|---|---|---|---|---|
+| all 100 (upper bound) | 11.8 | 25.5 | 31.9 | 69.1 | 7 | 2.3 |
+| 100 / 80 / 50 | 11.8 | 20.4 | 16.1 | 48.3 | 5 | 1.6 |
+| 90 / 60 / 35 | 10.6 | 15.4 | 11.4 | 37.4 | 4 | 1.2 |
+
+- The P1 block alone (6 runs) is at most ~14.7 h, i.e. 1–2 sessions.
+- Note: YOLO11m reached the 100-epoch cap in the pilot (best epoch 95), so some YOLO runs may end at the cap rather than by patience. The cap stays as decided; how many runs end at the cap will be reported.
+
+## 22. Main session 1 (notebook version 4, 28–29 Oct 2026) and session length limit
+
+- **Session:** 10.98 h on a Tesla T4, batch 16, plan `main`. Five P1 runs finished; `frcnn-r50fpn_p1_seed1` paused after epoch 11 (session deadline) and resumes in session 2 from `last.pt`.
+- **Downloaded** with `kaggle_download.py --kernel ajimaru12/bisindo-wl15-training/4` (version 5, session 2, was already running, so the latest version had no output yet) → `runs/kaggle/20261029-0906/`.
+
+| Run | Epochs | Best epoch | Val mAP50-95 | s/epoch | Train h | Test mAP50-95 (pycocotools) | Ended by |
+|---|---|---|---|---|---|---|---|
+| yolo11m_p1_seed0 | 100 | 95 | 0.8706 | 41.7 | 1.16 | 0.8589 | cap (100) |
+| rtdetr-l_p1_seed0 | 95 | 75 | 0.8842 | 91.8 | 2.42 | 0.8831 | patience |
+| frcnn-r50fpn_p1_seed0 | 100 | 88 | 0.8306 | 115.8 | 3.22 | 0.8320 | cap (100) |
+| yolo11m_p1_seed1 | 100 | 85 | 0.8706 | 41.1 | 1.14 | 0.8593 | cap (100) |
+| rtdetr-l_p1_seed1 | 100 | 99 | 0.8777 | 92.1 | 2.56 | 0.8894 | cap (100) |
+
+- **Reproducibility check:** the main run `yolo11m_p1_seed0` reproduces pilot-3 (`pilot_yolo11m_p1_seed0`, notebook version 3) exactly on the same GPU type and code: all 649 tensors of `best.pt` are equal, `preds_test_coco.json` is byte-identical, `results.csv` differs only in the wall-time column, and the test mAP (pycocotools and Ultralytics) and all per-class APs are equal. Training is therefore deterministic for a given seed on the Kaggle T4.
+- **100-epoch cap:** four of the five finished runs ended at the cap rather than by patience (only `rtdetr-l_p1_seed0` stopped by patience). The cap stays as decided (§21); it is reported per run. The session time estimate is therefore closer to the upper bound of §21 (~69 GPU h, 7 sessions).
+- **`results/runs.csv`, `results/per_class.csv`:** built by `scripts/collect_results.py` from the downloaded outputs. It re-scores each run's saved test predictions with the common pycocotools evaluator on the laptop and stops if the result differs from Kaggle's `eval_test.json` (all five: identical). `fps` stays empty until the final FPS measurement; `precision`, `recall`, `f1` stay empty until their definition is decided.
+- **Session length limit:** `kaggle_session.py --max-hours` (notebook cell `MAX_HOURS`, default 10.8 h; allowed (0, 11.5]). It is counted from the start of the session script; no epoch is started that would end after it, and no run is started with < 20 min left. The report and the saving of the notebook output take a few more minutes. Lower it when less than ~11 h of the weekly Kaggle GPU quota is left, so the quota never cuts a session off before its output is saved.

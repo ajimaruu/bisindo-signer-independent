@@ -11,12 +11,16 @@ Stages (all run in order; each is idempotent):
   restore  copies runs/ from an attached output of an earlier session (checkpoints, logs)
   probe    once: the same batch for all three models, trying 16, 12, 8 -> runs/kaggle_batch.json
   plan     runs the plan (configs/kaggle_plan.yaml) in order: finished runs (eval_test.json) are skipped,
-           unfinished ones resume from last.pt; stops before the session deadline (exit code 3 of the
+           unfinished ones resume from last.pt; stops before the session deadline (--max-hours) (exit code 3 of the
            training scripts = stopped after a saved epoch, resumable)
   report   runs/session_report.json, and one row per session in runs/sessions.csv (GPU hours)
 
 This file must not import torch or other pinned packages at module level: they are installed by 'env'.
-Usage (Kaggle notebook): python -u /kaggle/input/<dataset>/scripts/kaggle_session.py --plan pilot
+Usage (Kaggle notebook): python -u /kaggle/input/<dataset>/scripts/kaggle_session.py --plan main --max-hours 10.8
+
+Local rehearsal (laptop, no package installs; see results/config_log.md): set BISINDO_DATASET (the built dataset
+folder), BISINDO_WORK (a scratch folder), BISINDO_INPUT (folder searched for an earlier session's runs/),
+BISINDO_SKIP_INSTALL=1 and optionally BISINDO_PROBE_BATCHES (e.g. "2").
 """
 import argparse
 import csv
@@ -28,11 +32,14 @@ import shutil
 import subprocess
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 
-DATASET = Path(__file__).resolve().parents[1]           # /kaggle/input/<dataset>
-WORK = Path("/kaggle/working/bisindo")
+DATASET = Path(os.environ.get("BISINDO_DATASET", Path(__file__).resolve().parents[1]))   # /kaggle/input/<dataset>
+WORK = Path(os.environ.get("BISINDO_WORK", "/kaggle/working/bisindo"))
+INPUT = Path(os.environ.get("BISINDO_INPUT", "/kaggle/input"))
+SKIP_INSTALL = os.environ.get("BISINDO_SKIP_INSTALL") == "1"
 RUNS = WORK / "runs"
 PY = sys.executable
 T_START = time.time()
@@ -40,9 +47,15 @@ TORCH_INDEX = "https://download.pytorch.org/whl/{}"
 CUDA_FALLBACKS = ["cu128", "cu126"]
 OTHER_PINS = ["ultralytics", "ultralytics-thop", "pycocotools", "numpy", "opencv-python", "pillow", "PyYAML",
               "polars", "matplotlib", "psutil", "requests"]
-BATCH_CANDIDATES = [16, 12, 8]
+BATCH_CANDIDATES = [int(b) for b in os.environ.get("BISINDO_PROBE_BATCHES", "16 12 8").split()]
+DEFAULT_MAX_HOURS = 10.8      # notebook cell MAX_HOURS; Kaggle's own limit is 12 h per session
+MAX_HOURS_CAP = 11.5
 MIN_START_S = 20 * 60          # do not start or resume a run with less than 20 min left
 DEADLINE_EXIT = 3
+FORBIDDEN_EXIT = 4             # run_logged: a forbidden line appeared in a run's output
+FORBIDDEN_LINES = ("albumentations:",)   # Ultralytics prints this only when albumentations transforms are active
+HASH_THREADS = 32              # /kaggle/input is a network mount: hashing is latency-bound, so read in parallel
+JSON_MARK = "@@BISINDO_JSON@@"   # child processes may print other things (e.g. Ultralytics' first-run settings notice)
 
 
 def log(msg):
@@ -59,6 +72,21 @@ def sha256(path):
         for chunk in iter(lambda: f.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def child_json(code):
+    """Run `code` in a fresh interpreter; it prints JSON_MARK + json.dumps(...). Only that line is parsed, so any
+    other output on stdout (package notices, warnings) is harmless. On failure the full output is shown."""
+    r = sh([PY, "-c", code], capture_output=True)
+    marked = [line[len(JSON_MARK):] for line in r.stdout.splitlines() if line.startswith(JSON_MARK)]
+    try:
+        if r.returncode == 0 and len(marked) == 1:
+            return json.loads(marked[0])
+        problem = f"exit code {r.returncode}, {len(marked)} marked line(s)"
+    except json.JSONDecodeError as e:
+        problem = f"invalid JSON: {e}"
+    sys.exit(f"child python failed ({problem})\n--- code ---\n{code}\n--- stdout ---\n{r.stdout}"
+             f"\n--- stderr ---\n{r.stderr}")
 
 
 def pins():
@@ -83,7 +111,10 @@ def stage_env():
     torch_ver, laptop_cuda = p["torch"].split("+")
     tv_ver = p["torchvision"].split("+")[0]
     chosen = None
-    for cu in [laptop_cuda] + [c for c in CUDA_FALLBACKS if c != laptop_cuda]:
+    if SKIP_INSTALL:   # local rehearsal: use the interpreter's own packages
+        log("BISINDO_SKIP_INSTALL=1: no package installs")
+        chosen = "skipped"
+    for cu in [] if SKIP_INSTALL else [laptop_cuda] + [c for c in CUDA_FALLBACKS if c != laptop_cuda]:
         log(f"installing torch=={torch_ver} torchvision=={tv_ver} ({cu})")
         r = sh([PY, "-m", "pip", "install", "-q", f"torch=={torch_ver}", f"torchvision=={tv_ver}",
                 "--index-url", TORCH_INDEX.format(cu)], capture_output=True)
@@ -95,8 +126,12 @@ def stage_env():
     if chosen is None:
         sys.exit("no torch build of the pinned version works on this GPU/driver")
     others = [f"{n}=={p[n.lower()]}" for n in OTHER_PINS if n.lower() in p]
-    log("installing " + " ".join(others))
-    sh([PY, "-m", "pip", "install", "-q", *others], check=True)
+    if not SKIP_INSTALL:
+        log("installing " + " ".join(others))
+        sh([PY, "-m", "pip", "install", "-q", *others], check=True)
+        # preinstalled on Kaggle, absent on the laptop; Ultralytics would add Blur/MedianBlur/ToGray/CLAHE
+        log("uninstalling albumentations (not part of the locked augmentation)")
+        sh([PY, "-m", "pip", "uninstall", "-y", "-q", "albumentations"])
 
     freeze = {}
     for line in sh([PY, "-m", "pip", "freeze"], capture_output=True).stdout.splitlines():
@@ -105,16 +140,21 @@ def stage_env():
             freeze[n.lower()] = v
     diffs = [{"package": n, "laptop": v, "kaggle": freeze.get(n, "missing")}
              for n, v in sorted(p.items()) if freeze.get(n) != v]
-    info = json.loads(sh([PY, "-c", (
-        "import json, platform, torch, torchvision, ultralytics, numpy, cv2;"
-        "print(json.dumps({'python': platform.python_version(), 'torch': torch.__version__,"
+    info = child_json(
+        "import json, platform, importlib.util, torch, torchvision, ultralytics, numpy, cv2;"
+        "from torch._dynamo.utils import is_compile_supported;"
+        f"print({JSON_MARK!r} + json.dumps({{'python': platform.python_version(), 'torch': torch.__version__,"
         "'torch_cuda': torch.version.cuda, 'cudnn': torch.backends.cudnn.version(),"
         "'torchvision': torchvision.__version__, 'ultralytics': ultralytics.__version__,"
         "'numpy': numpy.__version__, 'opencv': cv2.__version__,"
-        "'gpus': [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())]}))")],
-        capture_output=True, check=True).stdout)
+        "'albumentations_importable': importlib.util.find_spec('albumentations') is not None,"
+        "'triton_importable': importlib.util.find_spec('triton') is not None,"
+        "'torch_compile_supported_cuda': is_compile_supported('cuda'),"
+        "'gpus': [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())]}))")
     smi = sh(["nvidia-smi", "--query-gpu=name,driver_version,memory.total", "--format=csv,noheader"],
              capture_output=True).stdout.strip().splitlines()
+    if info["albumentations_importable"]:
+        sys.exit("albumentations is still importable after uninstalling it")
     env = {**info, "nvidia_smi": smi, "torch_build_chosen": chosen, "laptop_torch_build": laptop_cuda,
            "differences_from_laptop": diffs, "recorded_utc": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     RUNS.mkdir(parents=True, exist_ok=True)
@@ -134,7 +174,10 @@ def stage_setup():
     for name, target in (("frames", DATASET / "frames"), ("labels_yolo", DATASET / "labels")):
         link = WORK / "data" / name
         if not link.exists():
-            os.symlink(target, link, target_is_directory=True)
+            if os.name == "nt":   # local rehearsal on Windows: junction (symlinks need admin rights)
+                sh(["cmd", "/c", "mklink", "/J", str(link), str(target)], check=True, capture_output=True)
+            else:
+                os.symlink(target, link, target_is_directory=True)
     for w in ("yolo11m.pt", "rtdetr-l.pt"):
         if not (WORK / "data" / "models" / w).exists():
             shutil.copy2(DATASET / "weights" / w, WORK / "data" / "models" / w)
@@ -144,14 +187,14 @@ def stage_setup():
         if not (hub / f.name).exists():
             shutil.copy2(f, hub / f.name)
 
-    bad = []
-    for line in (DATASET / "manifest_sha256.txt").read_text().splitlines():
-        digest, rel = line.split("  ", 1)
-        if sha256(DATASET / rel) != digest:
-            bad.append(rel)
+    entries = [line.split("  ", 1) for line in (DATASET / "manifest_sha256.txt").read_text().splitlines()]
+    t0 = time.time()
+    with ThreadPoolExecutor(HASH_THREADS) as pool:   # every file still fully hashed with sha256
+        got = list(pool.map(lambda e: sha256(DATASET / e[1]), entries))
+    bad = [rel for (digest, rel), h in zip(entries, got) if h != digest]
     if bad:
         sys.exit(f"dataset files differ from the laptop manifest: {bad[:5]}")
-    log("dataset manifest OK (frames, labels, weights)")
+    log(f"dataset manifest OK ({len(entries)} files: frames, labels, weights; {time.time() - t0:.0f} s)")
 
     r = sh([PY, str(WORK / "scripts" / "prepare_data.py")], cwd=WORK, capture_output=True)
     if r.returncode:
@@ -166,7 +209,7 @@ def stage_setup():
 # ---------------------------------------------------------------- restore
 def stage_restore():
     """Copy runs/ of the newest attached earlier session (Kaggle mounts notebook outputs under /kaggle/input)."""
-    found = [Path(p) for p in glob.glob("/kaggle/input/**/bisindo/runs", recursive=True)]
+    found = [Path(p) for p in glob.glob(str(INPUT / "**" / "bisindo" / "runs"), recursive=True)]
     found = [p for p in found if (p / "sessions.csv").exists()]
     if not found:
         log("restore: no earlier session attached; starting fresh")
@@ -203,6 +246,12 @@ def run_logged(cmd, logfile, deadline):
                                 text=True, errors="replace")
         for line in proc.stdout:
             f.write(line)
+            if any(s in line for s in FORBIDDEN_LINES):
+                proc.kill()
+                proc.wait()
+                f.write(f"\n===== stopped by kaggle_session.py: forbidden line {line.strip()!r}\n")
+                log(f"STOPPED: forbidden line in the run output: {line.strip()}")
+                return FORBIDDEN_EXIT
             # echo epoch summaries and errors, not progress bars
             if not any(s in line for s in ("━", "──", "\r", "it/s", "s/it")):
                 print(line, end="", flush=True)
@@ -227,6 +276,15 @@ def gpu_name(env):
 
 
 def stage_probe(deadline, env):
+    import yaml   # installed / pinned by stage_env
+    cfg = yaml.safe_load(open(WORK / "configs" / "train.yaml", encoding="utf-8"))
+    locked = set(cfg["batch"].values())
+    if None not in locked and len(locked) == 1:   # batch locked after the pilot: no new probe
+        if gpu_name(env) != cfg["kaggle_gpu"]:
+            sys.exit(f"this session got {gpu_name(env)}, but the batch is locked for {cfg['kaggle_gpu']}; "
+                     "choose the same accelerator as before")
+        log(f"batch {locked.pop()} locked in configs/train.yaml for {cfg['kaggle_gpu']} (no probe)")
+        return cfg["batch"]["yolo11m"]
     out = RUNS / "kaggle_batch.json"
     if out.exists():
         res = json.loads(out.read_text())
@@ -247,6 +305,8 @@ def stage_probe(deadline, env):
             results[model] = {"ok": code == 0, "peak_reserved_gib": peak,
                               "train_s_295_images": float(rows[-1]["train_s"]) if rows and code == 0 else None}
             log(f"  {model} b{b}: {'fits' if code == 0 else f'FAILED (exit {code})'} peak {peak} GiB")
+            if code == FORBIDDEN_EXIT:
+                sys.exit("probe stopped: forbidden line in the output (see the log above)")
             if code != 0:
                 break
         tried.append({"batch": b, "results": results})
@@ -277,6 +337,9 @@ def stage_plan(plan_name, batch, deadline):
         code = run_logged(train_cmd(r["model"], r["split"], r["seed"], batch, r.get("epochs"), r.get("patience"),
                                     name), RUNS / "logs" / f"{name}.log", deadline)
         touched.append(name)
+        if code == FORBIDDEN_EXIT:
+            log(f"{name}: stopped, forbidden line in the output; the remaining runs are not started")
+            break
         if code == DEADLINE_EXIT:
             log(f"{name}: paused before the session deadline; attach this output to the next session to resume")
             break
@@ -327,9 +390,15 @@ def stage_report(plan_name, plan, batch, touched, env):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--plan", default="pilot", help="plan name in configs/kaggle_plan.yaml")
-    ap.add_argument("--budget-hours", type=float, default=11.0, help="stop before this (Kaggle limit is 12 h)")
+    ap.add_argument("--max-hours", "--budget-hours", dest="max_hours", type=float, default=DEFAULT_MAX_HOURS,
+                    help="session length limit from the start of this script; no epoch is started that would end "
+                         "after it (Kaggle stops a session at 12 h; lower it when less weekly GPU quota is left)")
     args = ap.parse_args()
-    deadline = T_START + args.budget_hours * 3600
+    if not 0 < args.max_hours <= MAX_HOURS_CAP:
+        sys.exit(f"--max-hours must be in (0, {MAX_HOURS_CAP}], got {args.max_hours}")
+    deadline = T_START + args.max_hours * 3600
+    log(f"session limit {args.max_hours:.2f} h: training stops by "
+        f"{datetime.fromtimestamp(deadline, timezone.utc).strftime('%H:%M')} UTC, then report + output save")
     WORK.mkdir(parents=True, exist_ok=True)
 
     env = stage_env()
