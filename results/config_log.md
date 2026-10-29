@@ -629,3 +629,38 @@ Implementation (`scripts/coco_eval.py`: `match_iou50`, `prf`, `select_threshold`
 | frcnn-r50fpn_p1_seed0 | 0.753 | 0.9899 | 0.9970 | 0.9928 | 0.9947 |
 | yolo11m_p1_seed1 | 0.813 | 0.9874 | 0.9917 | 0.9797 | 0.9852 |
 | rtdetr-l_p1_seed1 | 0.274 | 0.9873 | 0.9813 | 0.9958 | 0.9883 |
+
+## 24. Main session 2 (notebook version 5) and the YOLO single-label export finding (29 Oct 2026)
+
+**Session 2:** 10.99 h on a Tesla T4.
+- Finished: `frcnn-r50fpn_p1_seed1` (resumed from epoch 11), `yolo11m_loso_s1_seed0`, `rtdetr-l_loso_s1_seed0`, `frcnn-r50fpn_loso_s1_seed0`, `yolo11m_loso_s1_seed1`.
+- Paused: `rtdetr-l_loso_s1_seed1` at epoch 44.
+- Downloaded to `runs/kaggle/20261029-2046/`. `runs.csv` / `per_class.csv` now hold 10 runs.
+- P1 summary: `scripts/summarise.py --protocol P1` → `results/summary_p1.md`, `.csv`, `_per_class.csv`.
+
+**Finding (investigated, nothing changed yet):** on `yolo11m_loso_s1_seed0` the test mAP50-95 is 0.718 with pycocotools and 0.736 with Ultralytics' `model.val()` (gap 0.018; in P1 it was below 0.004). Checked on the laptop with the Kaggle `best.pt`:
+
+| Step (test, loso_s1) | mAP50-95 |
+|---|---|
+| Our exported detections (`predict()`, NMS `multi_label=False`), pycocotools | 0.7181 |
+| Same input, NMS `multi_label=True` (as Ultralytics' validator), pycocotools | 0.7364 |
+| The validator's own detections (rect input + 0.5-stride padding, multi-label), pycocotools | 0.7370 |
+| Same detections, Ultralytics' AP computation | 0.7363 |
+
+- **Cause:** Ultralytics' predictor gives each box only its top class (`multi_label=False`). Its validator, used for the per-epoch val metric and `model.val()`, keeps every class above conf for each box (`multi_label=True`).
+  - On the unseen signer the model often ranks the true class second, for example `s1_cari_v08_f0055`: Berangkat 0.545, Cari second.
+  - The single-label export then drops the true-class detection entirely, which caps recall. Cari has AP50 0.21 single-label against 0.49 multi-label.
+  - In P1 the top class is almost always right, hence the small gap there (0.8576 vs 0.8618 on p1_test).
+- **Not the cause:** the AP formula (−0.0007) or input padding (+0.0006). `max_det` 100 vs 300 makes no difference either, because YOLO keeps only ~2 detections per image after NMS at conf 0.001.
+- **Other models:**
+  - RT-DETR-L uses the same postprocess (one label per query) in `predict()` and in its validator, so it is not affected (0.790 vs 0.789).
+  - torchvision Faster R-CNN emits a detection for every class above `box_score_thresh` per proposal, so it is effectively multi-label.
+  - YOLO11m is therefore the only model exported single-label.
+- **Effect on checkpoint selection:** YOLO/RT-DETR select on Ultralytics' validator (multi-label for YOLO). On validation splits the single-label vs multi-label offset is small (p1_val 0.8679 vs 0.8715; loso_s1_val 0.8447 vs 0.8462), but it can change the ranking of near-tied epochs.
+  - `yolo11m_p1_seed1`: best.pt (epoch 85) against last.pt (epoch 100).
+    - Validator: 0.8706 > 0.8705.
+    - Pycocotools multi-label: 0.8731 > 0.8722.
+    - Pycocotools single-label: 0.8669 < 0.8694, i.e. it would have preferred epoch 100.
+  - `yolo11m_p1_seed0`: all three agree.
+  - So YOLO's selection is consistent with a multi-label definition, not with the single-label test export. RT-DETR's selection is consistent with its export.
+- Reported to the user for a decision before anything is changed.
