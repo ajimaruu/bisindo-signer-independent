@@ -54,5 +54,8 @@ yolo11m,delta_two,,2,0.00828,,-0.00773
 rtdetr-l,delta_two,,2,-0.05209,,-0.01704
 frcnn-r50fpn,delta_two,,2,-0.05021,,-0.01087
 yolo11m,delta_two s1,,2,0.00828,,
+yolo11m,Teman s1,two,2,0.6745,0.07661,
 rtdetr-l,delta_two s1,,2,-0.05209,,
+rtdetr-l,Teman s1,two,2,0.78248,0.02889,
 frcnn-r50fpn,delta_two s1,,2,-0.05021,,
+frcnn-r50fpn,Teman s1,two,2,0.80366,0.00764,

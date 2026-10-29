@@ -8,17 +8,20 @@ Protocol 1 (--protocol P1):
      Delta_two = mean AP50-95 (C_one) - mean AP50-95 (C_two) (manuscript eq. (21)), given as mean +- SD over seeds.
      Teman (the only class with hand-over-hand occlusion) is marked.
 
-Protocol 2, leave-one-signer-out (--protocol LOSO; needs the finished P1 runs for mAP^rand):
-  3.2 a. Per fold and model: mean +- SD over the 2 seeds.
+Protocol 2, leave-one-signer-out (--protocol LOSO; needs the finished P1 runs for mAP^rand). Sections follow the
+manuscript's Chapter 3:
+  3.2 a. Per fold and model: mAP50, mAP50-95, P, R, F1 as mean +- SD over the 2 seeds.
       b. Per model: metric^SI (eq. 7) = mean over the folds of the per-fold seed means, +- SD over folds; the seed
          SD is reported separately as the mean over folds of the within-fold seed SD.
-         Delta_abs = metric^rand - metric^SI and Delta_rel = Delta_abs / metric^rand x 100, with metric^rand the
-         mean of the 2 P1 seeds; for mAP50, mAP50-95 and F1.
-  3.3 AP50-95 per class = mean over folds x seeds (all runs of the complete folds), Delta_two from these class
-      means; Delta_two per fold (from the per-fold seed means) to see whether its sign is consistent.
-  3.4 Paired model comparison: per fold, the difference of the seed means (A - B); mean +- SD of the differences
-      over folds and the number of folds whose order agrees with the order of the means. No significance test
-      (n = 4 folds).
+      c. Paired model comparison: per fold, the difference of the seed means (A - B); mean +- SD of the
+         differences over folds and the number of folds whose order agrees with the order of the means. No
+         significance test (n = 4 folds).
+  3.3 Delta_abs = metric^rand - metric^SI and Delta_rel = Delta_abs / metric^rand x 100, with metric^rand the mean
+      of the 2 P1 seeds; for mAP50, mAP50-95 and F1.
+  3.4 AP50-95 per class = mean over folds x seeds (all runs of the complete folds), Delta_two from these class
+      means; Delta_two per fold (from the per-fold seed means) to see whether its sign is consistent; Teman per
+      fold; the confusion matrices come from scripts/confusion_matrix.py.
+  3.5 FPS: placeholder until the final measurement (scripts/measure_fps.py).
 A fold counts for a model only when all its seeds are finished; the pairwise comparison uses the folds complete
 for both models. Until all 4 folds are complete the tables are marked as preliminary.
 
@@ -173,7 +176,7 @@ def summarise_loso(runs, pcs, p1_runs):
 
     # ---- 3.2 a: per fold
     rows_fold = []
-    md += ["## 3.2 Random split vs signer-independent", "", "### Per fold (mean ± SD over seeds)", "",
+    md += ["## 3.2 Signer-independent results", "", "### Per fold (mean ± SD over seeds)", "",
            "| Model | Fold (test signer) | " + " | ".join(lbl for _, lbl, _ in DET) + " |",
            "|---|---" + "|---" * len(DET) + "|"]
     for m in models:
@@ -184,13 +187,18 @@ def summarise_loso(runs, pcs, p1_runs):
                 row[f"{k}_mean"], row[f"{k}_sd"] = r5(np.mean(vals[m][f][k])), r5(sd(vals[m][f][k]))
             rows_fold.append(row)
 
-    # ---- 3.2 b: SI, seed SD, rand, Delta_abs, Delta_rel
-    rows_main = []
-    md += ["", "### Signer-independent (eq. 7) vs random split", "",
-           "| Model | Folds | Metric | SI (± SD over folds) | Seed SD (mean) | rand (P1, ± SD over seeds) | Δabs | Δrel (%) |",
-           "|---|---|---|---|---|---|---|---|"]
+    # ---- 3.2 b: SI (eq. 7) with SD over folds and the mean seed SD; 3.3: rand, Delta_abs, Delta_rel
+    rows_main, md_gap = [], []
+    md += ["", "### Signer-independent over folds (eq. 7)", "",
+           "| Model | Folds | " + " | ".join(f"{lbl} SI ± SD folds (seed SD)" for _, lbl, _ in DET) + " |",
+           "|---|---" + "|---" * len(DET) + "|"]
+    md_gap += ["## 3.3 Random split vs signer-independent", "",
+               "rand = mean ± SD over the P1 seeds; SI = mean ± SD over folds; Δabs = rand − SI; "
+               "Δrel = Δabs / rand × 100.", "",
+               "| Model | Folds | Metric | rand (P1) | SI | Δabs | Δrel (%) |", "|---|---|---|---|---|---|---|"]
     for m in models:
         p1 = [r for r in p1_runs if r["model"] == m]
+        cells = []
         for k, lbl, nd in DET:
             fm = [fold_mean[m][f][k] for f in folds[m]]
             seed_sd = float(np.mean([sd(vals[m][f][k]) for f in folds[m]]))
@@ -199,17 +207,46 @@ def summarise_loso(runs, pcs, p1_runs):
             dabs = rd - si
             drel = 100 * dabs / rd
             gap = k in dict(GAP)
-            md.append(f"| {MODELS[m]} | {len(folds[m])}/{n_all} | {lbl} | {pm(fm, nd)} | {seed_sd:.{nd}f} | "
-                      f"{pm(rand, nd)} | " + (f"{dabs:+.{nd}f} | {drel:+.1f} |" if gap else "| |"))
+            cells.append(f"{pm(fm, nd)} ({seed_sd:.{nd}f})")
+            if gap:
+                md_gap.append(f"| {MODELS[m]} | {len(folds[m])}/{n_all} | {lbl} | {pm(rand, nd)} | {pm(fm, nd)} | "
+                              f"{dabs:+.{nd}f} | {drel:+.1f} |")
             rows_main.append({"model": m, "metric": k, "n_folds": len(folds[m]), "folds": " ".join(folds[m]),
                               "si_mean": r5(si), "si_sd_folds": r5(sd(fm)), "seed_sd_mean": r5(seed_sd),
                               "rand_mean": r5(rd), "rand_sd": r5(sd(rand)),
                               "delta_abs": r5(dabs) if gap else "", "delta_rel_pct": round(drel, 3) if gap else ""})
+        md.append(f"| {MODELS[m]} | {len(folds[m])}/{n_all} | " + " | ".join(cells) + " |")
 
-    # ---- 3.3: per class (folds x seeds), Delta_two pooled and per fold
+    # ---- 3.2 c: paired comparison per fold
+    rows_pair = []
+    md += ["", "### Paired model comparison", "",
+           "Per fold: difference of the seed means (A − B). Mean ± SD of the differences over the folds complete for "
+           "both models; 'Same order' = folds in which A − B has the sign of the mean difference. "
+           "No significance test (n = 4 folds).", "",
+           "| A − B | Folds | " + " | ".join(f"{lbl} Δ (mean ± SD) | Same order" for _, lbl in GAP) + " |",
+           "|---|---" + "|---|---" * len(GAP) + "|"]
+    for a, b in itertools.combinations(models, 2):
+        common = [f for f in FOLDS if f in folds[a] and f in folds[b]]
+        if not common:
+            continue
+        cells = []
+        row = {"model_a": a, "model_b": b, "n_folds": len(common), "folds": " ".join(common)}
+        for k, _ in GAP:
+            diff = [fold_mean[a][f][k] - fold_mean[b][f][k] for f in common]
+            mean = float(np.mean(diff))
+            same = sum(np.sign(x) == np.sign(mean) for x in diff)
+            cells.append(f"{mean:+.3f} ± {fmt_sd(sd(diff), 3)} | {same}/{len(common)}")
+            row.update({f"{k}_diff_mean": r5(mean), f"{k}_diff_sd": r5(sd(diff)), f"{k}_same_order": same,
+                        f"{k}_per_fold": " ".join(f"{x:+.5f}" for x in diff)})
+        md.append(f"| {MODELS[a]} − {MODELS[b]} | {len(common)}/{n_all} | " + " | ".join(cells) + " |")
+        rows_pair.append(row)
+
+    md += [""] + md_gap
+
+    # ---- 3.4: per class (folds x seeds), Delta_two pooled and per fold, Teman, confusion matrix
     ap_ = {(r["model"], r["fold"], int(r["seed"]), r["class"]): float(r["ap50_95"]) for r in pcs}
     rows_cls = []
-    md += ["", "## 3.3 Per-class AP50-95 and Δtwo (signer-independent)", "",
+    md += ["", "## 3.4 Per-class AP50-95, Δtwo and Teman (signer-independent)", "",
            "AP50-95 per class = mean over the complete folds × seeds. Δtwo = mean C_one − mean C_two (eq. 21) from "
            "these class means; positive = two-handed glosses are harder. P1 = mean over the P1 seeds.", "",
            "| Class | Group | " + " | ".join(f"{MODELS[m]} SI | P1" for m in models) + " |",
@@ -240,42 +277,30 @@ def summarise_loso(runs, pcs, p1_runs):
                              "n_runs": len(folds[m]) * len(SEEDS), "ap50_95_mean": r5(g_si[m][i]),
                              "ap50_95_sd_runs": "", "ap50_95_p1": r5(g_p1[m][i])})
 
+    # Delta_two and Teman per fold (per-fold seed means)
+    md_teman = ["", f"### {OCCLUSION} (hand-over-hand occlusion), AP50-95 per fold (mean ± SD over seeds)", "",
+                "| Model | " + " | ".join(FOLDS) + " | SI (± SD folds) | P1 |", "|---" * (len(FOLDS) + 3) + "|"]
     md += ["", "### Δtwo per fold (from the per-fold seed means)", "",
            "| Model | " + " | ".join(FOLDS) + " | Folds with Δtwo > 0 |", "|---" * (len(FOLDS) + 2) + "|"]
-    rows_dtwo = []
     for m in models:
-        d = {}
+        d, t = {}, {}
         for f in folds[m]:
             d[f] = group_means({c: float(np.mean([ap_[(m, f, s, c)] for s in SEEDS])) for c in NAMES})[2]
-            rows_dtwo.append({"model": m, "class": f"delta_two {f}", "group": "", "n_runs": len(SEEDS),
-                              "ap50_95_mean": r5(d[f]), "ap50_95_sd_runs": "", "ap50_95_p1": ""})
+            t[f] = [ap_[(m, f, s, OCCLUSION)] for s in SEEDS]
+            rows_cls.append({"model": m, "class": f"delta_two {f}", "group": "", "n_runs": len(SEEDS),
+                             "ap50_95_mean": r5(d[f]), "ap50_95_sd_runs": "", "ap50_95_p1": ""})
+            rows_cls.append({"model": m, "class": f"{OCCLUSION} {f}", "group": GROUP[OCCLUSION], "n_runs": len(SEEDS),
+                             "ap50_95_mean": r5(np.mean(t[f])), "ap50_95_sd_runs": r5(sd(t[f])), "ap50_95_p1": ""})
         md.append(f"| {MODELS[m]} | " + " | ".join(f"{d[f]:+.3f}" if f in d else "–" for f in FOLDS) +
                   f" | {sum(v > 0 for v in d.values())}/{len(d)} |")
-    rows_cls += rows_dtwo
-
-    # ---- 3.4: paired comparison per fold
-    rows_pair = []
-    md += ["", "## 3.4 Paired model comparison (signer-independent)", "",
-           "Per fold: difference of the seed means (A − B). Mean ± SD of the differences over the folds complete for "
-           "both models; 'Same order' = folds in which A − B has the sign of the mean difference. "
-           "No significance test (n = 4 folds).", "",
-           "| A − B | Folds | " + " | ".join(f"{lbl} Δ (mean ± SD) | Same order" for _, lbl in GAP) + " |",
-           "|---|---" + "|---|---" * len(GAP) + "|"]
-    for a, b in itertools.combinations(models, 2):
-        common = [f for f in FOLDS if f in folds[a] and f in folds[b]]
-        if not common:
-            continue
-        cells = []
-        row = {"model_a": a, "model_b": b, "n_folds": len(common), "folds": " ".join(common)}
-        for k, _ in GAP:
-            diff = [fold_mean[a][f][k] - fold_mean[b][f][k] for f in common]
-            mean = float(np.mean(diff))
-            same = sum(np.sign(x) == np.sign(mean) for x in diff)
-            cells.append(f"{mean:+.3f} ± {fmt_sd(sd(diff), 3)} | {same}/{len(common)}")
-            row.update({f"{k}_diff_mean": r5(mean), f"{k}_diff_sd": r5(sd(diff)), f"{k}_same_order": same,
-                        f"{k}_per_fold": " ".join(f"{x:+.5f}" for x in diff)})
-        md.append(f"| {MODELS[a]} − {MODELS[b]} | {len(common)}/{n_all} | " + " | ".join(cells) + " |")
-        rows_pair.append(row)
+        md_teman.append(f"| {MODELS[m]} | " + " | ".join(pm(t[f], 3) if f in t else "–" for f in FOLDS) +
+                        f" | {pm([np.mean(v) for v in t.values()], 3)} | {p1_cls[m][OCCLUSION]:.3f} |")
+    md += md_teman
+    md += ["", "### Confusion matrix", "",
+           "Per model, summed over the complete folds × seeds, from the test predictions at each run's conf_thr: "
+           "`python scripts/confusion_matrix.py --protocol LOSO` → `results/confusion/confusion_loso_<model>.csv` "
+           "and `.png`.", "",
+           "## 3.5 Inference speed", "", "FPS: not measured yet (`scripts/measure_fps.py`, after all training).", ""]
 
     return md, {"summary_loso.csv": rows_main, "summary_loso_folds.csv": rows_fold,
                 "summary_loso_per_class.csv": rows_cls, "summary_loso_pairs.csv": rows_pair}
