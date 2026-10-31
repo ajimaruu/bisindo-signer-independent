@@ -99,3 +99,10 @@ def default_weights():
     """Weights per model from configs/app.yaml (paths relative to the repo root)."""
     cfg = yaml.safe_load(open(ROOT / "configs" / "app.yaml", encoding="utf-8"))
     return {k: ROOT / v for k, v in cfg["weights"].items() if v}
+
+
+def default_conf():
+    """The application's default confidence threshold per model from configs/app.yaml (conf_thr of the run whose
+    checkpoint the application uses; empty when not set)."""
+    cfg = yaml.safe_load(open(ROOT / "configs" / "app.yaml", encoding="utf-8"))
+    return {k: float(v) for k, v in (cfg.get("conf") or {}).items() if v is not None}

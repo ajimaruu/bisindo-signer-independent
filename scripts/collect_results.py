@@ -1,8 +1,11 @@
-"""Collect the finished Kaggle runs of the main plan into results/runs.csv and results/per_class.csv (CLAUDE.md,
+"""Collect the finished runs of the 30-run plan into results/runs.csv and results/per_class.csv (CLAUDE.md,
 "Format hasil"). Both CSVs are rebuilt from scratch on every call (no hand edits).
 
-Source of the training runs: the downloaded session outputs in runs/kaggle/<timestamp>/ (scripts/kaggle_download.py).
-Every session's output holds all runs so far, so each run is taken from the newest download with its eval_test.json.
+The 30 runs: plan `main` (Kaggle: P1 and folds s1-s3) and plan `colab_s4` (Google Colab: fold s4) in
+configs/kaggle_plan.yaml (split decided 31 Oct 2026, config_log section 28); both on a Tesla T4.
+Source of the training runs: the downloaded session outputs in runs/kaggle/<timestamp>/ and runs/colab/<timestamp>/
+(scripts/kaggle_download.py). Every session's output holds all runs so far, so each run is taken from the newest
+download with its eval_test.json; the `platform` column says where it was trained.
 
 All paper numbers come from predictions exported on this laptop (decided 29 Oct 2026, config_log section 25):
 best.pt from Kaggle predicts the validation and test splits here with the common export (scripts/coco_eval.py:
@@ -32,11 +35,13 @@ import yaml
 from coco_eval import evaluate, match_iou50, predict_ultralytics, prf, save_dets, select_threshold
 from detectors import ROOT, load_detector
 
-PLAN = yaml.safe_load(open(ROOT / "configs" / "kaggle_plan.yaml", encoding="utf-8"))["main"]
+PLANS = yaml.safe_load(open(ROOT / "configs" / "kaggle_plan.yaml", encoding="utf-8"))
+PLAN = PLANS["main"] + PLANS["colab_s4"]
+PLATFORMS = ("kaggle", "colab")         # runs/<platform>/<timestamp>/ (scripts/kaggle_download.py)
 CLASSES = yaml.safe_load(open(ROOT / "configs" / "classes.yaml", encoding="utf-8"))
 GROUP = {CLASSES["names"][i]: g for i, g in CLASSES["groups"].items()}
 IMGSZ = yaml.safe_load(open(ROOT / "configs" / "train.yaml", encoding="utf-8"))["imgsz"]
-RUN_COLS = ["model", "protocol", "fold", "seed", "epochs", "batch", "imgsz", "map50", "map50_95", "precision",
+RUN_COLS = ["model", "protocol", "fold", "seed", "platform", "epochs", "batch", "imgsz", "map50", "map50_95", "precision",
             "recall", "f1", "conf_thr", "val_f1", "fps", "params_M", "train_time_min", "checkpoint_path"]
 CLASS_COLS = ["model", "protocol", "fold", "seed", "class", "ap50", "ap50_95", "group"]
 TOL = 1e-9
@@ -69,12 +74,15 @@ def laptop_preds(model, split, part, best, batch, name, multi_label=True):
 
 
 def find_run(model, name):
+    """(run folder, platform) from the newest download (Kaggle or Colab) that holds the finished run."""
     sub = "frcnn" if model == "frcnn-r50fpn" else "ultralytics"
-    for dl in sorted((ROOT / "runs" / "kaggle").iterdir(), reverse=True):   # newest download first
+    downloads = [(dl.name, plat, dl) for plat in PLATFORMS if (ROOT / "runs" / plat).exists()
+                 for dl in (ROOT / "runs" / plat).iterdir() if dl.is_dir()]
+    for _, plat, dl in sorted(downloads, reverse=True):   # newest download first (<timestamp> = YYYYmmdd-HHMM)
         for rdir in dl.glob(f"**/runs/{sub}/{name}"):
             if (rdir / "eval_test.json").exists():
-                return rdir
-    return None
+                return rdir, plat
+    return None, None
 
 
 def epoch_rows(model, rdir):
@@ -87,7 +95,7 @@ def main():
     for r in PLAN:
         model, split, seed = r["model"], r["split"], r["seed"]
         name = r.get("name") or f"{model}_{split}_seed{seed}"
-        rdir = find_run(model, name)
+        rdir, platform = find_run(model, name)
         if rdir is None:
             print(f"{name:<28} not finished yet")
             continue
@@ -116,7 +124,8 @@ def main():
             n_params[model] = load_detector(model, best, conf=0.001).n_params / 1e6
         ep = epoch_rows(model, rdir)
         protocol, fold = ("P1", "") if split == "p1" else ("LOSO", split.split("_")[1])
-        runs.append({"model": model, "protocol": protocol, "fold": fold, "seed": seed, "epochs": len(ep),
+        runs.append({"model": model, "protocol": protocol, "fold": fold, "seed": seed, "platform": platform,
+                     "epochs": len(ep),
                      "batch": ev["batch"], "imgsz": IMGSZ, "map50": round(coco["map50"], 5),
                      "map50_95": round(coco["map50_95"], 5), "precision": round(prec, 5), "recall": round(rec, 5),
                      "f1": round(f1, 5), "conf_thr": round(thr, 5), "val_f1": round(val_f1, 5), "fps": "",
@@ -126,7 +135,7 @@ def main():
         for c, (ap50, ap) in coco["per_class"].items():
             per_class.append({"model": model, "protocol": protocol, "fold": fold, "seed": seed, "class": c,
                               "ap50": round(ap50, 5), "ap50_95": round(ap, 5), "group": GROUP[c]})
-        print(f"{name:<28} epochs {len(ep):3d}  mAP50 {coco['map50']:.4f}  mAP50-95 {coco['map50_95']:.4f}  "
+        print(f"{name:<28} {platform:<6} epochs {len(ep):3d}  mAP50 {coco['map50']:.4f}  mAP50-95 {coco['map50_95']:.4f}  "
               f"thr {thr:.3f} (val F1 {val_f1:.4f})  test P {prec:.4f} R {rec:.4f} F1 {f1:.4f}  "
               f"[Kaggle {kag['map50_95']:.4f}, laptop as Kaggle diff {lap_diff:.1e}]")
     for path, cols, rows in ((ROOT / "results" / "runs.csv", RUN_COLS, runs),

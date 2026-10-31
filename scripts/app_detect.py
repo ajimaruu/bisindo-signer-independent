@@ -14,6 +14,10 @@ Frames are shown as the camera delivers them, without mirroring: the training fr
 Keys: 1 / 2 / 3 = YOLO11m / RT-DETR-L / Faster R-CNN,  + / - = confidence threshold,  s = save screenshot,
       q or Esc = quit.
 
+Default confidence threshold per model: `conf` in configs/app.yaml (the conf_thr of the run whose checkpoint is
+used, chosen on the validation split); switching the model switches to its default. --conf overrides it for all
+models.
+
 Usage:
   python scripts/app_detect.py                          # webcam 0, YOLO11m, weights from configs/app.yaml
   python scripts/app_detect.py --model rtdetr-l --camera 1
@@ -27,7 +31,7 @@ from pathlib import Path
 
 import cv2
 
-from detectors import LABELS, MODELS, ROOT, class_names, default_weights, load_detector
+from detectors import LABELS, MODELS, ROOT, class_names, default_conf, default_weights, load_detector
 
 KEYS = {ord("1"): "yolo11m", ord("2"): "rtdetr-l", ord("3"): "frcnn-r50fpn"}
 GROUP_COLOUR = {"two": (0, 140, 255), "one": (60, 200, 60)}   # BGR: C_two orange, C_one green
@@ -113,7 +117,8 @@ def main():
     ap.add_argument("--source", help="video file instead of the webcam (for testing)")
     ap.add_argument("--width", type=int, default=1280)
     ap.add_argument("--height", type=int, default=720)
-    ap.add_argument("--conf", type=float, default=0.5, help="display threshold")
+    ap.add_argument("--conf", type=float, default=None,
+                    help="display threshold for every model (default: per model from configs/app.yaml, else 0.5)")
     ap.add_argument("--max-show", type=int, default=1, help="boxes drawn per frame (the dataset has one per frame)")
     ap.add_argument("--headless", action="store_true", help="no window (testing)")
     ap.add_argument("--save", type=Path, help="write the annotated frames to this video")
@@ -123,6 +128,7 @@ def main():
     weights = default_weights()
     if args.weights:
         weights[args.model] = args.weights
+    model_conf = {m: args.conf if args.conf is not None else default_conf().get(m, 0.5) for m in MODELS}
     names = class_names()
     import yaml
     groups = {int(k): v for k, v in yaml.safe_load(open(ROOT / "configs" / "classes.yaml", encoding="utf-8"))["groups"].items()}
@@ -132,11 +138,12 @@ def main():
     def get(model):
         if model not in loaded:
             print(f"loading {LABELS[model]}: {weights[model]}")
-            loaded[model] = load_detector(model, weights[model], conf=args.conf, max_det=10)
+            loaded[model] = load_detector(model, weights[model], conf=model_conf[model], max_det=10)
         loaded[model].set_conf(conf)
         return loaded[model]
 
-    conf, model = args.conf, args.model
+    model = args.model
+    conf = model_conf[model]
     det = get(model)
     cap = open_source(args)
     if not cap.isOpened():
@@ -169,7 +176,9 @@ def main():
         if key in (ord("q"), 27) or cv2.getWindowProperty(win, cv2.WND_PROP_VISIBLE) < 1:
             break
         if key in KEYS and KEYS[key] in weights:
+            model_conf[model] = conf   # keep a +/- change for this model
             model = KEYS[key]
+            conf = model_conf[model]
             det = get(model)
             stamps.clear()
         elif key in (ord("+"), ord("=")):

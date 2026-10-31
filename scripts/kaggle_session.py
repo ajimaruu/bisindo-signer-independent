@@ -4,7 +4,7 @@ probe the batch size once, run a plan of training runs and write a report.
 Stages (all run in order; each is idempotent):
   env      install torch/torchvision at the version in requirements_freeze.txt (CUDA build: the laptop's
            first, then cu128, cu126 - the first that works on the Kaggle driver) and the other pinned
-           packages; differences from the laptop -> runs/env_kaggle.json
+           packages; differences from the laptop -> runs/env_<platform>.json
   setup    /kaggle/working/bisindo: scripts, configs, splits, frames/labels (symlinks), weights; checks the
            sha256 manifest, regenerates data/coco + data/yolo with scripts/prepare_data.py and checks that the
            COCO files are byte-identical to the laptop's
@@ -17,6 +17,12 @@ Stages (all run in order; each is idempotent):
 
 This file must not import torch or other pinned packages at module level: they are installed by 'env'.
 Usage (Kaggle notebook): python -u /kaggle/input/<dataset>/scripts/kaggle_session.py --plan main --max-hours 10.8
+
+Google Colab (fold s4, decided 31 Oct 2026; scripts/colab_notebook.ipynb): the same script and dataset zip with
+BISINDO_PLATFORM=colab. Then the environment is written to runs/env_colab.json, --max-hours may go up to
+MAX_HOURS_CAP_COLAB (Colab's own runtime limit is 24 h), and runs/ is a folder on Google Drive that persists between
+sessions (the notebook links it into BISINDO_WORK), so there is nothing to restore. Everything else (pinned
+packages, albumentations removed, guards, the Tesla T4 check, checkpoints every epoch, resume) is unchanged.
 
 Local rehearsal (laptop, no package installs; see results/config_log.md): set BISINDO_DATASET (the built dataset
 folder), BISINDO_WORK (a scratch folder), BISINDO_INPUT (folder searched for an earlier session's runs/),
@@ -40,6 +46,7 @@ DATASET = Path(os.environ.get("BISINDO_DATASET", Path(__file__).resolve().parent
 WORK = Path(os.environ.get("BISINDO_WORK", "/kaggle/working/bisindo"))
 INPUT = Path(os.environ.get("BISINDO_INPUT", "/kaggle/input"))
 SKIP_INSTALL = os.environ.get("BISINDO_SKIP_INSTALL") == "1"
+PLATFORM = os.environ.get("BISINDO_PLATFORM", "kaggle")   # kaggle | colab
 RUNS = WORK / "runs"
 PY = sys.executable
 T_START = time.time()
@@ -50,6 +57,7 @@ OTHER_PINS = ["ultralytics", "ultralytics-thop", "pycocotools", "numpy", "opencv
 BATCH_CANDIDATES = [int(b) for b in os.environ.get("BISINDO_PROBE_BATCHES", "16 12 8").split()]
 DEFAULT_MAX_HOURS = 10.8      # notebook cell MAX_HOURS; Kaggle's own limit is 12 h per session
 MAX_HOURS_CAP = 11.5
+MAX_HOURS_CAP_COLAB = 23.5
 MIN_START_S = 20 * 60          # do not start or resume a run with less than 20 min left
 DEADLINE_EXIT = 3
 FORBIDDEN_EXIT = 4             # run_logged: a forbidden line appeared in a run's output
@@ -138,7 +146,7 @@ def stage_env():
         if "==" in line:
             n, v = line.split("==")
             freeze[n.lower()] = v
-    diffs = [{"package": n, "laptop": v, "kaggle": freeze.get(n, "missing")}
+    diffs = [{"package": n, "laptop": v, PLATFORM: freeze.get(n, "missing")}
              for n, v in sorted(p.items()) if freeze.get(n) != v]
     info = child_json(
         "import json, platform, importlib.util, torch, torchvision, ultralytics, numpy, cv2;"
@@ -155,13 +163,14 @@ def stage_env():
              capture_output=True).stdout.strip().splitlines()
     if info["albumentations_importable"]:
         sys.exit("albumentations is still importable after uninstalling it")
-    env = {**info, "nvidia_smi": smi, "torch_build_chosen": chosen, "laptop_torch_build": laptop_cuda,
+    env = {**info, "platform": PLATFORM, "nvidia_smi": smi, "torch_build_chosen": chosen,
+           "laptop_torch_build": laptop_cuda,
            "differences_from_laptop": diffs, "recorded_utc": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     RUNS.mkdir(parents=True, exist_ok=True)
-    (RUNS / "env_kaggle.json").write_text(json.dumps(env, indent=1))
+    (RUNS / f"env_{PLATFORM}.json").write_text(json.dumps(env, indent=1))
     log(f"GPU: {smi}  torch {info['torch']} (CUDA {info['torch_cuda']})")
     log(f"differences from laptop ({len(diffs)}): "
-        + ", ".join(f"{d['package']} {d['laptop']} -> {d['kaggle']}" for d in diffs[:12])
+        + ", ".join(f"{d['package']} {d['laptop']} -> {d[PLATFORM]}" for d in diffs[:12])
         + (" ..." if len(diffs) > 12 else ""))
     return env
 
@@ -208,7 +217,11 @@ def stage_setup():
 
 # ---------------------------------------------------------------- restore
 def stage_restore():
-    """Copy runs/ of the newest attached earlier session (Kaggle mounts notebook outputs under /kaggle/input)."""
+    """Copy runs/ of the newest attached earlier session (Kaggle mounts notebook outputs under /kaggle/input).
+    On Colab runs/ lives on Google Drive and already holds the earlier sessions."""
+    if (RUNS / "sessions.csv").exists():
+        log(f"restore: runs/ already holds earlier sessions ({PLATFORM}, persistent storage); nothing to copy")
+        return
     found = [Path(p) for p in glob.glob(str(INPUT / "**" / "bisindo" / "runs"), recursive=True)]
     found = [p for p in found if (p / "sessions.csv").exists()]
     if not found:
@@ -369,7 +382,7 @@ def stage_report(plan_name, plan, batch, touched, env):
                      "test_map50_95_pycocotools": ev["pycocotools"]["map50_95"] if ev else None,
                      "test_map50_95_ultralytics": ev.get("ultralytics", {}).get("map50_95") if ev else None})
     gpu_h = (time.time() - T_START) / 3600
-    report = {"plan": plan_name, "gpu": env.get("nvidia_smi"), "batch": batch, "session_hours": gpu_h,
+    report = {"plan": plan_name, "platform": PLATFORM, "gpu": env.get("nvidia_smi"), "batch": batch, "session_hours": gpu_h,
               "runs": rows, "touched_this_session": touched}
     (RUNS / "session_report.json").write_text(json.dumps(report, indent=1))
     new = not (RUNS / "sessions.csv").exists()
@@ -394,8 +407,11 @@ def main():
                     help="session length limit from the start of this script; no epoch is started that would end "
                          "after it (Kaggle stops a session at 12 h; lower it when less weekly GPU quota is left)")
     args = ap.parse_args()
-    if not 0 < args.max_hours <= MAX_HOURS_CAP:
-        sys.exit(f"--max-hours must be in (0, {MAX_HOURS_CAP}], got {args.max_hours}")
+    if PLATFORM not in ("kaggle", "colab"):
+        sys.exit(f"BISINDO_PLATFORM must be kaggle or colab, got {PLATFORM!r}")
+    cap = MAX_HOURS_CAP_COLAB if PLATFORM == "colab" else MAX_HOURS_CAP
+    if not 0 < args.max_hours <= cap:
+        sys.exit(f"--max-hours must be in (0, {cap}] on {PLATFORM}, got {args.max_hours}")
     deadline = T_START + args.max_hours * 3600
     log(f"session limit {args.max_hours:.2f} h: training stops by "
         f"{datetime.fromtimestamp(deadline, timezone.utc).strftime('%H:%M')} UTC, then report + output save")
@@ -404,7 +420,7 @@ def main():
     env = stage_env()
     stage_setup()
     stage_restore()
-    (RUNS / "env_kaggle.json").write_text(json.dumps(env, indent=1))   # this session's environment
+    (RUNS / f"env_{PLATFORM}.json").write_text(json.dumps(env, indent=1))   # this session's environment
     batch = stage_probe(deadline, env)
     plan, touched = stage_plan(args.plan, batch, deadline)
     stage_report(args.plan, plan, batch, touched, env)

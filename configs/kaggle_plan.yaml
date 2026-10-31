@@ -12,6 +12,9 @@ pilot:
 # Main runs (30, locked 28 Oct 2026): P1 seed 0 then seed 1, then the LOSO folds s1-s4 (seed 0 then 1 within a
 # fold); within each block YOLO11m, RT-DETR-L, Faster R-CNN. Batch, max epochs (100) and patience (20) come from
 # configs/train.yaml. Run names: <model>_<split>_seed<seed> (runs/ultralytics/ or runs/frcnn/).
+# Split across two platforms on 31 Oct 2026 (user's decision, time; config_log section 28): `main` (Kaggle, Tesla T4)
+# holds P1 and the folds s1-s3; fold s4 runs on Google Colab (Tesla T4) as `colab_s4`, with the same scripts,
+# package versions and guards. The 30 runs of the paper are main + colab_s4 (scripts/collect_results.py).
 main:
   - {model: yolo11m, split: p1, seed: 0}
   - {model: rtdetr-l, split: p1, seed: 0}
@@ -37,6 +40,9 @@ main:
   - {model: yolo11m, split: loso_s3, seed: 1}
   - {model: rtdetr-l, split: loso_s3, seed: 1}
   - {model: frcnn-r50fpn, split: loso_s3, seed: 1}
+
+# Fold s4 on Google Colab (scripts/colab_notebook.ipynb), same order as above.
+colab_s4:
   - {model: yolo11m, split: loso_s4, seed: 0}
   - {model: rtdetr-l, split: loso_s4, seed: 0}
   - {model: frcnn-r50fpn, split: loso_s4, seed: 0}

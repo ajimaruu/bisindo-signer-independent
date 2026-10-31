@@ -1,8 +1,8 @@
-"""Bring the output of a Kaggle session to the laptop.
+"""Bring the output of a Kaggle or Colab session to the laptop.
 
-Everything (checkpoints included) goes to runs/kaggle/<timestamp>/ (untracked); the small result files
-(*.csv, eval_test.json, args.json, session_report.json, env_kaggle.json, kaggle_batch.json) are also copied to
-results/kaggle/ (the CSVs there are tracked by git). Existing files in results/kaggle/ are replaced by the
+Everything (checkpoints included) goes to runs/<platform>/<timestamp>/ (untracked); the small result files
+(*.csv, eval_test.json, args.json, session_report.json, env_<platform>.json, kaggle_batch.json) are also copied to
+results/<platform>/ (the CSVs there are tracked by git). Existing files in results/kaggle/ are replaced by the
 newer session's copies; checkpoints are never deleted.
 
 Usage:
@@ -10,6 +10,8 @@ Usage:
   python scripts/kaggle_download.py --kernel <user>/<notebook-slug>/4 # a given notebook version (e.g. while a
                                                                       # newer version is still running)
   python scripts/kaggle_download.py --zip path/to/output.zip         # 'Download' from the notebook's Output tab
+  python scripts/kaggle_download.py --platform colab --zip path/to/bisindo_colab_runs_<time>.zip
+                                     # Colab (fold s4): the zip the Colab notebook's last cell writes to Drive
 """
 import argparse
 import shutil
@@ -21,7 +23,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 KAGGLE = ROOT / ".venv-kaggle" / "Scripts" / "kaggle.exe"
-SMALL = {"eval_test.json", "args.json", "session_report.json", "env_kaggle.json", "kaggle_batch.json"}
+SMALL = {"eval_test.json", "args.json", "session_report.json", "env_kaggle.json", "env_colab.json",
+         "kaggle_batch.json"}
 
 
 def main():
@@ -29,9 +32,13 @@ def main():
     src = ap.add_mutually_exclusive_group(required=True)
     src.add_argument("--kernel", help="<user>/<notebook-slug>")
     src.add_argument("--zip", type=Path)
+    ap.add_argument("--platform", choices=["kaggle", "colab"], default="kaggle",
+                    help="where the session ran (colab: only with --zip)")
     args = ap.parse_args()
+    if args.platform == "colab" and not args.zip:
+        sys.exit("--platform colab needs --zip (the zip the Colab notebook wrote to Google Drive)")
 
-    dest = ROOT / "runs" / "kaggle" / datetime.now().strftime("%Y%m%d-%H%M")
+    dest = ROOT / "runs" / args.platform / datetime.now().strftime("%Y%m%d-%H%M")
     dest.mkdir(parents=True, exist_ok=False)
     if args.kernel:
         r = subprocess.run([str(KAGGLE), "kernels", "output", args.kernel, "-p", str(dest)])
@@ -48,7 +55,7 @@ def main():
     runs = next((p for p in dest.rglob("runs") if (p / "sessions.csv").exists()), None)
     if runs is None:
         sys.exit(f"no runs/sessions.csv in {dest}; is this the output of the session notebook?")
-    out = ROOT / "results" / "kaggle"
+    out = ROOT / "results" / args.platform
     n = 0
     for p in runs.rglob("*"):
         if p.is_file() and (p.suffix == ".csv" or p.name in SMALL):
