@@ -826,3 +826,105 @@ Implementation notes:
   - the row normalisation;
   - the number of duplicate detections not counted.
   The same text is in `results/confusion/captions_<p1|loso>.csv`, with the columns `folds`, `n_pairs` and `duplicates_not_counted`, ready for the manuscript.
+
+## 28. Fold s4 moves to Google Colab; new Kaggle dataset version; FPS checkpoints (31 Oct 2026)
+
+**Decided by the user (31 Oct 2026, for time: the user's exams start next week):**
+- **Kaggle:** main-4 (notebook version 7) was running when this was decided. From main-5 on, Kaggle trains only P1 and folds s2–s3.
+- **Colab:** fold s4 (6 runs) trains on Google Colab, on a Tesla T4 (the user's Google AI Plus subscription, 50 compute units).
+- **FPS:** measured now, on the laptop, with the P1 seed-0 `best.pt` of all three models, instead of after all training.
+
+**Plans** (`configs/kaggle_plan.yaml`):
+- `main` (Kaggle) now holds the 24 runs of P1 and folds s1–s3.
+- `colab_s4` holds the 6 runs of fold s4, in the same order (YOLO11m, RT-DETR-L, Faster R-CNN; seed 0, then seed 1).
+- The 30 runs of the paper are `main` + `colab_s4`; `collect_results.py` reads both.
+- Main-4 still runs the old plan from the previous dataset version; within its session limit it cannot reach fold s4.
+
+**Kaggle dataset, new version** (`ajimaru12/bisindo-wl15`, uploaded 31 Oct 2026):
+- Zip sha256: `6d7d7dedaebdc9d02b326376702a346d831e7c081c4ec347a02b025af398a77f`.
+- **Data unchanged:** frames, labels, splits and weights (`manifest_sha256.txt`, 4,220 files) and the regenerated COCO ground truth (`coco_sha256.txt`) are byte-identical to the previous version.
+- **Changed:** scripts and configs only.
+- **Training path unchanged:** compared with the previous version's scripts:
+  - In `coco_eval.py`, `load_gt`, `evaluate`, `save_dets` and the constants are unchanged (AST comparison). These are what `train_frcnn.py` uses for per-epoch validation and checkpoint selection.
+  - `train_ultralytics.py` differs only in the `"yolo_multi_label": True` field of `eval_test.json`.
+- **Test export after training:** Kaggle (from main-5) and Colab now export YOLO11m's test predictions multi-label (§25), flagged in `eval_test.json`. The laptop cross-check in `collect_results.py` already follows this flag. Paper numbers still come from the laptop export.
+- **Notebook:** for main-5 the Kaggle notebook keeps `PLAN = "main"`; select the new dataset version and attach the main-4 output.
+
+**Colab notebook** (`scripts/colab_notebook.ipynb`):
+- **Checks:**
+  - The GPU must be a Tesla T4 (`nvidia-smi`, first cell), and there must be at least 2 CPUs. Ultralytics uses min(CPUs, 2) data-loader workers, so 2 CPUs give the same 2 workers as on Kaggle.
+  - The dataset zip on Google Drive must have the sha256 above, i.e. the same bundle as the Kaggle dataset version.
+- **Run:** the unzipped dataset is local (`/content`). It runs the same `kaggle_session.py` with `BISINDO_PLATFORM=colab --plan colab_s4`. The session then:
+  - installs the same pinned packages (torch build cu130 first, then cu128 / cu126, as on Kaggle);
+  - uninstalls albumentations and stops if it is still importable;
+  - checks the sha256 manifest and the COCO ground truth;
+  - stops if the GPU is not the `kaggle_gpu` of `train.yaml` (Tesla T4);
+  - runs with the same guards (`run_guards.py`, forbidden log lines) and the locked batch 16;
+  - writes `runs/env_colab.json` (environment and differences from the laptop).
+- **Persistence:** `runs/` is a link to `MyDrive/bisindo-colab/runs`. Checkpoints are written to Google Drive every epoch, and a new Colab session resumes from `last.pt` (early-stopping state restored, as on Kaggle).
+- **Session limit:** `--max-hours` may go up to 23.5 h on Colab (11.5 h on Kaggle).
+- **Export:** the last cell zips `runs/` without `last.pt` to `MyDrive/bisindo-colab/export/`. On the laptop: `kaggle_download.py --platform colab --zip <zip>` → `runs/colab/<timestamp>/`, with the CSVs copied to `results/colab/`.
+- **Rehearsed on the laptop:**
+  - Setup: `BISINDO_PLATFORM=colab`, no installs, `runs/` linked to a mock Drive folder holding a `sessions.csv`.
+  - Checks passed: manifest OK, COCO identical, "runs/ already holds earlier sessions; nothing to copy", and `env_colab.json` written.
+  - Stops: the session stopped at the GPU check ("got NVIDIA GeForce RTX 3050 Laptop GPU, but the batch is locked for Tesla T4").
+  - `--max-hours` limits enforced: 24 is refused on Colab, 12 on Kaggle.
+- **Differences to expect:**
+  - **Environment:** the Colab driver, Python version and CPU count may differ from Kaggle's; they are recorded in `env_colab.json` and reported here when the first session has run.
+  - **Results:** training is deterministic per platform (§22), but bit-identical results across Kaggle and Colab are not expected. Same GPU type, same code and package versions; the driver and CUDA build may differ.
+  - **Training time:** the training times of fold s4 come from Colab, so they are not compared directly with the Kaggle runs. The P1 training-time table is all Kaggle.
+- **Compute estimate:**
+  - Fold s1 on the Kaggle T4 took 677 min of training and validation for its 6 runs, about 11.7 h with setup and test evaluation.
+  - Colab bills a T4 at roughly 2 compute units per hour (the exact rate is shown in Colab's Resources panel), so about 24 of the 50 units if Colab is as fast as Kaggle.
+
+**`runs.csv`:** a new column `platform` (kaggle / colab) after `seed`, taken from where the run was downloaded (`runs/kaggle/` or `runs/colab/`). All 13 finished runs are `kaggle`; no other value changed.
+
+**Application and FPS checkpoints** (`configs/app.yaml`):
+- **Weights:** the P1 seed-0 `best.pt` of the three models (Kaggle notebook version 6 download).
+- **Default thresholds** (`conf`) = the runs' `conf_thr`: YOLO11m 0.81055, RT-DETR-L 0.41675, Faster R-CNN 0.75297.
+- **`app_detect.py`:** starts with the model's own threshold and switches threshold with the model (keys 1/2/3); `--conf` overrides all three.
+- **Tested:** headless on one test frame, all three models loaded.
+
+**FPS result** (`scripts/measure_fps.py`, 31 Oct 2026, `results/fps.csv`, 9 rows):
+- **Setup:** RTX 3050 Laptop GPU on AC power, Ultimate Performance plan, Chrome and Discord closed (checked), on the cooling pad (confirmed by the user).
+- **Protocol:** 300 P1 test frames in memory, batch 1, FP16, conf 0.001, NMS IoU 0.7, max 100 detections; 50 warm-up and 500 timed iterations, 3 repeats per model.
+- **Cooling:** idle temperature at start 57 °C. Before each repeat the script waited until the GPU was ≤ 62 °C (0–51 s); the warm-up then heated it to the start temperatures shown.
+
+| Model | t_pred (ms) | FPS (eq. 18) | Network only (FPS) | pre / inf / post (ms) | GPU temperature |
+|---|---|---|---|---|---|
+| YOLO11m | 15.1 ± 0.9 | 66.2 ± 4.1 | 78.1 | 0.8 / 12.8 / 1.5 | 66–81 °C |
+| RT-DETR-L | 33.0 ± 0.3 | 30.3 ± 0.3 | 32.9 | 1.9 / 30.4 / 0.6 | 73–87 °C |
+| Faster R-CNN | 41.3 ± 0.1 | 24.2 ± 0.0 | 25.1 | 1.0 / 39.9 / 0.4 | 74–87 °C |
+
+- **YOLO11m spread:** its larger SD comes from repeat 1 (61.9 FPS, against 69.9 and 66.7). Repeat 1 started right after loading, at the lowest temperature, so the cause is not heat.
+- **Throttling:** the SM clock fell during each repeat, to 1,875 MHz for YOLO11m, 1,815 MHz for RT-DETR-L and 1,650 MHz for Faster R-CNN. The longest-running model throttles most.
+
+## 29. Main session 4 (notebook version 7), LOSO fold s2 complete (31 Oct 2026)
+
+**Session:** 10.79 h on a Tesla T4. It used the previous dataset version and the old plan, so YOLO11m's Kaggle test export was single-label. Downloaded to `runs/kaggle/20261031-1931/`.
+
+**Runs:**
+- **Finished** (epochs, ended by):
+  - `rtdetr-l_loso_s2_seed0`: 59, patience;
+  - `frcnn-r50fpn_loso_s2_seed0`: 77, patience;
+  - `yolo11m_loso_s2_seed1`: 100, cap;
+  - `rtdetr-l_loso_s2_seed1`: 63, patience;
+  - `frcnn-r50fpn_loso_s2_seed1`: 94, patience;
+  - `yolo11m_loso_s3_seed0`: 100, cap.
+- **Paused:** `rtdetr-l_loso_s3_seed0` after epoch 61 (best epoch 53).
+- **Fold s2 is now complete.** `runs.csv` holds 19 runs.
+
+**Cross-checks** (`collect_results.py`): Kaggle's saved test predictions reproduce `eval_test.json` exactly for all 19 runs. The laptop export made the way Kaggle exported each run matches Kaggle's test mAP within 7.7 × 10⁻⁴.
+
+**Kaggle dataset check before main-5:** `configs/kaggle_plan.yaml` was downloaded from the live Kaggle dataset version and is identical to the repo: `main` = 24 runs (P1, s1–s3), with no s4.
+
+**Fold s2, mean of 2 seeds:**
+
+| Model | mAP50 | mAP50-95 | P | R | F1 |
+|---|---|---|---|---|---|
+| YOLO11m | 0.948 ± 0.014 | 0.763 ± 0.005 | 0.905 ± 0.033 | 0.883 ± 0.016 | 0.879 ± 0.002 |
+| RT-DETR-L | 0.975 ± 0.004 | 0.814 ± 0.017 | 0.912 ± 0.010 | 0.923 ± 0.001 | 0.904 ± 0.001 |
+| Faster R-CNN | 0.936 ± 0.013 | 0.720 ± 0.002 | 0.914 ± 0.058 | 0.821 ± 0.011 | 0.841 ± 0.008 |
+
+- **Faster R-CNN recall:** its validation-chosen thresholds in s2 are high (0.853 and 0.937), which gives the lowest recall.
+- **Δtwo s2:** YOLO11m +0.068, RT-DETR-L +0.005, Faster R-CNN +0.029. In s1 they were +0.008, −0.052 and −0.050, so the sign is not yet consistent across folds for RT-DETR-L and Faster R-CNN.

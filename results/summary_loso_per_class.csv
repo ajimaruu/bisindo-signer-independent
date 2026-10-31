@@ -1,61 +1,67 @@
 model,class,group,n_runs,ap50_95_mean,ap50_95_sd_runs,ap50_95_p1
-yolo11m,Cari,one,2,0.32813,0.00202,0.76807
-rtdetr-l,Cari,one,2,0.59428,0.15286,0.82266
-frcnn-r50fpn,Cari,one,2,0.51575,0.02904,0.73409
-yolo11m,Hari,one,2,0.55514,0.05974,0.67173
-rtdetr-l,Hari,one,2,0.44827,0.04372,0.7063
-frcnn-r50fpn,Hari,one,2,0.31322,0.09238,0.63416
-yolo11m,Ingat,one,2,0.8655,0.02032,0.90209
-rtdetr-l,Ingat,one,2,0.87508,0.00018,0.90389
-frcnn-r50fpn,Ingat,one,2,0.81583,0.00011,0.85164
-yolo11m,Lagi,one,2,0.82184,0.02276,0.93128
-rtdetr-l,Lagi,one,2,0.87881,0.00231,0.93233
-frcnn-r50fpn,Lagi,one,2,0.85203,0.00496,0.92487
-yolo11m,Maaf,one,2,0.74409,0.0227,0.92705
-rtdetr-l,Maaf,one,2,0.76899,0.01206,0.91973
-frcnn-r50fpn,Maaf,one,2,0.63318,0.05993,0.9006
-yolo11m,Makan,one,2,0.70786,0.00576,0.79175
-rtdetr-l,Makan,one,2,0.72069,0.04489,0.86393
-frcnn-r50fpn,Makan,one,2,0.78773,0.0016,0.78049
-yolo11m,Motor,two,2,0.85269,0.0102,0.96415
-rtdetr-l,Motor,two,2,0.88888,0.00936,0.97159
-frcnn-r50fpn,Motor,two,2,0.86591,0.00026,0.92217
-yolo11m,Saya,one,2,0.94121,0.0068,0.95927
-rtdetr-l,Saya,one,2,0.92541,0.00053,0.98394
-frcnn-r50fpn,Saya,one,2,0.89905,0.0044,0.95585
-yolo11m,Terima kasih,one,2,0.88996,0.003,0.8796
-rtdetr-l,Terima kasih,one,2,0.8554,0.02775,0.90228
-frcnn-r50fpn,Terima kasih,one,2,0.75816,0.0103,0.84657
-yolo11m,Bagaimana,two,2,0.66962,0.04212,0.85854
-rtdetr-l,Bagaimana,two,2,0.80433,0.01649,0.90712
-frcnn-r50fpn,Bagaimana,two,2,0.66997,0.00129,0.82011
-yolo11m,Berangkat,one,2,0.83745,0.00279,0.9132
-rtdetr-l,Berangkat,one,2,0.86101,0.05136,0.91676
-frcnn-r50fpn,Berangkat,one,2,0.81809,0.01024,0.86652
-yolo11m,Teman,two,2,0.6745,0.07661,0.84038
-rtdetr-l,Teman,two,2,0.78248,0.02889,0.83647
-frcnn-r50fpn,Teman,two,2,0.80366,0.00764,0.80147
-yolo11m,Keluarga,one,2,0.74604,0.00626,0.81234
-rtdetr-l,Keluarga,one,2,0.75143,0.01819,0.82888
-frcnn-r50fpn,Keluarga,one,2,0.7512,0.01166,0.74263
-yolo11m,Rumah,two,2,0.75387,0.07071,0.81055
-rtdetr-l,Rumah,two,2,0.80356,0.00077,0.87884
-frcnn-r50fpn,Rumah,two,2,0.7376,0.00457,0.81628
-yolo11m,Pagi,one,2,0.76819,0.00562,0.91105
-rtdetr-l,Pagi,one,2,0.76554,0.00916,0.91537
-frcnn-r50fpn,Pagi,one,2,0.76558,0.00462,0.88302
-yolo11m,mean C_one,,2,0.74595,,0.86067
-rtdetr-l,mean C_one,,2,0.76772,,0.88146
-frcnn-r50fpn,mean C_one,,2,0.71908,,0.82913
-yolo11m,mean C_two,,2,0.73767,,0.8684
-rtdetr-l,mean C_two,,2,0.81981,,0.8985
-frcnn-r50fpn,mean C_two,,2,0.76928,,0.84001
-yolo11m,delta_two,,2,0.00828,,-0.00773
-rtdetr-l,delta_two,,2,-0.05209,,-0.01704
-frcnn-r50fpn,delta_two,,2,-0.05021,,-0.01087
+yolo11m,Cari,one,4,0.40002,0.16003,0.76807
+rtdetr-l,Cari,one,4,0.69031,0.14785,0.82266
+frcnn-r50fpn,Cari,one,4,0.42521,0.14238,0.73409
+yolo11m,Hari,one,4,0.63269,0.0962,0.67173
+rtdetr-l,Hari,one,4,0.61088,0.19091,0.7063
+frcnn-r50fpn,Hari,one,4,0.47717,0.20102,0.63416
+yolo11m,Ingat,one,4,0.85413,0.02159,0.90209
+rtdetr-l,Ingat,one,4,0.82865,0.06043,0.90389
+frcnn-r50fpn,Ingat,one,4,0.78591,0.04036,0.85164
+yolo11m,Lagi,one,4,0.82256,0.01743,0.93128
+rtdetr-l,Lagi,one,4,0.8731,0.01277,0.93233
+frcnn-r50fpn,Lagi,one,4,0.8473,0.01723,0.92487
+yolo11m,Maaf,one,4,0.79617,0.06166,0.92705
+rtdetr-l,Maaf,one,4,0.81457,0.05374,0.91973
+frcnn-r50fpn,Maaf,one,4,0.73744,0.12527,0.9006
+yolo11m,Makan,one,4,0.77236,0.0747,0.79175
+rtdetr-l,Makan,one,4,0.75384,0.04767,0.86393
+frcnn-r50fpn,Makan,one,4,0.78522,0.00936,0.78049
+yolo11m,Motor,two,4,0.80432,0.06563,0.96415
+rtdetr-l,Motor,two,4,0.87646,0.01717,0.97159
+frcnn-r50fpn,Motor,two,4,0.82273,0.05251,0.92217
+yolo11m,Saya,one,4,0.92113,0.02362,0.95927
+rtdetr-l,Saya,one,4,0.93349,0.02673,0.98394
+frcnn-r50fpn,Saya,one,4,0.89391,0.0106,0.95585
+yolo11m,Terima kasih,one,4,0.87871,0.01361,0.8796
+rtdetr-l,Terima kasih,one,4,0.84917,0.0176,0.90228
+frcnn-r50fpn,Terima kasih,one,4,0.80508,0.05454,0.84657
+yolo11m,Bagaimana,two,4,0.64108,0.04096,0.85854
+rtdetr-l,Bagaimana,two,4,0.79177,0.02016,0.90712
+frcnn-r50fpn,Bagaimana,two,4,0.65186,0.02685,0.82011
+yolo11m,Berangkat,one,4,0.82276,0.01984,0.9132
+rtdetr-l,Berangkat,one,4,0.84888,0.03344,0.91676
+frcnn-r50fpn,Berangkat,one,4,0.79568,0.03054,0.86652
+yolo11m,Teman,two,4,0.72996,0.08066,0.84038
+rtdetr-l,Teman,two,4,0.80192,0.02805,0.83647
+frcnn-r50fpn,Teman,two,4,0.78584,0.02322,0.80147
+yolo11m,Keluarga,one,4,0.74998,0.00601,0.81234
+rtdetr-l,Keluarga,one,4,0.77189,0.03982,0.82888
+frcnn-r50fpn,Keluarga,one,4,0.71814,0.03984,0.74263
+yolo11m,Rumah,two,4,0.72583,0.05316,0.81055
+rtdetr-l,Rumah,two,4,0.78963,0.0278,0.87884
+frcnn-r50fpn,Rumah,two,4,0.67592,0.07317,0.81628
+yolo11m,Pagi,one,4,0.7497,0.02787,0.91105
+rtdetr-l,Pagi,one,4,0.73186,0.03945,0.91537
+frcnn-r50fpn,Pagi,one,4,0.68816,0.10993,0.88302
+yolo11m,mean C_one,,4,0.76366,,0.86067
+rtdetr-l,mean C_one,,4,0.79151,,0.88146
+frcnn-r50fpn,mean C_one,,4,0.72357,,0.82913
+yolo11m,mean C_two,,4,0.7253,,0.8684
+rtdetr-l,mean C_two,,4,0.81494,,0.8985
+frcnn-r50fpn,mean C_two,,4,0.73409,,0.84001
+yolo11m,delta_two,,4,0.03836,,-0.00773
+rtdetr-l,delta_two,,4,-0.02343,,-0.01704
+frcnn-r50fpn,delta_two,,4,-0.01052,,-0.01087
 yolo11m,delta_two s1,,2,0.00828,,
 yolo11m,Teman s1,two,2,0.6745,0.07661,
+yolo11m,delta_two s2,,2,0.06844,,
+yolo11m,Teman s2,two,2,0.78542,0.03668,
 rtdetr-l,delta_two s1,,2,-0.05209,,
 rtdetr-l,Teman s1,two,2,0.78248,0.02889,
+rtdetr-l,delta_two s2,,2,0.00523,,
+rtdetr-l,Teman s2,two,2,0.82137,0.00363,
 frcnn-r50fpn,delta_two s1,,2,-0.05021,,
 frcnn-r50fpn,Teman s1,two,2,0.80366,0.00764,
+frcnn-r50fpn,delta_two s2,,2,0.02916,,
+frcnn-r50fpn,Teman s2,two,2,0.76803,0.01701,
