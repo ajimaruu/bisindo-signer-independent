@@ -928,3 +928,88 @@ Implementation notes:
 
 - **Faster R-CNN recall:** its validation-chosen thresholds in s2 are high (0.853 and 0.937), which gives the lowest recall.
 - **Δtwo s2:** YOLO11m +0.068, RT-DETR-L +0.005, Faster R-CNN +0.029. In s1 they were +0.008, −0.052 and −0.050, so the sign is not yet consistent across folds for RT-DETR-L and Faster R-CNN.
+
+## 30. Main session 5 (notebook version 8): all Kaggle runs finished, LOSO fold s3 complete (1 Nov 2026)
+
+**Session:** 10.18 h on a Tesla T4, with the 31 Oct 2026 dataset version (plan `main` = P1 + s1–s3). Downloaded to `runs/kaggle/20261101-0806/`.
+- **Runs finished** (epochs, ended by):
+  - `rtdetr-l_loso_s3_seed0`: 82, patience (resumed from epoch 61);
+  - `frcnn-r50fpn_loso_s3_seed0`: 100, cap;
+  - `yolo11m_loso_s3_seed1`: 100, cap;
+  - `rtdetr-l_loso_s3_seed1`: 87, patience;
+  - `frcnn-r50fpn_loso_s3_seed1`: 100, cap.
+- **All 24 Kaggle runs are finished.** `runs.csv` holds 24 runs; fold s4 (6 runs) is on Colab.
+- **Kaggle export:** `yolo11m_loso_s3_seed1` is the first run scored on Kaggle with the multi-label YOLO export (`yolo_multi_label` in `eval_test.json`). Its Kaggle pycocotools and Ultralytics test mAP50-95 are close (0.6483 vs 0.6465), as expected.
+- **Cross-checks:** all 24 runs pass. The largest laptop-vs-Kaggle test mAP difference is 9.1 × 10⁻⁴.
+
+**Fold s3 (test = signer3), mean of 2 seeds:**
+
+| Model | mAP50 | mAP50-95 | P | R | F1 |
+|---|---|---|---|---|---|
+| YOLO11m | 0.872 ± 0.021 | 0.662 ± 0.019 | 0.788 ± 0.087 | 0.800 ± 0.004 | 0.755 ± 0.040 |
+| RT-DETR-L | 0.900 ± 0.034 | 0.699 ± 0.019 | 0.855 ± 0.005 | 0.840 ± 0.064 | 0.829 ± 0.037 |
+| Faster R-CNN | 0.880 ± 0.016 | 0.643 ± 0.016 | 0.737 ± 0.051 | 0.788 ± 0.063 | 0.737 ± 0.010 |
+
+- **The hardest fold so far for all three models.**
+- **One-handed glosses:** they drop most. Keluarga has AP50-95 0.18 / 0.27 / 0.15 (YOLO / RT-DETR / FRCNN); its frames are mostly missed or labelled Cari or Berangkat. Makan is 0.36–0.43. Saya (YOLO 0.32) is labelled Terima kasih (YOLO) or Pagi (FRCNN).
+- **Two-handed glosses** stay at 0.72–0.92.
+- **Δtwo s3:** −0.237 / −0.212 / −0.172, so two-handed glosses are easier in this fold.
+- **Thresholds:** the validation-chosen thresholds vary widely between seeds (YOLO 0.419 / 0.225, RT-DETR 0.895 / 0.308, FRCNN 0.464 / 0.821). This explains the large seed SD of P and F1 in s3.
+
+## 31. Colab session (fold s4): all 30 runs finished; final LOSO summary (1 Nov 2026)
+
+**Session:** Google Colab, one Tesla T4 (driver 580.82.07), plan `colab_s4`, 13.39 h (31 Oct 14:55 – 1 Nov 04:19 UTC), batch 16, one session without interruption. The export zip `bisindo_colab_runs_20261101-0419.zip` was imported with `kaggle_download.py --platform colab --zip` to `runs/colab/20261101-1150/`; small files are in `results/colab/`.
+
+**Platform per run** (column `platform` in `runs.csv`):
+- **Kaggle, 24 runs:** P1 (6) and LOSO folds s1, s2, s3 (6 each).
+- **Colab, 6 runs:** LOSO fold s4.
+- Training times of s4 come from Colab and are not compared directly with the Kaggle runs.
+
+**Colab environment** (`results/colab/env_colab.json`):
+- **Same as Kaggle:** Python 3.13.16 (Kaggle 3.13.15), torch 2.14.1+cu130, torchvision 0.29.1+cu130, Ultralytics 8.4.190, NumPy 2.4.6; albumentations not importable; same dataset zip (sha256 checked).
+- **Different, deviation from the pinned set:** `cv2.__version__` in the Colab training process was **4.14.0**, while the laptop freeze and Kaggle use **5.0.0** (`opencv-python==5.0.0.93`). `kaggle_session.py` did install `opencv-python==5.0.0.93`, but the OpenCV package preinstalled on Colab was the one imported. The difference check compares package names in `pip freeze` only, so it did not flag this.
+  - OpenCV is used in training for JPEG decoding, resizing (LetterBox) and the HSV / affine augmentation.
+  - The evaluation is not affected: all test and validation numbers are the laptop re-export (OpenCV 5.0.0).
+  - Reported in the manuscript as an environment difference of fold s4.
+- **Minor helper packages differing from the laptop:** charset-normalizer, contourpy, filelock, fsspec, markupsafe, networkx, python-dateutil, ultralytics-platform, urllib3.
+
+**Checks:**
+- **Cross-checks:** all 30 runs pass. The largest laptop-vs-platform test mAP50-95 difference is 1.0 × 10⁻³ (`frcnn-r50fpn_loso_s4_seed0`); limit 0.002.
+- **YOLO export:** both YOLO s4 runs were scored on Colab with the multi-label export (`yolo_multi_label: true` in `eval_test.json`). The laptop multi-label export gives 0.5597 / 0.5663 against Colab's 0.5601 / 0.5664.
+
+**Fold s4 runs** (epochs, best epoch, ended by; patience = epoch − best ≥ 20):
+- `yolo11m_loso_s4_seed0`: 100, 96, cap;
+- `rtdetr-l_loso_s4_seed0`: 66, 46, patience;
+- `frcnn-r50fpn_loso_s4_seed0`: 95, 75, patience;
+- `yolo11m_loso_s4_seed1`: 100, 94, cap;
+- `rtdetr-l_loso_s4_seed1`: 100, 86, cap;
+- `frcnn-r50fpn_loso_s4_seed1`: 100, 96, cap.
+
+**Stopping over all 30 runs:**
+
+| Model | Ended at the 100-epoch cap | Ended by patience |
+|---|---|---|
+| YOLO11m | 9 | 1 |
+| RT-DETR-L | 2 | 8 |
+| Faster R-CNN | 7 | 3 |
+| **All** | **18** | **12** |
+
+**Fold s4 (test = signer4), mean ± SD of 2 seeds:**
+
+| Model | mAP50 | mAP50-95 | P | R | F1 |
+|---|---|---|---|---|---|
+| YOLO11m | 0.814 ± 0.006 | 0.563 ± 0.005 | 0.855 ± 0.046 | 0.739 ± 0.024 | 0.772 ± 0.002 |
+| RT-DETR-L | 0.853 ± 0.006 | 0.621 ± 0.005 | 0.820 ± 0.080 | 0.817 ± 0.057 | 0.799 ± 0.004 |
+| Faster R-CNN | 0.840 ± 0.007 | 0.550 ± 0.010 | 0.834 ± 0.025 | 0.784 ± 0.029 | 0.791 ± 0.006 |
+
+- **The hardest fold for all three models.**
+- **Two-handed glosses drop most in s4.** Teman has AP50-95 0.28 / 0.37 / 0.31 (YOLO / RT-DETR / FRCNN) and AP50 0.42 / 0.51 / 0.45; 48–64 % of its test frames have no detection with IoU ≥ 0.5 at conf_thr. Motor drops for YOLO (0.32) and is labelled Bagaimana in 19–23 % of frames. Bagaimana is labelled Rumah in about 20 %.
+- **Δtwo s4:** +0.187 / +0.098 / +0.086, the opposite sign of s3.
+
+**Final LOSO summary** (4/4 folds; `summarise.py --protocol LOSO`, no longer preliminary):
+- **SI:** mAP50-95 0.683 ± 0.091 (YOLO), 0.729 ± 0.087 (RT-DETR), 0.662 ± 0.084 (FRCNN); F1 0.824 / 0.865 / 0.822.
+- **Δabs:** mAP50-95 0.180 / 0.157 / 0.170 (Δrel 20.8 / 17.8 / 20.5 %).
+- **Δtwo:** overall +0.007 / −0.040 / −0.027; per fold > 0 in 3/4, 2/4 and 2/4 folds.
+- Confusion matrices for LOSO and P1 were regenerated.
+
+**FPS in the summary:** `summarise.py` now writes section 3.5 from the final rows of `results/fps.csv` (mean ± SD over the 3 repeats, the three stages, network-only FPS, GPU temperature range) and `results/summary_fps.csv`. The values are those of section 28.

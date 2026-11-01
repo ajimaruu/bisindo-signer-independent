@@ -1,0 +1,4 @@
+model,repeats,fps_mean,fps_sd,pred_ms_mean,pred_ms_sd,pre_ms,infer_ms,post_ms,fps_net,temp_min_c,temp_max_c,idle_temp_c,gpu,precision,weights
+yolo11m,3,66.18467,4.0586,15.148,0.94177,0.833,12.832,1.48267,78.11233,66.06,80.75,57.0,NVIDIA GeForce RTX 3050 Laptop GPU,fp16,runs\kaggle\20261030-0222\bisindo\runs\ultralytics\yolo11m_p1_seed0\weights\best.pt
+rtdetr-l,3,30.27133,0.29399,33.03667,0.32115,1.945,30.44567,0.64567,32.847,73.47,87.19,57.0,NVIDIA GeForce RTX 3050 Laptop GPU,fp16,runs\kaggle\20261030-0222\bisindo\runs\ultralytics\rtdetr-l_p1_seed0\weights\best.pt
+frcnn-r50fpn,3,24.18467,0.03807,41.34833,0.06458,1.02067,39.90833,0.41967,25.05733,74.16,87.06,57.0,NVIDIA GeForce RTX 3050 Laptop GPU,fp16,runs\kaggle\20261030-0222\bisindo\runs\frcnn\frcnn-r50fpn_p1_seed0\weights\best.pt

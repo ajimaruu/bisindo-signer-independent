@@ -1,0 +1,2 @@
+start_utc,end_utc,hours,gpu,plan,batch,runs_touched
+2026-10-31T14:55:25+00:00,2026-11-01T04:19:00+00:00,13.393,"Tesla T4, 580.82.07, 15360 MiB",colab_s4,16,yolo11m_loso_s4_seed0 rtdetr-l_loso_s4_seed0 frcnn-r50fpn_loso_s4_seed0 yolo11m_loso_s4_seed1 rtdetr-l_loso_s4_seed1 frcnn-r50fpn_loso_s4_seed1

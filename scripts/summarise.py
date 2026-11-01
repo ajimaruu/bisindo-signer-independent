@@ -21,7 +21,9 @@ manuscript's Chapter 3:
   3.4 AP50-95 per class = mean over folds x seeds (all runs of the complete folds), Delta_two from these class
       means; Delta_two per fold (from the per-fold seed means) to see whether its sign is consistent; Teman per
       fold; the confusion matrices come from scripts/confusion_matrix.py.
-  3.5 FPS: placeholder until the final measurement (scripts/measure_fps.py).
+  3.5 FPS from results/fps.csv (scripts/measure_fps.py; rows whose note starts with "final"): per model mean +- SD
+      over the repeats of FPS = 1000 / t_pred (eq. 18), t_pred and its three stages, network-only FPS, and the GPU
+      temperature range; also written to summary_fps.csv.
 A fold counts for a model only when all its seeds are finished; the pairwise comparison uses the folds complete
 for both models. Until all 4 folds are complete the tables are marked as preliminary.
 
@@ -300,10 +302,47 @@ def summarise_loso(runs, pcs, p1_runs):
            "Per model, summed over the complete folds × seeds, from the test predictions at each run's conf_thr: "
            "`python scripts/confusion_matrix.py --protocol LOSO` → `results/confusion/confusion_loso_<model>.csv` "
            "and `.png`.", "",
-           "## 3.5 Inference speed", "", "FPS: not measured yet (`scripts/measure_fps.py`, after all training).", ""]
+           ""]
+    md_fps, rows_fps = fps_section()
+    md += md_fps
 
     return md, {"summary_loso.csv": rows_main, "summary_loso_folds.csv": rows_fold,
-                "summary_loso_per_class.csv": rows_cls, "summary_loso_pairs.csv": rows_pair}
+                "summary_loso_per_class.csv": rows_cls, "summary_loso_pairs.csv": rows_pair,
+                **({"summary_fps.csv": rows_fps} if rows_fps else {})}
+
+
+def fps_section():
+    """Section 3.5 from the final rows of results/fps.csv (mean +- SD over the repeats per model)."""
+    md = ["## 3.5 Inference speed", ""]
+    path = ROOT / "results" / "fps.csv"
+    rows = [r for r in read("fps.csv") if r["note"].startswith("final")] if path.exists() else []
+    if not rows:
+        return md + ["FPS: not measured yet (`scripts/measure_fps.py`).", ""], []
+    first = rows[0]
+    md += [f"{first['gpu']}, {first['precision'].upper()}, batch {first['batch']}, input {first['imgsz']}; "
+           f"{first['n_frames']} P1 test frames in memory, {first['warmup']} warm-up + {first['iters']} timed "
+           "iterations per repeat; FPS = 1000 / t_pred with t_pred = preprocess + inference + postprocess (eq. 18), "
+           "CUDA-synchronised; mean ± SD over the repeats. Network-only FPS = 1000 / inference (reference).", "",
+           "| Model | Repeats | FPS | t_pred (ms) | Preprocess (ms) | Inference (ms) | Postprocess (ms) | "
+           "Network-only FPS | GPU temperature (°C) |", "|---|---|---|---|---|---|---|---|---|"]
+    out = []
+    for m, label in MODELS.items():
+        r = [x for x in rows if x["model"] == m]
+        if not r:
+            continue
+        v = {k: [float(x[k]) for x in r] for k in ("fps", "pred_ms", "pre_ms", "infer_ms", "post_ms", "fps_net",
+                                                    "temp_start_c", "temp_end_c")}
+        t_lo, t_hi = min(v["temp_start_c"] + v["temp_end_c"]), max(v["temp_start_c"] + v["temp_end_c"])
+        md.append(f"| {label} | {len(r)} | {pm(v['fps'], 1)} | {pm(v['pred_ms'], 2)} | {np.mean(v['pre_ms']):.2f} | "
+                  f"{np.mean(v['infer_ms']):.2f} | {np.mean(v['post_ms']):.2f} | {np.mean(v['fps_net']):.1f} | "
+                  f"{t_lo:.0f}–{t_hi:.0f} |")
+        out.append({"model": m, "repeats": len(r), "fps_mean": r5(np.mean(v["fps"])), "fps_sd": r5(sd(v["fps"])),
+                    "pred_ms_mean": r5(np.mean(v["pred_ms"])), "pred_ms_sd": r5(sd(v["pred_ms"])),
+                    "pre_ms": r5(np.mean(v["pre_ms"])), "infer_ms": r5(np.mean(v["infer_ms"])),
+                    "post_ms": r5(np.mean(v["post_ms"])), "fps_net": r5(np.mean(v["fps_net"])),
+                    "temp_min_c": t_lo, "temp_max_c": t_hi, "idle_temp_c": float(r[0]["idle_temp_c"]),
+                    "gpu": first["gpu"], "precision": first["precision"], "weights": r[0]["weights"]})
+    return md + [""], out
 
 
 def main():
