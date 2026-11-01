@@ -1,0 +1,7 @@
+timestamp,model,conf,frames,labelled_frames,labelled_share,score_median,score_p90,score_max,labelled_classes,note
+2026-11-01T20:11:10,yolo11m,0.8105,599,0,0.0,0.0,0.1363,0.5908,,"final app FPS, P1 seed 0; Discord running; cooling wait capped at 180 s"
+2026-11-01T20:11:35,rtdetr-l,0.4168,384,2,0.0052,0.0,0.0,0.7026,Makan 2,"final app FPS, P1 seed 0; Discord running; cooling wait capped at 180 s"
+2026-11-01T20:12:01,frcnn-r50fpn,0.753,323,0,0.0,0.0,0.0,0.0,,"final app FPS, P1 seed 0; Discord running; cooling wait capped at 180 s"
+2026-11-01T20:55:49,yolo11m,0.8105,602,0,0.0,0.0,0.0,0.3242,,"rerun: brighter light, hands visible at rest; Discord running; cooling wait capped at 180 s"
+2026-11-01T20:56:14,rtdetr-l,0.4168,408,196,0.4804,0.3627,0.875,0.9512,Bagaimana 110; Keluarga 86,"rerun: brighter light, hands visible at rest; Discord running; cooling wait capped at 180 s"
+2026-11-01T20:56:40,frcnn-r50fpn,0.753,346,338,0.9769,0.9818,0.9939,0.9978,Bagaimana 338,"rerun: brighter light, hands visible at rest; Discord running; cooling wait capped at 180 s"

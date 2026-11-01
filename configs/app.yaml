@@ -1,12 +1,13 @@
 # Weights used by scripts/app_detect.py and scripts/measure_fps.py (paths relative to the repo root), and the
 # application's default confidence threshold per model = conf_thr of that run in results/runs.csv (chosen on the
 # validation split, macro-F1 at IoU 0.5; CLAUDE.md "Aplikasi desktop dan pengukuran FPS final").
-# Set on 31 Oct 2026 to the finished Protocol 1 seed-0 runs from Kaggle (notebook version 6 download), the
-# checkpoints used for the FPS measurement (config_log section 28).
+# Set on 31 Oct 2026 to the finished Protocol 1 seed-0 runs from Kaggle (config_log section 28). On 1 Nov 2026 the
+# paths were changed to the final download folder that results/runs.csv points to (checkpoint_path); the files are
+# byte-identical to the notebook version 6 download (same SHA-256), so nothing measured before changes.
 weights:
-  yolo11m: runs/kaggle/20261030-0222/bisindo/runs/ultralytics/yolo11m_p1_seed0/weights/best.pt
-  rtdetr-l: runs/kaggle/20261030-0222/bisindo/runs/ultralytics/rtdetr-l_p1_seed0/weights/best.pt
-  frcnn-r50fpn: runs/kaggle/20261030-0222/bisindo/runs/frcnn/frcnn-r50fpn_p1_seed0/weights/best.pt
+  yolo11m: runs/kaggle/20261101-0806/bisindo/runs/ultralytics/yolo11m_p1_seed0/weights/best.pt
+  rtdetr-l: runs/kaggle/20261101-0806/bisindo/runs/ultralytics/rtdetr-l_p1_seed0/weights/best.pt
+  frcnn-r50fpn: runs/kaggle/20261101-0806/bisindo/runs/frcnn/frcnn-r50fpn_p1_seed0/weights/best.pt
 conf:
   yolo11m: 0.81055
   rtdetr-l: 0.41675
