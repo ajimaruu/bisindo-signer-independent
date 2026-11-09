@@ -22,8 +22,10 @@ Usage:
   python scripts/app_detect.py                          # webcam 0, YOLO11m, weights from configs/app.yaml
   python scripts/app_detect.py --model rtdetr-l --camera 1
   python scripts/app_detect.py --source video.mp4 --headless --save runs/app/out.mp4 --max-frames 150
+  python scripts/app_detect.py --live-test              # per-sign test mode (Table 8), see scripts/live_test.py
 """
 import argparse
+import sys
 import threading
 import time
 from collections import deque
@@ -110,6 +112,9 @@ def open_source(args):
 
 
 def main():
+    if "--live-test" in sys.argv:   # separate mode; the normal application below is unchanged
+        import live_test
+        return live_test.main([a for a in sys.argv[1:] if a != "--live-test"])
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", choices=MODELS, default="yolo11m")
     ap.add_argument("--weights", type=Path, help="override the weights of --model (default: configs/app.yaml)")

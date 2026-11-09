@@ -1038,3 +1038,50 @@ Implementation notes:
 - **Values for section 3.6:** YOLO11m 29.5 ± 0.9, RT-DETR-L 20.8 ± 1.1 (rerun), Faster R-CNN 17.8 ± 0.3 (first session). The first-session YOLO11m and RT-DETR-L rows stay in `results/app_fps.csv` (camera at 15–16 FPS), marked by their `note`.
 - **Resting hands, 20 s per model** (person standing, arms hanging at the sides, hands at hip height in view; face above the image edge): YOLO11m 0/602 frames labelled (max 0.32); RT-DETR-L **196/408 (48 %)**, "Bagaimana" 110 and "Keluarga" 86, median top score 0.36, p90 0.87, max 0.95; Faster R-CNN **338/346 (98 %)**, all "Bagaimana", median 0.98, max 1.00. The box covers both hands and the hips. Examples: `runs/app/final/rest_<model>.jpg`.
 - This reproduces the 28 Oct finding for RT-DETR-L and Faster R-CNN: hands at rest are labelled with a gloss (here the two-hand C_two sign Bagaimana), because rest/transition frames were excluded from training (criterion a). YOLO11m stays silent mainly because its threshold (0.81) is high; it also labels only 1 % of signing frames on the webcam. Training data are not changed (CLAUDE.md).
+
+## 34. Live per-sign test mode for Table 8 (5 Nov 2026)
+- **Purpose (user):** a live test of RT-DETR-L on new signers, 15 signs × 10 trials per participant, for Table 8.
+- **New files:**
+  - `scripts/live_test.py`, started with `python scripts/app_detect.py --live-test`; the normal application is unchanged (only this flag was added);
+  - `scripts/live_rule.py` (success rule) and `scripts/test_live_rule.py` (7 unit tests, all pass);
+  - `scripts/summarise_live_test.py`.
+- **Locked settings:**
+  - RT-DETR-L P1 seed-0 `best.pt` from `configs/app.yaml`; the script stops if it differs from the `runs.csv` checkpoint;
+  - threshold **0.41675** = `conf_thr` of that run (selected on validation), also checked against `app.yaml`;
+  - FP16; camera not mirrored; MSMF 1280×720.
+- **Input size (user decision B, 5 Nov 2026):** `predict()` exactly as the application, mAP evaluation and FPS runs (imgsz 640).
+  - The measured tensor for a 1280×720 frame is **1×3×640×640**: Ultralytics' RT-DETR predictor (8.4.190) uses `scale_fill=True`, so the frame is resized to 640×640 without padding and without keeping the aspect ratio.
+  - Minimal letterbox (e.g. 640×384) applies to YOLO11m only; the plan message to the user had said 640×384 for RT-DETR-L and was corrected.
+  - The shape is written to `session_{ID}.json`.
+- **Display (user decision A, 5 Nov 2026):** during the 3 s recording only the camera image and "MEREKAM" are shown, with no boxes or labels; the result is shown afterwards.
+- **Trial procedure:**
+  - target gloss with "posisi netral" → SPACE → 3 s countdown (model not run) → 3 s recording with the model on every frame;
+  - per frame: the top detection's label if its score ≥ threshold, else "none", plus the score. The model runs at conf 0.01 and the threshold is applied afterwards; RT-DETR's top detection does not depend on conf, so the score of below-threshold frames is kept for audit.
+- **Rule:**
+  - SUCCESS when the target is the label on ≥ 5 consecutive frames; otherwise MISS;
+  - label_on_miss = the most frequent non-target label (tie: first to appear), or "none" when no other label appeared. This includes misses where only the target appeared, on fewer than 5 consecutive frames; `max_consecutive_target` shows those.
+- **Order:** 150 trials, shuffled with a random seed stored in the session file, or sequential.
+- **Repeat (R):** the last finished trial's row is kept with `repeated=1` and the trial is run again; `frames_{ID}.csv` has an extra `attempt` column so repeated attempts stay separate.
+- **Resume:** the same ID continues with the first trial without a valid row, using the stored order.
+- **Saving:** every trial is written when it finishes. No video is stored.
+- **Outputs:** `results/live_test/` with `trials_{ID}.csv`, `frames_{ID}.csv` and `session_{ID}.json`. The session file holds:
+  - git commit and dirty flag, script SHA-256, order seed and order;
+  - threshold, checkpoint and its SHA-256;
+  - camera backend, index and resolution, tensor shape, and package versions.
+- **Simulation** (`runs/live_test_sim/`, not in `results/`):
+  - SIM: Cari × 2, automatic start, no signing, both misses;
+  - SIM2: 2 signs × 2, sequential, used to check resume (a missing trial is redone) and the R flag (the flagged trial is redone and its old row kept);
+  - in SIM2, Roblox and Chrome were running and the GPU was at 84 °C, and the recording reached only 8–14 FPS instead of about 19.
+- **Note for the paper:** the rule counts frames, so its time length depends on the frame rate: 5 frames ≈ 0.25 s at 20 FPS but ≈ 0.6 s at 8 FPS. `mean_fps` is stored per trial. Real sessions should run with other GPU programs closed.
+
+### 34a. P01 session and the first-attempt rule (5 Nov 2026)
+- **P01:** hearing signer, 1 m, lighting "TERANG", random order (seed 358786899), one session, 150 trials (10 per sign); recording 16.7–22.3 FPS (median 19.1); threshold 0.41675; tensor 1×3×640×640.
+- **Repeats:**
+  - 18 trials were repeated with key R (26 repeated attempts in all); 22 of the 26 repeated attempts were misses;
+  - no reason is recorded, so procedural repeats cannot be told apart from repeats after a model failure.
+- **Decision (user, 5 Nov 2026):** Table 8 reports the **first attempt of every trial only** (the first row of each `trial_no` in file order, whatever its flag); repeated attempts are not counted. `summarise_live_test.py` changed accordingly; it also prints, for transparency only, the last-attempt count (149/150, not used).
+- **Table 8, P01 (first attempts):**
+  - **135/150 successful (90.0 %)**; all 15 misses showed a wrong label, none was "not detected";
+  - most missed: Saya 6/10 (shown as "Terima kasih" 4×), Bagaimana 7/10 ("Motor" 3×), Berangkat 7/10 ("Hari" 2×, "Keluarga" 1×);
+  - two-hand signs 37/40, one-hand signs 98/110.
+- Output: `results/live_test/table8.csv`, `table8.md`.

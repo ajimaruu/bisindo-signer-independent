@@ -29,6 +29,9 @@
 !/results/config_log.md
 !/results/requirements_freeze.txt
 !/results/**/*.csv
+# live per-sign test (Table 8): session metadata (order seed, checkpoint, camera) and the table text
+!/results/live_test/*.json
+!/results/live_test/*.md
 
 # Explicitly never tracked
 runs/
