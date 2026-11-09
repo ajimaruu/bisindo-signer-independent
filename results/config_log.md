@@ -1103,3 +1103,9 @@ Implementation notes:
   - the 2,108 kept frames and their YOLO labels; every file is sha256-identical to the private training dataset (4,217 files checked);
   - COCO json (15), splits (15), `excluded_frames.csv` (1,642 dropped frames: a 876, b 766), `classes.yaml`;
   - README, LICENSE (CC BY-NC 4.0 notice with the changes made and the attribution) and a sha256 manifest.
+
+## 36. Repository moved to github.com/ajimaruu/bisindo-signer-independent (9 Nov 2026)
+- **Decision (user):** publish the code in a new repository without AI co-author trailers in the commit messages; keep the history; leave the working-rules file out; make the old repository `bisindo-eksperimen` private.
+- **History:** the 29 commits were rewritten with `git filter-branch`. Author, dates, file contents and messages are unchanged, except that the co-author and session trailer lines are removed and the working-rules file (`CLAUDE.md`) is dropped from every commit.
+- **Not in the repository:** the locked rules that file holds are recorded in this log, dated, in the sections where they were decided. References to it in this log and in script docstrings point to that local file.
+- **Links:** the README and `scripts/build_public_dataset.py` link the new repository; the public Kaggle dataset `ajimaru12/bisindo-wl15-detection` gets a new version with the new link.

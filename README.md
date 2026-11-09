@@ -40,7 +40,6 @@ splits/     file lists of Protocol 1 and the 4 LOSO folds (made once, seed 0)
 data/       annotation records: labels_yolo/ (checked boxes), labels_auto/ (raw MediaPipe pre-annotation),
             excluded_frames.csv, reviewed_labels.csv
 results/    config_log.md and all result CSVs (runs, per class, confusion matrices, FPS, live test)
-CLAUDE.md   the locked experiment rules (in Indonesian)
 ```
 
 Videos, frames, checkpoints and run folders are not in this repository. Frames and labels are in the Kaggle dataset

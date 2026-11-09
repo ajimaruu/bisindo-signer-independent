@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SLUG = "bisindo-wl15-detection"
 OUT = ROOT / "kaggle_upload" / SLUG
 PRIVATE_MANIFEST = ROOT / "kaggle_upload" / "bisindo-wl15" / "manifest_sha256.txt"
-REPO = "https://github.com/ajimaruu/bisindo-eksperimen"
+REPO = "https://github.com/ajimaruu/bisindo-signer-independent"
 
 README = """# WL-BISINDO 15-gloss hand detection frames
 

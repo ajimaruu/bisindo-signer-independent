@@ -1,8 +1,7 @@
-# Track only: scripts/, configs/, splits/, CLAUDE.md, annotation text files, and the
+# Track only: scripts/, configs/, splits/, README.md, LICENSE, annotation text files, and the
 # text records in results/ (config_log.md, requirements_freeze.txt and all .csv). Everything else is ignored.
 /*
 !/.gitignore
-!/CLAUDE.md
 !/README.md
 !/LICENSE
 !/scripts/
