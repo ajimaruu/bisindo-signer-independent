@@ -1085,3 +1085,21 @@ Implementation notes:
   - most missed: Saya 6/10 (shown as "Terima kasih" 4×), Bagaimana 7/10 ("Motor" 3×), Berangkat 7/10 ("Hari" 2×, "Keluarga" 1×);
   - two-hand signs 37/40, one-hand signs 98/110.
 - Output: `results/live_test/table8.csv`, `table8.md`.
+
+## 35. Public release: GitHub repository and Kaggle dataset (9 Nov 2026)
+- **Decisions (user, 9 Nov 2026):**
+  - make the code and the data public now;
+  - code license AGPL-3.0, the license of Ultralytics;
+  - commit author e-mail left as it is;
+  - a new public dataset, separate from the private training dataset `bisindo-wl15`, which stays private;
+  - no pretrained or trained weights in the public dataset.
+- **Pre-release check:**
+  - no API keys or tokens in the tracked files or the git history;
+  - the only e-mail is the commit author's;
+  - no absolute local paths in the tracked files;
+  - the live-test files hold only the participant code "P01".
+- **Repository:** `README.md` (overview, main results, layout, how to reproduce, licenses) and `LICENSE` (AGPL-3.0 text from the GitHub license API); `.gitignore` tracks both.
+- **Dataset `ajimaru12/bisindo-wl15-detection`** (public since 9 Nov 2026, Kaggle dataset id 13201547; license shown by Kaggle: CC BY-NC 4.0) (CC BY-NC 4.0, as WL-BISINDO), built by `scripts/build_public_dataset.py` into `kaggle_upload/bisindo-wl15-detection/` (untracked, 88 MB). Contents:
+  - the 2,108 kept frames and their YOLO labels; every file is sha256-identical to the private training dataset (4,217 files checked);
+  - COCO json (15), splits (15), `excluded_frames.csv` (1,642 dropped frames: a 876, b 766), `classes.yaml`;
+  - README, LICENSE (CC BY-NC 4.0 notice with the changes made and the attribution) and a sha256 manifest.

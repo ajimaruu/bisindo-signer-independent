@@ -3,6 +3,8 @@
 /*
 !/.gitignore
 !/CLAUDE.md
+!/README.md
+!/LICENSE
 !/scripts/
 !/configs/
 !/splits/
